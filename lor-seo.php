@@ -16,3 +16,5 @@ if (!function_exists( 'add_action' )) {
 	echo 'Silence is golden.';
 	exit;
 }
+
+require_once 'vendor/autoload.php';
