@@ -17,6 +17,11 @@ if (!function_exists('add_action')) {
     exit;
 }
 
+// Set the folder of this plugin
+if (!defined('LORSEO_DIR')) {
+    define('LORSEO_DIR', plugin_dir_path(__FILE__));
+}
+
 // Load the autoloader
 require_once 'vendor/autoload.php';
 
