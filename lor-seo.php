@@ -20,6 +20,7 @@ if (!function_exists('add_action')) {
 // Set the folder of this plugin
 if (!defined('LORSEO_DIR')) {
     define('LORSEO_DIR', plugin_dir_path(__FILE__));
+    define('LORSEO_DIR_REL', dirname( plugin_basename( __FILE__ ) ));
 }
 
 // Load the autoloader

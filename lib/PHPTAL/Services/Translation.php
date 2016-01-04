@@ -3,7 +3,7 @@
 namespace LengthOfRope\PHPTAL\Services;
 
 /**
- * Description of Translation
+ * A simple service which maps the WordPress translation functionality to PHPTAL
  *
  * @author LengthOfRope, Bas de Kort <bdekort@gmail.com>
  */
@@ -33,7 +33,6 @@ class Translation implements \PHPTAL_TranslationService
 
     public function useDomain($domain)
     {
-        load_textdomain($domain, LORSEO_DIR . DIRECTORY_SEPARATOR . 'languages' . DIRECTORY_SEPARATOR);
         $this->domain = $domain;
     }
 }
