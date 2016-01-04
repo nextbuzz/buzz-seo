@@ -14,7 +14,8 @@ class App
     {
         // Always init
         add_action('plugins_loaded', array($this, 'pluginsLoaded'));
-        
+        add_action('admin_enqueue_scripts', array($this, 'enqueueAdminScripts'));
+
         if (!is_admin()) {
             // Only add frontend stuff
             add_action('init', array($this, 'initFront'));
@@ -34,7 +35,7 @@ class App
         // Load the translation file
         load_plugin_textdomain('lor-seo', false, LORSEO_DIR_REL . '/languages');
     }
-    
+
     /**
      * Initialize everything that is only needed in frontend
      * 
@@ -52,7 +53,17 @@ class App
      */
     public function initBack()
     {
-        
+        // Load SEO box for all Single pages
+        new PHPTAL\MetaBox('PostSEOBox', __('Search Engine Optimization (SEO)', 'lor-seo'));
+    }
+
+    /**
+     * Enqueue admin scripts and styles
+     */
+    public function enqueueAdminScripts()
+    {
+        wp_enqueue_style('lor-seo-admin', plugins_url('lor-seo/css/admin.css'), false, LORSEO_VERSION);
+        wp_enqueue_script('lor-seo-admin-js', plugins_url('lor-seo/js/admin.js'), array('jquery'), LORSEO_VERSION);
     }
 
 }

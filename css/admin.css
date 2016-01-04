@@ -1,0 +1,11 @@
+#lor-seo-tabs a.nav-tab {
+    margin-bottom: -9px;
+}
+
+#lor-seo-tabs .inside {
+    display: block;
+}
+
+#lor-seo-tabs .inside.hidden {
+    display: none;
+}

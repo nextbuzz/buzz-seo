@@ -1,6 +1,6 @@
 <?php
 
-namespace LengthOfRope\PHPTAL\Services;
+namespace LengthOfRope\SEO\PHPTAL\Services;
 
 /**
  * A simple service which maps the WordPress translation functionality to PHPTAL
