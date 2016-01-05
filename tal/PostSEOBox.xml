@@ -46,10 +46,40 @@
     </div>
 
     <div class="inside hidden">
-        Facebook
+        <table class="form-table">
+            <tr>
+                <th scope="row" i18n:translate="">Facebook title</th>
+                <td>
+                    <input type="text" name="PostSEOBox[fbTitle]" tal:attributes="value fbTitle | nothing" />
+                    <p class="description" i18n:translate="">If you don't want to use the post title for sharing the post on Facebook but instead want another title there, write it here.</p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" i18n:translate="">Facebook description</th>
+                <td>
+                    <input type="text" name="PostSEOBox[fbDescription]" tal:attributes="value fbDescription | nothing" />
+                    <p class="description" i18n:translate="">If you don't want to use the meta description for sharing the post on Facebook but want another description there, write it here.</p>
+                </td>
+            </tr>
+        </table>
     </div>
 
     <div class="inside hidden">
-        Twitter
+        <table class="form-table">
+            <tr>
+                <th scope="row" i18n:translate="">Twitter title</th>
+                <td>
+                    <input type="text" name="PostSEOBox[twTitle]" tal:attributes="value twTitle | nothing" />
+                    <p class="description" i18n:translate="">If you don't want to use the post title for sharing the post on Twitter but instead want another title there, write it here.</p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" i18n:translate="">Twitter description</th>
+                <td>
+                    <input type="text" name="PostSEOBox[twDescription]" tal:attributes="value twDescription | nothing" />
+                    <p class="description" i18n:translate="">If you don't want to use the meta description for sharing the post on Twitter but want another description there, write it here.</p>
+                </td>
+            </tr>
+        </table>
     </div>
 </div>
