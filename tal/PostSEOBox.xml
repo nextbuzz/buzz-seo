@@ -35,13 +35,6 @@
                     <p class="description" i18n:translate="">Allow search engines to index this page.</p>
                 </td>
             </tr>
-            <tr>
-                <th scope="row" i18n:translate="">Content analysis</th>
-                <td>
-                    <div id="lor-seo-content-analysis" i18n:translate="">Not yet available.</div>
-                    <p class="description" i18n:translate="">The analysis should only be used as an indicator.</p>
-                </td>
-            </tr>
         </table>
     </div>
 

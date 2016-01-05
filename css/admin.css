@@ -28,3 +28,20 @@
 .lor-seo-tabs .inside input[type=text] {
     width: 100%;
 }
+
+#lor-seo-content-analysis li.score1,
+#lor-seo-content-analysis li.score2,
+#lor-seo-content-analysis li.score3,
+#lor-seo-content-analysis li.score4 {
+    color: red;
+}
+#lor-seo-content-analysis li.score5, 
+#lor-seo-content-analysis li.score6,
+#lor-seo-content-analysis li.score7 {
+    color: orange;
+}
+#lor-seo-content-analysis li.score8, 
+#lor-seo-content-analysis li.score9,
+#lor-seo-content-analysis li.score10 {
+    color: green;
+}

@@ -65,42 +65,44 @@ class App
     {
         wp_enqueue_style('lor-seo-admin', plugins_url('lor-seo/css/admin.css'), false, LORSEO_VERSION);
         wp_enqueue_script('lor-seo-admin-js', plugins_url('lor-seo/js/admin.js'), array('jquery'), LORSEO_VERSION);
-        wp_localize_script('lor-seo-admin-js', 'LORSEOL10N', array(
-            'Analyse' => array(
-                'wordCount' => array(
+        wp_localize_script('lor-seo-admin-js', 'LORSEOData', array(
+            'Analysis' => array(
+                array(
+                    'id' => 'wordCount',
                     'data' => array(
                         array(
                             'min' => 300,
                             'score' => 10,
-                            'text' => __('The text contains %1$d words, this is more than the %2$d word recommended minimum.', 'lor-seo')
+                            'text' => __('The text contains {0} words, this is more than the {1} word recommended minimum.', 'lor-seo')
                         ),
                         array(
                             'min' => 250,
                             'max' => 299,
                             'score' => 7,
-                            'text' => __('The text contains %1$d words, this is slightly below the %2$d word recommended minimum. Add a bit more copy.', 'lor-seo')
+                            'text' => __('The text contains {0} words, this is slightly below the {1} word recommended minimum. Add a bit more copy.', 'lor-seo')
                         ),
                         array(
                             'min' => 200,
                             'max' => 249,
                             'score' => 5,
-                            'text' => __('The text contains %1$d words, this is below the %2$d word recommended minimum. Add more useful content on this topic for readers.', 'lor-seo')
+                            'text' => __('The text contains {0} words, this is below the {1} word recommended minimum. Add more useful content on this topic for readers.', 'lor-seo')
                         ),
                         array(
                             'min' => 100,
                             'max' => 199,
                             'score' => 3,
-                            'text' => __('The text contains %1$d words, this is below the %2$d word recommended minimum. Add more useful content on this topic for readers.', 'lor-seo')
+                            'text' => __('The text contains {0} words, this is below the {1} word recommended minimum. Add more useful content on this topic for readers.', 'lor-seo')
                         ),
                         array(
                             'min' => 0,
                             'max' => 99,
                             'score' => 1,
-                            'text' => __('The text contains %1$d words. This is far too low and should be increased.', 'lor-seo')
+                            'text' => __('The text contains {0} words. This is far too low and should be increased.', 'lor-seo')
                         )
                     )
                 ),
-                'metaDescriptionLength' => array(
+                array(
+                    'id' => 'metaDescriptionLength',
                     'data' => array(
                         array(
                             'max' => 0,
@@ -126,7 +128,8 @@ class App
                         )
                     )
                 ),
-                'subHeadings' => array(
+                array(
+                    'id' => 'subHeadings',
                     'data' => array(
                         array(
                             'max' => 0,
@@ -140,7 +143,8 @@ class App
                         )
                     )
                 ),
-                'pageTitleLength' => array(
+                array(
+                    'id' => 'pageTitleLength',
                     'data' => array(
                         array(
                             'max' => 0,
