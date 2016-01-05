@@ -1,22 +1,45 @@
 <div class="lor-seo-tabs">
-    <h2 class="nav-tab-wrapper current">
+    <div class="nav-tab-wrapper">
         <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Basic</a>
         <a class="nav-tab" href="javascript:;" i18n:translate="">Facebook</a>
         <a class="nav-tab" href="javascript:;" i18n:translate="">Twitter</a>
-    </h2>
+    </div>
     
     <div class="inside">
         <table class="form-table">
             <tr>
                 <th scope="row" i18n:translate="">Page title</th>
                 <td>
-                    <input type="text" name="PostSEOBox[pageTitle]" tal:attributes="value pageTitle | nothing;" />
+                    <input type="text" name="PostSEOBox[pageTitle]" tal:attributes="value pageTitle | nothing" />
+                    <p class="description" i18n:translate="">The title as displayed in search engines and in the browser title area. Defaults to the post title if empty.</p>
                 </td>
             </tr>
             <tr>
                 <th scope="row" i18n:translate="">Meta description</th>
                 <td>
-                    <input type="text" name="PostSEOBox[metaDescription]" tal:attributes="value metaDescription | nothing;" />
+                    <input type="text" name="PostSEOBox[metaDescription]" tal:attributes="value metaDescription | nothing" />
+                    <p class="description" i18n:translate="">The description which most search engines use.</p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" i18n:translate="">Allow index</th>
+                <td tal:define="sel allowIndex | nothing">
+                    <label>
+                        <input type="radio" name="PostSEOBox[allowIndex]" value="1" tal:attributes="checked php:sel !== -1 ? 'selected' : NULL" />
+                        <span i18n:translate="">Yes</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="PostSEOBox[allowIndex]" value="-1" tal:attributes="checked php:sel == -1 ? 'selected' : NULL" />
+                        <span i18n:translate="">No</span>
+                    </label>
+                    <p class="description" i18n:translate="">Allow search engines to index this page.</p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" i18n:translate="">Content analysis</th>
+                <td>
+                    <div id="lor-seo-content-analysis" i18n:translate="">Not yet available.</div>
+                    <p class="description" i18n:translate="">The analysis should only be used as an indicator.</p>
                 </td>
             </tr>
         </table>

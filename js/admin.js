@@ -31,7 +31,7 @@
 
                         // Hide the old active content
                         that
-                            .children('div:not( .inside.hidden )')
+                            .children('div:not(.inside.hidden)')
                             .addClass('hidden');
 
                         that
@@ -42,6 +42,8 @@
                         that
                             .children('div:nth-child( ' + (tabIndex + 2) + ')')
                             .removeClass('hidden');
+                    
+                        navTabs.removeClass("hidden");
                     }
                 });
             });

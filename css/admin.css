@@ -1,11 +1,25 @@
-.lor-seo-tabs a.nav-tab {
-    margin-bottom: -9px;
+.lor-seo-tabs .nav-tab-wrapper {
+    margin-bottom: 0;
+    border-bottom: 1px solid #dfdfdf;
 }
 
 .lor-seo-tabs .inside {
     display: block;
+    border: 1px solid #dfdfdf;
+    border-top: none;
+    margin-top: 0 !important;
+    background: #f1f1f1;
+    padding-top: 6px;
 }
 
 .lor-seo-tabs .inside.hidden {
     display: none;
+}
+
+.lor-seo-tabs .inside :first-child {
+    margin-top: 0;
+}
+
+.lor-seo-tabs .inside input[type=text] {
+    width: 100%;
 }
