@@ -69,9 +69,10 @@ class MetaBox extends Template
     {
         // Add a nonce field so we can check for it later.
         wp_nonce_field(strtolower($this->name) . '_metabox', strtolower($this->name) . '_metabox_nonce');
-        
+
         // Get previously saved metadata for this box if any
         $data = get_post_meta($post->ID, '_metabox' . $this->name, true);
+
         if (isset($data) && is_array($data)) {
             $this->setTalData($data);
         }
@@ -123,15 +124,30 @@ class MetaBox extends Template
 
         // Sanitize the user input.
         $data = $_POST[$this->name];
-        
+
         if (is_array($data)) {
-            foreach ($data as &$value) {
-                $value = sanitize_text_field($value);
-            }
-            
+            $this->sanatizeArray($data);
+
             // Update the meta data for this box
             update_post_meta($post_id, '_metabox' . $this->name, $data);
-        } 
+        }
+    }
+
+    private function sanatizeArray($data)
+    {
+        if (is_array($data)) {
+            foreach ($data as &$value)
+            {
+                if (is_string($value)) {
+                    $value = sanitize_text_field($value);
+                }
+                if (is_array($value)) {
+                    $value = $this->sanatizeArray($value);
+                }
+            }
+        }
+
+        return $data;
     }
 
 }

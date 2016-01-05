@@ -55,6 +55,7 @@ class App
     {
         // Load SEO box for all Single pages
         new PHPTAL\MetaBox('PostSEOBox', __('Search Engine Optimization (SEO)', 'lor-seo'));
+        new PHPTAL\MetaBox('PostSEOBoxAnalysis', __('SEO Content Analysis', 'lor-seo'));
     }
 
     /**
