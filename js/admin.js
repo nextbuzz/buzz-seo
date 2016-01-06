@@ -76,7 +76,7 @@
             });
         }
 
-        var analysisOutput = $("#lor-seo-content-analysis"), lastupdate;
+        var analysisOutput = $("#lor-seo-content-analysis"), analysisTimeout, analysisDelay = 1000;
         doAnalysis();
         function doAnalysis()
         {
@@ -84,11 +84,11 @@
             var now = Date.now();
             var nt = $(this).data("lastime") || now;
             if (nt > now) {
-                clearTimeout(lastupdate);
-                lastupdate = setTimeout(doAnalysis, 1000);
+                clearTimeout(analysisTimeout);
+                analysisTimeout = setTimeout(doAnalysis, analysisDelay);
                 return;
             }
-            $(this).data("lastime", now + 1000);
+            $(this).data("lastime", now + analysisDelay);
 
             var output = "<ul>", index, id, data;
             for (index = 0; index < LORSEOData.Analysis.length; ++index) {
