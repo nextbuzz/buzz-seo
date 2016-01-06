@@ -57,7 +57,9 @@
         /**
          * Bind the change event to the editor (text/tinyMCE), title and focus keywords.
          */
-        var elems = ['content', 'title', 'lor-seo-keyword0', 'lor-seo-keyword1', 'lor-seo-keyword2', 'lor-seo-keyword3', 'lor-seo-keyword4', 'lor-seo-keyword5'];
+        var elems = ['content', 'title', 'lor-seo-pagetitle', 'lor-seo-metadescription', 
+            'lor-seo-keyword0', 'lor-seo-keyword1', 'lor-seo-keyword2', 'lor-seo-keyword3', 
+            'lor-seo-keyword4', 'lor-seo-keyword5'];
         for (var i = 0; i < elems.length; i++) {
             var elem = document.getElementById(elems[ i ]);
             if (elem !== null) {
@@ -96,7 +98,11 @@
                 data = LORSEOData.Analysis[index].data;
                 switch (id) {
                     case 'wordCount':
-                        output += analyseWordCount(data);
+                        output += analyseWordCount(data, getEditorText());
+                        break;
+                        
+                    case 'metaDescriptionLength':
+                        output += analyseCharCount(data, $("#lor-seo-metadescription").val());
                         break;
                     default:
                         break;
@@ -105,10 +111,9 @@
             analysisOutput.html(output + "</ul>");
         }
 
-        function analyseWordCount(data)
+        function analyseWordCount(data, text)
         {
             var index, item,
-                    text = getEditorText(),
                     numOfWords = 0, optimal = false;
 
             // Count words
@@ -126,6 +131,27 @@
                 }
                 if (item.min <= numOfWords && (item.max === undefined || item.max >= numOfWords)) {
                     return "<li class='score" + item.score + "'>" + item.text.replaceText(numOfWords, optimal) + "</li>";
+                }
+            }
+        }
+        
+        function analyseCharCount(data, text)
+        {
+            var index, item,
+                    numOfChars = 0, optimal = false;
+
+            // Count words
+            if (text) {
+                numOfChars = text.length;
+            }
+
+            for (index = 0; index < data.length; ++index) {
+                item = data[index];
+                if (!optimal) {
+                    optimal = item.min - 1;
+                }
+                if (item.min <= numOfChars && (item.max === undefined || item.max >= numOfChars)) {
+                    return "<li class='score" + item.score + "'>" + item.text.replaceText(numOfChars, optimal, (numOfChars - optimal)) + "</li>";
                 }
             }
         }

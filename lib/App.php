@@ -85,7 +85,7 @@ class App
                             'min' => 200,
                             'max' => 249,
                             'score' => 5,
-                            'text' => __('The text contains {0} words, this is below the {1} word recommended minimum. Add more useful content on this topic for readers.', 'lor-seo')
+                            'text' => __('The text contains {0} words, this is below the {1} word recommended minimum. Add a little more useful content on this topic for readers.', 'lor-seo')
                         ),
                         array(
                             'min' => 100,
@@ -97,7 +97,7 @@ class App
                             'min' => 0,
                             'max' => 99,
                             'score' => 1,
-                            'text' => __('The text contains {0} words. This is far too low and should be increased.', 'lor-seo')
+                            'text' => __('The text contains {0} word(s). This is far too low and should be increased.', 'lor-seo')
                         )
                     )
                 ),
@@ -105,6 +105,12 @@ class App
                     'id' => 'metaDescriptionLength',
                     'data' => array(
                         array(
+                            'min' => 158,
+                            'score' => 5,
+                            'text' => __('The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire description is visible.', 'lor-seo')
+                        ),
+                        array(
+                            'min' => 0,
                             'max' => 0,
                             'score' => 1,
                             'text' => __('No meta description has been specified, search engines will display copy from the page instead.', 'lor-seo')
@@ -113,18 +119,13 @@ class App
                             'min' => 1,
                             'max' => 120,
                             'score' => 6,
-                            'text' => __('The meta description is under %1$d characters, however up to %2$d characters are available.', 'lor-seo')
+                            'text' => __('The meta description is {0} character(s), however up to {1} characters are available.', 'lor-seo')
                         ),
                         array(
                             'min' => 121,
                             'max' => 157,
-                            'score' => 5,
-                            'text' => __('In the specified meta description, consider: How does it compare to the competition? Could it be made more appealing?', 'lor-seo')
-                        ),
-                        array(
-                            'min' => 158,
-                            'score' => 3,
-                            'text' => __('The specified meta description is over %2$d characters. Reducing it will ensure the entire description is visible.', 'lor-seo')
+                            'score' => 10,
+                            'text' => __('The meta description has an optimal length of {0} out of max {1} characters.', 'lor-seo')
                         )
                     )
                 ),
