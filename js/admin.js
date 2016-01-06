@@ -76,10 +76,20 @@
             });
         }
 
-        var analysisOutput = $("#lor-seo-content-analysis");
+        var analysisOutput = $("#lor-seo-content-analysis"), lastupdate;
         doAnalysis();
         function doAnalysis()
         {
+            // Make sure we do not rapidly fire the analysis
+            var now = Date.now();
+            var nt = $(this).data("lastime") || now;
+            if (nt > now) {
+                clearTimeout(lastupdate);
+                lastupdate = setTimeout(doAnalysis, 1000);
+                return;
+            }
+            $(this).data("lastime", now + 1000);
+
             var output = "<ul>", index, id, data;
             for (index = 0; index < LORSEOData.Analysis.length; ++index) {
                 id = LORSEOData.Analysis[index].id;
@@ -98,14 +108,24 @@
         function analyseWordCount(data)
         {
             var index, item,
-                    numOfWords = getEditorText().split(/[\s,.;]+/).length, optimal = false;
+                    text = getEditorText(),
+                    numOfWords = 0, optimal = false;
+
+            // Count words
+            if (text) {
+                var wordArray = text.match(/[\w\u2019\x27\-\u00C0-\u1FFF]+/g);
+                if (wordArray) {
+                    numOfWords = wordArray.length;
+                }
+            }
+
             for (index = 0; index < data.length; ++index) {
                 item = data[index];
                 if (!optimal) {
                     optimal = item.min;
                 }
                 if (item.min <= numOfWords && (item.max === undefined || item.max >= numOfWords)) {
-                    return "<li class='score"+item.score+"'>" +item.text.replaceText(numOfWords, optimal) + "</li>";
+                    return "<li class='score" + item.score + "'>" + item.text.replaceText(numOfWords, optimal) + "</li>";
                 }
             }
         }
@@ -127,7 +147,19 @@
 
         function getEditorText()
         {
-            return $($.parseHTML(getEditorHTML())).text().replace(/(\r\n|\n|\r)/gm, "").replace(/^[\s,.;]+/, "").replace(/[\s,.;]+$/, "");
+            var text = getEditorHTML();
+            if (text) {
+                text = text.replace(/\.\.\./g, ' '); // convert ellipses to spaces
+                text = text.replace(/<.[^<>]*?>/g, ' ').replace(/&nbsp;|&#160;/gi, ' '); // remove html tags and space chars
+
+                // deal with html entities
+                text = text.replace(/(\w+)(&#?[a-z0-9]+;)+(\w+)/i, "$1$3").replace(/&.+?;/g, ' ');
+                text = text.replace(/[0-9.(),;:!?%#$?\x27\x22_+=\\\/\-]*/g, ''); // remove numbers and punctuation
+
+                return text;
+            }
+
+            return '';
         }
     });
 
