@@ -1,14 +1,14 @@
-.lor-seo-tabs .nav-tab-wrapper {
+.buzz-seo-tabs .nav-tab-wrapper {
     margin-bottom: 0;
     border-bottom: 1px solid #dfdfdf;
 }
 
-.lor-seo-tabs .nav-tab-active {
+.buzz-seo-tabs .nav-tab-active {
     background: #fff;
     border-bottom: 1px solid #fff;
 }
 
-.lor-seo-tabs .inside {
+.buzz-seo-tabs .inside {
     display: block;
     border: 1px solid #dfdfdf;
     border-top: none;
@@ -17,31 +17,31 @@
     padding-top: 6px;
 }
 
-.lor-seo-tabs .inside.hidden {
+.buzz-seo-tabs .inside.hidden {
     display: none;
 }
 
-.lor-seo-tabs .inside :first-child {
+.buzz-seo-tabs .inside :first-child {
     margin-top: 0;
 }
 
-.lor-seo-tabs .inside input[type=text] {
+.buzz-seo-tabs .inside input[type=text] {
     width: 100%;
 }
 
-#lor-seo-content-analysis li.score1,
-#lor-seo-content-analysis li.score2,
-#lor-seo-content-analysis li.score3,
-#lor-seo-content-analysis li.score4 {
+#buzz-seo-content-analysis li.score1,
+#buzz-seo-content-analysis li.score2,
+#buzz-seo-content-analysis li.score3,
+#buzz-seo-content-analysis li.score4 {
     color: red;
 }
-#lor-seo-content-analysis li.score5, 
-#lor-seo-content-analysis li.score6,
-#lor-seo-content-analysis li.score7 {
+#buzz-seo-content-analysis li.score5, 
+#buzz-seo-content-analysis li.score6,
+#buzz-seo-content-analysis li.score7 {
     color: orange;
 }
-#lor-seo-content-analysis li.score8, 
-#lor-seo-content-analysis li.score9,
-#lor-seo-content-analysis li.score10 {
+#buzz-seo-content-analysis li.score8, 
+#buzz-seo-content-analysis li.score9,
+#buzz-seo-content-analysis li.score10 {
     color: green;
 }

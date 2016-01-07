@@ -1,6 +1,6 @@
 <?php
 
-namespace LengthOfRope\SEO\PHPTAL;
+namespace NextBuzz\SEO\PHPTAL;
 
 /**
  * This is an abstract Template which is used as the base for all template files.
@@ -25,10 +25,10 @@ class Template extends \PHPTAL
      */
     public function __construct($tplName)
     {
-        $this->templateFile = LORSEO_DIR . DIRECTORY_SEPARATOR . 'tal' . DIRECTORY_SEPARATOR . $tplName . '.xml';
+        $this->templateFile = BUZZSEO_DIR . DIRECTORY_SEPARATOR . 'tal' . DIRECTORY_SEPARATOR . $tplName . '.xml';
 
         if (!is_readable($this->templateFile)) {
-            throw new \Exception(sprintf(__('File %s does not exist.', 'lor-seo'), $this->templateFile), 404);
+            throw new \Exception(sprintf(__('File %s does not exist.', 'buzz-seo'), $this->templateFile), 404);
         }
 
         // Construct PHPTAL object
@@ -36,7 +36,7 @@ class Template extends \PHPTAL
 
         // Add translator
         $this->TalTranslator = new Services\Translation();
-        $this->TalTranslator->useDomain('lor-seo');
+        $this->TalTranslator->useDomain('buzz-seo');
         $this->setTranslator($this->TalTranslator);
 
         // Render as HTML5
@@ -44,14 +44,14 @@ class Template extends \PHPTAL
 
         // Strip comments
         $this->stripComments(true);
-        
+
         // Set source
         $this->setTemplate($this->templateFile);
     }
 
     /**
      * Set TAL data to the template
-     * 
+     *
      * @param string|array $talKey Key value or array of key-value pairs
      * @param string|NULL $talValue The value of the key, if key is not an array
      */

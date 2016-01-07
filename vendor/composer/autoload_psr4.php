@@ -6,5 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'LengthOfRope\\SEO\\' => array($baseDir . '/lib'),
+    'NextBuzz\\SEO\\' => array($baseDir . '/lib'),
 );

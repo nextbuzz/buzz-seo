@@ -6,11 +6,11 @@
  * and open the template in the editor.
  */
 
-namespace LengthOfRope\SEO\PHPTAL;
+namespace NextBuzz\SEO\PHPTAL;
 
 /**
  * Create an admin MetaBox using TAL
- * 
+ *
  * Note: form data is saved as metadata if the post name equals the tplName,
  * so all data to be saved should have a input name like name='DemoBox[key]' if the tpl name is DemoBox
  *

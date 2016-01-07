@@ -13,7 +13,7 @@
      * as visible. We do this by toggling the 'hidden' class attribute of the corresponding variables.
      **/
     $(function () {
-        var tabContainer = $('.lor-seo-tabs');
+        var tabContainer = $('.buzz-seo-tabs');
         tabContainer.each(function () {
             var that = $(this), navTabs = that.children('.nav-tab-wrapper'),
                     tabIndex = null;
@@ -57,9 +57,9 @@
         /**
          * Bind the change event to the editor (text/tinyMCE), title and focus keywords.
          */
-        var elems = ['content', 'title', 'lor-seo-pagetitle', 'lor-seo-metadescription', 
-            'lor-seo-keyword0', 'lor-seo-keyword1', 'lor-seo-keyword2', 'lor-seo-keyword3', 
-            'lor-seo-keyword4', 'lor-seo-keyword5'];
+        var elems = ['content', 'title', 'buzz-seo-pagetitle', 'buzz-seo-metadescription', 
+            'buzz-seo-keyword0', 'buzz-seo-keyword1', 'buzz-seo-keyword2', 'buzz-seo-keyword3', 
+            'buzz-seo-keyword4', 'buzz-seo-keyword5'];
         for (var i = 0; i < elems.length; i++) {
             var elem = document.getElementById(elems[ i ]);
             if (elem !== null) {
@@ -78,7 +78,7 @@
             });
         }
 
-        var analysisOutput = $("#lor-seo-content-analysis"), analysisTimeout, analysisDelay = 1000;
+        var analysisOutput = $("#buzz-seo-content-analysis"), analysisTimeout, analysisDelay = 1000;
         doAnalysis();
         function doAnalysis()
         {
@@ -102,7 +102,7 @@
                         break;
                         
                     case 'metaDescriptionLength':
-                        output += analyseCharCount(data, $("#lor-seo-metadescription").val());
+                        output += analyseCharCount(data, $("#buzz-seo-metadescription").val());
                         break;
                     default:
                         break;
