@@ -55,6 +55,7 @@ class MetaBox extends Template
     {
         // Only add the meta box if the correct post type
         if (count($this->postTypes) === 0 || in_array($post_type, $this->postTypes)) {
+            wp_enqueue_media();
             add_meta_box(
                 $this->name, $this->title, array($this, 'renderMetaBoxContent'), $post_type, $this->context, $this->priority
             );

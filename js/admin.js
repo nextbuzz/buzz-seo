@@ -4,7 +4,7 @@
 
     /**
      * TABS
-     * 
+     *
      * Whenever each of the navigation tabs is clicked, check to see if it has the 'nav-tab-active'
      * class name. If not, then mark it as active; otherwise, don't do anything (as it's already
      * marked as active.
@@ -50,15 +50,15 @@
 
     /**
      * Analysis
-     * 
+     *
      * Analyse the current content (without HTML markup)
      */
     $(function () {
         /**
          * Bind the change event to the editor (text/tinyMCE), title and focus keywords.
          */
-        var elems = ['content', 'title', 'buzz-seo-pagetitle', 'buzz-seo-metadescription', 
-            'buzz-seo-keyword0', 'buzz-seo-keyword1', 'buzz-seo-keyword2', 'buzz-seo-keyword3', 
+        var elems = ['content', 'title', 'buzz-seo-pagetitle', 'buzz-seo-metadescription',
+            'buzz-seo-keyword0', 'buzz-seo-keyword1', 'buzz-seo-keyword2', 'buzz-seo-keyword3',
             'buzz-seo-keyword4', 'buzz-seo-keyword5'];
         for (var i = 0; i < elems.length; i++) {
             var elem = document.getElementById(elems[ i ]);
@@ -100,7 +100,7 @@
                     case 'wordCount':
                         output += analyseWordCount(data, getEditorText());
                         break;
-                        
+
                     case 'metaDescriptionLength':
                         output += analyseCharCount(data, $("#buzz-seo-metadescription").val());
                         break;
@@ -134,7 +134,7 @@
                 }
             }
         }
-        
+
         function analyseCharCount(data, text)
         {
             var index, item,
@@ -202,4 +202,79 @@
         }
         return formatted;
     };
+
+    /**
+     * Media uploader
+     */
+    $(function () {
+        /*var _custom_media = true,
+         _orig_send_attachment = wp.media.editor.send.attachment;
+
+         $('.buzz-media-button').click(function (e) {
+         var button = $(this);
+         var id = button.attr('id').replace('-button', '');
+         _custom_media = true;
+         wp.media.editor.send.attachment = function (props, attachment) {
+         if (_custom_media) {
+         $("#" + id).val(attachment.url);
+         } else {
+         return _orig_send_attachment.apply(this, [props, attachment]);
+         }
+         };
+
+         wp.media.editor.open(button);
+
+         return false;
+         });
+
+         $('.add_media').on('click', function () {
+         _custom_media = false;
+         });*/
+
+        var file_frame, attachment, mediaIdField, mediaThumbField;
+        $('.buzz-media-button').on('click', function (event) {
+            mediaIdField = $("#" + $(event.currentTarget).data("media-id"));
+            mediaThumbField = $("#" + $(event.currentTarget).data("media-thumb"));
+            event.preventDefault();
+
+            // If the media frame already exists, reopen it.
+            if (file_frame) {
+                file_frame.open();
+                return;
+            }
+
+            // Create the media frame.
+            file_frame = wp.media.frames.file_frame = wp.media({
+                title: 'TODO: title',
+                button: {
+                    text: 'TODO: Text'
+                },
+                multiple: false  // Set to true to allow multiple files to be selected
+            });
+
+            // When an image is selected, run a callback.
+            file_frame.on('select', function () {
+                // We set multiple to false so only get one image from the uploader
+                attachment = file_frame.state().get('selection').first().toJSON();
+
+                // Do something with attachment.id and/or attachment.url here
+                var selection = file_frame.state().get('selection');
+
+                selection.map(function (attachment) {
+                    attachment = attachment.toJSON();
+                    // Do something with attachment.id and/or attachment.url here
+                    if (attachment.type !== "image") {
+                        alert("No image selected...");
+                        return;
+                    }
+
+                    mediaIdField.val(attachment.id);
+                    mediaThumbField.val(attachment.sizes.thumbnail.url);
+                });
+            });
+
+            // Finally, open the modal
+            file_frame.open();
+        });
+    });
 })(jQuery);
