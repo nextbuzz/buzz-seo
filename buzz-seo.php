@@ -1,14 +1,14 @@
 <?php
 
 /*
-  Plugin Name: LengthOfRope SEO
-  Plugin URI: http://www.lengthofrope.nl
+  Plugin Name: Buzz SEO
+  Plugin URI: http://www.nextbuzz.nl
   Description: This might become a simple WordPress SEO plugin someday. Currently in active development.
   Version: 0.0.1
-  Author: LengthOfRope
-  Author URI: https://github.com/lengthofrope/
+  Author: Next Buzz BV
+  Author URI: https://github.com/nextbuzz/
   License: MIT
-  Text Domain: lor-seo
+  Text Domain: buzz-seo
  */
 
 // Set the folder of this plugin
