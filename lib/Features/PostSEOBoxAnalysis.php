@@ -37,10 +37,10 @@ class PostSEOBoxAnalysis extends BaseFeature
     public function enqueueAdminScripts()
     {
         wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAnalysis', array(
-            'errors' => __('Errors', 'buzz-seo'),
+            'errors'   => __('Errors', 'buzz-seo'),
             'warnings' => __('Warnings', 'buzz-seo'),
-            'good' => __('Perfect', 'buzz-seo'),
-            'data' => array(
+            'good'     => __('Perfect', 'buzz-seo'),
+            'data'     => array(
                 array(
                     'id'   => 'wordCount',
                     'info' => array(),
@@ -113,13 +113,14 @@ class PostSEOBoxAnalysis extends BaseFeature
                     'info' => array(),
                     'data' => array(
                         array(
+                            'min'   => 0,
                             'max'   => 0,
-                            'score' => 1,
+                            'score' => 5,
                             'text'  => __('No subheading tags (like an H2) appear in the copy.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 1,
-                            'score' => 10,
+                            'score' => 8,
                             'text'  => __('Subheadings appear in the copy.', 'buzz-seo')
                         )
                     )

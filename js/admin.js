@@ -113,6 +113,7 @@
                         break;
 
                     case 'subHeadings':
+                        handleScoreOutput(analyseSubheadings(data, getEditorHTML()));
                         break;
 
                     case 'pageTitleLength':
@@ -194,6 +195,30 @@
                     return {
                         score: item.score,
                         html: "<li class='score" + item.score + "'>" + item.text.replaceText(numOfWords, optimal) + "</li>"
+                    };
+                }
+            }
+        }
+
+        function analyseSubheadings(data, html)
+        {
+            var index, item,
+                    numSubheadings = 0, optimal = false;
+
+            // Count words
+            if (html) {
+                numSubheadings = (html.match(/\<h[2|3|4|5|6]/g) || []).length;
+            }
+
+            for (index = 0; index < data.length; ++index) {
+                item = data[index];
+                if (!optimal) {
+                    optimal = item.min;
+                }
+                if (item.min <= numSubheadings && (item.max === undefined || item.max >= numSubheadings)) {
+                    return {
+                        score: item.score,
+                        html: "<li class='score" + item.score + "'>" + item.text + "</li>"
                     };
                 }
             }
