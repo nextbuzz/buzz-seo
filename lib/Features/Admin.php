@@ -10,6 +10,7 @@ namespace NextBuzz\SEO\Features;
  * Description of Admin
  *
  * @author Bas de Kort <bas@nextbuzz.nl>
+ * @author Nick Vlug  <nick@ruddy.nl>
  */
 class Admin extends BaseFeature
 {
@@ -21,6 +22,8 @@ class Admin extends BaseFeature
         }
 
         add_action('admin_enqueue_scripts', array($this, 'enqueueAdminScripts'));
+        
+        add_action('admin_menu', array(&$this, 'createAdminMenu'));
     }
 
     public function allowDisable()
@@ -41,5 +44,24 @@ class Admin extends BaseFeature
                 'button' => __('Select', 'buzz-seo'),
             )
         ));
+    }
+    
+    /**
+     * Create Admin Menu
+     */
+    public function createAdminMenu()
+    {
+        global $submenu;
+        
+        add_menu_page('Buzz SEO', 'Buzz SEO', 'edit_theme_options', 'BuzzSEO');
+        
+        // Show only if user is a super admin.
+        if(is_super_admin())
+        {
+            add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_theme_options', 'SEOSettings');
+        }
+       
+        // Rename Submenu
+        $submenu['BuzzSEO'][0][0] = __('General', 'buzz-seo');
     }
 }
