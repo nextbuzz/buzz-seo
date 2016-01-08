@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-01-08 12:35+0100\n"
-"PO-Revision-Date: 2016-01-08 12:36+0100\n"
+"POT-Creation-Date: 2016-01-08 14:01+0100\n"
+"PO-Revision-Date: 2016-01-08 14:01+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -204,7 +204,19 @@ msgstr "Zoekmachine Optimalisatie (SEO)"
 msgid "SEO Content Analysis"
 msgstr "SEO Content Analyse"
 
-#: lib/Features/PostSEOBoxAnalysis.php:46
+#: lib/Features/PostSEOBoxAnalysis.php:40
+msgid "Errors"
+msgstr "Fouten"
+
+#: lib/Features/PostSEOBoxAnalysis.php:41
+msgid "Warnings"
+msgstr "Waarschuwingen"
+
+#: lib/Features/PostSEOBoxAnalysis.php:42
+msgid "Perfect"
+msgstr "Perfect"
+
+#: lib/Features/PostSEOBoxAnalysis.php:51
 msgid ""
 "The text contains {0} words, this is more than the {1} word recommended "
 "minimum."
@@ -212,7 +224,7 @@ msgstr ""
 "De tekst bevat {0} woorden, dit is meer dan het aanbevolen minimum van {1} "
 "woorden."
 
-#: lib/Features/PostSEOBoxAnalysis.php:52
+#: lib/Features/PostSEOBoxAnalysis.php:57
 msgid ""
 "The text contains {0} words, this is slightly below the {1} word recommended "
 "minimum. Add a bit more copy."
@@ -220,7 +232,7 @@ msgstr ""
 "De tekst bevat {0} woorden, dit is iets minder dan het aanbevolen minimum "
 "van {1} woorden. Voeg iets meer content toe."
 
-#: lib/Features/PostSEOBoxAnalysis.php:58
+#: lib/Features/PostSEOBoxAnalysis.php:63
 msgid ""
 "The text contains {0} words, this is below the {1} word recommended minimum. "
 "Add a little more useful content on this topic for readers."
@@ -228,7 +240,7 @@ msgstr ""
 "De tekst bevat {0} woorden, dit is minder dan het aanbevolen minimum van {1} "
 "woorden. Voeg iets meer nuttige content toe."
 
-#: lib/Features/PostSEOBoxAnalysis.php:64
+#: lib/Features/PostSEOBoxAnalysis.php:69
 msgid ""
 "The text contains {0} words, this is below the {1} word recommended minimum. "
 "Add more useful content on this topic for readers."
@@ -236,14 +248,14 @@ msgstr ""
 "De tekst bevat {0} woorden, dit is minder dan het aanbevolen minimum van {1} "
 "woorden. Voeg meer nuttige content toe."
 
-#: lib/Features/PostSEOBoxAnalysis.php:70
+#: lib/Features/PostSEOBoxAnalysis.php:75
 msgid ""
 "The text contains {0} word(s). This is far too low and should be increased."
 msgstr ""
 "De tekst bevat {0} woorden, dit is veel te weinig en zou moeten worden "
 "gecorrigeerd."
 
-#: lib/Features/PostSEOBoxAnalysis.php:80
+#: lib/Features/PostSEOBoxAnalysis.php:89
 msgid ""
 "The specified meta description is {2} character(s) over the {1} available. "
 "Reducing it will ensure the entire description is visible."
@@ -251,7 +263,7 @@ msgstr ""
 "De meta omschrijving is {2} karakter(s) langer dan de {1} beschikbare "
 "karakters. Het inkorten zorgt ervoor dat de hele omschrijving zichtbaar is."
 
-#: lib/Features/PostSEOBoxAnalysis.php:86
+#: lib/Features/PostSEOBoxAnalysis.php:95
 msgid ""
 "No meta description has been specified, search engines will display copy "
 "from the page instead."
@@ -259,7 +271,7 @@ msgstr ""
 "Er is geen meta omschrijving toegevoegd. Zoekmachines zullen willekeurige "
 "content tonen die op de pagina gevonden wordt."
 
-#: lib/Features/PostSEOBoxAnalysis.php:92
+#: lib/Features/PostSEOBoxAnalysis.php:101
 msgid ""
 "The meta description is {0} character(s), however up to {1} characters are "
 "available."
@@ -267,44 +279,77 @@ msgstr ""
 "De meta omschrijving is {0} karakter(s) lang, er zijn echter {1} karakters "
 "beschikbaar."
 
-#: lib/Features/PostSEOBoxAnalysis.php:98
+#: lib/Features/PostSEOBoxAnalysis.php:107
 msgid ""
 "The meta description has an optimal length of {0} out of max {1} characters."
 msgstr ""
 "De meta omschrijving heeft een optimale lengte van {0} van de {1} "
 "beschikbare karakters."
 
-#: lib/Features/PostSEOBoxAnalysis.php:108
+#: lib/Features/PostSEOBoxAnalysis.php:118
 msgid "No subheading tags (like an H2) appear in the copy."
 msgstr "Er zijn geen sub-kopteksten (zoals een H2) aanwezig in de content."
 
-#: lib/Features/PostSEOBoxAnalysis.php:113
+#: lib/Features/PostSEOBoxAnalysis.php:123
 msgid "Subheadings appear in the copy."
 msgstr "Sub-kopteksten zijn aanwezig in de content."
 
-#: lib/Features/PostSEOBoxAnalysis.php:123
+#: lib/Features/PostSEOBoxAnalysis.php:138
 msgid "Please create a page title."
 msgstr "Voeg aub. een pagina titel toe."
 
-#: lib/Features/PostSEOBoxAnalysis.php:129
+#: lib/Features/PostSEOBoxAnalysis.php:144
 msgid ""
-"The page title contains {2} characters, which is less than the recommended "
-"minimum of {0} characters."
+"The page title contains {0} characters, which is less than the recommended "
+"minimum of {3} characters."
 msgstr ""
-"De pagina titel bevat {2} karakter(s), wat minder is dan de minimaal "
-"aanbevolen {0} karakters."
+"De pagina titel bevat {0} karakter(s), wat minder is dan de minimaal "
+"aanbevolen {3} karakters."
 
-#: lib/Features/PostSEOBoxAnalysis.php:135
+#: lib/Features/PostSEOBoxAnalysis.php:150
 msgid ""
-"The page title is between the {0} character minimum and the recommended {1} "
+"The page title contains {0} characters, which is slightly less than the "
+"recommended minimum of {3} characters."
+msgstr ""
+"De pagina titel bevat {0} karakter(s), wat iets minder is dan de minimaal "
+"aanbevolen {3} karakters."
+
+#: lib/Features/PostSEOBoxAnalysis.php:156
+msgid ""
+"The page title is between the {3} character minimum and the recommended {1} "
 "character maximum."
 msgstr ""
-"De paginatitel is tussen de {0} karakter minimum en het aanbevolen {1}  "
+"De paginatitel is tussen de {3} karakter minimum en het aanbevolen {1}  "
 "karakter maximum."
+
+#: lib/Features/PostSEOBoxAnalysis.php:161
+msgid ""
+"The specified meta description is {2} character(s) over the {1} available. "
+"Reducing it will ensure the entire title is visible."
+msgstr ""
+"De meta omschrijving is {2} karakter(s) langer dan de {1} beschikbare "
+"karakters. Het inkorten zorgt ervoor dat de hele titel zichtbaar is."
 
 #: lib/PHPTAL/Template.php:31
 msgid "File %s does not exist."
 msgstr "Bestand %s bestaat niet."
+
+#~ msgid "Error"
+#~ msgstr "Fouten"
+
+#~ msgid ""
+#~ "The page title contains {2} characters, which is less than the "
+#~ "recommended minimum of {0} characters."
+#~ msgstr ""
+#~ "De pagina titel bevat {2} karakter(s), wat minder is dan de minimaal "
+#~ "aanbevolen {0} karakters."
+
+#~ msgid ""
+#~ "The page title is between the {0} character minimum and the recommended "
+#~ "{1} character maximum."
+#~ msgstr ""
+#~ "De paginatitel is tussen de {0} karakter minimum en het aanbevolen {1}  "
+#~ "karakter maximum."
 
 #~ msgid "Allow index"
 #~ msgstr "Indexeren toestaan"

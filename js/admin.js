@@ -82,7 +82,8 @@
             });
         }
 
-        var analysisOutput = $("#buzz-seo-content-analysis"), analysisTimeout, analysisDelay = 1000;
+        var analysisOutput = $("#buzz-seo-content-analysis"), analysisTimeout, analysisDelay = 1000,
+                outputGood = [], outputWarning = [], outputError = [];
         doAnalysis();
         function doAnalysis()
         {
@@ -96,23 +97,79 @@
             }
             $(this).data("lastime", now + analysisDelay);
 
-            var output = "<ul>", index, id, data;
-            for (index = 0; index < BuzzSEOAnalysis.length; ++index) {
-                id = BuzzSEOAnalysis[index].id;
-                data = BuzzSEOAnalysis[index].data;
+            var output, index, id, data, info;
+            outputGood = [], outputWarning = [], outputError = [];
+            for (index = 0; index < BuzzSEOAnalysis.data.length; ++index) {
+                id = BuzzSEOAnalysis.data[index].id;
+                data = BuzzSEOAnalysis.data[index].data;
+                info = BuzzSEOAnalysis.data[index].info;
                 switch (id) {
                     case 'wordCount':
-                        output += analyseWordCount(data, getEditorText());
+                        handleScoreOutput(analyseWordCount(data, getEditorText()));
                         break;
 
                     case 'metaDescriptionLength':
-                        output += analyseCharCount(data, $("#buzz-seo-metadescription").val());
+                        handleScoreOutput(analyseCharCount(data, info, $("#buzz-seo-metadescription").val()));
                         break;
+
+                    case 'subHeadings':
+                        break;
+
+                    case 'pageTitleLength':
+                        handleScoreOutput(analyseCharCount(data, info, $("#title").val()));
+                        break;
+
                     default:
                         break;
                 }
             }
-            analysisOutput.html(output + "</ul>");
+
+            // Sort arrays
+            outputError.sort(sortByScore);
+            outputWarning.sort(sortByScore);
+            outputGood.sort(sortByScore);
+
+            // Create output
+            output = "<ul class='buzz-seo-analyse-output'>";
+            if (outputError.length > 0) {
+                output += "<li class='error'>" + BuzzSEOAnalysis.errors + "<ul>";
+                for (var i = 0; i < outputError.length; i++) {
+                    output += outputError[i].html;
+                }
+                output += "</ul></li>";
+            }
+            if (outputWarning.length > 0) {
+                output += "<li class='warning'>" + BuzzSEOAnalysis.warnings + "<ul>";
+                for (var i = 0; i < outputWarning.length; i++) {
+                    output += outputWarning[i].html;
+                }
+                output += "</ul></li>";
+            }
+            if (outputGood.length > 0) {
+                output += "<li class='good'>" + BuzzSEOAnalysis.good + "<ul>";
+                for (var i = 0; i < outputGood.length; i++) {
+                    output += outputGood[i].html;
+                }
+                output += "</ul></li>";
+            }
+            output += "</ul>";
+            analysisOutput.html(output);
+        }
+
+        function sortByScore(a, b)
+        {
+            return a['score'] > b['score'];
+        }
+
+        function handleScoreOutput(scoreObject)
+        {
+            if (scoreObject.score < 5) {
+                outputError.push(scoreObject);
+            } else if (scoreObject.score < 8) {
+                outputWarning.push(scoreObject);
+            } else {
+                outputGood.push(scoreObject);
+            }
         }
 
         function analyseWordCount(data, text)
@@ -134,15 +191,18 @@
                     optimal = item.min;
                 }
                 if (item.min <= numOfWords && (item.max === undefined || item.max >= numOfWords)) {
-                    return "<li class='score" + item.score + "'>" + item.text.replaceText(numOfWords, optimal) + "</li>";
+                    return {
+                        score: item.score,
+                        html: "<li class='score" + item.score + "'>" + item.text.replaceText(numOfWords, optimal) + "</li>"
+                    };
                 }
             }
         }
 
-        function analyseCharCount(data, text)
+        function analyseCharCount(data, info, text)
         {
             var index, item,
-                    numOfChars = 0, optimal = false;
+                    numOfChars = 0, optimalMin = info.recommendedMin, optimalMax = info.recommendedMax;
 
             // Count words
             if (text) {
@@ -151,11 +211,11 @@
 
             for (index = 0; index < data.length; ++index) {
                 item = data[index];
-                if (!optimal) {
-                    optimal = item.min - 1;
-                }
                 if (item.min <= numOfChars && (item.max === undefined || item.max >= numOfChars)) {
-                    return "<li class='score" + item.score + "'>" + item.text.replaceText(numOfChars, optimal, (numOfChars - optimal)) + "</li>";
+                    return {
+                        score: item.score,
+                        html: "<li class='score" + item.score + "'>" + item.text.replaceText(numOfChars, optimalMax, (numOfChars - optimalMax), optimalMin) + "</li>"
+                    };
                 }
             }
         }
