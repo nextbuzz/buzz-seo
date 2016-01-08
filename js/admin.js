@@ -1,4 +1,4 @@
-/* global tinyMCE, console, LORSEOData */
+/* global tinyMCE, console, BuzzSEOAnalysis, BuzzSEOAdmin */
 (function ($) {
     'use strict';
 
@@ -54,6 +54,10 @@
      * Analyse the current content (without HTML markup)
      */
     $(function () {
+        if (typeof BuzzSEOAnalysis === "undefined") {
+            return;
+        }
+
         /**
          * Bind the change event to the editor (text/tinyMCE), title and focus keywords.
          */
@@ -78,7 +82,8 @@
             });
         }
 
-        var analysisOutput = $("#buzz-seo-content-analysis"), analysisTimeout, analysisDelay = 1000;
+        var analysisOutput = $("#buzz-seo-content-analysis"), analysisTimeout, analysisDelay = 1000,
+                outputGood = [], outputWarning = [], outputError = [];
         doAnalysis();
         function doAnalysis()
         {
@@ -92,23 +97,80 @@
             }
             $(this).data("lastime", now + analysisDelay);
 
-            var output = "<ul>", index, id, data;
-            for (index = 0; index < LORSEOData.Analysis.length; ++index) {
-                id = LORSEOData.Analysis[index].id;
-                data = LORSEOData.Analysis[index].data;
+            var output, index, id, data, info;
+            outputGood = [], outputWarning = [], outputError = [];
+            for (index = 0; index < BuzzSEOAnalysis.data.length; ++index) {
+                id = BuzzSEOAnalysis.data[index].id;
+                data = BuzzSEOAnalysis.data[index].data;
+                info = BuzzSEOAnalysis.data[index].info;
                 switch (id) {
                     case 'wordCount':
-                        output += analyseWordCount(data, getEditorText());
+                        handleScoreOutput(analyseWordCount(data, getEditorText()));
                         break;
 
                     case 'metaDescriptionLength':
-                        output += analyseCharCount(data, $("#buzz-seo-metadescription").val());
+                        handleScoreOutput(analyseCharCount(data, info, $("#buzz-seo-metadescription").val()));
                         break;
+
+                    case 'subHeadings':
+                        handleScoreOutput(analyseSubheadings(data, getEditorHTML()));
+                        break;
+
+                    case 'pageTitleLength':
+                        handleScoreOutput(analyseCharCount(data, info, $("#title").val()));
+                        break;
+
                     default:
                         break;
                 }
             }
-            analysisOutput.html(output + "</ul>");
+
+            // Sort arrays
+            outputError.sort(sortByScore);
+            outputWarning.sort(sortByScore);
+            outputGood.sort(sortByScore);
+
+            // Create output
+            output = "<ul class='buzz-seo-analyse-output'>";
+            if (outputError.length > 0) {
+                output += "<li class='error'>" + BuzzSEOAnalysis.errors + "<ul>";
+                for (var i = 0; i < outputError.length; i++) {
+                    output += outputError[i].html;
+                }
+                output += "</ul></li>";
+            }
+            if (outputWarning.length > 0) {
+                output += "<li class='warning'>" + BuzzSEOAnalysis.warnings + "<ul>";
+                for (var i = 0; i < outputWarning.length; i++) {
+                    output += outputWarning[i].html;
+                }
+                output += "</ul></li>";
+            }
+            if (outputGood.length > 0) {
+                output += "<li class='good'>" + BuzzSEOAnalysis.good + "<ul>";
+                for (var i = 0; i < outputGood.length; i++) {
+                    output += outputGood[i].html;
+                }
+                output += "</ul></li>";
+            }
+            output += "</ul>";
+            analysisOutput.html(output);
+        }
+
+        function sortByScore(a, b)
+        {
+            return a['score'] > b['score'];
+        }
+
+        function handleScoreOutput(scoreObject)
+        {
+            if (scoreObject.score < 5) {
+                outputError.push(scoreObject);
+            } else if (scoreObject.score < 8) {
+                outputWarning.push(scoreObject);
+            } else {
+                outputGood.push(scoreObject);
+            }
         }
 
         function analyseWordCount(data, text)
@@ -130,15 +192,42 @@
                     optimal = item.min;
                 }
                 if (item.min <= numOfWords && (item.max === undefined || item.max >= numOfWords)) {
-                    return "<li class='score" + item.score + "'>" + item.text.replaceText(numOfWords, optimal) + "</li>";
+                    return {
+                        score: item.score,
+                        html: "<li class='score" + item.score + "'>" + item.text.replaceText(numOfWords, optimal) + "</li>"
+                    };
                 }
             }
         }
 
-        function analyseCharCount(data, text)
+        function analyseSubheadings(data, html)
         {
             var index, item,
-                    numOfChars = 0, optimal = false;
+                    numSubheadings = 0, optimal = false;
+
+            // Count words
+            if (html) {
+                numSubheadings = (html.match(/\<h[2|3|4|5|6]/g) || []).length;
+            }
+
+            for (index = 0; index < data.length; ++index) {
+                item = data[index];
+                if (!optimal) {
+                    optimal = item.min;
+                }
+                if (item.min <= numSubheadings && (item.max === undefined || item.max >= numSubheadings)) {
+                    return {
+                        score: item.score,
+                        html: "<li class='score" + item.score + "'>" + item.text + "</li>"
+                    };
+                }
+            }
+        }
+
+        function analyseCharCount(data, info, text)
+        {
+            var index, item,
+                    numOfChars = 0, optimalMin = info.recommendedMin, optimalMax = info.recommendedMax;
 
             // Count words
             if (text) {
@@ -147,11 +236,11 @@
 
             for (index = 0; index < data.length; ++index) {
                 item = data[index];
-                if (!optimal) {
-                    optimal = item.min - 1;
-                }
                 if (item.min <= numOfChars && (item.max === undefined || item.max >= numOfChars)) {
-                    return "<li class='score" + item.score + "'>" + item.text.replaceText(numOfChars, optimal, (numOfChars - optimal)) + "</li>";
+                    return {
+                        score: item.score,
+                        html: "<li class='score" + item.score + "'>" + item.text.replaceText(numOfChars, optimalMax, (numOfChars - optimalMax), optimalMin) + "</li>"
+                    };
                 }
             }
         }
@@ -207,30 +296,6 @@
      * Media uploader
      */
     $(function () {
-        /*var _custom_media = true,
-         _orig_send_attachment = wp.media.editor.send.attachment;
-
-         $('.buzz-media-button').click(function (e) {
-         var button = $(this);
-         var id = button.attr('id').replace('-button', '');
-         _custom_media = true;
-         wp.media.editor.send.attachment = function (props, attachment) {
-         if (_custom_media) {
-         $("#" + id).val(attachment.url);
-         } else {
-         return _orig_send_attachment.apply(this, [props, attachment]);
-         }
-         };
-
-         wp.media.editor.open(button);
-
-         return false;
-         });
-
-         $('.add_media').on('click', function () {
-         _custom_media = false;
-         });*/
-
         var file_frame, attachment, mediaIdField, mediaThumbField;
         $('.buzz-media-button').on('click', function (event) {
             mediaIdField = $("#" + $(event.currentTarget).data("media-id"));
@@ -245,9 +310,9 @@
 
             // Create the media frame.
             file_frame = wp.media.frames.file_frame = wp.media({
-                title: 'TODO: title',
+                title: BuzzSEOAdmin.MediaUploader.title,
                 button: {
-                    text: 'TODO: Text'
+                    text: BuzzSEOAdmin.MediaUploader.button
                 },
                 multiple: false  // Set to true to allow multiple files to be selected
             });
@@ -276,5 +341,15 @@
             // Finally, open the modal
             file_frame.open();
         });
+
+        $('.buzz-media-button-remove').on('click', function (event) {
+            var that = $(this);
+
+            // Make current image vars empty
+            $("#" + that.data("media-id")).val("");
+            $("#" + that.data("media-thumb")).val("");
+            $("#" + that.data("hide")).addClass("hidden");
+        });
+
     });
 })(jQuery);

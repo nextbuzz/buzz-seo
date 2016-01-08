@@ -22,17 +22,23 @@
                 </td>
             </tr>
             <tr>
-                <th scope="row" i18n:translate="">Allow index</th>
-                <td tal:define="sel allowIndex | nothing">
-                    <label>
-                        <input type="radio" name="PostSEOBox[allowIndex]" value="1" tal:attributes="checked php:sel !== -1 ? 'selected' : NULL" />
-                        <span i18n:translate="">Yes</span>
-                    </label>
-                    <label>
-                        <input type="radio" name="PostSEOBox[allowIndex]" value="-1" tal:attributes="checked php:sel == -1 ? 'selected' : NULL" />
-                        <span i18n:translate="">No</span>
-                    </label>
-                    <p class="description" i18n:translate="">Allow search engines to index this page.</p>
+                <th scope="row" i18n:translate="">Index options</th>
+                <td>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="PostSEOBox[robots][noindex]" value="1" tal:attributes="checked exists:robots/noindex" />
+                                <span i18n:translate="">Do not index page (noindex)</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="PostSEOBox[robots][nofollow]" value="1" tal:attributes="checked exists:robots/nofollow" />
+                                <span i18n:translate="">Do not follow links (nofollow)</span>
+                            </label>
+                        </li>
+                    </ul>
+                    <p class="description" i18n:translate="">Tell search engines how to index this page.</p>
                 </td>
             </tr>
         </table>
@@ -54,10 +60,17 @@
                     <p class="description" i18n:translate="">If you don't want to use the meta description for sharing the post on Facebook but want another description there, write it here.</p>
                 </td>
             </tr>
+            <tr tal:condition="true:fbMediaThumb" id="buzz-seo-prev-fb-image">
+                <th scope="row" i18n:translate="">Current Facebook image</th>
+                <td>
+                    <img id="" tal:attributes="src fbMediaThumb" /><br/>
+                    <button data-hide="buzz-seo-prev-fb-image" data-media-id="buzz-seo-fb-media-id" data-media-thumb="buzz-seo-fb-media-thumb" class="button buzz-media-button-remove" type="button" i18n:translate="">Remove image</button>
+                </td>
+            </tr>
             <tr>
                 <th scope="row" i18n:translate="">Facebook image</th>
                 <td>
-                    <div class="uploader">
+                    <div class="buzz-seo-uploader">
                         <input id="buzz-seo-fb-media-thumb" name="PostSEOBox[fbMediaThumb]" type="hidden" tal:attributes="value fbMediaThumb | nothing"/>
                         <input id="buzz-seo-fb-media-id" name="PostSEOBox[fbMediaId]" type="hidden" tal:attributes="value fbMediaId | nothing"/>
                         <button id="buzz-seo-fb-media-button" data-media-id="buzz-seo-fb-media-id" data-media-thumb="buzz-seo-fb-media-thumb" class="button buzz-media-button" type="button" i18n:translate="">Upload</button>
@@ -84,10 +97,17 @@
                     <p class="description" i18n:translate="">If you don't want to use the meta description for sharing the post on Twitter but want another description there, write it here.</p>
                 </td>
             </tr>
+            <tr tal:condition="true:twMediaThumb" id="buzz-seo-prev-tw-image">
+                <th scope="row" i18n:translate="">Current Twitter image</th>
+                <td>
+                    <img tal:attributes="src twMediaThumb" /><br/>
+                    <button data-hide="buzz-seo-prev-tw-image" data-media-id="buzz-seo-tw-media-id" data-media-thumb="buzz-seo-tw-media-thumb" class="button buzz-media-button-remove" type="button" i18n:translate="">Remove image</button>
+                </td>
+            </tr>
             <tr>
                 <th scope="row" i18n:translate="">Twitter image</th>
                 <td>
-                    <div class="uploader">
+                    <div class="buzz-seo-uploader">
                         <input id="buzz-seo-tw-media-thumb" name="PostSEOBox[twMediaThumb]" type="hidden" tal:attributes="value twMediaThumb | nothing"/>
                         <input id="buzz-seo-tw-media-id" name="PostSEOBox[twMediaId]" type="hidden" tal:attributes="value twMediaId | nothing"/>
                         <button id="buzz-seo-tw-media-button" data-media-id="buzz-seo-tw-media-id" data-media-thumb="buzz-seo-tw-media-thumb" class="button buzz-media-button" type="button" i18n:translate="">Upload</button>
