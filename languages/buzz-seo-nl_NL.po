@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-01-08 11:52+0100\n"
-"PO-Revision-Date: 2016-01-08 11:53+0100\n"
+"POT-Creation-Date: 2016-01-08 12:20+0100\n"
+"PO-Revision-Date: 2016-01-08 12:20+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -96,23 +96,27 @@ msgstr ""
 msgid "Current Facebook image"
 msgstr "Huidige Facebook afbeelding"
 
-#: tal/PostSEOBox.xml:64
+#: tal/PostSEOBox.xml:61 tal/PostSEOBox.xml:98
+msgid "Remove image"
+msgstr "Verwijder afbeelding"
+
+#: tal/PostSEOBox.xml:65
 msgid "Facebook image"
 msgstr "Facebook afbeelding"
 
-#: tal/PostSEOBox.xml:69 tal/PostSEOBox.xml:105
+#: tal/PostSEOBox.xml:70 tal/PostSEOBox.xml:107
 msgid "Upload"
 msgstr "Uploaden"
 
-#: tal/PostSEOBox.xml:71
+#: tal/PostSEOBox.xml:72
 msgid "Add a custom image for Facebook."
 msgstr "Voeg een afbeelding toe voor Facebook."
 
-#: tal/PostSEOBox.xml:80
+#: tal/PostSEOBox.xml:81
 msgid "Twitter title"
 msgstr "Twitter titel"
 
-#: tal/PostSEOBox.xml:83
+#: tal/PostSEOBox.xml:84
 msgid ""
 "If you don't want to use the post title for sharing the post on Twitter but "
 "instead want another title there, write it here."
@@ -120,11 +124,11 @@ msgstr ""
 "Als je de berichttitel niet wilt gebruiken op Twitter, schrijf dan hier de "
 "titel die op Twitter gebruikt dient te worden."
 
-#: tal/PostSEOBox.xml:87
+#: tal/PostSEOBox.xml:88
 msgid "Twitter description"
 msgstr "Twitter omschrijving"
 
-#: tal/PostSEOBox.xml:90
+#: tal/PostSEOBox.xml:91
 msgid ""
 "If you don't want to use the meta description for sharing the post on "
 "Twitter but want another description there, write it here."
@@ -132,15 +136,15 @@ msgstr ""
 "Als je de meta omschrijving niet wilt gebruiken op Twitter, schrijf dan hier "
 "de omschrijving die op Twitter gebruikt dient te worden."
 
-#: tal/PostSEOBox.xml:94
+#: tal/PostSEOBox.xml:95
 msgid "Current Twitter image"
 msgstr "Huidige Twitter afbeelding"
 
-#: tal/PostSEOBox.xml:100
+#: tal/PostSEOBox.xml:102
 msgid "Twitter image"
 msgstr "Twitter afbeelding"
 
-#: tal/PostSEOBox.xml:107
+#: tal/PostSEOBox.xml:109
 msgid "Add a custom image for Twitter."
 msgstr "Voeg een afbeeding toe voor Twitter."
 

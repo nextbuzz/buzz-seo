@@ -256,5 +256,15 @@
             // Finally, open the modal
             file_frame.open();
         });
+
+        $('.buzz-media-button-remove').on('click', function (event) {
+            var that = $(this);
+
+            // Make current image vars empty
+            $("#" + that.data("media-id")).val("");
+            $("#" + that.data("media-thumb")).val("");
+            $("#" + that.data("hide")).addClass("hidden");
+        });
+
     });
 })(jQuery);

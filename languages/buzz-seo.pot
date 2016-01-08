@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-01-08 10:52:21+0000\n"
+"POT-Creation-Date: 2016-01-08 11:20:04+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-08 10:52:21+0000\n"
+"PO-Revision-Date: 2016-01-08 11:20:04+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -73,43 +73,47 @@ msgstr ""
 msgid "Current Facebook image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:64
+#: tal/PostSEOBox.xml:61 tal/PostSEOBox.xml:98
+msgid "Remove image"
+msgstr ""
+
+#: tal/PostSEOBox.xml:65
 msgid "Facebook image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:69 tal/PostSEOBox.xml:105
+#: tal/PostSEOBox.xml:70 tal/PostSEOBox.xml:107
 msgid "Upload"
 msgstr ""
 
-#: tal/PostSEOBox.xml:71
+#: tal/PostSEOBox.xml:72
 msgid "Add a custom image for Facebook."
 msgstr ""
 
-#: tal/PostSEOBox.xml:80
+#: tal/PostSEOBox.xml:81
 msgid "Twitter title"
 msgstr ""
 
-#: tal/PostSEOBox.xml:83
+#: tal/PostSEOBox.xml:84
 msgid "If you don't want to use the post title for sharing the post on Twitter but instead want another title there, write it here."
 msgstr ""
 
-#: tal/PostSEOBox.xml:87
+#: tal/PostSEOBox.xml:88
 msgid "Twitter description"
 msgstr ""
 
-#: tal/PostSEOBox.xml:90
+#: tal/PostSEOBox.xml:91
 msgid "If you don't want to use the meta description for sharing the post on Twitter but want another description there, write it here."
 msgstr ""
 
-#: tal/PostSEOBox.xml:94
+#: tal/PostSEOBox.xml:95
 msgid "Current Twitter image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:100
+#: tal/PostSEOBox.xml:102
 msgid "Twitter image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:107
+#: tal/PostSEOBox.xml:109
 msgid "Add a custom image for Twitter."
 msgstr ""
 
