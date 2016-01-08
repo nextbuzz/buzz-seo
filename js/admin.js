@@ -93,9 +93,9 @@
             $(this).data("lastime", now + analysisDelay);
 
             var output = "<ul>", index, id, data;
-            for (index = 0; index < LORSEOData.Analysis.length; ++index) {
-                id = LORSEOData.Analysis[index].id;
-                data = LORSEOData.Analysis[index].data;
+            for (index = 0; index < BuzzSEOAnalysis.length; ++index) {
+                id = BuzzSEOAnalysis[index].id;
+                data = BuzzSEOAnalysis[index].data;
                 switch (id) {
                     case 'wordCount':
                         output += analyseWordCount(data, getEditorText());
@@ -207,30 +207,6 @@
      * Media uploader
      */
     $(function () {
-        /*var _custom_media = true,
-         _orig_send_attachment = wp.media.editor.send.attachment;
-
-         $('.buzz-media-button').click(function (e) {
-         var button = $(this);
-         var id = button.attr('id').replace('-button', '');
-         _custom_media = true;
-         wp.media.editor.send.attachment = function (props, attachment) {
-         if (_custom_media) {
-         $("#" + id).val(attachment.url);
-         } else {
-         return _orig_send_attachment.apply(this, [props, attachment]);
-         }
-         };
-
-         wp.media.editor.open(button);
-
-         return false;
-         });
-
-         $('.add_media').on('click', function () {
-         _custom_media = false;
-         });*/
-
         var file_frame, attachment, mediaIdField, mediaThumbField;
         $('.buzz-media-button').on('click', function (event) {
             mediaIdField = $("#" + $(event.currentTarget).data("media-id"));
