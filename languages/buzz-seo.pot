@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-01-07 14:44:00+0000\n"
+"POT-Creation-Date: 2016-01-08 10:52:21+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-07 14:44:00+0000\n"
+"PO-Revision-Date: 2016-01-08 10:52:21+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -69,20 +69,48 @@ msgstr ""
 msgid "If you don't want to use the meta description for sharing the post on Facebook but want another description there, write it here."
 msgstr ""
 
-#: tal/PostSEOBox.xml:63
+#: tal/PostSEOBox.xml:58
+msgid "Current Facebook image"
+msgstr ""
+
+#: tal/PostSEOBox.xml:64
+msgid "Facebook image"
+msgstr ""
+
+#: tal/PostSEOBox.xml:69 tal/PostSEOBox.xml:105
+msgid "Upload"
+msgstr ""
+
+#: tal/PostSEOBox.xml:71
+msgid "Add a custom image for Facebook."
+msgstr ""
+
+#: tal/PostSEOBox.xml:80
 msgid "Twitter title"
 msgstr ""
 
-#: tal/PostSEOBox.xml:66
+#: tal/PostSEOBox.xml:83
 msgid "If you don't want to use the post title for sharing the post on Twitter but instead want another title there, write it here."
 msgstr ""
 
-#: tal/PostSEOBox.xml:70
+#: tal/PostSEOBox.xml:87
 msgid "Twitter description"
 msgstr ""
 
-#: tal/PostSEOBox.xml:73
+#: tal/PostSEOBox.xml:90
 msgid "If you don't want to use the meta description for sharing the post on Twitter but want another description there, write it here."
+msgstr ""
+
+#: tal/PostSEOBox.xml:94
+msgid "Current Twitter image"
+msgstr ""
+
+#: tal/PostSEOBox.xml:100
+msgid "Twitter image"
+msgstr ""
+
+#: tal/PostSEOBox.xml:107
+msgid "Add a custom image for Twitter."
 msgstr ""
 
 #: tal/PostSEOBoxAnalysis.xml:3
@@ -121,67 +149,75 @@ msgstr ""
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
-#: lib/App.php:60
+#: lib/Features/Admin.php:40
+msgid "Select an image"
+msgstr ""
+
+#: lib/Features/Admin.php:40 lib/Features/Admin.php:41
+msgid "Select"
+msgstr ""
+
+#: lib/Features/PostSEOBox.php:35
 msgid "Search Engine Optimization (SEO)"
 msgstr ""
 
-#: lib/App.php:61
+#: lib/Features/PostSEOBoxAnalysis.php:31
 msgid "SEO Content Analysis"
 msgstr ""
 
-#: lib/App.php:79
+#: lib/Features/PostSEOBoxAnalysis.php:46
 msgid "The text contains {0} words, this is more than the {1} word recommended minimum."
 msgstr ""
 
-#: lib/App.php:85
+#: lib/Features/PostSEOBoxAnalysis.php:52
 msgid "The text contains {0} words, this is slightly below the {1} word recommended minimum. Add a bit more copy."
 msgstr ""
 
-#: lib/App.php:91
+#: lib/Features/PostSEOBoxAnalysis.php:58
 msgid "The text contains {0} words, this is below the {1} word recommended minimum. Add a little more useful content on this topic for readers."
 msgstr ""
 
-#: lib/App.php:97
+#: lib/Features/PostSEOBoxAnalysis.php:64
 msgid "The text contains {0} words, this is below the {1} word recommended minimum. Add more useful content on this topic for readers."
 msgstr ""
 
-#: lib/App.php:103
+#: lib/Features/PostSEOBoxAnalysis.php:70
 msgid "The text contains {0} word(s). This is far too low and should be increased."
 msgstr ""
 
-#: lib/App.php:113
+#: lib/Features/PostSEOBoxAnalysis.php:80
 msgid "The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire description is visible."
 msgstr ""
 
-#: lib/App.php:119
+#: lib/Features/PostSEOBoxAnalysis.php:86
 msgid "No meta description has been specified, search engines will display copy from the page instead."
 msgstr ""
 
-#: lib/App.php:125
+#: lib/Features/PostSEOBoxAnalysis.php:92
 msgid "The meta description is {0} character(s), however up to {1} characters are available."
 msgstr ""
 
-#: lib/App.php:131
+#: lib/Features/PostSEOBoxAnalysis.php:98
 msgid "The meta description has an optimal length of {0} out of max {1} characters."
 msgstr ""
 
-#: lib/App.php:141
+#: lib/Features/PostSEOBoxAnalysis.php:108
 msgid "No subheading tags (like an H2) appear in the copy."
 msgstr ""
 
-#: lib/App.php:146
+#: lib/Features/PostSEOBoxAnalysis.php:113
 msgid "Subheadings appear in the copy."
 msgstr ""
 
-#: lib/App.php:156
+#: lib/Features/PostSEOBoxAnalysis.php:123
 msgid "Please create a page title."
 msgstr ""
 
-#: lib/App.php:162
+#: lib/Features/PostSEOBoxAnalysis.php:129
 msgid "The page title contains {2} characters, which is less than the recommended minimum of {0} characters."
 msgstr ""
 
-#: lib/App.php:168
+#: lib/Features/PostSEOBoxAnalysis.php:135
 msgid "The page title is between the {0} character minimum and the recommended {1} character maximum."
 msgstr ""
 

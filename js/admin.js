@@ -1,4 +1,4 @@
-/* global tinyMCE, console, LORSEOData */
+/* global tinyMCE, console, BuzzSEOAnalysis, BuzzSEOAdmin */
 (function ($) {
     'use strict';
 
@@ -54,6 +54,10 @@
      * Analyse the current content (without HTML markup)
      */
     $(function () {
+        if (typeof BuzzSEOAnalysis === "undefined") {
+            return;
+        }
+
         /**
          * Bind the change event to the editor (text/tinyMCE), title and focus keywords.
          */
@@ -221,9 +225,9 @@
 
             // Create the media frame.
             file_frame = wp.media.frames.file_frame = wp.media({
-                title: 'TODO: title',
+                title: BuzzSEOAdmin.MediaUploader.title,
                 button: {
-                    text: 'TODO: Text'
+                    text: BuzzSEOAdmin.MediaUploader.button
                 },
                 multiple: false  // Set to true to allow multiple files to be selected
             });

@@ -19,7 +19,7 @@ class Admin extends BaseFeature
         if (!is_admin()) {
             return;
         }
-        
+
         add_action('admin_enqueue_scripts', array($this, 'enqueueAdminScripts'));
     }
 
@@ -35,5 +35,11 @@ class Admin extends BaseFeature
     {
         wp_enqueue_style('buzz-seo-admin', plugins_url('buzz-seo/css/admin.css'), false, BUZZSEO_VERSION);
         wp_enqueue_script('buzz-seo-admin-js', plugins_url('buzz-seo/js/admin.js'), array('jquery'), BUZZSEO_VERSION);
+        wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAdmin', array(
+            'MediaUploader' => array(
+                'title' => __('Select an image', 'buzz-seo'),
+                'button' => __('Select', 'buzz-seo'),
+            )
+        ));
     }
 }
