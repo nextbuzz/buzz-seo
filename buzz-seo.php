@@ -29,5 +29,5 @@ require_once 'vendor/autoload.php';
 
 // Load our application
 if (class_exists('\NextBuzz\SEO\App')) {
-    new \NextBuzz\SEO\App();
+    \NextBuzz\SEO\App::getInstance();
 }

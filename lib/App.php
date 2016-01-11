@@ -6,12 +6,15 @@ namespace NextBuzz\SEO;
  * This is the base class which starts everything
  *
  * @author LengthOfRope, Bas de Kort <bdekort@gmail.com>
+ * @author HeroBanana, Nick Vlug <nick@ruddy.nl>
  */
 class App
 {
+    protected static $instance;
+    
     private static $features = array();
 
-    public function __construct()
+    private function __construct()
     {
         // Just an easy way to rewrite the POT file.
         //$this->rewritePOT();
@@ -19,7 +22,6 @@ class App
         // Load features
         $features = array(
             'Admin',
-            'AdminOptionPage',
             'PostSEOBox',
             'PostSEOBoxAnalysis',
         );
@@ -34,19 +36,44 @@ class App
             if ($Feature->allowDisable() === false || ($Feature->allowDisable() && true !== false)) {
                 $Feature->init();
                 
-                self::$features[$f] = new $class();
+                // Insert activated class into the feature array
+                $this->features[$f] = new $class();
             }
         }
 
         // Always init
         add_action('plugins_loaded', array($this, 'pluginsLoaded'));
     }
-
-    public static function getFeature($id)
+    
+    private function __wakeup()
     {
-        if (isset(self::$features[$id])) 
+        
+    }
+    
+    private function __clone()
+    {
+        
+    }
+    
+    /**
+     * Get Current App
+     * @return \NextBuzz\SEO\App
+     */
+    public static function getInstance()
+    {
+        return isset(static::$instance) ? static::$instance : static::$instance = new static;
+    }
+
+    /**
+     * Get Activated Features
+     * @param type $id
+     * @return boolean
+     */
+    public function getFeature($id)
+    {
+        if (isset($this->features[$id])) 
         {
-            return self::$features[$id];
+            return $this->features[$id];
         }
 
         return false;
@@ -63,6 +90,9 @@ class App
         load_plugin_textdomain('buzz-seo', false, BUZZSEO_DIR_REL . '/languages');
     }
 
+    /**
+     * rewrite Pot file
+     */
     private function rewritePOT()
     {
         $Pot = new \NextBuzz\SEO\Tools\CreatePot();
