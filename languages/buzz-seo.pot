@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-01-08 13:00:50+0000\n"
+"POT-Creation-Date: 2016-01-11 15:27:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-08 13:00:50+0000\n"
+"PO-Revision-Date: 2016-01-11 15:27:02+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -217,32 +217,60 @@ msgstr ""
 msgid "The meta description has an optimal length of {0} out of max {1} characters."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:118
+#: lib/Features/PostSEOBoxAnalysis.php:119
 msgid "No subheading tags (like an H2) appear in the copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:123
+#: lib/Features/PostSEOBoxAnalysis.php:124
 msgid "Subheadings appear in the copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:138
+#: lib/Features/PostSEOBoxAnalysis.php:139
 msgid "Please create a page title."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:144
+#: lib/Features/PostSEOBoxAnalysis.php:145
 msgid "The page title contains {0} characters, which is less than the recommended minimum of {3} characters."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:150
+#: lib/Features/PostSEOBoxAnalysis.php:151
 msgid "The page title contains {0} characters, which is slightly less than the recommended minimum of {3} characters."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:156
+#: lib/Features/PostSEOBoxAnalysis.php:157
 msgid "The page title is between the {3} character minimum and the recommended {1} character maximum."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:161
+#: lib/Features/PostSEOBoxAnalysis.php:162
 msgid "The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire title is visible."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:177
+msgid "No focus keyword was set for this page..."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:183
+msgid "Your focus keyword has a valid length."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:188
+msgid "Your focus keyphrase is over 10 words, a keyphrase should be shorter."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:203
+msgid "The keyword density for `{1}` is {0}%, which is way over the advised {2}% maximum. The focus keyword was found {3} time(s)."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:209
+msgid "The keyword density for `{1}` is {0}%, which over the advised {2}% maximum. The focus keyword was found {3} time(s)."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:215
+msgid "The keyword density for `{1}` is {0}%, which is great. The focus keyword was found {3} time(s)."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:221
+msgid "The keyword density for `{1}` is {0}%, which is low. The focus keyword was found {3} time(s)."
 msgstr ""
 
 #: lib/PHPTAL/Template.php:31
