@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-01-11 16:27+0100\n"
-"PO-Revision-Date: 2016-01-11 16:30+0100\n"
+"POT-Creation-Date: 2016-01-11 16:41+0100\n"
+"PO-Revision-Date: 2016-01-11 16:42+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -216,7 +216,7 @@ msgstr "Waarschuwingen"
 msgid "Perfect"
 msgstr "Perfect"
 
-#: lib/Features/PostSEOBoxAnalysis.php:51
+#: lib/Features/PostSEOBoxAnalysis.php:54
 msgid ""
 "The text contains {0} words, this is more than the {1} word recommended "
 "minimum."
@@ -224,7 +224,7 @@ msgstr ""
 "De tekst bevat {0} woorden, dit is meer dan het aanbevolen minimum van {1} "
 "woorden."
 
-#: lib/Features/PostSEOBoxAnalysis.php:57
+#: lib/Features/PostSEOBoxAnalysis.php:60
 msgid ""
 "The text contains {0} words, this is slightly below the {1} word recommended "
 "minimum. Add a bit more copy."
@@ -232,7 +232,7 @@ msgstr ""
 "De tekst bevat {0} woorden, dit is iets minder dan het aanbevolen minimum "
 "van {1} woorden. Voeg iets meer content toe."
 
-#: lib/Features/PostSEOBoxAnalysis.php:63
+#: lib/Features/PostSEOBoxAnalysis.php:66
 msgid ""
 "The text contains {0} words, this is below the {1} word recommended minimum. "
 "Add a little more useful content on this topic for readers."
@@ -240,7 +240,7 @@ msgstr ""
 "De tekst bevat {0} woorden, dit is minder dan het aanbevolen minimum van {1} "
 "woorden. Voeg iets meer nuttige content toe."
 
-#: lib/Features/PostSEOBoxAnalysis.php:69
+#: lib/Features/PostSEOBoxAnalysis.php:72
 msgid ""
 "The text contains {0} words, this is below the {1} word recommended minimum. "
 "Add more useful content on this topic for readers."
@@ -248,14 +248,14 @@ msgstr ""
 "De tekst bevat {0} woorden, dit is minder dan het aanbevolen minimum van {1} "
 "woorden. Voeg meer nuttige content toe."
 
-#: lib/Features/PostSEOBoxAnalysis.php:75
+#: lib/Features/PostSEOBoxAnalysis.php:78
 msgid ""
 "The text contains {0} word(s). This is far too low and should be increased."
 msgstr ""
 "De tekst bevat {0} woorden, dit is veel te weinig en zou moeten worden "
 "gecorrigeerd."
 
-#: lib/Features/PostSEOBoxAnalysis.php:89
+#: lib/Features/PostSEOBoxAnalysis.php:92
 msgid ""
 "The specified meta description is {2} character(s) over the {1} available. "
 "Reducing it will ensure the entire description is visible."
@@ -263,7 +263,7 @@ msgstr ""
 "De meta omschrijving is {2} karakter(s) langer dan de {1} beschikbare "
 "karakters. Het inkorten zorgt ervoor dat de hele omschrijving zichtbaar is."
 
-#: lib/Features/PostSEOBoxAnalysis.php:95
+#: lib/Features/PostSEOBoxAnalysis.php:98
 msgid ""
 "No meta description has been specified, search engines will display copy "
 "from the page instead."
@@ -271,7 +271,7 @@ msgstr ""
 "Er is geen meta omschrijving toegevoegd. Zoekmachines zullen willekeurige "
 "content tonen die op de pagina gevonden wordt."
 
-#: lib/Features/PostSEOBoxAnalysis.php:101
+#: lib/Features/PostSEOBoxAnalysis.php:104
 msgid ""
 "The meta description is {0} character(s), however up to {1} characters are "
 "available."
@@ -279,26 +279,26 @@ msgstr ""
 "De meta omschrijving is {0} karakter(s) lang, er zijn echter {1} karakters "
 "beschikbaar."
 
-#: lib/Features/PostSEOBoxAnalysis.php:107
+#: lib/Features/PostSEOBoxAnalysis.php:110
 msgid ""
 "The meta description has an optimal length of {0} out of max {1} characters."
 msgstr ""
 "De meta omschrijving heeft een optimale lengte van {0} van de {1} "
 "beschikbare karakters."
 
-#: lib/Features/PostSEOBoxAnalysis.php:119
+#: lib/Features/PostSEOBoxAnalysis.php:122
 msgid "No subheading tags (like an H2) appear in the copy."
 msgstr "Er zijn geen sub-kopteksten (zoals een H2) aanwezig in de content."
 
-#: lib/Features/PostSEOBoxAnalysis.php:124
+#: lib/Features/PostSEOBoxAnalysis.php:127
 msgid "Subheadings appear in the copy."
 msgstr "Sub-kopteksten zijn aanwezig in de content."
 
-#: lib/Features/PostSEOBoxAnalysis.php:139
+#: lib/Features/PostSEOBoxAnalysis.php:142
 msgid "Please create a page title."
 msgstr "Voeg aub. een pagina titel toe."
 
-#: lib/Features/PostSEOBoxAnalysis.php:145
+#: lib/Features/PostSEOBoxAnalysis.php:148
 msgid ""
 "The page title contains {0} characters, which is less than the recommended "
 "minimum of {3} characters."
@@ -306,7 +306,7 @@ msgstr ""
 "De pagina titel bevat {0} karakter(s), wat minder is dan de minimaal "
 "aanbevolen {3} karakters."
 
-#: lib/Features/PostSEOBoxAnalysis.php:151
+#: lib/Features/PostSEOBoxAnalysis.php:154
 msgid ""
 "The page title contains {0} characters, which is slightly less than the "
 "recommended minimum of {3} characters."
@@ -314,7 +314,7 @@ msgstr ""
 "De pagina titel bevat {0} karakter(s), wat iets minder is dan de minimaal "
 "aanbevolen {3} karakters."
 
-#: lib/Features/PostSEOBoxAnalysis.php:157
+#: lib/Features/PostSEOBoxAnalysis.php:160
 msgid ""
 "The page title is between the {3} character minimum and the recommended {1} "
 "character maximum."
@@ -322,7 +322,7 @@ msgstr ""
 "De paginatitel is tussen de {3} karakter minimum en het aanbevolen {1}  "
 "karakter maximum."
 
-#: lib/Features/PostSEOBoxAnalysis.php:162
+#: lib/Features/PostSEOBoxAnalysis.php:165
 msgid ""
 "The specified meta description is {2} character(s) over the {1} available. "
 "Reducing it will ensure the entire title is visible."
@@ -330,19 +330,21 @@ msgstr ""
 "De meta omschrijving is {2} karakter(s) langer dan de {1} beschikbare "
 "karakters. Het inkorten zorgt ervoor dat de hele titel zichtbaar is."
 
-#: lib/Features/PostSEOBoxAnalysis.php:177
-msgid "No focus keyword was set for this page..."
-msgstr "Er is geen focus sleutelwoord gemaakt voor deze pagina."
+#: lib/Features/PostSEOBoxAnalysis.php:180
+msgid "No main focus keyword was set for this page."
+msgstr "Er is geen hoofd sleutelwoord ingevuld voor deze pagina."
 
-#: lib/Features/PostSEOBoxAnalysis.php:183
-msgid "Your focus keyword has a valid length."
-msgstr "Het sleutelwoord heeft een goede lengte."
+#: lib/Features/PostSEOBoxAnalysis.php:186
+msgid "Your main focus keyword has a valid length."
+msgstr "Het hoofd sleutelwoord heeft een goede lengte."
 
-#: lib/Features/PostSEOBoxAnalysis.php:188
-msgid "Your focus keyphrase is over 10 words, a keyphrase should be shorter."
-msgstr "De sleutelzin is langer dan 10 woorden. Deze zou korter moeten zijn."
+#: lib/Features/PostSEOBoxAnalysis.php:191
+msgid ""
+"Your main focus keyphrase is over {2} words, a keyphrase should be shorter."
+msgstr ""
+"De hoofd sleutelzin is langer dan {2} woorden, deze zou korter moeten zijn."
 
-#: lib/Features/PostSEOBoxAnalysis.php:203
+#: lib/Features/PostSEOBoxAnalysis.php:206
 msgid ""
 "The keyword density for `{1}` is {0}%, which is way over the advised {2}% "
 "maximum. The focus keyword was found {3} time(s)."
@@ -350,7 +352,7 @@ msgstr ""
 "De dichtheid voor sleutelwoord `{1}` is {0}% wat veel meer is dan het "
 "geadviseerde {2}%. Het sleutelwoord is {3} keer gevonden."
 
-#: lib/Features/PostSEOBoxAnalysis.php:209
+#: lib/Features/PostSEOBoxAnalysis.php:212
 msgid ""
 "The keyword density for `{1}` is {0}%, which over the advised {2}% maximum. "
 "The focus keyword was found {3} time(s)."
@@ -358,7 +360,7 @@ msgstr ""
 "De dichtheid voor sleutelwoord `{1}` is {0}% wat meer is dan het "
 "geadviseerde {2}%. Het sleutelwoord is {3} keer gevonden."
 
-#: lib/Features/PostSEOBoxAnalysis.php:215
+#: lib/Features/PostSEOBoxAnalysis.php:218
 msgid ""
 "The keyword density for `{1}` is {0}%, which is great. The focus keyword was "
 "found {3} time(s)."
@@ -366,7 +368,7 @@ msgstr ""
 "De dichtheid voor sleutelwoord `{1}` is {0}% wat perfect is. Het "
 "sleutelwoord is {3} keer gevonden."
 
-#: lib/Features/PostSEOBoxAnalysis.php:221
+#: lib/Features/PostSEOBoxAnalysis.php:224
 msgid ""
 "The keyword density for `{1}` is {0}%, which is low. The focus keyword was "
 "found {3} time(s)."
@@ -377,6 +379,17 @@ msgstr ""
 #: lib/PHPTAL/Template.php:31
 msgid "File %s does not exist."
 msgstr "Bestand %s bestaat niet."
+
+#~ msgid "No focus keyword was set for this page..."
+#~ msgstr "Er is geen focus sleutelwoord gemaakt voor deze pagina."
+
+#~ msgid "Your focus keyword has a valid length."
+#~ msgstr "Het sleutelwoord heeft een goede lengte."
+
+#~ msgid ""
+#~ "Your focus keyphrase is over 10 words, a keyphrase should be shorter."
+#~ msgstr ""
+#~ "De sleutelzin is langer dan 10 woorden. Deze zou korter moeten zijn."
 
 #~ msgid "Error"
 #~ msgstr "Fouten"

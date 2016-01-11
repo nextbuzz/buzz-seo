@@ -43,7 +43,10 @@ class PostSEOBoxAnalysis extends BaseFeature
             'data' => array(
                 array(
                     'id' => 'wordCount',
-                    'info' => array(),
+                    'info' => array(
+                        'recommendedMin' => 300,
+                        'recommendedMax' => -1,
+                    ),
                     'data' => array(
                         array(
                             'min' => 300,
@@ -174,18 +177,18 @@ class PostSEOBoxAnalysis extends BaseFeature
                             'min' => 0,
                             'max' => 0,
                             'score' => 1,
-                            'text' => __('No focus keyword was set for this page...', 'buzz-seo')
+                            'text' => __('No main focus keyword was set for this page.', 'buzz-seo')
                         ),
                         array(
                             'min' => 1,
                             'max' => 10,
                             'score' => 8,
-                            'text' => __('Your focus keyword has a valid length.', 'buzz-seo')
+                            'text' => __('Your main focus keyword has a valid length.', 'buzz-seo')
                         ),
                         array(
                             'min' => 11,
                             'score' => 4,
-                            'text' => __('Your focus keyphrase is over 10 words, a keyphrase should be shorter.', 'buzz-seo')
+                            'text' => __('Your main focus keyphrase is over {2} words, a keyphrase should be shorter.', 'buzz-seo')
                         )
                     )
                 ),
