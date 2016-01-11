@@ -9,7 +9,7 @@ namespace NextBuzz\SEO;
  */
 class App
 {
-    private $features = array();
+    private static $features = array();
 
     public function __construct()
     {
@@ -33,7 +33,8 @@ class App
             // TODO: do not init feature if disable
             if ($Feature->allowDisable() === false || ($Feature->allowDisable() && true !== false)) {
                 $Feature->init();
-                $this->features[$f] = new $class();
+                
+                self::$features[$f] = new $class();
             }
         }
 
@@ -43,8 +44,9 @@ class App
 
     public static function getFeature($id)
     {
-        if (isset($this->features[$id])) {
-            return $this->features[$id];
+        if (isset(self::$features[$id])) 
+        {
+            return self::$features[$id];
         }
 
         return false;
