@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-01-08 14:01+0100\n"
-"PO-Revision-Date: 2016-01-08 14:01+0100\n"
+"POT-Creation-Date: 2016-01-11 16:27+0100\n"
+"PO-Revision-Date: 2016-01-11 16:30+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -286,19 +286,19 @@ msgstr ""
 "De meta omschrijving heeft een optimale lengte van {0} van de {1} "
 "beschikbare karakters."
 
-#: lib/Features/PostSEOBoxAnalysis.php:118
+#: lib/Features/PostSEOBoxAnalysis.php:119
 msgid "No subheading tags (like an H2) appear in the copy."
 msgstr "Er zijn geen sub-kopteksten (zoals een H2) aanwezig in de content."
 
-#: lib/Features/PostSEOBoxAnalysis.php:123
+#: lib/Features/PostSEOBoxAnalysis.php:124
 msgid "Subheadings appear in the copy."
 msgstr "Sub-kopteksten zijn aanwezig in de content."
 
-#: lib/Features/PostSEOBoxAnalysis.php:138
+#: lib/Features/PostSEOBoxAnalysis.php:139
 msgid "Please create a page title."
 msgstr "Voeg aub. een pagina titel toe."
 
-#: lib/Features/PostSEOBoxAnalysis.php:144
+#: lib/Features/PostSEOBoxAnalysis.php:145
 msgid ""
 "The page title contains {0} characters, which is less than the recommended "
 "minimum of {3} characters."
@@ -306,7 +306,7 @@ msgstr ""
 "De pagina titel bevat {0} karakter(s), wat minder is dan de minimaal "
 "aanbevolen {3} karakters."
 
-#: lib/Features/PostSEOBoxAnalysis.php:150
+#: lib/Features/PostSEOBoxAnalysis.php:151
 msgid ""
 "The page title contains {0} characters, which is slightly less than the "
 "recommended minimum of {3} characters."
@@ -314,7 +314,7 @@ msgstr ""
 "De pagina titel bevat {0} karakter(s), wat iets minder is dan de minimaal "
 "aanbevolen {3} karakters."
 
-#: lib/Features/PostSEOBoxAnalysis.php:156
+#: lib/Features/PostSEOBoxAnalysis.php:157
 msgid ""
 "The page title is between the {3} character minimum and the recommended {1} "
 "character maximum."
@@ -322,13 +322,57 @@ msgstr ""
 "De paginatitel is tussen de {3} karakter minimum en het aanbevolen {1}  "
 "karakter maximum."
 
-#: lib/Features/PostSEOBoxAnalysis.php:161
+#: lib/Features/PostSEOBoxAnalysis.php:162
 msgid ""
 "The specified meta description is {2} character(s) over the {1} available. "
 "Reducing it will ensure the entire title is visible."
 msgstr ""
 "De meta omschrijving is {2} karakter(s) langer dan de {1} beschikbare "
 "karakters. Het inkorten zorgt ervoor dat de hele titel zichtbaar is."
+
+#: lib/Features/PostSEOBoxAnalysis.php:177
+msgid "No focus keyword was set for this page..."
+msgstr "Er is geen focus sleutelwoord gemaakt voor deze pagina."
+
+#: lib/Features/PostSEOBoxAnalysis.php:183
+msgid "Your focus keyword has a valid length."
+msgstr "Het sleutelwoord heeft een goede lengte."
+
+#: lib/Features/PostSEOBoxAnalysis.php:188
+msgid "Your focus keyphrase is over 10 words, a keyphrase should be shorter."
+msgstr "De sleutelzin is langer dan 10 woorden. Deze zou korter moeten zijn."
+
+#: lib/Features/PostSEOBoxAnalysis.php:203
+msgid ""
+"The keyword density for `{1}` is {0}%, which is way over the advised {2}% "
+"maximum. The focus keyword was found {3} time(s)."
+msgstr ""
+"De dichtheid voor sleutelwoord `{1}` is {0}% wat veel meer is dan het "
+"geadviseerde {2}%. Het sleutelwoord is {3} keer gevonden."
+
+#: lib/Features/PostSEOBoxAnalysis.php:209
+msgid ""
+"The keyword density for `{1}` is {0}%, which over the advised {2}% maximum. "
+"The focus keyword was found {3} time(s)."
+msgstr ""
+"De dichtheid voor sleutelwoord `{1}` is {0}% wat meer is dan het "
+"geadviseerde {2}%. Het sleutelwoord is {3} keer gevonden."
+
+#: lib/Features/PostSEOBoxAnalysis.php:215
+msgid ""
+"The keyword density for `{1}` is {0}%, which is great. The focus keyword was "
+"found {3} time(s)."
+msgstr ""
+"De dichtheid voor sleutelwoord `{1}` is {0}% wat perfect is. Het "
+"sleutelwoord is {3} keer gevonden."
+
+#: lib/Features/PostSEOBoxAnalysis.php:221
+msgid ""
+"The keyword density for `{1}` is {0}%, which is low. The focus keyword was "
+"found {3} time(s)."
+msgstr ""
+"De dichtheid voor sleutelwoord `{1}` is {0}% wat te weinig is. Het "
+"sleutelwoord is {3} keer gevonden."
 
 #: lib/PHPTAL/Template.php:31
 msgid "File %s does not exist."

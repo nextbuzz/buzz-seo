@@ -120,6 +120,16 @@
                         handleScoreOutput(analyseCharCount(data, info, $("#title").val()));
                         break;
 
+                    case 'keywordDensity':
+                        [$("#buzz-seo-keyword0").val(), $("#buzz-seo-keyword1").val(),
+                            $("#buzz-seo-keyword2").val(), $("#buzz-seo-keyword3").val(),
+                            $("#buzz-seo-keyword4").val(), $("#buzz-seo-keyword5").val()].forEach(function (item) {
+                            if (item !== "") {
+                                handleScoreOutput(analyseFocusDensity(data, info, item, getEditorText()));
+                            }
+                        });
+                        break;
+
                     default:
                         break;
                 }
@@ -195,6 +205,35 @@
                     return {
                         score: item.score,
                         html: "<li class='score" + item.score + "'>" + item.text.replaceText(numOfWords, optimal) + "</li>"
+                    };
+                }
+            }
+        }
+
+        function analyseFocusDensity(data, info, keyword, text)
+        {
+            var index, item,
+                    numOfWords = 0, density = 0, keyCount = 0, optimalMin = info.recommendedMin, optimalMax = info.recommendedMax;
+
+            // Count words
+            if (text) {
+                var wordArray = text.match(/[\w\u2019\x27\-\u00C0-\u1FFF]+/g);
+                if (wordArray) {
+                    numOfWords = wordArray.length;
+                }
+                // Find keyword
+                var keyArray = text.match(new RegExp(keyword, "gi")) || [];
+                keyCount = keyArray.length;
+
+                density = (100 / numOfWords) * keyCount;
+            }
+
+            for (index = 0; index < data.length; ++index) {
+                item = data[index];
+                if (item.min <= density && (item.max === undefined || item.max >= density)) {
+                    return {
+                        score: item.score,
+                        html: "<li class='score" + item.score + "'>" + item.text.replaceText(density.toFixed(2), keyword, optimalMax, keyCount) + "</li>"
                     };
                 }
             }
