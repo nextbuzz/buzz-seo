@@ -1,9 +1,5 @@
 <?php
 
-/*
- * © Copyright NextBuzz B.V.
- */
-
 namespace NextBuzz\SEO\Features;
 
 /**
@@ -53,15 +49,32 @@ class Admin extends BaseFeature
     {
         global $submenu;
         
-        add_menu_page('Buzz SEO', 'Buzz SEO', 'edit_theme_options', 'BuzzSEO');
+        // Capability edit_dashboard (Only Super Admns, Adminstrators, Editors are allowed to see this page)
+        add_menu_page('Buzz SEO', 'Buzz SEO', 'edit_dashboard', 'BuzzSEO', array(&$this, "addAdminUI"));
         
-        // Show only if user is a super admin.
-        if(is_super_admin())
-        {
-            add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_theme_options', 'SEOSettings');
-        }
+        // Capability manage_sites (Only Super Admins are allowed to change SEO Settings)
+        add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'manage_sites', 'SEOSettings', array(&$this, "addAdminUI"));
        
         // Rename Submenu
         $submenu['BuzzSEO'][0][0] = __('General', 'buzz-seo');
+    }
+    
+    /*
+     * Add Admin UI
+     */
+    public function addAdminUI()
+    {
+        $optionPage = new \NextBuzz\SEO\PHPTAL\OptionPage();
+        if($optionPage)
+        {
+            //Grab safe the page input.
+            $page = filter_input(INPUT_GET, 'page');
+            
+            // Set Page into the option page render
+            $optionPage->setPage($page);
+            
+            // Render Page
+            $optionPage->render();
+        }
     }
 }
