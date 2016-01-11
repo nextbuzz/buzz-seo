@@ -139,6 +139,23 @@
                             handleScoreOutput(analyseFocusDensity(data, info, $("#buzz-seo-keyword0").val(), $("#buzz-seo-metadescription").val()));
                         }
                         break;
+                        
+                    case 'firstParagraph':
+                        var html = getEditorHTML();
+                        if (html &&  $("#buzz-seo-keyword0").val() !== "") {
+                            //numSubheadings = (html.match(/\<h[2|3|4|5|6]/g) || []).length;
+                            var paragraphs = $($.parseHTML(html, document, false)).filter("p");
+                            if (paragraphs[0] !== undefined) {
+                                handleScoreOutput(analyseFocusDensity(data, info, $("#buzz-seo-keyword0").val(), $.text(paragraphs[0])));
+                            }
+                        }
+                        break;
+                        
+                    case 'pageTitleKeyword':
+                        if ($("#title").val() !== "") {
+                            handleScoreOutput(analyseFocusDensity(data, info, $("#buzz-seo-keyword0").val(), $("#title").val()));
+                        }
+                        break;
 
                     default:
                         break;

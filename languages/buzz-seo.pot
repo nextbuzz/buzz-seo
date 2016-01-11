@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-01-11 15:52:19+0000\n"
+"POT-Creation-Date: 2016-01-11 16:10:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-11 15:52:19+0000\n"
+"PO-Revision-Date: 2016-01-11 16:10:20+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -279,6 +279,22 @@ msgstr ""
 
 #: lib/Features/PostSEOBoxAnalysis.php:244
 msgid "The meta description contains the focus keyword."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:259
+msgid "The main focus keyword does not appear in the first paragraph of the copy."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:264
+msgid "The main focus keyword appears in the first paragraph."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:279
+msgid "The main focus keyword does not appear in the page title."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:284
+msgid "The main focus keyword appears in the page title."
 msgstr ""
 
 #: lib/PHPTAL/Template.php:31

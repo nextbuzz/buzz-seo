@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-01-11 16:52+0100\n"
-"PO-Revision-Date: 2016-01-11 16:53+0100\n"
+"POT-Creation-Date: 2016-01-11 17:10+0100\n"
+"PO-Revision-Date: 2016-01-11 17:11+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -383,6 +383,24 @@ msgstr "Het hoofd sleutelwoord is niet gevonden in de meta omschrijving."
 #: lib/Features/PostSEOBoxAnalysis.php:244
 msgid "The meta description contains the focus keyword."
 msgstr "Het hoofd sleutelwoord is gevonden in de meta omschrijving."
+
+#: lib/Features/PostSEOBoxAnalysis.php:259
+msgid ""
+"The main focus keyword does not appear in the first paragraph of the copy."
+msgstr ""
+"Het hoofd sleutelwoord staat niet in de eerste paragraaf van de content."
+
+#: lib/Features/PostSEOBoxAnalysis.php:264
+msgid "The main focus keyword appears in the first paragraph."
+msgstr "Het hoofd sleutelwoord staat in de eerste paragraaf."
+
+#: lib/Features/PostSEOBoxAnalysis.php:279
+msgid "The main focus keyword does not appear in the page title."
+msgstr "Het hoofd sleutelwoord staat niet in de pagina titel."
+
+#: lib/Features/PostSEOBoxAnalysis.php:284
+msgid "The main focus keyword appears in the page title."
+msgstr "Het hoofd sleutelwoord staat in de pagina titel."
 
 #: lib/PHPTAL/Template.php:31
 msgid "File %s does not exist."

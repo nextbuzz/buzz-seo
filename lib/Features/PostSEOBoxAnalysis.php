@@ -244,6 +244,46 @@ class PostSEOBoxAnalysis extends BaseFeature
                             'text' => __('The meta description contains the focus keyword.', 'buzz-seo')
                         )
                     )
+                ),
+                array(
+                    'id' => 'firstParagraph',
+                    'info' => array(
+                        'recommendedMin' => 1,
+                        'recommendedMax' => -1,
+                    ),
+                    'data' => array(
+                        array(
+                            'min' => 0,
+                            'max' => 0,
+                            'score' => 3,
+                            'text' => __('The main focus keyword does not appear in the first paragraph of the copy.', 'buzz-seo')
+                        ),
+                        array(
+                            'min' => 1,
+                            'score' => 9,
+                            'text' => __('The main focus keyword appears in the first paragraph.', 'buzz-seo')
+                        )
+                    )
+                ),
+                array(
+                    'id' => 'pageTitleKeyword',
+                    'info' => array(
+                        'recommendedMin' => 1,
+                        'recommendedMax' => -1,
+                    ),
+                    'data' => array(
+                        array(
+                            'min' => 0,
+                            'max' => 0,
+                            'score' => 3,
+                            'text' => __('The main focus keyword does not appear in the page title.', 'buzz-seo')
+                        ),
+                        array(
+                            'min' => 1,
+                            'score' => 9,
+                            'text' => __('The main focus keyword appears in the page title.', 'buzz-seo')
+                        )
+                    )
                 )
             )
         ));
