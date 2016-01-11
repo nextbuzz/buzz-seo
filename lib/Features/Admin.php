@@ -6,7 +6,7 @@ namespace NextBuzz\SEO\Features;
  * Description of Admin
  *
  * @author Bas de Kort <bas@nextbuzz.nl>
- * @author Nick Vlug  <nick@ruddy.nl>
+ * @author HeroBanana, Nick Vlug <nick@ruddy.nl>
  */
 class Admin extends BaseFeature
 {
@@ -17,7 +17,7 @@ class Admin extends BaseFeature
             return;
         }
 
-        add_action('admin_enqueue_scripts', array($this, 'enqueueAdminScripts'));
+        add_action('admin_enqueue_scripts', array(&$this, 'enqueueAdminScripts'));
         
         add_action('admin_menu', array(&$this, 'createAdminMenu'));
     }
@@ -49,12 +49,24 @@ class Admin extends BaseFeature
     {
         global $submenu;
         
-        // Capability edit_dashboard (Only Super Admns, Adminstrators, Editors are allowed to see this page)
+        // grab app singleton
+        $seo = \NextBuzz\SEO\App::getInstance();
+        
+        // Add Menu Page
         add_menu_page('Buzz SEO', 'Buzz SEO', 'edit_dashboard', 'BuzzSEO', array(&$this, "addAdminUI"));
         
-        // Capability manage_sites (Only Super Admins are allowed to change SEO Settings)
-        add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'manage_sites', 'SEOSettings', array(&$this, "addAdminUI"));
-       
+        // Make sure this submenu is only visiable for admin users.
+        if(current_user_can('manage_options'))
+        {
+            // Add Settings Sub Option Page
+            add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_dashboard', 'SEOSettings', array(&$this, "addAdminUI"));
+        }
+        
+        if($seo->getFeature('') === true)
+        {
+            // Add Feature submenu
+        }
+        
         // Rename Submenu
         $submenu['BuzzSEO'][0][0] = __('General', 'buzz-seo');
     }
