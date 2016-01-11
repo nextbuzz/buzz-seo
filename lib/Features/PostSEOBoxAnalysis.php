@@ -224,6 +224,26 @@ class PostSEOBoxAnalysis extends BaseFeature
                             'text' => __('The keyword density for `{1}` is {0}%, which is low. The focus keyword was found {3} time(s).', 'buzz-seo')
                         ),
                     )
+                ),
+                array(
+                    'id' => 'metaDescriptionKeyword',
+                    'info' => array(
+                        'recommendedMin' => 1,
+                        'recommendedMax' => -1,
+                    ),
+                    'data' => array(
+                        array(
+                            'min' => 0,
+                            'max' => 0,
+                            'score' => 3,
+                            'text' => __('The meta description does not contain the main focus keyword.', 'buzz-seo')
+                        ),
+                        array(
+                            'min' => 1,
+                            'score' => 8,
+                            'text' => __('The meta description contains the focus keyword.', 'buzz-seo')
+                        )
+                    )
                 )
             )
         ));

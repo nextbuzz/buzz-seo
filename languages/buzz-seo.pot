@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-01-11 15:41:38+0000\n"
+"POT-Creation-Date: 2016-01-11 15:52:19+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-11 15:41:38+0000\n"
+"PO-Revision-Date: 2016-01-11 15:52:19+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -271,6 +271,14 @@ msgstr ""
 
 #: lib/Features/PostSEOBoxAnalysis.php:224
 msgid "The keyword density for `{1}` is {0}%, which is low. The focus keyword was found {3} time(s)."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:239
+msgid "The meta description does not contain the main focus keyword."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:244
+msgid "The meta description contains the focus keyword."
 msgstr ""
 
 #: lib/PHPTAL/Template.php:31

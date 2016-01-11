@@ -133,6 +133,12 @@
                     case 'keyphraseSizeCheck':
                         handleScoreOutput(analyseWordCount(data, info, $("#buzz-seo-keyword0").val()));
                         break;
+                        
+                    case 'metaDescriptionKeyword':
+                        if ($("#buzz-seo-metadescription").val() !== "") {
+                            handleScoreOutput(analyseFocusDensity(data, info, $("#buzz-seo-keyword0").val(), $("#buzz-seo-metadescription").val()));
+                        }
+                        break;
 
                     default:
                         break;

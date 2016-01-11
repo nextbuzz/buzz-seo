@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-01-11 16:41+0100\n"
-"PO-Revision-Date: 2016-01-11 16:42+0100\n"
+"POT-Creation-Date: 2016-01-11 16:52+0100\n"
+"PO-Revision-Date: 2016-01-11 16:53+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -375,6 +375,14 @@ msgid ""
 msgstr ""
 "De dichtheid voor sleutelwoord `{1}` is {0}% wat te weinig is. Het "
 "sleutelwoord is {3} keer gevonden."
+
+#: lib/Features/PostSEOBoxAnalysis.php:239
+msgid "The meta description does not contain the main focus keyword."
+msgstr "Het hoofd sleutelwoord is niet gevonden in de meta omschrijving."
+
+#: lib/Features/PostSEOBoxAnalysis.php:244
+msgid "The meta description contains the focus keyword."
+msgstr "Het hoofd sleutelwoord is gevonden in de meta omschrijving."
 
 #: lib/PHPTAL/Template.php:31
 msgid "File %s does not exist."
