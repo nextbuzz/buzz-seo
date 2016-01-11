@@ -1,0 +1,93 @@
+/* 
+    Created on : 11-jan-2016, 16:11:24
+    Author     : Nick Vlug <nick@ruddy.nl>
+*/
+
+* {
+    box-sizing: inherit;
+}
+
+.buzz-seo-wrapper {
+    background: #fff;
+    border: 2px solid #e6e6e6;
+    margin-top: 20px;
+    width: calc(100% - 20px);
+    
+    .inside {
+        padding: 20px 15px;
+        
+        h1 {
+            font-size: 20px;
+            line-height: 1em;
+            padding: 0px;
+            margin: 0px;
+            color: #e12831;
+            margin-bottom: 15px;
+        }
+    }
+}
+
+.buzz-seo-tabs {
+
+    .nav-tab-wrapper {
+        margin-bottom: 0px;
+        border-bottom: 1px solid #dfdfdf;
+    }
+    
+    .nav-tab-active {
+        background: #fff;
+        border-bottom: 1px solid #fff;
+    }
+    
+    .inside {
+        display: block;
+        border: 1px solid #dfdfdf;
+        border-top: none;
+        margin-top: 0 !important;
+        background: #fff;
+        padding-top: 6px;
+        
+        &.hidden {
+            display: none;
+        }
+        
+        &:first-child {
+            margin-top: 0px;
+        }
+        
+        input[type=text] {
+            width: 100%;
+        }
+    }
+}
+
+#buzz-seo-content-analysis {
+    > ul {
+        > li {
+            font-weight: bold;
+            margin-top: 1em;
+            
+            &:first-of-type {
+                margin-top: 0px;
+            }
+            
+            > ul {
+                font-weight: normal;
+                list-style: disc;
+                margin-left: 1.5em; 
+            }
+        }
+    }
+    
+    .error {
+        color: red;
+    }
+    
+    .warning {
+        color: orange;
+    }
+    
+    .good {
+        color: green;
+    }
+}
