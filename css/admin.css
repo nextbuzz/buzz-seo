@@ -1,3 +1,27 @@
+* {
+    box-sizing: inherit;
+}
+
+.buzz-seo-wrapper {
+    background: #fff;
+    border: 2px solid #e6e6e6;
+    margin-top: 20px;
+    width: calc(100% - 20px);
+}
+
+.buzz-seo-wrapper .inside {
+    padding: 20px 15px;
+}
+
+.buzz-seo-wrapper .inside h1 {
+    font-size: 20px;
+    line-height: 1em;
+    padding: 0px;
+    margin: 0px;
+    color: #e12831;
+    margin-bottom: 15px;
+}
+
 .buzz-seo-tabs .nav-tab-wrapper {
     margin-bottom: 0;
     border-bottom: 1px solid #dfdfdf;
