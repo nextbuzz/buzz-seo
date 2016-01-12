@@ -43,7 +43,10 @@ class PostSEOBoxAnalysis extends BaseFeature
             'data' => array(
                 array(
                     'id' => 'wordCount',
-                    'info' => array(),
+                    'info' => array(
+                        'recommendedMin' => 300,
+                        'recommendedMax' => -1,
+                    ),
                     'data' => array(
                         array(
                             'min' => 300,
@@ -174,18 +177,18 @@ class PostSEOBoxAnalysis extends BaseFeature
                             'min' => 0,
                             'max' => 0,
                             'score' => 1,
-                            'text' => __('No focus keyword was set for this page...', 'buzz-seo')
+                            'text' => __('No main focus keyword was set for this page.', 'buzz-seo')
                         ),
                         array(
                             'min' => 1,
                             'max' => 10,
                             'score' => 8,
-                            'text' => __('Your focus keyword has a valid length.', 'buzz-seo')
+                            'text' => __('Your main focus keyword has a valid length.', 'buzz-seo')
                         ),
                         array(
                             'min' => 11,
                             'score' => 4,
-                            'text' => __('Your focus keyphrase is over 10 words, a keyphrase should be shorter.', 'buzz-seo')
+                            'text' => __('Your main focus keyphrase is over {2} words, a keyphrase should be shorter.', 'buzz-seo')
                         )
                     )
                 ),
@@ -220,6 +223,66 @@ class PostSEOBoxAnalysis extends BaseFeature
                             'score' => 4,
                             'text' => __('The keyword density for `{1}` is {0}%, which is low. The focus keyword was found {3} time(s).', 'buzz-seo')
                         ),
+                    )
+                ),
+                array(
+                    'id' => 'metaDescriptionKeyword',
+                    'info' => array(
+                        'recommendedMin' => 1,
+                        'recommendedMax' => -1,
+                    ),
+                    'data' => array(
+                        array(
+                            'min' => 0,
+                            'max' => 0,
+                            'score' => 3,
+                            'text' => __('The meta description does not contain the main focus keyword.', 'buzz-seo')
+                        ),
+                        array(
+                            'min' => 1,
+                            'score' => 8,
+                            'text' => __('The meta description contains the focus keyword.', 'buzz-seo')
+                        )
+                    )
+                ),
+                array(
+                    'id' => 'firstParagraph',
+                    'info' => array(
+                        'recommendedMin' => 1,
+                        'recommendedMax' => -1,
+                    ),
+                    'data' => array(
+                        array(
+                            'min' => 0,
+                            'max' => 0,
+                            'score' => 3,
+                            'text' => __('The main focus keyword does not appear in the first paragraph of the copy.', 'buzz-seo')
+                        ),
+                        array(
+                            'min' => 1,
+                            'score' => 9,
+                            'text' => __('The main focus keyword appears in the first paragraph.', 'buzz-seo')
+                        )
+                    )
+                ),
+                array(
+                    'id' => 'pageTitleKeyword',
+                    'info' => array(
+                        'recommendedMin' => 1,
+                        'recommendedMax' => -1,
+                    ),
+                    'data' => array(
+                        array(
+                            'min' => 0,
+                            'max' => 0,
+                            'score' => 3,
+                            'text' => __('The main focus keyword does not appear in the page title.', 'buzz-seo')
+                        ),
+                        array(
+                            'min' => 1,
+                            'score' => 9,
+                            'text' => __('The main focus keyword appears in the page title.', 'buzz-seo')
+                        )
                     )
                 )
             )

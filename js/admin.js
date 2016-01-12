@@ -105,7 +105,7 @@
                 info = BuzzSEOAnalysis.data[index].info;
                 switch (id) {
                     case 'wordCount':
-                        handleScoreOutput(analyseWordCount(data, getEditorText()));
+                        handleScoreOutput(analyseWordCount(data, info, getEditorText()));
                         break;
 
                     case 'metaDescriptionLength':
@@ -128,6 +128,33 @@
                                 handleScoreOutput(analyseFocusDensity(data, info, item, getEditorText()));
                             }
                         });
+                        break;
+                        
+                    case 'keyphraseSizeCheck':
+                        handleScoreOutput(analyseWordCount(data, info, $("#buzz-seo-keyword0").val()));
+                        break;
+                        
+                    case 'metaDescriptionKeyword':
+                        if ($("#buzz-seo-metadescription").val() !== "") {
+                            handleScoreOutput(analyseFocusDensity(data, info, $("#buzz-seo-keyword0").val(), $("#buzz-seo-metadescription").val()));
+                        }
+                        break;
+                        
+                    case 'firstParagraph':
+                        var html = getEditorHTML();
+                        if (html &&  $("#buzz-seo-keyword0").val() !== "") {
+                            //numSubheadings = (html.match(/\<h[2|3|4|5|6]/g) || []).length;
+                            var paragraphs = $($.parseHTML(html, document, false)).filter("p");
+                            if (paragraphs[0] !== undefined) {
+                                handleScoreOutput(analyseFocusDensity(data, info, $("#buzz-seo-keyword0").val(), $.text(paragraphs[0])));
+                            }
+                        }
+                        break;
+                        
+                    case 'pageTitleKeyword':
+                        if ($("#title").val() !== "") {
+                            handleScoreOutput(analyseFocusDensity(data, info, $("#buzz-seo-keyword0").val(), $("#title").val()));
+                        }
                         break;
 
                     default:
@@ -183,10 +210,10 @@
             }
         }
 
-        function analyseWordCount(data, text)
+        function analyseWordCount(data, info, text)
         {
             var index, item,
-                    numOfWords = 0, optimal = false;
+                    numOfWords = 0, optimalMin = info.recommendedMin, optimalMax = info.recommendedMax;
 
             // Count words
             if (text) {
@@ -198,13 +225,10 @@
 
             for (index = 0; index < data.length; ++index) {
                 item = data[index];
-                if (!optimal) {
-                    optimal = item.min;
-                }
                 if (item.min <= numOfWords && (item.max === undefined || item.max >= numOfWords)) {
                     return {
                         score: item.score,
-                        html: "<li class='score" + item.score + "'>" + item.text.replaceText(numOfWords, optimal) + "</li>"
+                        html: "<li class='score" + item.score + "'>" + item.text.replaceText(numOfWords, optimalMin, optimalMax) + "</li>"
                     };
                 }
             }
