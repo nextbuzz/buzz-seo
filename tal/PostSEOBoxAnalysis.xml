@@ -1,0 +1,79 @@
+<div class="buzz-seo-tabs">
+    <div class="nav-tab-wrapper">
+        <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Analysis</a>
+        <a class="nav-tab" href="javascript:;" i18n:translate="">Focus keywords</a>
+    </div>
+    
+    <div class="inside">
+        <table class="form-table">
+            <tr>
+                <th scope="row" i18n:translate="">Content analysis</th>
+                <td>
+                    <div class="buzz-seo-tabs">
+                        <div class="nav-tab-wrapper">
+                            <a class="nav-tab nav-tab-active" href="javascript:;">
+                                <span tal:omit-tag="" i18n:translate="">Errors</span>
+                                (<span id="buzz-seo-error-count">0</span>)
+                            </a>
+                            <a class="nav-tab" href="javascript:;">
+                                <span tal:omit-tag="" i18n:translate="">Warnings</span>
+                                (<span id="buzz-seo-warning-count">0</span>)
+                            </a>
+                            <a class="nav-tab" href="javascript:;">
+                                <span tal:omit-tag="" i18n:translate="">Perfect</span>
+                                (<span id="buzz-seo-good-count">0</span>)
+                            </a>
+                        </div>
+                        
+                        <div class="inside">
+                            <ul id="buzz-seo-content-analysis-errors">
+                                <li i18n:translate="">Not yet available.</li>
+                            </ul>
+                        </div>
+                        <div class="inside hidden">
+                            <ul id="buzz-seo-content-analysis-warnings">
+                                <li i18n:translate="">Not yet available.</li>
+                            </ul>
+                        </div>
+                        <div class="inside hidden">
+                            <ul id="buzz-seo-content-analysis-good">
+                                <li i18n:translate="">Not yet available.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p class="description" i18n:translate="">The analysis should only be used as an indicator.</p>
+                </td>
+            </tr>
+            <tr id="buzz-seo-readability">
+                <th scope="row" i18n:translate="">Readability</th>
+                <td>
+                    <p id="buzz-seo-readability-score" i18n:translate="">Not yet available.</p>
+                    <p class="description" i18n:translate="">The readability score is a methametical calculation based on the English literature.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+    
+    <div class="inside hidden">
+        <table class="form-table">
+            <tr>
+                <th scope="row" i18n:translate="">Focus keyword</th>
+                <td>
+                    <input id="buzz-seo-keyword0" type="text" name="PostSEOBoxAnalysis[keywords][]" tal:attributes="value keywords/0 | nothing" />
+                    <p class="description" i18n:translate="">Pick the main keyword or keyphrase that this post/page is about.</p>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row" i18n:translate="">Additional keywords</th>
+                <td>
+                    <input id="buzz-seo-keyword1" type="text" name="PostSEOBoxAnalysis[keywords][]" tal:attributes="value keywords/1 | nothing" />
+                    <input id="buzz-seo-keyword2" type="text" name="PostSEOBoxAnalysis[keywords][]" tal:attributes="value keywords/2 | nothing" />
+                    <input id="buzz-seo-keyword3" type="text" name="PostSEOBoxAnalysis[keywords][]" tal:attributes="value keywords/3 | nothing" />
+                    <input id="buzz-seo-keyword4" type="text" name="PostSEOBoxAnalysis[keywords][]" tal:attributes="value keywords/4 | nothing" />
+                    <input id="buzz-seo-keyword5" type="text" name="PostSEOBoxAnalysis[keywords][]" tal:attributes="value keywords/5 | nothing" />
+                    <p class="description" i18n:translate="">Pick additional keywords or keyphrases that this post/page is about.</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

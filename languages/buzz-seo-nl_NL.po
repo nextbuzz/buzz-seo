@@ -1,0 +1,558 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: LengthOfRope SEO\n"
+"POT-Creation-Date: 2016-01-12 15:44+0100\n"
+"PO-Revision-Date: 2016-01-12 15:46+0100\n"
+"Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
+"Language-Team: LengthOfRope <bdekort@gmail.com>\n"
+"Language: nl_NL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.6\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: buzz-seo.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: tal/PostSEOBox.xml:3
+msgid "Basic"
+msgstr "Basis"
+
+#: tal/PostSEOBox.xml:4
+msgid "Facebook"
+msgstr "Facebook"
+
+#: tal/PostSEOBox.xml:5
+msgid "Twitter"
+msgstr "Twitter"
+
+#: tal/PostSEOBox.xml:11
+msgid "Page title"
+msgstr "Pagina titel"
+
+#: tal/PostSEOBox.xml:14
+msgid ""
+"The title as displayed in search engines and in the browser title area. "
+"Defaults to the post title if empty."
+msgstr ""
+"De titel zoals weergegeven in zoekmachines en in de browser titelbalk. Als "
+"deze wordt leeggelaten wordt de bericht titel gebruikt."
+
+#: tal/PostSEOBox.xml:18
+msgid "Meta description"
+msgstr "Meta omschrijving"
+
+#: tal/PostSEOBox.xml:21
+msgid "The description which most search engines use."
+msgstr "De omschrijving die in de meeste zoekmachines wordt gebruikt."
+
+#: tal/PostSEOBox.xml:25
+msgid "Index options"
+msgstr "Indexeer opties"
+
+#: tal/PostSEOBox.xml:31
+msgid "Do not index page (noindex)"
+msgstr "Deze pagina niet indexeren (noindex)"
+
+#: tal/PostSEOBox.xml:37
+msgid "Do not follow links (nofollow)"
+msgstr "Links op deze pagina niet volgen (nofollow)"
+
+#: tal/PostSEOBox.xml:42
+msgid "Warning:"
+msgstr "Waarschuwing:"
+
+#: tal/PostSEOBox.xml:43
+msgid ""
+"WordPress is set to no-indexing mode in global options. These page specific "
+"settings are ignored as long as the global setting is active."
+msgstr ""
+"WordPress blokkeert momenteel zoekmachines in het globale instellingen menu. "
+"Deze pagina specifieke opties worden genegeerd zolang als de globale "
+"instelling op blokkeren staat."
+
+#: tal/PostSEOBox.xml:45
+msgid "Tell search engines how to index this page."
+msgstr "Laat zoekmachines weten hoe ze deze pagina mogen indexeren."
+
+#: tal/PostSEOBox.xml:54
+msgid "Facebook title"
+msgstr "Facebook titel"
+
+#: tal/PostSEOBox.xml:57
+msgid ""
+"If you don't want to use the post title for sharing the post on Facebook but "
+"instead want another title there, write it here."
+msgstr ""
+"Als je de berichttitel niet wilt gebruiken op Facebook, schrijf dan hier de "
+"titel die op Facebook gebruikt dient te worden."
+
+#: tal/PostSEOBox.xml:61
+msgid "Facebook description"
+msgstr "Facebook omschrijving"
+
+#: tal/PostSEOBox.xml:64
+msgid ""
+"If you don't want to use the meta description for sharing the post on "
+"Facebook but want another description there, write it here."
+msgstr ""
+"Als je de meta omschrijving niet wilt gebruiken op Facebook, schrijf dan "
+"hier de omschrijving die op Facebook gebruikt dient te worden."
+
+#: tal/PostSEOBox.xml:68
+msgid "Current Facebook image"
+msgstr "Huidige Facebook afbeelding"
+
+#: tal/PostSEOBox.xml:71 tal/PostSEOBox.xml:108
+msgid "Remove image"
+msgstr "Verwijder afbeelding"
+
+#: tal/PostSEOBox.xml:75
+msgid "Facebook image"
+msgstr "Facebook afbeelding"
+
+#: tal/PostSEOBox.xml:80 tal/PostSEOBox.xml:117
+msgid "Upload"
+msgstr "Uploaden"
+
+#: tal/PostSEOBox.xml:82
+msgid "Add a custom image for Facebook."
+msgstr "Voeg een afbeelding toe voor Facebook."
+
+#: tal/PostSEOBox.xml:91
+msgid "Twitter title"
+msgstr "Twitter titel"
+
+#: tal/PostSEOBox.xml:94
+msgid ""
+"If you don't want to use the post title for sharing the post on Twitter but "
+"instead want another title there, write it here."
+msgstr ""
+"Als je de berichttitel niet wilt gebruiken op Twitter, schrijf dan hier de "
+"titel die op Twitter gebruikt dient te worden."
+
+#: tal/PostSEOBox.xml:98
+msgid "Twitter description"
+msgstr "Twitter omschrijving"
+
+#: tal/PostSEOBox.xml:101
+msgid ""
+"If you don't want to use the meta description for sharing the post on "
+"Twitter but want another description there, write it here."
+msgstr ""
+"Als je de meta omschrijving niet wilt gebruiken op Twitter, schrijf dan hier "
+"de omschrijving die op Twitter gebruikt dient te worden."
+
+#: tal/PostSEOBox.xml:105
+msgid "Current Twitter image"
+msgstr "Huidige Twitter afbeelding"
+
+#: tal/PostSEOBox.xml:112
+msgid "Twitter image"
+msgstr "Twitter afbeelding"
+
+#: tal/PostSEOBox.xml:119
+msgid "Add a custom image for Twitter."
+msgstr "Voeg een afbeeding toe voor Twitter."
+
+#: tal/PostSEOBoxAnalysis.xml:3
+msgid "Analysis"
+msgstr "Analyse"
+
+#: tal/PostSEOBoxAnalysis.xml:4
+msgid "Focus keywords"
+msgstr "Focus sleutelwoorden"
+
+#: tal/PostSEOBoxAnalysis.xml:10
+msgid "Content analysis"
+msgstr "Content analyse"
+
+#: tal/PostSEOBoxAnalysis.xml:15
+msgid "Errors"
+msgstr "Fouten"
+
+#: tal/PostSEOBoxAnalysis.xml:19
+msgid "Warnings"
+msgstr "Waarschuwingen"
+
+#: tal/PostSEOBoxAnalysis.xml:23
+msgid "Perfect"
+msgstr "Perfect"
+
+#: tal/PostSEOBoxAnalysis.xml:30 tal/PostSEOBoxAnalysis.xml:35
+#: tal/PostSEOBoxAnalysis.xml:40 tal/PostSEOBoxAnalysis.xml:50
+msgid "Not yet available."
+msgstr "Nog niet beschikbaar."
+
+#: tal/PostSEOBoxAnalysis.xml:44
+msgid "The analysis should only be used as an indicator."
+msgstr ""
+"De analyse dient alleen gebruikt te worden als een indicator van eventuele "
+"SEO gerelateerde problemen."
+
+#: tal/PostSEOBoxAnalysis.xml:48
+msgid "Readability"
+msgstr "Leesbaarheid"
+
+#: tal/PostSEOBoxAnalysis.xml:51
+msgid ""
+"The readability score is a methametical calculation based on the English "
+"literature."
+msgstr ""
+"De leesbaarheidsscore is een wiskundige berekening gebaseerd op de "
+"Nederlandse literatuur."
+
+#: tal/PostSEOBoxAnalysis.xml:60
+msgid "Focus keyword"
+msgstr "Focus sleutelwoord"
+
+#: tal/PostSEOBoxAnalysis.xml:63
+msgid "Pick the main keyword or keyphrase that this post/page is about."
+msgstr ""
+"Kies het hoofd sleutelwoord of de sleutelzin waar deze pagina over gaat."
+
+#: tal/PostSEOBoxAnalysis.xml:67
+msgid "Additional keywords"
+msgstr "Additionele sleutelwoorden"
+
+#: tal/PostSEOBoxAnalysis.xml:74
+msgid "Pick additional keywords or keyphrases that this post/page is about."
+msgstr ""
+"Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
+
+#: lib/Features/Admin.php:40
+msgid "Select an image"
+msgstr "Selecteer een afbeelding"
+
+#: lib/Features/Admin.php:40 lib/Features/Admin.php:41
+msgid "Select"
+msgstr "Selecteren"
+
+#: lib/Features/PostSEOBox.php:42
+msgid "Search Engine Optimization (SEO)"
+msgstr "Zoekmachine Optimalisatie (SEO)"
+
+#: lib/Features/PostSEOBoxAnalysis.php:31
+msgid "SEO Content Analysis"
+msgstr "SEO Content Analyse"
+
+#: lib/Features/PostSEOBoxAnalysis.php:41
+msgid "There are currently no errors found in the analysis."
+msgstr "Er zijn geen fouten gevonden tijdens de analyse."
+
+#: lib/Features/PostSEOBoxAnalysis.php:42
+msgid "There are currently no warnings found in the analysis."
+msgstr "Er zijn geen waarschuwingen gevonden tijdens de analyse."
+
+#: lib/Features/PostSEOBoxAnalysis.php:43
+msgid "There is probably a lot wrong with your content SEO wise."
+msgstr "Er is waarschijnlijk een boel mis met de content op SEO gebied."
+
+#: lib/Features/PostSEOBoxAnalysis.php:55
+msgid ""
+"The text contains {0} words, this is more than the {1} word recommended "
+"minimum."
+msgstr ""
+"De tekst bevat {0} woorden, dit is meer dan het aanbevolen minimum van {1} "
+"woorden."
+
+#: lib/Features/PostSEOBoxAnalysis.php:61
+msgid ""
+"The text contains {0} words, this is slightly below the {1} word recommended "
+"minimum. Add a bit more copy."
+msgstr ""
+"De tekst bevat {0} woorden, dit is iets minder dan het aanbevolen minimum "
+"van {1} woorden. Voeg iets meer content toe."
+
+#: lib/Features/PostSEOBoxAnalysis.php:67
+msgid ""
+"The text contains {0} words, this is below the {1} word recommended minimum. "
+"Add a little more useful content on this topic for readers."
+msgstr ""
+"De tekst bevat {0} woorden, dit is minder dan het aanbevolen minimum van {1} "
+"woorden. Voeg iets meer nuttige content toe."
+
+#: lib/Features/PostSEOBoxAnalysis.php:73
+msgid ""
+"The text contains {0} words, this is below the {1} word recommended minimum. "
+"Add more useful content on this topic for readers."
+msgstr ""
+"De tekst bevat {0} woorden, dit is minder dan het aanbevolen minimum van {1} "
+"woorden. Voeg meer nuttige content toe."
+
+#: lib/Features/PostSEOBoxAnalysis.php:79
+msgid ""
+"The text contains {0} word(s). This is far too low and should be increased."
+msgstr ""
+"De tekst bevat {0} woorden, dit is veel te weinig en zou moeten worden "
+"gecorrigeerd."
+
+#: lib/Features/PostSEOBoxAnalysis.php:93
+msgid ""
+"The specified meta description is {2} character(s) over the {1} available. "
+"Reducing it will ensure the entire description is visible."
+msgstr ""
+"De meta omschrijving is {2} karakter(s) langer dan de {1} beschikbare "
+"karakters. Het inkorten zorgt ervoor dat de hele omschrijving zichtbaar is."
+
+#: lib/Features/PostSEOBoxAnalysis.php:99
+msgid ""
+"No meta description has been specified, search engines will display copy "
+"from the page instead."
+msgstr ""
+"Er is geen meta omschrijving toegevoegd. Zoekmachines zullen willekeurige "
+"content tonen die op de pagina gevonden wordt."
+
+#: lib/Features/PostSEOBoxAnalysis.php:105
+msgid ""
+"The meta description is {0} character(s), however up to {1} characters are "
+"available."
+msgstr ""
+"De meta omschrijving is {0} karakter(s) lang, er zijn echter {1} karakters "
+"beschikbaar."
+
+#: lib/Features/PostSEOBoxAnalysis.php:111
+msgid ""
+"The meta description has an optimal length of {0} out of max {1} characters."
+msgstr ""
+"De meta omschrijving heeft een optimale lengte van {0} van de {1} "
+"beschikbare karakters."
+
+#: lib/Features/PostSEOBoxAnalysis.php:123
+msgid "No subheading tags (like an H2) appear in the copy."
+msgstr "Er zijn geen sub-kopteksten (zoals een H2) aanwezig in de content."
+
+#: lib/Features/PostSEOBoxAnalysis.php:128
+msgid "Subheadings appear in the copy."
+msgstr "Sub-kopteksten zijn aanwezig in de content."
+
+#: lib/Features/PostSEOBoxAnalysis.php:143
+msgid "Please create a page title."
+msgstr "Voeg aub. een pagina titel toe."
+
+#: lib/Features/PostSEOBoxAnalysis.php:149
+msgid ""
+"The page title contains {0} characters, which is less than the recommended "
+"minimum of {3} characters."
+msgstr ""
+"De pagina titel bevat {0} karakter(s), wat minder is dan de minimaal "
+"aanbevolen {3} karakters."
+
+#: lib/Features/PostSEOBoxAnalysis.php:155
+msgid ""
+"The page title contains {0} characters, which is slightly less than the "
+"recommended minimum of {3} characters."
+msgstr ""
+"De pagina titel bevat {0} karakter(s), wat iets minder is dan de minimaal "
+"aanbevolen {3} karakters."
+
+#: lib/Features/PostSEOBoxAnalysis.php:161
+msgid ""
+"The page title is between the {3} character minimum and the recommended {1} "
+"character maximum."
+msgstr ""
+"De paginatitel is tussen de {3} karakter minimum en het aanbevolen {1}  "
+"karakter maximum."
+
+#: lib/Features/PostSEOBoxAnalysis.php:166
+msgid ""
+"The specified meta description is {2} character(s) over the {1} available. "
+"Reducing it will ensure the entire title is visible."
+msgstr ""
+"De meta omschrijving is {2} karakter(s) langer dan de {1} beschikbare "
+"karakters. Het inkorten zorgt ervoor dat de hele titel zichtbaar is."
+
+#: lib/Features/PostSEOBoxAnalysis.php:181
+msgid "No main focus keyword was set for this page."
+msgstr "Er is geen hoofd sleutelwoord ingevuld voor deze pagina."
+
+#: lib/Features/PostSEOBoxAnalysis.php:187
+msgid "Your main focus keyword has a valid length."
+msgstr "Het hoofd sleutelwoord heeft een goede lengte."
+
+#: lib/Features/PostSEOBoxAnalysis.php:192
+msgid ""
+"Your main focus keyphrase is over {2} words, a keyphrase should be shorter."
+msgstr ""
+"De hoofd sleutelzin is langer dan {2} woorden, deze zou korter moeten zijn."
+
+#: lib/Features/PostSEOBoxAnalysis.php:207
+msgid ""
+"The keyword density for `{1}` is {0}%, which is way over the advised {2}% "
+"maximum. The focus keyword was found {3} time(s)."
+msgstr ""
+"De dichtheid voor sleutelwoord `{1}` is {0}% wat veel meer is dan het "
+"geadviseerde {2}%. Het sleutelwoord is {3} keer gevonden."
+
+#: lib/Features/PostSEOBoxAnalysis.php:213
+msgid ""
+"The keyword density for `{1}` is {0}%, which over the advised {2}% maximum. "
+"The focus keyword was found {3} time(s)."
+msgstr ""
+"De dichtheid voor sleutelwoord `{1}` is {0}% wat meer is dan het "
+"geadviseerde {2}%. Het sleutelwoord is {3} keer gevonden."
+
+#: lib/Features/PostSEOBoxAnalysis.php:219
+msgid ""
+"The keyword density for `{1}` is {0}%, which is great. The focus keyword was "
+"found {3} time(s)."
+msgstr ""
+"De dichtheid voor sleutelwoord `{1}` is {0}% wat perfect is. Het "
+"sleutelwoord is {3} keer gevonden."
+
+#: lib/Features/PostSEOBoxAnalysis.php:225
+msgid ""
+"The keyword density for `{1}` is {0}%, which is low. The focus keyword was "
+"found {3} time(s)."
+msgstr ""
+"De dichtheid voor sleutelwoord `{1}` is {0}% wat te weinig is. Het "
+"sleutelwoord is {3} keer gevonden."
+
+#: lib/Features/PostSEOBoxAnalysis.php:240
+msgid "The meta description does not contain the main focus keyword."
+msgstr "Het hoofd sleutelwoord is niet gevonden in de meta omschrijving."
+
+#: lib/Features/PostSEOBoxAnalysis.php:245
+msgid "The meta description contains the focus keyword."
+msgstr "Het hoofd sleutelwoord is gevonden in de meta omschrijving."
+
+#: lib/Features/PostSEOBoxAnalysis.php:260
+msgid ""
+"The main focus keyword does not appear in the first paragraph of the copy."
+msgstr ""
+"Het hoofd sleutelwoord staat niet in de eerste paragraaf van de content."
+
+#: lib/Features/PostSEOBoxAnalysis.php:265
+msgid "The main focus keyword appears in the first paragraph."
+msgstr "Het hoofd sleutelwoord staat in de eerste paragraaf."
+
+#: lib/Features/PostSEOBoxAnalysis.php:280
+msgid "The main focus keyword does not appear in the page title."
+msgstr "Het hoofd sleutelwoord staat niet in de pagina titel."
+
+#: lib/Features/PostSEOBoxAnalysis.php:285
+msgid "The main focus keyword appears in the page title."
+msgstr "Het hoofd sleutelwoord staat in de pagina titel."
+
+#: lib/Features/PostSEOBoxAnalysis.php:300
+msgid ""
+"The content is very difficult to read. Try to make shorter sentences and use "
+"less difficult words to improve readability."
+msgstr ""
+"De tekst is erg moeilijk te lezen. Probeer kortere zinnen te maken en minder "
+"moeilijke woorden te gebruiken om de leesbaarheid te verbeteren."
+
+#: lib/Features/PostSEOBoxAnalysis.php:306
+msgid ""
+"The content is difficult to read. Try to make shorter sentences and use less "
+"difficult words to improve readability."
+msgstr ""
+"De tekst is moeilijk te lezen. Probeer kortere zinnen te maken en minder "
+"moeilijke woorden te gebruiken om de leesbaarheid te verbeteren."
+
+#: lib/Features/PostSEOBoxAnalysis.php:312
+msgid ""
+"The content is fairly difficult to read. Try to make shorter sentences to "
+"improve readability."
+msgstr ""
+"De tekst is vrij moeilijk te lezen. Probeer kortere zinnen te maken om de "
+"leesbaarheid te verbeteren."
+
+#: lib/Features/PostSEOBoxAnalysis.php:318
+msgid "The content is sufficiantly readable."
+msgstr "De tekst is voldoende leesbaar."
+
+#: lib/Features/PostSEOBoxAnalysis.php:324
+msgid "The content is fairly easy to read."
+msgstr "De tekst is vrij eenvoudig te lezen."
+
+#: lib/Features/PostSEOBoxAnalysis.php:330
+msgid "The content is easy to read. Good job!"
+msgstr "De tekst is eenvoudig te lezen. Goed gedaan!"
+
+#: lib/Features/PostSEOBoxAnalysis.php:335
+msgid "The content is very easy to read. Splendid!"
+msgstr "De tekst is erg eenvoudig te lezen. Super!"
+
+#: lib/PHPTAL/Template.php:31
+msgid "File %s does not exist."
+msgstr "Bestand %s bestaat niet."
+
+#~ msgid "No focus keyword was set for this page..."
+#~ msgstr "Er is geen focus sleutelwoord gemaakt voor deze pagina."
+
+#~ msgid "Your focus keyword has a valid length."
+#~ msgstr "Het sleutelwoord heeft een goede lengte."
+
+#~ msgid ""
+#~ "Your focus keyphrase is over 10 words, a keyphrase should be shorter."
+#~ msgstr ""
+#~ "De sleutelzin is langer dan 10 woorden. Deze zou korter moeten zijn."
+
+#~ msgid "Error"
+#~ msgstr "Fouten"
+
+#~ msgid ""
+#~ "The page title contains {2} characters, which is less than the "
+#~ "recommended minimum of {0} characters."
+#~ msgstr ""
+#~ "De pagina titel bevat {2} karakter(s), wat minder is dan de minimaal "
+#~ "aanbevolen {0} karakters."
+
+#~ msgid ""
+#~ "The page title is between the {0} character minimum and the recommended "
+#~ "{1} character maximum."
+#~ msgstr ""
+#~ "De paginatitel is tussen de {0} karakter minimum en het aanbevolen {1}  "
+#~ "karakter maximum."
+
+#~ msgid "Allow index"
+#~ msgstr "Indexeren toestaan"
+
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#~ msgid "No"
+#~ msgstr "Nee"
+
+#~ msgid "Allow search engines to index this page."
+#~ msgstr "Laat zoekmachines deze pagina indexeren."
+
+#~ msgid ""
+#~ "The page title contains %3$d characters, which is less than the "
+#~ "recommended minimum of %1$d characters."
+#~ msgstr ""
+#~ "De pagina titel bevat {2} karakter(s), wat minder is dan de minimaal "
+#~ "aanbevolen {0} karakters."
+
+#~ msgid ""
+#~ "The page title is between the %1$d character minimum and the recommended "
+#~ "%2$d character maximum."
+#~ msgstr ""
+#~ "De paginatitel is tussen de {0} karakter minimum en het aanbevolen {1} "
+#~ "karakter maximum."
+
+#~ msgid "LengthOfRope SEO"
+#~ msgstr "LengthOfRope SEO"
+
+#~ msgid "http://www.lengthofrope.nl"
+#~ msgstr "http://www.lengthofrope.nl"
+
+#~ msgid ""
+#~ "This might become a simple WordPress SEO plugin someday. Currently in "
+#~ "active development."
+#~ msgstr ""
+#~ "Dit wordt ooit een simpele WordPress SEO plugin. Momenteel in actieve "
+#~ "ontwikkeling."
+
+#~ msgid "LengthOfRope"
+#~ msgstr "LengthOfRope"
+
+#~ msgid "https://github.com/lengthofrope/"
+#~ msgstr "https://github.com/lengthofrope/"
