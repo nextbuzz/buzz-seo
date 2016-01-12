@@ -37,6 +37,7 @@ class PostSEOBoxAnalysis extends BaseFeature
     public function enqueueAdminScripts()
     {
         wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAnalysis', array(
+            'locale' => get_locale(),
             'noErrors' => __('There are currently no errors found in the analysis.', 'buzz-seo'),
             'noWarnings' => __('There are currently no warnings found in the analysis.', 'buzz-seo'),
             'noGood' => __('There is probably a lot wrong with your content SEO wise.', 'buzz-seo'),
@@ -283,6 +284,56 @@ class PostSEOBoxAnalysis extends BaseFeature
                             'score' => 9,
                             'text' => __('The main focus keyword appears in the page title.', 'buzz-seo')
                         )
+                    )
+                ),
+                array(
+                    'id' => 'readabilityScore',
+                    'info' => array(
+                        'recommendedMin' => 80,
+                        'recommendedMax' => 100,
+                    ),
+                    'data' => array(
+                        array(
+                            'min' => 0,
+                            'max' => 29.9,
+                            'score' => 4,
+                            'text' => __('The content is very difficult to read. Try to make shorter sentences and use less difficult words to improve readability.', 'buzz-seo')
+                        ),
+                        array(
+                            'min' => 30,
+                            'max' => 49.9,
+                            'score' => 5,
+                            'text' => __('The content is difficult to read. Try to make shorter sentences and use less difficult words to improve readability.', 'buzz-seo')
+                        ),
+                        array(
+                            'min' => 50,
+                            'max' => 59.9,
+                            'score' => 6,
+                            'text' => __('The content is fairly difficult to read. Try to make shorter sentences to improve readability.', 'buzz-seo')
+                        ),
+                        array(
+                            'min' => 60,
+                            'max' => 69.9,
+                            'score' => 7,
+                            'text' => __('The content is sufficiantly readable.', 'buzz-seo')
+                        ),
+                        array(
+                            'min' => 70,
+                            'max' => 79.9,
+                            'score' => 8,
+                            'text' => __('The content is fairly easy to read.', 'buzz-seo')
+                        ),
+                        array(
+                            'min' => 80,
+                            'max' => 89.9,
+                            'score' => 9,
+                            'text' => __('The content is easy to read. Good job!', 'buzz-seo')
+                        ),
+                        array(
+                            'min' => 90,
+                            'score' => 10,
+                            'text' => __('The content is very easy to read. Splendid!', 'buzz-seo')
+                        ),
                     )
                 )
             )

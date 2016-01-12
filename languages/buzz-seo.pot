@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-01-12 09:42:03+0000\n"
+"POT-Creation-Date: 2016-01-12 10:26:18+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-12 09:42:03+0000\n"
+"PO-Revision-Date: 2016-01-12 10:26:18+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -149,19 +149,27 @@ msgstr ""
 msgid "The analysis should only be used as an indicator."
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:53
+#: tal/PostSEOBoxAnalysis.xml:48
+msgid "Readability"
+msgstr ""
+
+#: tal/PostSEOBoxAnalysis.xml:50
+msgid "The readability score is a methametical calculation based on the English literature."
+msgstr ""
+
+#: tal/PostSEOBoxAnalysis.xml:59
 msgid "Focus keyword"
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:56
+#: tal/PostSEOBoxAnalysis.xml:62
 msgid "Pick the main keyword or keyphrase that this post/page is about."
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:60
+#: tal/PostSEOBoxAnalysis.xml:66
 msgid "Additional keywords"
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:67
+#: tal/PostSEOBoxAnalysis.xml:73
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
@@ -307,6 +315,34 @@ msgstr ""
 
 #: lib/Features/PostSEOBoxAnalysis.php:284
 msgid "The main focus keyword appears in the page title."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:299
+msgid "The content is very difficult to read. Try to make shorter sentences and use less difficult words to improve readability."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:305
+msgid "The content is difficult to read. Try to make shorter sentences and use less difficult words to improve readability."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:311
+msgid "The content is fairly difficult to read. Try to make shorter sentences to improve readability."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:317
+msgid "The content is sufficiantly readable."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:323
+msgid "The content is fairly easy to read."
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:329
+msgid "The content is easy to read. Good job!"
+msgstr ""
+
+#: lib/Features/PostSEOBoxAnalysis.php:335
+msgid "The content is very easy to read. Splendid!"
 msgstr ""
 
 #: lib/PHPTAL/Template.php:31

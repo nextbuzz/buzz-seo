@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-01-12 10:42+0100\n"
-"PO-Revision-Date: 2016-01-12 10:43+0100\n"
+"POT-Creation-Date: 2016-01-12 11:26+0100\n"
+"PO-Revision-Date: 2016-01-12 13:09+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -183,20 +183,32 @@ msgstr ""
 "De analyse dient alleen gebruikt te worden als een indicator van eventuele "
 "SEO gerelateerde problemen."
 
-#: tal/PostSEOBoxAnalysis.xml:53
+#: tal/PostSEOBoxAnalysis.xml:48
+msgid "Readability"
+msgstr "Leesbaarheid"
+
+#: tal/PostSEOBoxAnalysis.xml:50
+msgid ""
+"The readability score is a methametical calculation based on the English "
+"literature."
+msgstr ""
+"De leesbaarheidsscore is een wiskundige berekening gebaseerd op de "
+"Nederlandse literatuur."
+
+#: tal/PostSEOBoxAnalysis.xml:59
 msgid "Focus keyword"
 msgstr "Focus sleutelwoord"
 
-#: tal/PostSEOBoxAnalysis.xml:56
+#: tal/PostSEOBoxAnalysis.xml:62
 msgid "Pick the main keyword or keyphrase that this post/page is about."
 msgstr ""
 "Kies het hoofd sleutelwoord of de sleutelzin waar deze pagina over gaat."
 
-#: tal/PostSEOBoxAnalysis.xml:60
+#: tal/PostSEOBoxAnalysis.xml:66
 msgid "Additional keywords"
 msgstr "Additionele sleutelwoorden"
 
-#: tal/PostSEOBoxAnalysis.xml:67
+#: tal/PostSEOBoxAnalysis.xml:73
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
@@ -414,6 +426,46 @@ msgstr "Het hoofd sleutelwoord staat niet in de pagina titel."
 #: lib/Features/PostSEOBoxAnalysis.php:284
 msgid "The main focus keyword appears in the page title."
 msgstr "Het hoofd sleutelwoord staat in de pagina titel."
+
+#: lib/Features/PostSEOBoxAnalysis.php:299
+msgid ""
+"The content is very difficult to read. Try to make shorter sentences and use "
+"less difficult words to improve readability."
+msgstr ""
+"De tekst is erg moeilijk te lezen. Probeer kortere zinnen te maken en minder "
+"moeilijke woorden te gebruiken om de leesbaarheid te verbeteren."
+
+#: lib/Features/PostSEOBoxAnalysis.php:305
+msgid ""
+"The content is difficult to read. Try to make shorter sentences and use less "
+"difficult words to improve readability."
+msgstr ""
+"De tekst is moeilijk te lezen. Probeer kortere zinnen te maken en minder "
+"moeilijke woorden te gebruiken om de leesbaarheid te verbeteren."
+
+#: lib/Features/PostSEOBoxAnalysis.php:311
+msgid ""
+"The content is fairly difficult to read. Try to make shorter sentences to "
+"improve readability."
+msgstr ""
+"De tekst is vrij moeilijk te lezen. Probeer kortere zinnen te maken om de "
+"leesbaarheid te verbeteren."
+
+#: lib/Features/PostSEOBoxAnalysis.php:317
+msgid "The content is sufficiantly readable."
+msgstr "De tekst is voldoende leesbaar."
+
+#: lib/Features/PostSEOBoxAnalysis.php:323
+msgid "The content is fairly easy to read."
+msgstr "De tekst is vrij eenvoudig te lezen."
+
+#: lib/Features/PostSEOBoxAnalysis.php:329
+msgid "The content is easy to read. Good job!"
+msgstr "De tekst is eenvoudig te lezen. Goed gedaan!"
+
+#: lib/Features/PostSEOBoxAnalysis.php:335
+msgid "The content is very easy to read. Splendid!"
+msgstr "De tekst is erg eenvoudig te lezen. Super!"
 
 #: lib/PHPTAL/Template.php:31
 msgid "File %s does not exist."
