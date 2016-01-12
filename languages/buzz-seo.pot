@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-01-12 10:26:18+0000\n"
+"POT-Creation-Date: 2016-01-12 14:44:40+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-12 10:26:18+0000\n"
+"PO-Revision-Date: 2016-01-12 14:44:40+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -49,71 +49,79 @@ msgstr ""
 msgid "Do not follow links (nofollow)"
 msgstr ""
 
-#: tal/PostSEOBox.xml:41
+#: tal/PostSEOBox.xml:42
+msgid "Warning:"
+msgstr ""
+
+#: tal/PostSEOBox.xml:43
+msgid "WordPress is set to no-indexing mode in global options. These page specific settings are ignored as long as the global setting is active."
+msgstr ""
+
+#: tal/PostSEOBox.xml:45
 msgid "Tell search engines how to index this page."
 msgstr ""
 
-#: tal/PostSEOBox.xml:50
+#: tal/PostSEOBox.xml:54
 msgid "Facebook title"
 msgstr ""
 
-#: tal/PostSEOBox.xml:53
+#: tal/PostSEOBox.xml:57
 msgid "If you don't want to use the post title for sharing the post on Facebook but instead want another title there, write it here."
 msgstr ""
 
-#: tal/PostSEOBox.xml:57
+#: tal/PostSEOBox.xml:61
 msgid "Facebook description"
 msgstr ""
 
-#: tal/PostSEOBox.xml:60
+#: tal/PostSEOBox.xml:64
 msgid "If you don't want to use the meta description for sharing the post on Facebook but want another description there, write it here."
 msgstr ""
 
-#: tal/PostSEOBox.xml:64
+#: tal/PostSEOBox.xml:68
 msgid "Current Facebook image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:67 tal/PostSEOBox.xml:104
+#: tal/PostSEOBox.xml:71 tal/PostSEOBox.xml:108
 msgid "Remove image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:71
+#: tal/PostSEOBox.xml:75
 msgid "Facebook image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:76 tal/PostSEOBox.xml:113
+#: tal/PostSEOBox.xml:80 tal/PostSEOBox.xml:117
 msgid "Upload"
 msgstr ""
 
-#: tal/PostSEOBox.xml:78
+#: tal/PostSEOBox.xml:82
 msgid "Add a custom image for Facebook."
 msgstr ""
 
-#: tal/PostSEOBox.xml:87
+#: tal/PostSEOBox.xml:91
 msgid "Twitter title"
 msgstr ""
 
-#: tal/PostSEOBox.xml:90
+#: tal/PostSEOBox.xml:94
 msgid "If you don't want to use the post title for sharing the post on Twitter but instead want another title there, write it here."
 msgstr ""
 
-#: tal/PostSEOBox.xml:94
+#: tal/PostSEOBox.xml:98
 msgid "Twitter description"
 msgstr ""
 
-#: tal/PostSEOBox.xml:97
+#: tal/PostSEOBox.xml:101
 msgid "If you don't want to use the meta description for sharing the post on Twitter but want another description there, write it here."
 msgstr ""
 
-#: tal/PostSEOBox.xml:101
+#: tal/PostSEOBox.xml:105
 msgid "Current Twitter image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:108
+#: tal/PostSEOBox.xml:112
 msgid "Twitter image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:115
+#: tal/PostSEOBox.xml:119
 msgid "Add a custom image for Twitter."
 msgstr ""
 
@@ -141,7 +149,7 @@ msgstr ""
 msgid "Perfect"
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:30 tal/PostSEOBoxAnalysis.xml:35 tal/PostSEOBoxAnalysis.xml:40
+#: tal/PostSEOBoxAnalysis.xml:30 tal/PostSEOBoxAnalysis.xml:35 tal/PostSEOBoxAnalysis.xml:40 tal/PostSEOBoxAnalysis.xml:50
 msgid "Not yet available."
 msgstr ""
 
@@ -153,23 +161,23 @@ msgstr ""
 msgid "Readability"
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:50
+#: tal/PostSEOBoxAnalysis.xml:51
 msgid "The readability score is a methametical calculation based on the English literature."
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:59
+#: tal/PostSEOBoxAnalysis.xml:60
 msgid "Focus keyword"
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:62
+#: tal/PostSEOBoxAnalysis.xml:63
 msgid "Pick the main keyword or keyphrase that this post/page is about."
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:66
+#: tal/PostSEOBoxAnalysis.xml:67
 msgid "Additional keywords"
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:73
+#: tal/PostSEOBoxAnalysis.xml:74
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
@@ -181,7 +189,7 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: lib/Features/PostSEOBox.php:35
+#: lib/Features/PostSEOBox.php:42
 msgid "Search Engine Optimization (SEO)"
 msgstr ""
 
@@ -189,155 +197,155 @@ msgstr ""
 msgid "SEO Content Analysis"
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:40
+#: lib/Features/PostSEOBoxAnalysis.php:41
 msgid "There are currently no errors found in the analysis."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:41
+#: lib/Features/PostSEOBoxAnalysis.php:42
 msgid "There are currently no warnings found in the analysis."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:42
+#: lib/Features/PostSEOBoxAnalysis.php:43
 msgid "There is probably a lot wrong with your content SEO wise."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:54
+#: lib/Features/PostSEOBoxAnalysis.php:55
 msgid "The text contains {0} words, this is more than the {1} word recommended minimum."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:60
+#: lib/Features/PostSEOBoxAnalysis.php:61
 msgid "The text contains {0} words, this is slightly below the {1} word recommended minimum. Add a bit more copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:66
+#: lib/Features/PostSEOBoxAnalysis.php:67
 msgid "The text contains {0} words, this is below the {1} word recommended minimum. Add a little more useful content on this topic for readers."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:72
+#: lib/Features/PostSEOBoxAnalysis.php:73
 msgid "The text contains {0} words, this is below the {1} word recommended minimum. Add more useful content on this topic for readers."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:78
+#: lib/Features/PostSEOBoxAnalysis.php:79
 msgid "The text contains {0} word(s). This is far too low and should be increased."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:92
+#: lib/Features/PostSEOBoxAnalysis.php:93
 msgid "The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire description is visible."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:98
+#: lib/Features/PostSEOBoxAnalysis.php:99
 msgid "No meta description has been specified, search engines will display copy from the page instead."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:104
+#: lib/Features/PostSEOBoxAnalysis.php:105
 msgid "The meta description is {0} character(s), however up to {1} characters are available."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:110
+#: lib/Features/PostSEOBoxAnalysis.php:111
 msgid "The meta description has an optimal length of {0} out of max {1} characters."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:122
+#: lib/Features/PostSEOBoxAnalysis.php:123
 msgid "No subheading tags (like an H2) appear in the copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:127
+#: lib/Features/PostSEOBoxAnalysis.php:128
 msgid "Subheadings appear in the copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:142
+#: lib/Features/PostSEOBoxAnalysis.php:143
 msgid "Please create a page title."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:148
+#: lib/Features/PostSEOBoxAnalysis.php:149
 msgid "The page title contains {0} characters, which is less than the recommended minimum of {3} characters."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:154
+#: lib/Features/PostSEOBoxAnalysis.php:155
 msgid "The page title contains {0} characters, which is slightly less than the recommended minimum of {3} characters."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:160
+#: lib/Features/PostSEOBoxAnalysis.php:161
 msgid "The page title is between the {3} character minimum and the recommended {1} character maximum."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:165
+#: lib/Features/PostSEOBoxAnalysis.php:166
 msgid "The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire title is visible."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:180
+#: lib/Features/PostSEOBoxAnalysis.php:181
 msgid "No main focus keyword was set for this page."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:186
+#: lib/Features/PostSEOBoxAnalysis.php:187
 msgid "Your main focus keyword has a valid length."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:191
+#: lib/Features/PostSEOBoxAnalysis.php:192
 msgid "Your main focus keyphrase is over {2} words, a keyphrase should be shorter."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:206
+#: lib/Features/PostSEOBoxAnalysis.php:207
 msgid "The keyword density for `{1}` is {0}%, which is way over the advised {2}% maximum. The focus keyword was found {3} time(s)."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:212
+#: lib/Features/PostSEOBoxAnalysis.php:213
 msgid "The keyword density for `{1}` is {0}%, which over the advised {2}% maximum. The focus keyword was found {3} time(s)."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:218
+#: lib/Features/PostSEOBoxAnalysis.php:219
 msgid "The keyword density for `{1}` is {0}%, which is great. The focus keyword was found {3} time(s)."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:224
+#: lib/Features/PostSEOBoxAnalysis.php:225
 msgid "The keyword density for `{1}` is {0}%, which is low. The focus keyword was found {3} time(s)."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:239
+#: lib/Features/PostSEOBoxAnalysis.php:240
 msgid "The meta description does not contain the main focus keyword."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:244
+#: lib/Features/PostSEOBoxAnalysis.php:245
 msgid "The meta description contains the focus keyword."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:259
+#: lib/Features/PostSEOBoxAnalysis.php:260
 msgid "The main focus keyword does not appear in the first paragraph of the copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:264
+#: lib/Features/PostSEOBoxAnalysis.php:265
 msgid "The main focus keyword appears in the first paragraph."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:279
+#: lib/Features/PostSEOBoxAnalysis.php:280
 msgid "The main focus keyword does not appear in the page title."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:284
+#: lib/Features/PostSEOBoxAnalysis.php:285
 msgid "The main focus keyword appears in the page title."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:299
+#: lib/Features/PostSEOBoxAnalysis.php:300
 msgid "The content is very difficult to read. Try to make shorter sentences and use less difficult words to improve readability."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:305
+#: lib/Features/PostSEOBoxAnalysis.php:306
 msgid "The content is difficult to read. Try to make shorter sentences and use less difficult words to improve readability."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:311
+#: lib/Features/PostSEOBoxAnalysis.php:312
 msgid "The content is fairly difficult to read. Try to make shorter sentences to improve readability."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:317
+#: lib/Features/PostSEOBoxAnalysis.php:318
 msgid "The content is sufficiantly readable."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:323
+#: lib/Features/PostSEOBoxAnalysis.php:324
 msgid "The content is fairly easy to read."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:329
+#: lib/Features/PostSEOBoxAnalysis.php:330
 msgid "The content is easy to read. Good job!"
 msgstr ""
 
