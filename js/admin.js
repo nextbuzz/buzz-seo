@@ -82,7 +82,7 @@
             });
         }
 
-        var analysisOutput = $("#buzz-seo-content-analysis"), analysisTimeout, analysisDelay = 1000,
+        var analysisTimeout, analysisDelay = 1000,
                 outputGood = [], outputWarning = [], outputError = [];
         doAnalysis();
         function doAnalysis()
@@ -129,20 +129,20 @@
                             }
                         });
                         break;
-                        
+
                     case 'keyphraseSizeCheck':
                         handleScoreOutput(analyseWordCount(data, info, $("#buzz-seo-keyword0").val()));
                         break;
-                        
+
                     case 'metaDescriptionKeyword':
                         if ($("#buzz-seo-metadescription").val() !== "") {
                             handleScoreOutput(analyseFocusDensity(data, info, $("#buzz-seo-keyword0").val(), $("#buzz-seo-metadescription").val()));
                         }
                         break;
-                        
+
                     case 'firstParagraph':
                         var html = getEditorHTML();
-                        if (html &&  $("#buzz-seo-keyword0").val() !== "") {
+                        if (html && $("#buzz-seo-keyword0").val() !== "") {
                             //numSubheadings = (html.match(/\<h[2|3|4|5|6]/g) || []).length;
                             var paragraphs = $($.parseHTML(html, document, false)).filter("p");
                             if (paragraphs[0] !== undefined) {
@@ -150,7 +150,7 @@
                             }
                         }
                         break;
-                        
+
                     case 'pageTitleKeyword':
                         if ($("#title").val() !== "") {
                             handleScoreOutput(analyseFocusDensity(data, info, $("#buzz-seo-keyword0").val(), $("#title").val()));
@@ -168,30 +168,36 @@
             outputGood.sort(sortByScore);
 
             // Create output
-            output = "<ul class='buzz-seo-analyse-output'>";
+            output = "";
             if (outputError.length > 0) {
-                output += "<li class='error'>" + BuzzSEOAnalysis.errors + "<ul>";
                 for (var i = 0; i < outputError.length; i++) {
                     output += outputError[i].html;
                 }
-                output += "</ul></li>";
+            } else {
+                output = "<li>" + BuzzSEOAnalysis.noErrors + "</li>";
             }
+            $("#buzz-seo-content-analysis-errors").html(output);
+            $("#buzz-seo-error-count").html(outputError.length);
+            output = "";
             if (outputWarning.length > 0) {
-                output += "<li class='warning'>" + BuzzSEOAnalysis.warnings + "<ul>";
                 for (var i = 0; i < outputWarning.length; i++) {
                     output += outputWarning[i].html;
                 }
-                output += "</ul></li>";
+            } else {
+                output = "<li>" + BuzzSEOAnalysis.noWarnings + "</li>";
             }
+            $("#buzz-seo-content-analysis-warnings").html(output);
+            $("#buzz-seo-warning-count").html(outputWarning.length);
+            output = "";
             if (outputGood.length > 0) {
-                output += "<li class='good'>" + BuzzSEOAnalysis.good + "<ul>";
                 for (var i = 0; i < outputGood.length; i++) {
                     output += outputGood[i].html;
                 }
-                output += "</ul></li>";
+            } else {
+                output = "<li>" + BuzzSEOAnalysis.noGood + "</li>";
             }
-            output += "</ul>";
-            analysisOutput.html(output);
+            $("#buzz-seo-content-analysis-good").html(output);
+            $("#buzz-seo-good-count").html(outputGood.length);
         }
 
         function sortByScore(a, b)
@@ -217,10 +223,7 @@
 
             // Count words
             if (text) {
-                var wordArray = text.match(/[\w\u2019\x27\-\u00C0-\u1FFF]+/g);
-                if (wordArray) {
-                    numOfWords = wordArray.length;
-                }
+                numOfWords = countWords(text);
             }
 
             for (index = 0; index < data.length; ++index) {
@@ -241,10 +244,8 @@
 
             // Count words
             if (text) {
-                var wordArray = text.match(/[\w\u2019\x27\-\u00C0-\u1FFF]+/g);
-                if (wordArray) {
-                    numOfWords = wordArray.length;
-                }
+                numOfWords = countWords(text);
+                
                 // Find keyword
                 var keyArray = text.match(new RegExp(keyword, "gi")) || [];
                 keyCount = keyArray.length;
@@ -338,6 +339,42 @@
             }
 
             return '';
+        }
+        
+        function countWords(text)
+        {
+            if (text) {
+                var wordArray = text.match(/[\w\u2019\x27\-\u00C0-\u1FFF]+/g);
+                if (wordArray) {
+                    return wordArray.length;
+                }
+            }
+            
+            return 0;
+        }
+
+        function countEnglishSyllables(text) 
+        {
+            text = text.toLowerCase();
+            if (text.length <= 3) {
+                return 1;
+            }
+            text = text.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+            text = text.replace(/^y/, '');
+            return text.match(/[aeiouy]{1,2}/g).length;
+        }
+
+        function countSentences(text) 
+        {
+            var sentences = text.split(".");
+            var sentenceCount = 0;
+            for (var i = 0; i < sentences.length; i++) {
+                if (sentences[ i ] !== "" && sentences[ i ] !== " ") {
+                    sentenceCount++;
+                }
+            }
+            
+            return sentenceCount;
         }
     });
 

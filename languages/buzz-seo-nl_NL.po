@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-01-11 17:10+0100\n"
-"PO-Revision-Date: 2016-01-11 17:11+0100\n"
+"POT-Creation-Date: 2016-01-12 10:42+0100\n"
+"PO-Revision-Date: 2016-01-12 10:43+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -160,30 +160,43 @@ msgstr "Focus sleutelwoorden"
 msgid "Content analysis"
 msgstr "Content analyse"
 
-#: tal/PostSEOBoxAnalysis.xml:12
+#: tal/PostSEOBoxAnalysis.xml:15
+msgid "Errors"
+msgstr "Fouten"
+
+#: tal/PostSEOBoxAnalysis.xml:19
+msgid "Warnings"
+msgstr "Waarschuwingen"
+
+#: tal/PostSEOBoxAnalysis.xml:23
+msgid "Perfect"
+msgstr "Perfect"
+
+#: tal/PostSEOBoxAnalysis.xml:30 tal/PostSEOBoxAnalysis.xml:35
+#: tal/PostSEOBoxAnalysis.xml:40
 msgid "Not yet available."
 msgstr "Nog niet beschikbaar."
 
-#: tal/PostSEOBoxAnalysis.xml:13
+#: tal/PostSEOBoxAnalysis.xml:44
 msgid "The analysis should only be used as an indicator."
 msgstr ""
 "De analyse dient alleen gebruikt te worden als een indicator van eventuele "
 "SEO gerelateerde problemen."
 
-#: tal/PostSEOBoxAnalysis.xml:22
+#: tal/PostSEOBoxAnalysis.xml:53
 msgid "Focus keyword"
 msgstr "Focus sleutelwoord"
 
-#: tal/PostSEOBoxAnalysis.xml:25
+#: tal/PostSEOBoxAnalysis.xml:56
 msgid "Pick the main keyword or keyphrase that this post/page is about."
 msgstr ""
 "Kies het hoofd sleutelwoord of de sleutelzin waar deze pagina over gaat."
 
-#: tal/PostSEOBoxAnalysis.xml:29
+#: tal/PostSEOBoxAnalysis.xml:60
 msgid "Additional keywords"
 msgstr "Additionele sleutelwoorden"
 
-#: tal/PostSEOBoxAnalysis.xml:36
+#: tal/PostSEOBoxAnalysis.xml:67
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
@@ -205,16 +218,16 @@ msgid "SEO Content Analysis"
 msgstr "SEO Content Analyse"
 
 #: lib/Features/PostSEOBoxAnalysis.php:40
-msgid "Errors"
-msgstr "Fouten"
+msgid "There are currently no errors found in the analysis."
+msgstr "Er zijn geen fouten gevonden tijdens de analyse."
 
 #: lib/Features/PostSEOBoxAnalysis.php:41
-msgid "Warnings"
-msgstr "Waarschuwingen"
+msgid "There are currently no warnings found in the analysis."
+msgstr "Er zijn geen waarschuwingen gevonden tijdens de analyse."
 
 #: lib/Features/PostSEOBoxAnalysis.php:42
-msgid "Perfect"
-msgstr "Perfect"
+msgid "There is probably a lot wrong with your content SEO wise."
+msgstr "Er is waarschijnlijk een boel mis met de content op SEO gebied."
 
 #: lib/Features/PostSEOBoxAnalysis.php:54
 msgid ""

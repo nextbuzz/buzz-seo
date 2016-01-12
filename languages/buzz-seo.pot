@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-01-11 16:10:20+0000\n"
+"POT-Creation-Date: 2016-01-12 09:42:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-11 16:10:20+0000\n"
+"PO-Revision-Date: 2016-01-12 09:42:03+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -129,27 +129,39 @@ msgstr ""
 msgid "Content analysis"
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:12
+#: tal/PostSEOBoxAnalysis.xml:15
+msgid "Errors"
+msgstr ""
+
+#: tal/PostSEOBoxAnalysis.xml:19
+msgid "Warnings"
+msgstr ""
+
+#: tal/PostSEOBoxAnalysis.xml:23
+msgid "Perfect"
+msgstr ""
+
+#: tal/PostSEOBoxAnalysis.xml:30 tal/PostSEOBoxAnalysis.xml:35 tal/PostSEOBoxAnalysis.xml:40
 msgid "Not yet available."
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:13
+#: tal/PostSEOBoxAnalysis.xml:44
 msgid "The analysis should only be used as an indicator."
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:22
+#: tal/PostSEOBoxAnalysis.xml:53
 msgid "Focus keyword"
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:25
+#: tal/PostSEOBoxAnalysis.xml:56
 msgid "Pick the main keyword or keyphrase that this post/page is about."
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:29
+#: tal/PostSEOBoxAnalysis.xml:60
 msgid "Additional keywords"
 msgstr ""
 
-#: tal/PostSEOBoxAnalysis.xml:36
+#: tal/PostSEOBoxAnalysis.xml:67
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
@@ -170,15 +182,15 @@ msgid "SEO Content Analysis"
 msgstr ""
 
 #: lib/Features/PostSEOBoxAnalysis.php:40
-msgid "Errors"
+msgid "There are currently no errors found in the analysis."
 msgstr ""
 
 #: lib/Features/PostSEOBoxAnalysis.php:41
-msgid "Warnings"
+msgid "There are currently no warnings found in the analysis."
 msgstr ""
 
 #: lib/Features/PostSEOBoxAnalysis.php:42
-msgid "Perfect"
+msgid "There is probably a lot wrong with your content SEO wise."
 msgstr ""
 
 #: lib/Features/PostSEOBoxAnalysis.php:54

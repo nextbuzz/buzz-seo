@@ -37,9 +37,9 @@ class PostSEOBoxAnalysis extends BaseFeature
     public function enqueueAdminScripts()
     {
         wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAnalysis', array(
-            'errors' => __('Errors', 'buzz-seo'),
-            'warnings' => __('Warnings', 'buzz-seo'),
-            'good' => __('Perfect', 'buzz-seo'),
+            'noErrors' => __('There are currently no errors found in the analysis.', 'buzz-seo'),
+            'noWarnings' => __('There are currently no warnings found in the analysis.', 'buzz-seo'),
+            'noGood' => __('There is probably a lot wrong with your content SEO wise.', 'buzz-seo'),
             'data' => array(
                 array(
                     'id' => 'wordCount',
