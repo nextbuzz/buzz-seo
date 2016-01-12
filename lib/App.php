@@ -35,10 +35,10 @@ class App
             $feature = new $class();
 
             // Check if enabled in database
-            $isEnabled = get_option($key) === "on" ? true : false;
-            
+            $isEnabled = get_option($f) === "on" ? true : false;
+           
             // Check if feature is enabled or not
-            if ($feature->allowDisable() === false || ($feature->allowDisable() && $isEnabled !== false)) 
+            if ($feature->allowDisable() === false || $isEnabled) 
             {
                 // Run init
                 $feature->init();
@@ -47,7 +47,7 @@ class App
             // Insert activated class into the feature array
             $this->features[$f] = $feature;
         }
-
+        
         // Always init
         add_action('plugins_loaded', array($this, 'pluginsLoaded'));
     }
