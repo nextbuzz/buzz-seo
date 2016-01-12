@@ -9,6 +9,15 @@ namespace NextBuzz\SEO\Features;
  */
 class PostSEOBox extends BaseFeature
 {
+    public function name()
+    {
+        return "SEO Box";
+    }
+
+    public function desc()
+    {
+        return "add add an optimization SEO box for each post";
+    }
 
     public function init()
     {

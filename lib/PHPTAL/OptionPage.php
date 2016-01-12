@@ -34,17 +34,16 @@ class OptionPage
         $class = "\\NextBuzz\\SEO\\Admin\\" . $this->_page;
         if(class_exists($class))
         {
-            // Build and attach class
+            /* @var $load \NextBuzz\SEO\Admin\BaseAdmin */
             $load = new $class();
 
+
+            
             if($load)
             {
-                // Set Output mode which can be XML, XHTML or in this case HTML5.
-                $load->setOutputMode(\PHPTAL::HTML5);
-
-                // Don't show the end user developer comments
-                $load->stripComments(true);
-
+                // Load OptionPage
+                $load->init();
+                
                 // Execute Tal and render it.
                 $load->echoExecute();
             }

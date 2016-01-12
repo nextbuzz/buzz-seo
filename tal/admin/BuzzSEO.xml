@@ -1,8 +1,36 @@
+<div tal:condition="exists:message" class="buzz-seo-wrapper message">
+    <p tal:content="message">Bericht</p>
+</div>
+
+<div tal:condition="exists:errorMessage" class="buzz-seo-wrapper errorMessage">
+    <p tal:content="errorMessage">Error</p>
+</div>
+
 <div class="buzz-seo-wrapper">
     <div class="inside"> 
         <h1 i18n:translate="">General</h1>
         <p>
             Buzz SEO is in development
+            
+            <form method="post" action="">
+                <tal:block tal:content="structure nonce"></tal:block>
+                
+                <table width="100%">
+                    <tbody>
+                        <tr tal:repeat="option options">
+                            <td width="20%" tal:content="option/name"/> 
+                            <td>
+                                <input type="checkbox" name="BuzzSEO[${option/key}]" tal:condition="not:option/disable" checked="true" disabled="true"/>
+                                <input type="checkbox" name="BuzzSEO[${option/key}]" tal:condition="option/disable" tal:attributes="checked option/check;"/>
+
+                                <tal:block tal:content="option/desc"/>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <button name="submit" type="submit" class="buzzer red">Update settings</button>
+            </form>
         </p>
     </div>
 </div>

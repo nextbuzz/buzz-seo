@@ -19,6 +19,32 @@
       margin: 0px;
       color: #e12831;
       margin-bottom: 15px; }
+  .buzz-seo-wrapper.message {
+    padding-left: 15px;
+    color: white;
+    border: 2px solid darkgreen;
+    background-color: green; }
+  .buzz-seo-wrapper.errorMessage {
+    padding-left: 15px;
+    color: white;
+    border: 2px solid darkred;
+    background-color: red; }
+  .buzz-seo-wrapper button.buzzer {
+    cursor: pointer;
+    font-size: 14px;
+    height: 51px;
+    min-width: 200px;
+    margin-top: 40px;
+    color: white;
+    border: 0px;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px; }
+    .buzz-seo-wrapper button.buzzer:hover {
+      opacity: 0.75;
+      filter: alpha(opacity=75); }
+    .buzz-seo-wrapper button.buzzer.red {
+      background-color: #e12831; }
 
 .buzz-seo-tabs .nav-tab-wrapper {
   margin-bottom: 0px;

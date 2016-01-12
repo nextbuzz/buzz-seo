@@ -26,19 +26,26 @@ class App
             'PostSEOBoxAnalysis',
         );
 
-        // TODO: Get enabled features from DB
-        foreach($features as $f) {
+        foreach($features as $f) 
+        {
+            // Get Namespace
             $class = '\\NextBuzz\\SEO\\Features\\' . $f;
+            
             /* @var $Feature \NextBuzz\SEO\Features\BaseFeature */
-            $Feature = new $class();
+            $feature = new $class();
 
-            // TODO: do not init feature if disable
-            if ($Feature->allowDisable() === false || ($Feature->allowDisable() && true !== false)) {
-                $Feature->init();
-                
-                // Insert activated class into the feature array
-                $this->features[$f] = new $class();
+            // Check if enabled in database
+            $isEnabled = get_option($key) === "on" ? true : false;
+            
+            // Check if feature is enabled or not
+            if ($feature->allowDisable() === false || ($feature->allowDisable() && $isEnabled !== false)) 
+            {
+                // Run init
+                $feature->init();
             }
+            
+            // Insert activated class into the feature array
+            $this->features[$f] = $feature;
         }
 
         // Always init
@@ -79,6 +86,15 @@ class App
         return false;
     }
 
+    public function getFeatures()
+    {
+        if(is_array($this->features))
+        {
+            return $this->features;
+        }
+        return false;
+    }
+    
     /**
      * Code to run when plugins are loaded.
      *

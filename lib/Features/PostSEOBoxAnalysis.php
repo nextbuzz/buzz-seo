@@ -9,7 +9,17 @@ namespace NextBuzz\SEO\Features;
  */
 class PostSEOBoxAnalysis extends BaseFeature
 {
+    public function name()
+    {
+        return "SEO Analysis Box";
+    }
 
+    
+    public function desc()
+    {
+        return "add add an optimization SEO Analysis box for each post";
+    }
+    
     public function init()
     {
         if (!is_admin()) {

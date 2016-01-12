@@ -1,0 +1,19 @@
+<div class="buzz-seo-wrapper">
+    <div class="inside"> 
+        <h1 i18n:translate="">General</h1>
+        <p>
+            Buzz SEO is in development
+            
+            <form method="post" enctype="multipart/form-data" action="">
+                <table class="form-table">
+                    <tbody>
+                        <tr>
+                            <td>Test</td> 
+                            <td>Option</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </p>
+    </div>
+</div>

@@ -10,7 +10,16 @@ namespace NextBuzz\SEO\Features;
  */
 class Admin extends BaseFeature
 {
+    public function name()
+    {
+        return "Admin Core";
+    }
 
+    public function desc()
+    {
+        return "Admin Core of Buzz SEO";
+    }
+    
     public function init()
     {
         if (!is_admin()) {
