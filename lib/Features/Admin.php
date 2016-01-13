@@ -60,9 +60,6 @@ class Admin extends BaseFeature
     {
         global $submenu;
 
-        // grab app singleton
-        $seo = \NextBuzz\SEO\App::getInstance();
-
         // Add Menu Page
         add_menu_page('Buzz SEO', 'Buzz SEO', 'edit_posts', 'BuzzSEO', array($this, "addAdminUI"), 'dashicons-analytics');
 
