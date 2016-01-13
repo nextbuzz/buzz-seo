@@ -443,6 +443,7 @@
             }
             text = text.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
             text = text.replace(/^y/, '');
+            
             var syllables = text.match(/[aeiouy]{1,2}/g);
             return (syllables === null) ? 0 : syllables.length;
         }
