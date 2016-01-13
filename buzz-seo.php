@@ -4,7 +4,7 @@
   Plugin Name: Buzz SEO
   Plugin URI: http://www.nextbuzz.nl
   Description: This might become a simple WordPress SEO plugin someday. Currently in active development.
-  Version: 0.0.1
+  Version: 0.0.2
   Author: Next Buzz BV
   Author URI: https://github.com/nextbuzz/
   License: MIT
@@ -13,7 +13,7 @@
 
 // Set the folder of this plugin
 if (!defined('BUZZSEO_DIR')) {
-    define('BUZZSEO_VERSION', '0.0.1');
+    define('BUZZSEO_VERSION', '0.0.2');
     define('BUZZSEO_DIR', plugin_dir_path(__FILE__));
     define('BUZZSEO_DIR_REL', dirname(plugin_basename(__FILE__)));
 }
