@@ -2,9 +2,6 @@
     Created on : 11-jan-2016, 16:11:24
     Author     : Nick Vlug <nick@ruddy.nl>
 */
-* {
-  box-sizing: inherit; }
-
 .buzz-seo-wrapper {
   background: #fff;
   border: 2px solid #e6e6e6;
@@ -47,11 +44,13 @@
       background-color: #e12831; }
 
 .buzz-seo-tabs .nav-tab-wrapper {
-  margin-bottom: 0px;
+  margin-bottom: 0;
   border-bottom: 1px solid #dfdfdf; }
+
 .buzz-seo-tabs .nav-tab-active {
   background: #fff;
   border-bottom: 1px solid #fff; }
+
 .buzz-seo-tabs .inside {
   display: block;
   border: 1px solid #dfdfdf;
@@ -59,25 +58,27 @@
   margin-top: 0 !important;
   background: #fff;
   padding-top: 6px; }
-  .buzz-seo-tabs .inside.hidden {
-    display: none; }
-  .buzz-seo-tabs .inside:first-child {
-    margin-top: 0px; }
-  .buzz-seo-tabs .inside input[type=text] {
-    width: 100%; }
 
-#buzz-seo-content-analysis > ul > li {
-  font-weight: bold;
-  margin-top: 1em; }
-  #buzz-seo-content-analysis > ul > li:first-of-type {
-    margin-top: 0px; }
-  #buzz-seo-content-analysis > ul > li > ul {
-    font-weight: normal;
-    list-style: disc;
-    margin-left: 1.5em; }
-#buzz-seo-content-analysis .error {
+.buzz-seo-tabs .inside.hidden {
+  display: none; }
+
+.buzz-seo-tabs .inside :first-child {
+  margin-top: 0; }
+
+.buzz-seo-tabs .inside input[type=text] {
+  width: 100%; }
+
+.buzz-seo-tabs .inside > ul {
+  margin-top: 1em !important;
+  font-weight: normal;
+  list-style: disc;
+  margin-left: 1.5em; }
+
+.buzz-seo-tabs .inside .error {
   color: red; }
-#buzz-seo-content-analysis .warning {
+
+.buzz-seo-tabs .inside .warning {
   color: orange; }
-#buzz-seo-content-analysis .good {
+
+.buzz-seo-tabs .inside .good {
   color: green; }

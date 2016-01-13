@@ -27,17 +27,21 @@
                     <ul>
                         <li>
                             <label>
-                                <input type="checkbox" name="PostSEOBox[robots][noindex]" value="1" tal:attributes="checked exists:robots/noindex" />
+                                <input type="checkbox" name="PostSEOBox[robots][noindex]" value="noindex" tal:attributes="checked exists:robots/noindex" />
                                 <span i18n:translate="">Do not index page (noindex)</span>
                             </label>
                         </li>
                         <li>
                             <label>
-                                <input type="checkbox" name="PostSEOBox[robots][nofollow]" value="1" tal:attributes="checked exists:robots/nofollow" />
+                                <input type="checkbox" name="PostSEOBox[robots][nofollow]" value="nofollow" tal:attributes="checked exists:robots/nofollow" />
                                 <span i18n:translate="">Do not follow links (nofollow)</span>
                             </label>
                         </li>
                     </ul>
+                    <p tal:condition="not:php: get_option('blog_public')">
+                        <strong i18n:translate="">Warning:</strong> 
+                        <span i18n:translate="" tal:omit-tag="">WordPress is set to no-indexing mode in global options. These page specific settings are ignored as long as the global setting is active.</span>
+                    </p>
                     <p class="description" i18n:translate="">Tell search engines how to index this page.</p>
                 </td>
             </tr>

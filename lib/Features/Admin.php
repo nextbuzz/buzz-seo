@@ -42,7 +42,7 @@ class Admin extends BaseFeature
     public function enqueueAdminScripts()
     {
         wp_enqueue_style('buzz-seo-admin', plugins_url('buzz-seo/css/admin.css'), false, BUZZSEO_VERSION);
-        wp_enqueue_script('buzz-seo-admin-js', plugins_url('buzz-seo/js/admin.js'), array('jquery'), BUZZSEO_VERSION);
+        wp_enqueue_script('buzz-seo-admin-js', plugins_url('buzz-seo/js/admin.js'), array('jquery'), BUZZSEO_VERSION, true);
         wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAdmin', array(
             'MediaUploader' => array(
                 'title' => __('Select an image', 'buzz-seo'),

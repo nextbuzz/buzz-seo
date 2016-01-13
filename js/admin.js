@@ -82,9 +82,13 @@
             });
         }
 
-        var analysisOutput = $("#buzz-seo-content-analysis"), analysisTimeout, analysisDelay = 1000,
-                outputGood = [], outputWarning = [], outputError = [];
+        var analysisTimeout, analysisDelay = 1000,
+                outputGood = [], outputWarning = [], outputError = [], calculatedHTML = false, calculatedText = false;
+
+        // Trigger first analyses manually
         doAnalysis();
+        analysisTimeout = setTimeout(doAnalysis, analysisDelay);
+
         function doAnalysis()
         {
             // Make sure we do not rapidly fire the analysis
@@ -97,8 +101,14 @@
             }
             $(this).data("lastime", now + analysisDelay);
 
+            // Reset html/ text data
+            calculatedHTML = false;
+            calculatedText = false;
+
             var output, index, id, data, info;
-            outputGood = [], outputWarning = [], outputError = [];
+            outputGood = []; 
+            outputWarning = []; 
+            outputError = [];
             for (index = 0; index < BuzzSEOAnalysis.data.length; ++index) {
                 id = BuzzSEOAnalysis.data[index].id;
                 data = BuzzSEOAnalysis.data[index].data;
@@ -129,20 +139,20 @@
                             }
                         });
                         break;
-                        
+
                     case 'keyphraseSizeCheck':
                         handleScoreOutput(analyseWordCount(data, info, $("#buzz-seo-keyword0").val()));
                         break;
-                        
+
                     case 'metaDescriptionKeyword':
                         if ($("#buzz-seo-metadescription").val() !== "") {
                             handleScoreOutput(analyseFocusDensity(data, info, $("#buzz-seo-keyword0").val(), $("#buzz-seo-metadescription").val()));
                         }
                         break;
-                        
+
                     case 'firstParagraph':
                         var html = getEditorHTML();
-                        if (html &&  $("#buzz-seo-keyword0").val() !== "") {
+                        if (html && $("#buzz-seo-keyword0").val() !== "") {
                             //numSubheadings = (html.match(/\<h[2|3|4|5|6]/g) || []).length;
                             var paragraphs = $($.parseHTML(html, document, false)).filter("p");
                             if (paragraphs[0] !== undefined) {
@@ -150,10 +160,21 @@
                             }
                         }
                         break;
-                        
+
                     case 'pageTitleKeyword':
                         if ($("#title").val() !== "") {
                             handleScoreOutput(analyseFocusDensity(data, info, $("#buzz-seo-keyword0").val(), $("#title").val()));
+                        }
+                        break;
+
+                    case 'readabilityScore':
+                        var readability = analyseEnglishReadability(data, info, getEditorText());
+                        if (readability !== false) {
+                            // Supported language (EN / NL)
+                            $("#buzz-seo-readability-score").html(readability.html);
+                        } else {
+                            // Non supported language
+                            $("#buzz-seo-readability").addClass("hidden");
                         }
                         break;
 
@@ -168,30 +189,36 @@
             outputGood.sort(sortByScore);
 
             // Create output
-            output = "<ul class='buzz-seo-analyse-output'>";
+            output = "";
             if (outputError.length > 0) {
-                output += "<li class='error'>" + BuzzSEOAnalysis.errors + "<ul>";
                 for (var i = 0; i < outputError.length; i++) {
                     output += outputError[i].html;
                 }
-                output += "</ul></li>";
+            } else {
+                output = "<li>" + BuzzSEOAnalysis.noErrors + "</li>";
             }
+            $("#buzz-seo-content-analysis-errors").html(output);
+            $("#buzz-seo-error-count").html(outputError.length);
+            output = "";
             if (outputWarning.length > 0) {
-                output += "<li class='warning'>" + BuzzSEOAnalysis.warnings + "<ul>";
                 for (var i = 0; i < outputWarning.length; i++) {
                     output += outputWarning[i].html;
                 }
-                output += "</ul></li>";
+            } else {
+                output = "<li>" + BuzzSEOAnalysis.noWarnings + "</li>";
             }
+            $("#buzz-seo-content-analysis-warnings").html(output);
+            $("#buzz-seo-warning-count").html(outputWarning.length);
+            output = "";
             if (outputGood.length > 0) {
-                output += "<li class='good'>" + BuzzSEOAnalysis.good + "<ul>";
                 for (var i = 0; i < outputGood.length; i++) {
                     output += outputGood[i].html;
                 }
-                output += "</ul></li>";
+            } else {
+                output = "<li>" + BuzzSEOAnalysis.noGood + "</li>";
             }
-            output += "</ul>";
-            analysisOutput.html(output);
+            $("#buzz-seo-content-analysis-good").html(output);
+            $("#buzz-seo-good-count").html(outputGood.length);
         }
 
         function sortByScore(a, b)
@@ -210,6 +237,52 @@
             }
         }
 
+        function analyseEnglishReadability(data, info, text)
+        {
+            var index, item,
+                    numOfWords = 0, numOfSentences = 0, numOfSyllables = 0, 
+                    optimalMin = info.recommendedMin, optimalMax = info.recommendedMax, 
+                    scoreFlesh = 0, scoreDouma = 0;
+
+            // Count words
+            if (text) {
+                numOfWords = countWords(text);
+                numOfSentences = countSentences(getEditorText(true));
+                numOfSyllables = countSyllables(text);
+                // Flesh reading score (English)/ Douma reading score (Dutch)
+                scoreFlesh = 206.835 - (1.015 * (numOfWords / numOfSentences)) - (84.6 * (numOfSyllables / numOfWords));
+                scoreDouma = 206.835 - (0.93 * (numOfWords / numOfSentences)) - (77 * (numOfSyllables / numOfWords));
+            }
+            
+            if (scoreFlesh < 0) { scoreFlesh = 0; }
+            if (scoreFlesh > 100) { scoreFlesh = 100; }
+            if (scoreDouma < 0) { scoreDouma = 0; }
+            if (scoreDouma > 100) { scoreDouma = 100; }
+            
+            scoreFlesh = scoreFlesh.toFixed(2);
+            scoreDouma = scoreDouma.toFixed(2);
+            
+            var score = 0, language = BuzzSEOAnalysis.locale.substr(0, 2);
+            if (language === "en") {
+                score = scoreFlesh;
+            } else
+            if (language === "nl") {
+                score = scoreDouma;
+            } else {
+                return false;
+            }
+
+            for (index = 0; index < data.length; ++index) {
+                item = data[index];
+                if (item.min <= score && (item.max === undefined || item.max >= score)) {
+                    return {
+                        score: item.score,
+                        html: item.text.replaceText(score, optimalMin, optimalMax)
+                    };
+                }
+            }
+        }
+
         function analyseWordCount(data, info, text)
         {
             var index, item,
@@ -217,10 +290,7 @@
 
             // Count words
             if (text) {
-                var wordArray = text.match(/[\w\u2019\x27\-\u00C0-\u1FFF]+/g);
-                if (wordArray) {
-                    numOfWords = wordArray.length;
-                }
+                numOfWords = countWords(text);
             }
 
             for (index = 0; index < data.length; ++index) {
@@ -241,10 +311,8 @@
 
             // Count words
             if (text) {
-                var wordArray = text.match(/[\w\u2019\x27\-\u00C0-\u1FFF]+/g);
-                if (wordArray) {
-                    numOfWords = wordArray.length;
-                }
+                numOfWords = countWords(text);
+
                 // Find keyword
                 var keyArray = text.match(new RegExp(keyword, "gi")) || [];
                 keyCount = keyArray.length;
@@ -315,16 +383,25 @@
          */
         function getEditorHTML()
         {
+            if (calculatedHTML !== false) {
+                return calculatedHTML;
+            }
+
             var val = document.getElementById('content') && document.getElementById('content').value || '';
             if (jQuery("#wp-content-wrap").hasClass("tmce-active") && typeof tinyMCE !== 'undefined' && typeof tinyMCE.editors !== 'undefined' && tinyMCE.editors.length !== 0) {
                 var tinyMceContent = tinyMCE.get('content');
                 val = tinyMceContent && tinyMceContent.hidden === false && tinyMceContent.getContent() || '';
             }
-            return val;
+
+            calculatedHTML = val;
+            return calculatedHTML;
         }
 
-        function getEditorText()
+        function getEditorText(keepPunctuation)
         {
+            if (keepPunctuation !== true && calculatedText !== false) {
+                return calculatedText;
+            }
             var text = getEditorHTML();
             if (text) {
                 text = text.replace(/\.\.\./g, ' '); // convert ellipses to spaces
@@ -332,12 +409,54 @@
 
                 // deal with html entities
                 text = text.replace(/(\w+)(&#?[a-z0-9]+;)+(\w+)/i, "$1$3").replace(/&.+?;/g, ' ');
-                text = text.replace(/[0-9.(),;:!?%#$?\x27\x22_+=\\\/\-]*/g, ''); // remove numbers and punctuation
+                
+
+                if (keepPunctuation !== true) {
+                    text = text.replace(/[0-9.(),;:!?%#$?\x27\x22_+=\\\/\-]*/g, ''); // remove numbers and punctuation
+                    calculatedText = text;
+                    return calculatedText;
+                }
 
                 return text;
             }
 
             return '';
+        }
+
+        function countWords(text)
+        {
+            if (text) {
+                var wordArray = text.match(/[\w\u2019\x27\-\u00C0-\u1FFF]+/g);
+                if (wordArray) {
+                    return wordArray.length;
+                }
+            }
+
+            return 0;
+        }
+
+        function countSyllables(text)
+        {
+            text = text.toLowerCase();
+            if (text.length <= 3) {
+                return 1;
+            }
+            text = text.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
+            text = text.replace(/^y/, '');
+            return text.match(/[aeiouy]{1,2}/g).length;
+        }
+
+        function countSentences(text)
+        {
+            var sentences = text.split(".");
+            var sentenceCount = 0;
+            for (var i = 0; i < sentences.length; i++) {
+                if (sentences[ i ] !== "" && sentences[ i ] !== " ") {
+                    sentenceCount++;
+                }
+            }
+
+            return sentenceCount;
         }
     });
 
