@@ -62,17 +62,17 @@ class Admin extends BaseFeature
         $seo = \NextBuzz\SEO\App::getInstance();
 
         // Add Menu Page
-        add_menu_page('Buzz SEO', 'Buzz SEO', 'edit_dashboard', 'BuzzSEO', array(&$this, "addAdminUI"));
+        add_menu_page('Buzz SEO', 'Buzz SEO', 'edit_posts', 'BuzzSEO', array($this, "addAdminUI"));
 
         // Make sure this submenu is only visiable for admin users.
         if(current_user_can('manage_options'))
         {
             // Add Settings Sub Option Page
-            add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_dashboard', 'SEOSettings', array(&$this, "addAdminUI"));
-        }
+            add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_dashboard', 'SEOSettings', array($this, "addAdminUI"));
 
-        // Rename Submenu
-        $submenu['BuzzSEO'][0][0] = __('General', 'buzz-seo');
+            // Rename Submenu
+            $submenu['BuzzSEO'][0][0] = __('General', 'buzz-seo');
+        }
     }
 
     /*
