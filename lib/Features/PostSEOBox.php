@@ -16,7 +16,7 @@ class PostSEOBox extends BaseFeature
 
     public function desc()
     {
-        return __("add add an optimization SEO box for each post", 'buzz-seo');
+        return __("Add an optimization SEO box for each post.", 'buzz-seo');
     }
 
     private $postMeta;
@@ -142,8 +142,8 @@ class PostSEOBox extends BaseFeature
             echo '<meta property="article:modified_time" content="' . esc_attr($mod) . '" />' . "\n";
             echo '<meta property="og:updated_time" content="' . esc_attr($mod) . '" />' . "\n";
         }
-        
-        
+
+
         if (isset($postMeta['twTitle']) && $postMeta['twTitle'] !== "") {
             $hasTwitter = true;
             echo '<meta property="tw:title" content="' . esc_attr($postMeta['twTitle']) . '" />' . "\n";
@@ -160,7 +160,7 @@ class PostSEOBox extends BaseFeature
                 echo '<meta property="tw:image" content="' . esc_url($image) . '" />' . "\n";
             }
         }
-        
+
         if ($hasTwitter) {
             echo '<meta property="tw:card" content="summary" />' . "\n";
         }

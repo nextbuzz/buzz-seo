@@ -17,7 +17,7 @@ class Admin extends BaseFeature
 
     public function desc()
     {
-        return __("Admin Core of Buzz SEO", "buzz-seo");
+        return __("Admin Core of Buzz SEO.", "buzz-seo");
     }
 
     public function init()

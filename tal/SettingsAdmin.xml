@@ -9,15 +9,11 @@
         <p tal:content="errorMessage">Error</p>
     </div>
 
-    <p i18n:translate="">
-        This settings page is only available for administrators.
-    </p>
+    <p i18n:translate="">This settings page is only available for administrators.</p>
 
     <h2 i18n:translate="">Feature Settings</h2>
 
-    <p i18n:translate="">
-        Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management.
-    </p>
+    <p i18n:translate="">Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management.</p>
 
     <form method="post" action="">
         <tal:block tal:content="structure settingsNonce" />
