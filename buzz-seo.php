@@ -2,8 +2,8 @@
 
 /*
   Plugin Name: Buzz SEO
-  Plugin URI: http://www.nextbuzz.nl
-  Description: This might become a simple WordPress SEO plugin someday. Currently in active development.
+  Plugin URI: https://github.com/nextbuzz/buzz-seo
+  Description: A small SEO plugin. Requires PHP 5.3+ and WP 4.4+
   Version: 0.0.2
   Author: Next Buzz BV
   Author URI: https://github.com/nextbuzz/

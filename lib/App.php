@@ -24,6 +24,7 @@ class App
             'Admin',
             'PostSEOBox',
             'PostSEOBoxAnalysis',
+            'Sitemaps',
         );
 
         $enabledFeatures = get_option('_settingsSettingsAdmin');
