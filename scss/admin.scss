@@ -3,66 +3,6 @@
     Author     : Nick Vlug <nick@ruddy.nl>
 */
 
-.buzz-seo-wrapper {
-    background: #fff;
-    border: 2px solid #e6e6e6;
-    margin-top: 20px;
-    width: calc(100% - 20px);
-    
-    .inside {
-        padding: 20px 15px;
-        
-        h1 {
-            font-size: 20px;
-            line-height: 1em;
-            padding: 0px;
-            margin: 0px;
-            color: #e12831;
-            margin-bottom: 15px;
-        }
-    }
-    
-    &.message
-    {
-        padding-left: 15px;
-        color: white;
-        border: 2px solid darkgreen;
-        background-color: green;
-    }
-    
-    &.errorMessage
-    {
-        padding-left: 15px;
-        color: white;
-        border: 2px solid darkred;
-        background-color: red;
-    }
-    
-    button {
-        &.buzzer {
-            cursor: pointer;
-            font-size: 14px;
-            height: 51px;
-            min-width: 200px;
-            margin-top: 40px;
-            color: white;
-            border: 0px;
-            border-radius: 0px;
-            -webkit-border-radius: 0px;
-            -moz-border-radius: 0px;
-            
-            &:hover {
-                opacity: 0.75;
-                filter: alpha(opacity=75);
-            }
-            
-            &.red {
-                background-color: #e12831;
-            }
-        }
-    }
-}
-
 .buzz-seo-tabs .nav-tab-wrapper {
     margin-bottom: 0;
     border-bottom: 1px solid #dfdfdf;

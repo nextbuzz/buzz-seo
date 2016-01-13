@@ -1,19 +1,33 @@
-<div class="buzz-seo-wrapper">
-    <div class="inside"> 
-        <h1 i18n:translate="">General</h1>
-        <p>
-            Buzz SEO is in development
-            
-            <form method="post" enctype="multipart/form-data" action="">
-                <table class="form-table">
-                    <tbody>
-                        <tr>
-                            <td>Test</td> 
-                            <td>Option</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </form>
-        </p>
+<div class="wrap">
+    <h1> Settings </h1>
+    
+    <div tal:condition="exists:message" class="updated">
+        <p tal:content="message">Bericht</p>
     </div>
+
+    <div tal:condition="exists:errorMessage" class="error">
+        <p tal:content="errorMessage">Error</p>
+    </div>
+    
+    <form method="post" action="">
+        <tal:block tal:content="structure nonce"></tal:block>
+    
+        <table class="form-table">
+            <tr tal:repeat="option options">
+                <th scope="row">
+                    <label tal:content="option/name"/>
+                </th>
+                <td>
+                    <input type="checkbox" name="BuzzSEO[${option/key}]" tal:condition="not:option/disable" checked="true" disabled="true"/>
+                    <input type="checkbox" name="BuzzSEO[${option/key}]" tal:condition="option/disable" tal:attributes="checked option/check;"/>
+
+                    <tal:block tal:content="option/desc"/>
+                </td>
+            </tr>
+        </table>
+        
+        <p class="submit">
+            <input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes"  />
+        </p>
+    </form>
 </div>
