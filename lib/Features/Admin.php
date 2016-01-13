@@ -19,7 +19,7 @@ class Admin extends BaseFeature
     {
         return __("Admin Core of Buzz SEO", "buzz-seo");
     }
-    
+
     public function init()
     {
         if (!is_admin()) {
@@ -27,7 +27,7 @@ class Admin extends BaseFeature
         }
 
         add_action('admin_enqueue_scripts', array(&$this, 'enqueueAdminScripts'));
-        
+
         add_action('admin_menu', array(&$this, 'createAdminMenu'));
     }
 
@@ -50,52 +50,48 @@ class Admin extends BaseFeature
             )
         ));
     }
-    
+
     /**
      * Create Admin Menu
      */
     public function createAdminMenu()
     {
         global $submenu;
-        
+
         // grab app singleton
         $seo = \NextBuzz\SEO\App::getInstance();
-        
+
         // Add Menu Page
         add_menu_page('Buzz SEO', 'Buzz SEO', 'edit_dashboard', 'BuzzSEO', array(&$this, "addAdminUI"));
-        
+
         // Make sure this submenu is only visiable for admin users.
         if(current_user_can('manage_options'))
         {
             // Add Settings Sub Option Page
             add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_dashboard', 'SEOSettings', array(&$this, "addAdminUI"));
         }
-        
-        if($seo->getFeature('') === true)
-        {
-            // Add Feature submenu
-        }
-        
+
         // Rename Submenu
         $submenu['BuzzSEO'][0][0] = __('General', 'buzz-seo');
     }
-    
+
     /*
      * Add Admin UI
      */
     public function addAdminUI()
     {
-        $optionPage = new \NextBuzz\SEO\PHPTAL\OptionPage();
-        if($optionPage)
-        {
-            //Grab safe the page input.
-            $page = filter_input(INPUT_GET, 'page');
-            
-            // Set Page into the option page render
-            $optionPage->setPage($page);
-            
-            // Render Page
-            $optionPage->render();
+        //Grab safe the page input.
+        $page = filter_input(INPUT_GET, 'page');
+        switch ($page) {
+            case 'BuzzSEO':
+                \NextBuzz\SEO\PHPTAL\SettingsPage::factory('SettingsGeneral')->render();
+                break;
+
+            case 'SEOSettings':
+                \NextBuzz\SEO\PHPTAL\Settings\Admin::factory()->render();
+                break;
+            default:
+                break;
         }
     }
 }

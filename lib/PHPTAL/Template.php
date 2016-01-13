@@ -8,7 +8,7 @@ namespace NextBuzz\SEO\PHPTAL;
  *
  * @author LengthOfRope, Bas de Kort <bdekort@gmail.com>
  */
-class Template extends \PHPTAL
+abstract class Template extends \PHPTAL
 {
 
     /**

@@ -1,6 +1,6 @@
 <div class="wrap">
-    <h1 i18n:translate=""> Settings </h1>
-    
+    <h1 i18n:translate="">Settings</h1>
+
     <div tal:condition="exists:message" class="updated">
         <p tal:content="message">Bericht</p>
     </div>
@@ -8,32 +8,36 @@
     <div tal:condition="exists:errorMessage" class="error">
         <p tal:content="errorMessage">Error</p>
     </div>
-    
-    <h2 i18n:translate=""> Feature Settings </h2>
-    
+
+    <p i18n:translate="">
+        This settings page is only available for administrators.
+    </p>
+
+    <h2 i18n:translate="">Feature Settings</h2>
+
     <p i18n:translate="">
         Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management.
     </p>
-    
+
     <form method="post" action="">
-        <tal:block tal:content="structure nonce"></tal:block>
-    
+        <tal:block tal:content="structure settingsNonce" />
+
         <table class="form-table">
             <tr tal:repeat="option options">
                 <th scope="row">
                     <label tal:content="option/name"/>
                 </th>
                 <td>
-                    <input type="checkbox" name="BuzzSEO[${option/key}]" tal:condition="not:option/disable" checked="true" disabled="true"/>
-                    <input type="checkbox" name="BuzzSEO[${option/key}]" tal:condition="option/disable" tal:attributes="checked option/check;"/>
-
-                    <tal:block tal:content="option/desc"/>
+                    <label>
+                        <input type="checkbox" name="SettingsAdmin[features][${option/key}]" value="1" tal:attributes="checked option/check;"/>
+                        <tal:block tal:content="option/desc"/>
+                    </label>
                 </td>
             </tr>
         </table>
-        
+
         <p class="submit">
-            <button type="submit" name="submit" id="submit" class="button button-primary" i18n:translate="">Save Changes</button>
+            <button type="submit" id="submit" class="button button-primary" i18n:translate="">Save Changes</button>
         </p>
     </form>
 </div>

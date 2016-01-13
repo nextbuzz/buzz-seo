@@ -11,7 +11,7 @@ namespace NextBuzz\SEO;
 class App
 {
     protected static $instance;
-    
+
     private static $features = array();
 
     private function __construct()
@@ -26,42 +26,50 @@ class App
             'PostSEOBoxAnalysis',
         );
 
-        foreach($features as $f) 
+        $enabledFeatures = get_option('_settingsSettingsAdmin');
+
+        if (is_array($enabledFeatures['features'])) {
+            $enabledFeatures = array_keys($enabledFeatures['features']);
+        } else {
+            $enabledFeatures = array();
+        }
+
+        foreach($features as $f)
         {
             // Get Namespace
             $class = '\\NextBuzz\\SEO\\Features\\' . $f;
-            
+
             /* @var $Feature \NextBuzz\SEO\Features\BaseFeature */
             $feature = new $class();
 
             // Check if enabled in database
-            $isEnabled = get_option($f) === "on" ? true : false;
-           
+            $isEnabled = in_array($f, $enabledFeatures);
+
             // Check if feature is enabled or not
-            if ($feature->allowDisable() === false || $isEnabled) 
+            if ($feature->allowDisable() === false || $isEnabled)
             {
                 // Run init
                 $feature->init();
             }
-            
+
             // Insert activated class into the feature array
             $this->features[$f] = $feature;
         }
-        
+
         // Always init
         add_action('plugins_loaded', array($this, 'pluginsLoaded'));
     }
-    
+
     private function __wakeup()
     {
-        
+
     }
-    
+
     private function __clone()
     {
-        
+
     }
-    
+
     /**
      * Get Current App
      * @return \NextBuzz\SEO\App
@@ -78,7 +86,7 @@ class App
      */
     public function getFeature($id)
     {
-        if (isset($this->features[$id])) 
+        if (isset($this->features[$id]))
         {
             return $this->features[$id];
         }
@@ -98,7 +106,7 @@ class App
         }
         return false;
     }
-    
+
     /**
      * Code to run when plugins are loaded.
      *

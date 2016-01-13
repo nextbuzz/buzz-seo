@@ -8,14 +8,14 @@ namespace NextBuzz\SEO\PHPTAL;
  * @author HeroBanana, Nick Vlug <nick@ruddy.nl>
  */
 
-abstract class OptionPage 
+class OptionPage
 {
     /**
      * Page Varaiable
-     * @var type 
+     * @var type
      */
     private $_page;
-    
+
     /**
      * set the page which have to be rendered
      * @param type $page
@@ -24,12 +24,12 @@ abstract class OptionPage
     {
         $this->_page = $page;
     }
-    
+
     /**
      * Rendering Tal Page
      */
     public function render()
-    {      
+    {
         // Create namespace
         $class = "\\NextBuzz\\SEO\\Admin\\" . $this->_page;
         if(class_exists($class))
@@ -41,7 +41,7 @@ abstract class OptionPage
             {
                 // Load OptionPage
                 $load->init();
-                
+
                 // Execute Tal and render it.
                 $load->echoExecute();
             }
