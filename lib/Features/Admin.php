@@ -26,9 +26,11 @@ class Admin extends BaseFeature
             return;
         }
 
-        add_action('admin_enqueue_scripts', array(&$this, 'enqueueAdminScripts'));
+        add_action('admin_enqueue_scripts', array($this, 'enqueueAdminScripts'));
 
-        add_action('admin_menu', array(&$this, 'createAdminMenu'));
+        add_action('admin_menu', array($this, 'createAdminMenu'));
+
+        add_action('custom_menu_order', array($this, 'changeSubmenuOrder'));
     }
 
     public function allowDisable()
@@ -73,6 +75,20 @@ class Admin extends BaseFeature
             // Rename Submenu
             $submenu['BuzzSEO'][0][0] = __('General', 'buzz-seo');
         }
+    }
+
+    public function changeSubmenuOrder($menu_ord)
+    {
+        global $submenu;
+
+        // Make sure settings is always last if it exists
+        if (isset($submenu['BuzzSEO'][1][2]) && $submenu['BuzzSEO'][1][2] === 'SEOSettings') {
+            $settings = array_splice($submenu['BuzzSEO'], 1, 1);
+            $settings[0][0] = '<div style="border-top: 1px solid rgba(255, 255, 255, .2); padding-top: .5rem;">' . $settings[0][0] . '</div>';
+            array_push($submenu['BuzzSEO'], $settings[0]);
+        }
+
+        return $menu_ord;
     }
 
     /*
