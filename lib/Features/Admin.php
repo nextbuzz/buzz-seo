@@ -62,7 +62,7 @@ class Admin extends BaseFeature
         $seo = \NextBuzz\SEO\App::getInstance();
 
         // Add Menu Page
-        add_menu_page('Buzz SEO', 'Buzz SEO', 'edit_posts', 'BuzzSEO', array($this, "addAdminUI"));
+        add_menu_page('Buzz SEO', 'Buzz SEO', 'edit_posts', 'BuzzSEO', array($this, "addAdminUI"), 'dashicons-analytics');
 
         // Make sure this submenu is only visiable for admin users.
         if(current_user_can('manage_options'))
