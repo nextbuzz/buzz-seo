@@ -72,7 +72,7 @@ class App
     }
 
     /**
-     * Get Activated Features
+     * Get activated feature by key
      * @param type $id
      * @return boolean
      */
@@ -86,6 +86,10 @@ class App
         return false;
     }
 
+    /**
+     * Get every activated feature
+     * @return boolean
+     */
     public function getFeatures()
     {
         if(is_array($this->features))

@@ -1,5 +1,5 @@
 <div class="wrap">
-    <h1> Settings </h1>
+    <h1 i18n:translate=""> Settings </h1>
     
     <div tal:condition="exists:message" class="updated">
         <p tal:content="message">Bericht</p>
@@ -8,6 +8,12 @@
     <div tal:condition="exists:errorMessage" class="error">
         <p tal:content="errorMessage">Error</p>
     </div>
+    
+    <h2 i18n:translate=""> Feature Settings </h2>
+    
+    <p i18n:translate="">
+        Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management.
+    </p>
     
     <form method="post" action="">
         <tal:block tal:content="structure nonce"></tal:block>
@@ -27,7 +33,7 @@
         </table>
         
         <p class="submit">
-            <input type="submit" name="submit" id="submit" class="button button-primary" value="Save Changes"  />
+            <button type="submit" name="submit" id="submit" class="button button-primary" i18n:translate="">Save Changes</button>
         </p>
     </form>
 </div>

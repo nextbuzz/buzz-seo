@@ -12,12 +12,12 @@ class Admin extends BaseFeature
 {
     public function name()
     {
-        return "Admin Core";
+        return __("Admin Core", "buzz-seo");
     }
 
     public function desc()
     {
-        return "Admin Core of Buzz SEO";
+        return __("Admin Core of Buzz SEO", "buzz-seo");
     }
     
     public function init()

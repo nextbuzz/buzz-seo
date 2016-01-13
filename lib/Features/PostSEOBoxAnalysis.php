@@ -11,13 +11,13 @@ class PostSEOBoxAnalysis extends BaseFeature
 {
     public function name()
     {
-        return "SEO Analysis Box";
+        return __("SEO Analysis Box", "buzz-seo");
     }
 
     
     public function desc()
     {
-        return "add add an optimization SEO Analysis box for each post";
+        return __("add add an optimization SEO Analysis box for each post", "buzz-seo");
     }
     
     public function init()

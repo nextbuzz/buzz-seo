@@ -11,12 +11,12 @@ class PostSEOBox extends BaseFeature
 {
     public function name()
     {
-        return "SEO Box";
+        return __("SEO Box", 'buzz-seo');
     }
 
     public function desc()
     {
-        return "add add an optimization SEO box for each post";
+        return __("add add an optimization SEO box for each post", 'buzz-seo');
     }
 
     private $postMeta;

@@ -8,7 +8,7 @@ namespace NextBuzz\SEO\PHPTAL;
  * @author HeroBanana, Nick Vlug <nick@ruddy.nl>
  */
 
-class OptionPage 
+abstract class OptionPage 
 {
     /**
      * Page Varaiable
@@ -37,8 +37,6 @@ class OptionPage
             /* @var $load \NextBuzz\SEO\Admin\BaseAdmin */
             $load = new $class();
 
-
-            
             if($load)
             {
                 // Load OptionPage

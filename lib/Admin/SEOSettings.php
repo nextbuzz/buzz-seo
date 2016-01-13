@@ -21,7 +21,7 @@ class SEOSettings extends BaseAdmin
         // check if its an array
         if(is_array($features) == false)
         {
-            throw new Exception("No Features available", 401);
+            throw new \Exception(__("No Features available", "buzz-seo"), 401);
         }
         
         // safe post function
@@ -32,11 +32,11 @@ class SEOSettings extends BaseAdmin
         {
             if (wp_verify_nonce($array['nonce'], 'buzzSEO') === false) 
             {
-                $this->setTalData('errorMessage', __("Nonce value is invalide."));
+                $this->setTalData('errorMessage', __("Nonce value is invalide.", "buzz-seo"));
             }
             else
             {
-                $this->setTalData('message', __("Settings has been saved."));
+                $this->setTalData('message', __("Settings has been saved.", "buzz-seo"));
                 
                 /* @var $class \NextBuzz\SEO\Features\BaseFeature */
                 foreach($features as $key => $class)

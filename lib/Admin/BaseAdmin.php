@@ -17,7 +17,7 @@ abstract class BaseAdmin extends \NextBuzz\SEO\PHPTAL\Template
         $reflection = new \ReflectionClass($this);
         if($reflection == null)
         {
-            throw new \Exception("ReflectionClass has been initialized wrong.", 404);
+            throw new \Exception(__("ReflectionClass has been initialized wrong.", "buzz-seo"), 404);
         }
         else
         {
