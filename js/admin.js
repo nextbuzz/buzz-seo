@@ -106,8 +106,8 @@
             calculatedText = false;
 
             var output, index, id, data, info;
-            outputGood = []; 
-            outputWarning = []; 
+            outputGood = [];
+            outputWarning = [];
             outputError = [];
             for (index = 0; index < BuzzSEOAnalysis.data.length; ++index) {
                 id = BuzzSEOAnalysis.data[index].id;
@@ -240,8 +240,8 @@
         function analyseEnglishReadability(data, info, text)
         {
             var index, item,
-                    numOfWords = 0, numOfSentences = 0, numOfSyllables = 0, 
-                    optimalMin = info.recommendedMin, optimalMax = info.recommendedMax, 
+                    numOfWords = 0, numOfSentences = 0, numOfSyllables = 0,
+                    optimalMin = info.recommendedMin, optimalMax = info.recommendedMax,
                     scoreFlesh = 0, scoreDouma = 0;
 
             // Count words
@@ -253,15 +253,15 @@
                 scoreFlesh = 206.835 - (1.015 * (numOfWords / numOfSentences)) - (84.6 * (numOfSyllables / numOfWords));
                 scoreDouma = 206.835 - (0.93 * (numOfWords / numOfSentences)) - (77 * (numOfSyllables / numOfWords));
             }
-            
+
             if (scoreFlesh < 0) { scoreFlesh = 0; }
             if (scoreFlesh > 100) { scoreFlesh = 100; }
             if (scoreDouma < 0) { scoreDouma = 0; }
             if (scoreDouma > 100) { scoreDouma = 100; }
-            
+
             scoreFlesh = scoreFlesh.toFixed(2);
             scoreDouma = scoreDouma.toFixed(2);
-            
+
             var score = 0, language = BuzzSEOAnalysis.locale.substr(0, 2);
             if (language === "en") {
                 score = scoreFlesh;
@@ -409,7 +409,7 @@
 
                 // deal with html entities
                 text = text.replace(/(\w+)(&#?[a-z0-9]+;)+(\w+)/i, "$1$3").replace(/&.+?;/g, ' ');
-                
+
 
                 if (keepPunctuation !== true) {
                     text = text.replace(/[0-9.(),;:!?%#$?\x27\x22_+=\\\/\-]*/g, ''); // remove numbers and punctuation
@@ -443,7 +443,8 @@
             }
             text = text.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
             text = text.replace(/^y/, '');
-            return text.match(/[aeiouy]{1,2}/g).length;
+            var syllables = text.match(/[aeiouy]{1,2}/g);
+            return (syllables === null) ? 0 : syllables.length;
         }
 
         function countSentences(text)
