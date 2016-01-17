@@ -22,8 +22,10 @@ class Sitemaps extends BaseFeature
 
     public function init()
     {
+        add_action('init', array($this, 'setupRewriteRule'), 1);
         add_action('admin_menu', array($this, 'createAdminMenu'));
         add_action('pre_get_posts', array($this, 'checkRenderSitemap'), 1);
+        add_filter('redirect_canonical', array($this, 'noXMLTrailingSlash'));
     }
 
     /**
@@ -43,6 +45,17 @@ class Sitemaps extends BaseFeature
         \NextBuzz\SEO\PHPTAL\Settings\Sitemaps::factory()->render();
     }
 
+    public function setupRewriteRule()
+    {
+        global $wp;
+
+        $wp->add_query_var('buzz_sitemap');
+        $wp->add_query_var('buzz_sitemap_page');
+        
+        add_rewrite_rule( 'sitemap\.xml$', 'index.php?buzz_sitemap=1', 'top' );
+        add_rewrite_rule('sitemap-([^/]+?)-?([0-9]+)?\.xml$', 'index.php?buzz_sitemap=$matches[1]&buzz_sitemap_page=$matches[2]', 'top');
+    }
+
     /**
      * Render the xml output if requested.
      */
@@ -52,18 +65,34 @@ class Sitemaps extends BaseFeature
         if (!$query->is_main_query()) {
             return;
         }
-        
-        // TODO: Somehow detect if we are a sitemap xml page
-        return;
-        
+
+        // Detect if we are requesting a sitemap xml page
+        $type = get_query_var('buzz_sitemap');
+
+        if (empty($type)) {
+            return;
+        }
+
+        // Set some headers
         if (!headers_sent()) {
             header($this->getHTTPProtocol() . ' 200 OK', true, 200);
-            // Prevent the search engines from indexing the XML Sitemap.
+            // Prevent indexing the sitemaps
             header('X-Robots-Tag: noindex, follow', true);
             header('Content-Type: text/xml');
         }
         
+        // Get the page number
+        $page = intval(get_query_var('buzz_sitemap_page'));
+        if ($page === 0 ) {
+            $page = 1;
+        }
         
+        if ($type === "1") {
+            // Build the sitemapindex
+        } else {
+            // Build the sitemap
+        }
+
 
         // Make sure WordPress does not output any footer content
         remove_all_actions('wp_footer');
@@ -78,6 +107,22 @@ class Sitemaps extends BaseFeature
     private function getHTTPProtocol()
     {
         return (isset($_SERVER['SERVER_PROTOCOL']) && $_SERVER['SERVER_PROTOCOL'] !== '') ? sanitize_text_field($_SERVER['SERVER_PROTOCOL']) : 'HTTP/1.1';
+    }
+
+    /**
+     * Hook into redirect_canonical to stop trailing slashes on sitemap.xml URLs
+     *
+     * @param string $redirect The redirect URL currently determined.
+     * @return bool|string $redirect
+     */
+    public function noXMLTrailingSlash($redirect)
+    {
+        $sitemap = get_query_var('buzz_sitemap');
+        if (!empty($sitemap)) {
+            return false;
+        }
+
+        return $redirect;
     }
 
 }
