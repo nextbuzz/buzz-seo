@@ -12,7 +12,7 @@ class App
 {
     protected static $instance;
 
-    private static $features = array();
+    private static $features;
 
     private function __construct()
     {
@@ -34,6 +34,10 @@ class App
         } else {
             $enabledFeatures = array();
         }
+        
+        if (self::$features === NULL) {
+            self::$features = array();
+        }
 
         foreach($features as $f)
         {
@@ -54,7 +58,7 @@ class App
             }
 
             // Insert activated class into the feature array
-            $this->features[$f] = $feature;
+            self::$features[$f] = $feature;
         }
 
         // Always init
@@ -101,10 +105,11 @@ class App
      */
     public function getFeatures()
     {
-        if(is_array($this->features))
+        if(is_array(self::$features))
         {
-            return $this->features;
+            return self::$features;
         }
+        
         return false;
     }
 

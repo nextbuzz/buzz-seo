@@ -102,7 +102,7 @@ class PostSEOBox extends BaseFeature
         if ('0' === get_option('blog_public')) {
             echo '<meta name="robots" content="noindex,nofollow" />' . "\n";
         } else
-        if (is_string($robotsstr) && $robotsstr !== '') {
+        if (isset($robotsstr) && is_string($robotsstr) && $robotsstr !== '') {
             echo '<meta name="robots" content="' . esc_attr($robotsstr) . '" />' . "\n";
         }
     }
