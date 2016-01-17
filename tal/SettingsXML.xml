@@ -1,3 +1,76 @@
 <div class="wrap">
     <h1 i18n:translate="">XML Sitemap settings</h1>
+    
+    <div tal:condition="exists:message" class="updated">
+        <p tal:content="message">Bericht</p>
+    </div>
+
+    <div tal:condition="exists:errorMessage" class="error">
+        <p tal:content="errorMessage">Error</p>
+    </div>
+
+    <p i18n:translate="">XML sitemap's are enabled. Please select sitemap generation options in the tabs below.</p>
+    
+    <form method="post" action="">
+        <tal:block tal:content="structure settingsNonce" />
+        <div class="buzz-seo-tabs">
+            <div class="nav-tab-wrapper">
+                <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">General</a>
+                <a class="nav-tab" href="javascript:;" i18n:translate="">Post types</a>
+                <a class="nav-tab" href="javascript:;" i18n:translate="">Taxonomies</a>
+            </div>
+
+            <div class="inner">
+                <table class="form-table">
+                    <tr>
+                        <th scope="row">
+                            Sitemap location
+                        </th>
+                        <td>
+                            <p>
+                                <a href="#" target="_blank">TODO</a>
+                            </p>
+                            <p class="description" i18n:translate="">The location of the XML file.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            Style sitemap
+                        </th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsXML[styleoutput]" value="1" tal:attributes="checked exists:styleoutput"/>
+                                <tal:block i18n:translate="">Yes</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">If enabled, performs basic CSS styling on the XML output.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            Add author pages
+                        </th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsXML[includeauthor]" value="1" tal:attributes="checked exists:includeauthor"/>
+                                <tal:block i18n:translate="">Yes</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">If enabled, also creates a sitemap of all content authors.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="inner hidden">
+                <p i18n:translate="">Post types</p>
+            </div>
+
+            <div class="inner hidden">
+                <p i18n:translate="">Taxonomies</p>
+            </div>
+        </div>
+        
+        <p class="submit">
+            <button type="submit" id="submit" class="button button-primary" i18n:translate="">Save Changes</button>
+        </p>
+    </form>
 </div>
