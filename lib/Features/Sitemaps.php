@@ -89,8 +89,10 @@ class Sitemaps extends BaseFeature
         
         if ($type === "1") {
             // Build the sitemapindex
+            \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemapIndex')->render();
         } else {
             // Build the sitemap
+            \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemap')->render();
         }
 
 
