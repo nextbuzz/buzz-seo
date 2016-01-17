@@ -54,6 +54,7 @@ class Sitemaps extends BaseFeature
         }
         
         // TODO: Somehow detect if we are a sitemap xml page
+        return;
         
         if (!headers_sent()) {
             header($this->getHTTPProtocol() . ' 200 OK', true, 200);
