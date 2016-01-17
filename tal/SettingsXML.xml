@@ -16,8 +16,7 @@
         <div class="buzz-seo-tabs">
             <div class="nav-tab-wrapper">
                 <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">General</a>
-                <a class="nav-tab" href="javascript:;" i18n:translate="">Post types</a>
-                <a class="nav-tab" href="javascript:;" i18n:translate="">Taxonomies</a>
+                <a class="nav-tab" href="javascript:;" i18n:translate="">Sitemap content</a>
             </div>
 
             <div class="inner">
@@ -28,7 +27,7 @@
                         </th>
                         <td>
                             <p>
-                                <a href="#" target="_blank">TODO</a>
+                                <a tal:attributes="href sitemapURL" target="_blank">sitemap.xml</a>
                             </p>
                             <p class="description" i18n:translate="">The location of the XML file.</p>
                         </td>
@@ -45,6 +44,43 @@
                             <p class="description" i18n:translate="">If enabled, performs basic CSS styling on the XML output.</p>
                         </td>
                     </tr>
+                </table>
+            </div>
+
+            <div class="inner hidden">
+                <table class="form-table">
+                    <tr>
+                        <th scope="row" i18n:translate="">Post types</th>
+                        <td>
+                            <ul>
+                                <li tal:repeat="option postTypes">
+                                    <label>
+                                        <input type="checkbox" name="SettingsXML[posttypes][${option/key}]" value="1" tal:attributes="checked option/check;" />
+                                        <tal:block tal:content="structure option/name">Name</tal:block>
+                                        (<code tal:content="structure option/key">key</code>)
+                                    </label>                                    
+                                </li>
+                            </ul>
+                            <p class="description" i18n:translate="">Select the post types that should be added to the XML sitemap.</p>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row" i18n:translate="">Taxonomies</th>
+                        <td>
+                            <ul>
+                                <li tal:repeat="option taxonomies">
+                                    <label>
+                                        <input type="checkbox" name="SettingsXML[taxonomies][${option/key}]" value="1" tal:attributes="checked option/check;" />
+                                        <tal:block tal:content="structure option/name">Name</tal:block>
+                                        (<code tal:content="structure option/key">key</code>)
+                                    </label>                                    
+                                </li>
+                            </ul>
+                            <p class="description" i18n:translate="">Select the taxonomies that should be added to the XML sitemap.</p>
+                        </td>
+                    </tr>
+                    
                     <tr>
                         <th scope="row">
                             Add author pages
@@ -54,18 +90,11 @@
                                 <input type="checkbox" name="SettingsXML[includeauthor]" value="1" tal:attributes="checked exists:includeauthor"/>
                                 <tal:block i18n:translate="">Yes</tal:block>
                             </label>
-                            <p class="description" i18n:translate="">If enabled, also creates a sitemap of all content authors.</p>
+                            <p class="description" i18n:translate="">If enabled, also creates a sitemap of all author-pages.</p>
                         </td>
                     </tr>
+
                 </table>
-            </div>
-
-            <div class="inner hidden">
-                <p i18n:translate="">Post types</p>
-            </div>
-
-            <div class="inner hidden">
-                <p i18n:translate="">Taxonomies</p>
             </div>
         </div>
         

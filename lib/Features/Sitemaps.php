@@ -33,7 +33,7 @@ class Sitemaps extends BaseFeature
 
     public function addAdminUI()
     {
-        \NextBuzz\SEO\PHPTAL\SettingsPage::factory('SettingsXML')->render();
+        \NextBuzz\SEO\PHPTAL\Settings\Sitemaps::factory()->render();
     }
 
 }

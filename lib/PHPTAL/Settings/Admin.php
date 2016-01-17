@@ -9,7 +9,7 @@ namespace NextBuzz\SEO\PHPTAL\Settings;
  */
 class Admin extends \NextBuzz\SEO\PHPTAL\SettingsPage
 {
-    public function __construct($tplName)
+    public function __construct()
     {
         parent::__construct('SettingsAdmin');
 
