@@ -109,6 +109,9 @@ class Sitemaps extends BaseFeature
             'itemsperpage' => 250
         ));
         $itemsperpage = $options['itemsperpage'];
+        
+        // Set xsl stylesheet
+        $options['xslstylesheet'] = '<?xml-stylesheet type="text/xsl" href="' . plugins_url('/css/sitemap.xsl.php', dirname(dirname(__FILE__))) . '"?>';
 
         $talData = array();
         $baseurl = home_url('/');
@@ -166,6 +169,7 @@ class Sitemaps extends BaseFeature
 
             // Render
             \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemapIndex')
+                ->setTalData($options)
                 ->setTalData('sitemaps', $talData)
                 ->render();
         } else if ($options['includeauthor'] && $type === 'author') {
@@ -193,6 +197,7 @@ class Sitemaps extends BaseFeature
             
             // Render
             \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemap')
+                ->setTalData($options)
                 ->setTalData('urls', $talData)
                 ->render();
         } else {
@@ -245,6 +250,7 @@ class Sitemaps extends BaseFeature
 
             // Render
             \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemap')
+                ->setTalData($options)
                 ->setTalData('urls', $talData)
                 ->render();
         }
