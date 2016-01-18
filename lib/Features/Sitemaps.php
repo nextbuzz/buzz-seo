@@ -141,6 +141,22 @@ class Sitemaps extends BaseFeature
                 }
             }
 
+            // Add author map
+            if ($options['includeauthor']) {
+                $users = get_users(array('who' => 'authors'));
+                $users = wp_list_pluck($users, 'ID');
+                
+                $numusers = count($users);
+                $pages = ceil($numusers / $itemsperpage);
+                for ($p = 1; $p <= $pages; $p++)
+                {
+                    $talData[] = array(
+                        'loc' => $baseurl . 'sitemap-author-' . $p . '.xml',
+                        'lastmod' => '',
+                    );
+                }
+            }
+
             // Render
             \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemapIndex')
                 ->setTalData('sitemaps', $talData)
