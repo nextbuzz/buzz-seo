@@ -1,0 +1,51 @@
+.buzz-seo-tabs .nav-tab-wrapper {
+    margin-bottom: 0;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.postbox .buzz-seo-tabs .nav-tab-active {
+    background: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+.buzz-seo-tabs .inside {
+    display: block;
+    border: 1px solid #dfdfdf;
+    border-top: none;
+    margin-top: 0 !important;
+    background: #fff;
+    padding-top: 6px;
+}
+
+.buzz-seo-tabs .inside.hidden {
+    display: none;
+}
+
+.buzz-seo-tabs .inside :first-child {
+    margin-top: 0;
+}
+
+.buzz-seo-tabs .inside input[type=text] {
+    width: 100%;
+}
+
+.buzz-seo-tabs .inside > ul {
+    margin-top: 1em !important;
+    font-weight: normal;
+    list-style: disc;
+    margin-left: 1.5em;
+}
+
+.buzz-seo-tabs .inside .error {
+    color: red;
+}
+.buzz-seo-tabs .inside .warning {
+    color: orange;
+}
+.buzz-seo-tabs .inside .good {
+    color: green;
+}
+
+.buzz-seo-tabs .form-table td > ul {
+    margin-top: 0;
+}

@@ -6,12 +6,15 @@ namespace NextBuzz\SEO;
  * This is the base class which starts everything
  *
  * @author LengthOfRope, Bas de Kort <bdekort@gmail.com>
+ * @author HeroBanana, Nick Vlug <nick@ruddy.nl>
  */
 class App
 {
-    private $features = array();
+    protected static $instance;
 
-    public function __construct()
+    private static $features;
+
+    private function __construct()
     {
         // Just an easy way to rewrite the POT file.
         //$this->rewritePOT();
@@ -19,34 +22,94 @@ class App
         // Load features
         $features = array(
             'Admin',
-            'AdminOptionPage',
             'PostSEOBox',
             'PostSEOBoxAnalysis',
+            'Sitemaps',
         );
 
-        // TODO: Get enabled features from DB
-        foreach($features as $f) {
-            $class = '\\NextBuzz\\SEO\\Features\\' . $f;
-            /* @var $Feature \NextBuzz\SEO\Features\BaseFeature */
-            $Feature = new $class();
+        $enabledFeatures = get_option('_settingsSettingsAdmin');
 
-            // TODO: do not init feature if disable
-            if ($Feature->allowDisable() === false || ($Feature->allowDisable() && true !== false)) {
-                $Feature->init();
-                $this->features[$f] = new $class();
+        if (is_array($enabledFeatures['features'])) {
+            $enabledFeatures = array_keys($enabledFeatures['features']);
+        } else {
+            $enabledFeatures = array();
+        }
+        
+        if (self::$features === NULL) {
+            self::$features = array();
+        }
+
+        foreach($features as $f)
+        {
+            // Get Namespace
+            $class = '\\NextBuzz\\SEO\\Features\\' . $f;
+
+            /* @var $Feature \NextBuzz\SEO\Features\BaseFeature */
+            $feature = new $class();
+
+            // Check if enabled in database
+            $isEnabled = in_array($f, $enabledFeatures);
+
+            // Check if feature is enabled or not
+            if ($feature->allowDisable() === false || $isEnabled)
+            {
+                // Run init
+                $feature->init();
             }
+
+            // Insert activated class into the feature array
+            self::$features[$f] = $feature;
         }
 
         // Always init
         add_action('plugins_loaded', array($this, 'pluginsLoaded'));
     }
 
-    public static function getFeature($id)
+    private function __wakeup()
     {
-        if (isset($this->features[$id])) {
+
+    }
+
+    private function __clone()
+    {
+
+    }
+
+    /**
+     * Get Current App
+     * @return \NextBuzz\SEO\App
+     */
+    public static function getInstance()
+    {
+        return isset(static::$instance) ? static::$instance : static::$instance = new static;
+    }
+
+    /**
+     * Get activated feature by key
+     * @param type $id
+     * @return boolean
+     */
+    public function getFeature($id)
+    {
+        if (isset($this->features[$id]))
+        {
             return $this->features[$id];
         }
 
+        return false;
+    }
+
+    /**
+     * Get every activated feature
+     * @return boolean
+     */
+    public function getFeatures()
+    {
+        if(is_array(self::$features))
+        {
+            return self::$features;
+        }
+        
         return false;
     }
 
@@ -61,6 +124,9 @@ class App
         load_plugin_textdomain('buzz-seo', false, BUZZSEO_DIR_REL . '/languages');
     }
 
+    /**
+     * rewrite Pot file
+     */
     private function rewritePOT()
     {
         $Pot = new \NextBuzz\SEO\Tools\CreatePot();

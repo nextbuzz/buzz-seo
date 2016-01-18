@@ -1,1 +1,4 @@
 composer.lock
+/nbproject/private/
+nbproject/
+.netbeans.xml

@@ -9,6 +9,15 @@ namespace NextBuzz\SEO\Features;
  */
 class PostSEOBox extends BaseFeature
 {
+    public function name()
+    {
+        return __("SEO Box", 'buzz-seo');
+    }
+
+    public function desc()
+    {
+        return __("Add an optimization SEO box for each post.", 'buzz-seo');
+    }
 
     private $postMeta;
 
@@ -76,7 +85,7 @@ class PostSEOBox extends BaseFeature
     {
         $postMeta = $this->getPostMeta();
 
-        if (is_string($postMeta['metaDescription']) && $postMeta['metaDescription'] !== '') {
+        if (is_array($postMeta) && isset($postMeta['metaDescription']) && is_string($postMeta['metaDescription']) && $postMeta['metaDescription'] !== '') {
             echo '<meta name="description" content="' . esc_attr(strip_tags(stripslashes($postMeta['metaDescription']))) . '" />' . "\n";
         }
     }
@@ -93,7 +102,7 @@ class PostSEOBox extends BaseFeature
         if ('0' === get_option('blog_public')) {
             echo '<meta name="robots" content="noindex,nofollow" />' . "\n";
         } else
-        if (is_string($robotsstr) && $robotsstr !== '') {
+        if (isset($robotsstr) && is_string($robotsstr) && $robotsstr !== '') {
             echo '<meta name="robots" content="' . esc_attr($robotsstr) . '" />' . "\n";
         }
     }
@@ -133,8 +142,8 @@ class PostSEOBox extends BaseFeature
             echo '<meta property="article:modified_time" content="' . esc_attr($mod) . '" />' . "\n";
             echo '<meta property="og:updated_time" content="' . esc_attr($mod) . '" />' . "\n";
         }
-        
-        
+
+
         if (isset($postMeta['twTitle']) && $postMeta['twTitle'] !== "") {
             $hasTwitter = true;
             echo '<meta property="tw:title" content="' . esc_attr($postMeta['twTitle']) . '" />' . "\n";
@@ -151,7 +160,7 @@ class PostSEOBox extends BaseFeature
                 echo '<meta property="tw:image" content="' . esc_url($image) . '" />' . "\n";
             }
         }
-        
+
         if ($hasTwitter) {
             echo '<meta property="tw:card" content="summary" />' . "\n";
         }

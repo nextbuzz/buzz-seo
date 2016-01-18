@@ -9,6 +9,16 @@ namespace NextBuzz\SEO\Features;
  */
 class PostSEOBoxAnalysis extends BaseFeature
 {
+    public function name()
+    {
+        return __("SEO Analysis Box", "buzz-seo");
+    }
+
+
+    public function desc()
+    {
+        return __("Add an optimization SEO Analysis box for each post.", "buzz-seo");
+    }
 
     public function init()
     {

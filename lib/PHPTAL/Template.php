@@ -8,7 +8,7 @@ namespace NextBuzz\SEO\PHPTAL;
  *
  * @author LengthOfRope, Bas de Kort <bdekort@gmail.com>
  */
-class Template extends \PHPTAL
+abstract class Template extends \PHPTAL
 {
 
     /**
@@ -54,6 +54,8 @@ class Template extends \PHPTAL
      *
      * @param string|array $talKey Key value or array of key-value pairs
      * @param string|NULL $talValue The value of the key, if key is not an array
+     * 
+     * @return \NextBuzz\SEO\PHPTAL\Template to allow chaining
      */
     public function setTalData($talKey, $talValue = NULL)
     {
@@ -65,6 +67,8 @@ class Template extends \PHPTAL
         } else {
             $this->set($talKey, $talValue);
         }
+        
+        return $this;
     }
 
 }
