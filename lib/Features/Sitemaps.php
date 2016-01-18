@@ -58,6 +58,16 @@ class Sitemaps extends BaseFeature
 
     /**
      * Render the xml output if requested.
+     * 
+     * Note: currently priorities and change frequencies are added like this:
+     * - frontpage:  1.0, daily
+     * - homepage:   1.0, daily
+     * - posts:      0.8, monthly
+     * - pages:      0.8, monthly
+     * - archives:   0.8, weekly
+     * - taxonomies: 0.6, weekly (at least 10 posts)
+     *               0.4, weekly (at least 3 posts)
+     *               0.2, weekly (lower number of posts)
      */
     public function checkRenderSitemap($query)
     {
@@ -131,14 +141,17 @@ class Sitemaps extends BaseFeature
                 'orderby' => 'modified',
                 'order' => 'DESC'
             ));
+            
+            $frontId = intval(get_option('page_on_front', -1));
+            $blogId = intval(get_option('page_for_posts', -1));
 
             foreach ($posts as $post)
             {
                 $talData[] = array(
                     'loc' => get_permalink($post->ID),
                     'lastmod' => \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($post->post_modified_gmt),
-                    'changefreq' => 'monthly',
-                    'priority' => 0.8,
+                    'changefreq' => ($post->ID === $frontId || $post->ID === $blogId) ? 'daily' : 'monthly',
+                    'priority' => ($post->ID === $frontId || $post->ID === $blogId) ? 1.0 : 0.8,
                 );
             }
 
