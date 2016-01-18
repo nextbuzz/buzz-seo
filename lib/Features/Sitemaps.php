@@ -149,25 +149,49 @@ class Sitemaps extends BaseFeature
         } else {
             // Build the sitemap
             // Get all data
-            $posts = get_posts(array(
-                'post_type' => $type,
-                'posts_per_page' => $itemsperpage,
-                'paged' => $page,
-                'orderby' => 'modified',
-                'order' => 'DESC'
-            ));
+            $postTypes = get_post_types();
+            if (in_array($type, $postTypes)) {
+                // Get post type posts
+                $posts = get_posts(array(
+                    'post_type' => $type,
+                    'posts_per_page' => $itemsperpage,
+                    'paged' => $page,
+                    'orderby' => 'modified',
+                    'order' => 'DESC'
+                ));
 
-            $frontId = intval(get_option('page_on_front', -1));
-            $blogId = intval(get_option('page_for_posts', -1));
+                $frontId = intval(get_option('page_on_front', -1));
+                $blogId = intval(get_option('page_for_posts', -1));
 
-            foreach ($posts as $post)
-            {
-                $talData[] = array(
-                    'loc' => get_permalink($post->ID),
-                    'lastmod' => \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($post->post_modified_gmt),
-                    'changefreq' => ($post->ID === $frontId || $post->ID === $blogId) ? 'daily' : 'monthly',
-                    'priority' => ($post->ID === $frontId || $post->ID === $blogId) ? 1.0 : 0.8,
-                );
+                foreach ($posts as $post)
+                {
+                    $talData[] = array(
+                        'loc' => get_permalink($post->ID),
+                        'lastmod' => \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($post->post_modified_gmt),
+                        'changefreq' => ($post->ID === $frontId || $post->ID === $blogId) ? 'daily' : 'monthly',
+                        'priority' => ($post->ID === $frontId || $post->ID === $blogId) ? 1.0 : 0.8,
+                    );
+                }
+            } else {
+                // Get taxonomy posts
+                $terms = get_terms($type);
+                $terms = array_splice($terms, (($page - 1) * $itemsperpage), $itemsperpage);
+                foreach ($terms as $term)
+                {
+                    $priority = 0.2;
+                    if ($term->count >= 3) {
+                        $priority = 0.4;
+                    }
+                    if ($term->count >= 10) {
+                        $priority = 0.6;
+                    }
+                    $talData[] = array(
+                        'loc' => get_term_link($term->term_id),
+                        'lastmod' => $this->getLastModifiedDateTerm($type, $term->term_id),
+                        'changefreq' => 'weekly',
+                        'priority' => $priority,
+                    );
+                }
             }
 
             // Render
@@ -247,15 +271,14 @@ class Sitemaps extends BaseFeature
      */
     private function getLastModifiedDateTax($taxonomy, $page, $itemsperpage)
     {
-        global $wpdb;
-        
         $terms = get_terms($taxonomy);
-        
+
         $termids = array();
-        foreach($terms as $term) {
+        foreach ($terms as $term)
+        {
             $termids[] = intval($term->term_id);
         }
-        
+
         $results = get_posts(
             array(
                 'posts_per_page' => 1,
@@ -265,12 +288,52 @@ class Sitemaps extends BaseFeature
                     array(
                         'taxonomy' => $taxonomy,
                         'field' => 'term_id',
+                        'operator' => 'IN',
                         'terms' => $termids
                     )
                 )
             )
         );
-        
+
+        if (is_array($results) && isset($results[0])) {
+            return \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($results[0]->post_modified_gmt);
+        }
+
+        return null;
+    }
+
+    /**
+     * Retrieve the last modified date of a term
+     * 
+     * @global type $wpdb
+     * @param string $taxonomy
+     * @param int $termId
+     * @return string
+     */
+    private function getLastModifiedDateTerm($taxonomy, $termId)
+    {
+        $terms = get_terms($taxonomy);
+
+        $termids = array();
+        foreach ($terms as $term)
+        {
+            $termids[] = intval($term->term_id);
+        }
+
+        $results = get_posts(array(
+            'posts_per_page' => 1,
+            'orderby' => 'modified',
+            'order' => 'DESC',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => $taxonomy,
+                    'field' => 'id',
+                    'terms' => $termId,
+                    'include_children' => false
+                )
+            )
+        ));
+
         if (is_array($results) && isset($results[0])) {
             return \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($results[0]->post_modified_gmt);
         }
