@@ -85,7 +85,7 @@ class PostSEOBox extends BaseFeature
     {
         $postMeta = $this->getPostMeta();
 
-        if (is_string($postMeta['metaDescription']) && $postMeta['metaDescription'] !== '') {
+        if (is_array($postMeta) && isset($postMeta['metaDescription']) && is_string($postMeta['metaDescription']) && $postMeta['metaDescription'] !== '') {
             echo '<meta name="description" content="' . esc_attr(strip_tags(stripslashes($postMeta['metaDescription']))) . '" />' . "\n";
         }
     }
