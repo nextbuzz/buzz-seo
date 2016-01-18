@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-01-13 11:05:50+0000\n"
+"POT-Creation-Date: 2016-01-18 22:25:51+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-13 11:05:50+0000\n"
+"PO-Revision-Date: 2016-01-18 22:25:51+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -181,7 +181,7 @@ msgstr ""
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:71
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:70
 msgid "Settings"
 msgstr ""
 
@@ -197,12 +197,64 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36
+#: tal/SettingsAdmin.xml:36 tal/SettingsXML.xml:117
 msgid "Save Changes"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:2 lib/Features/Admin.php:75
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:73
 msgid "General"
+msgstr ""
+
+#: tal/SettingsXML.xml:2
+msgid "XML Sitemap settings"
+msgstr ""
+
+#: tal/SettingsXML.xml:12
+msgid "XML sitemaps are enabled. Please select sitemap generation options in the tabs below."
+msgstr ""
+
+#: tal/SettingsXML.xml:19
+msgid "Sitemap content"
+msgstr ""
+
+#: tal/SettingsXML.xml:32
+msgid "The location of the XML file."
+msgstr ""
+
+#: tal/SettingsXML.xml:49
+msgid "The maximum number of sitemap records per page. Lower this value if you run into memory issues."
+msgstr ""
+
+#: tal/SettingsXML.xml:59 tal/SettingsXML.xml:106
+msgid "Yes"
+msgstr ""
+
+#: tal/SettingsXML.xml:61
+msgid "If enabled, performs basic CSS styling on the XML output."
+msgstr ""
+
+#: tal/SettingsXML.xml:70
+msgid "Post types"
+msgstr ""
+
+#: tal/SettingsXML.xml:81
+msgid "Select the post types that should be added to the XML sitemap."
+msgstr ""
+
+#: tal/SettingsXML.xml:86
+msgid "Taxonomies"
+msgstr ""
+
+#: tal/SettingsXML.xml:97
+msgid "Select the taxonomies that should be added to the XML sitemap."
+msgstr ""
+
+#: tal/SettingsXML.xml:102
+msgid "Add author pages"
+msgstr ""
+
+#: tal/SettingsXML.xml:108
+msgid "If enabled, also creates a sitemap of all author-pages."
 msgstr ""
 
 #: lib/Features/Admin.php:15 lib/Features/Admin.php:20
@@ -213,11 +265,11 @@ msgstr ""
 msgid "Admin Core of Buzz SEO."
 msgstr ""
 
-#: lib/Features/Admin.php:48
+#: lib/Features/Admin.php:50
 msgid "Select an image"
 msgstr ""
 
-#: lib/Features/Admin.php:48 lib/Features/Admin.php:49
+#: lib/Features/Admin.php:50 lib/Features/Admin.php:51
 msgid "Select"
 msgstr ""
 
@@ -399,6 +451,18 @@ msgstr ""
 
 #: lib/Features/PostSEOBoxAnalysis.php:345
 msgid "The content is very easy to read. Splendid!"
+msgstr ""
+
+#: lib/Features/Sitemaps.php:15 lib/Features/Sitemaps.php:37
+msgid "Sitemaps"
+msgstr ""
+
+#: lib/Features/Sitemaps.php:20
+msgid "Automatic generation of XML sitemaps."
+msgstr ""
+
+#: lib/Features/Sitemaps.php:37
+msgid "XML Sitemaps"
 msgstr ""
 
 #: lib/PHPTAL/SettingsPage.php:72

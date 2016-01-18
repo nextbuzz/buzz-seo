@@ -109,7 +109,7 @@ class Sitemaps extends BaseFeature
             'itemsperpage' => 250
         ));
         $itemsperpage = $options['itemsperpage'];
-        
+
         // Set xsl stylesheet
         $options['xslstylesheet'] = '<?xml-stylesheet type="text/xsl" href="' . plugins_url('/css/sitemap.xsl.php', dirname(dirname(__FILE__))) . '"?>';
 
@@ -155,7 +155,7 @@ class Sitemaps extends BaseFeature
                 $authors = get_users(array('who' => 'authors'));
                 $users = wp_list_pluck($authors, 'ID');
                 $latestUserStamp = max(wp_list_pluck($authors, 'user_registered'));
-                
+
                 $numusers = count($users);
                 $pages = ceil($numusers / $itemsperpage);
                 for ($p = 1; $p <= $pages; $p++)
@@ -165,6 +165,13 @@ class Sitemaps extends BaseFeature
                         'lastmod' => \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($latestUserStamp),
                     );
                 }
+            }
+
+            if (count($talData) === 0) {
+                header_remove();
+                $GLOBALS['wp_query']->set_404();
+                status_header(404);
+                return;
             }
 
             // Render
@@ -195,6 +202,13 @@ class Sitemaps extends BaseFeature
                 );
             }
             
+            if (count($talData) === 0) {
+                header_remove();
+                $GLOBALS['wp_query']->set_404();
+                status_header(404);
+                return;
+            }
+
             // Render
             \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemap')
                 ->setTalData($options)
@@ -248,6 +262,13 @@ class Sitemaps extends BaseFeature
                 }
             }
 
+            if (count($talData) === 0) {
+                header_remove();
+                $GLOBALS['wp_query']->set_404();
+                status_header(404);
+                return;
+            }
+            
             // Render
             \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemap')
                 ->setTalData($options)

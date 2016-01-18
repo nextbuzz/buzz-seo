@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-01-13 12:05+0100\n"
-"PO-Revision-Date: 2016-01-13 12:07+0100\n"
+"POT-Creation-Date: 2016-01-18 23:26+0100\n"
+"PO-Revision-Date: 2016-01-18 23:26+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -226,7 +226,7 @@ msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:71
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:70
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -245,13 +245,77 @@ msgid ""
 msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
-#: tal/SettingsAdmin.xml:36
+#: tal/SettingsAdmin.xml:36 tal/SettingsXML.xml:117
 msgid "Save Changes"
 msgstr "Opslaan"
 
-#: tal/SettingsGeneral.xml:2 lib/Features/Admin.php:75
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:73
 msgid "General"
 msgstr "Algemeen"
+
+#: tal/SettingsXML.xml:2
+msgid "XML Sitemap settings"
+msgstr "XML Sitemap instellingen"
+
+#: tal/SettingsXML.xml:12
+msgid ""
+"XML sitemaps are enabled. Please select sitemap generation options in the "
+"tabs below."
+msgstr ""
+"XML sitemap's zijn ingeschakeld. Selecteer de gewenste opties in de tabs."
+
+#: tal/SettingsXML.xml:19
+msgid "Sitemap content"
+msgstr "Sitemap inhoud"
+
+#: tal/SettingsXML.xml:32
+msgid "The location of the XML file."
+msgstr "De locatie van het XML bestand."
+
+#: tal/SettingsXML.xml:49
+msgid ""
+"The maximum number of sitemap records per page. Lower this value if you run "
+"into memory issues."
+msgstr ""
+"Het maximum aantal sitemap items per pagina. Verlaag deze waarde als er "
+"geheugen op de server te weinig geheugen is."
+
+#: tal/SettingsXML.xml:59 tal/SettingsXML.xml:106
+msgid "Yes"
+msgstr "Ja"
+
+#: tal/SettingsXML.xml:61
+msgid "If enabled, performs basic CSS styling on the XML output."
+msgstr ""
+"Als dit is ingeschakeld wordt er een eenvoudige styling toegepast op de XML "
+"pagina's."
+
+#: tal/SettingsXML.xml:70
+msgid "Post types"
+msgstr "Berichttypen"
+
+#: tal/SettingsXML.xml:81
+msgid "Select the post types that should be added to the XML sitemap."
+msgstr ""
+"Selecteer de berichttypen die moeten worden weergegeven in de XML sitemap."
+
+#: tal/SettingsXML.xml:86
+msgid "Taxonomies"
+msgstr "Taxonomieën"
+
+#: tal/SettingsXML.xml:97
+msgid "Select the taxonomies that should be added to the XML sitemap."
+msgstr ""
+"Selecteer de taxonomieën die moeten worden weergegeven in de XML sitemap."
+
+#: tal/SettingsXML.xml:102
+msgid "Add author pages"
+msgstr "Voeg auteur pagina's toe"
+
+#: tal/SettingsXML.xml:108
+msgid "If enabled, also creates a sitemap of all author-pages."
+msgstr ""
+"Als dit is ingeschakeld, wordt ook de sitemap van alle auteurs toegevoegd."
 
 #: lib/Features/Admin.php:15 lib/Features/Admin.php:20
 msgid "Admin Core"
@@ -261,11 +325,11 @@ msgstr "Admin Core"
 msgid "Admin Core of Buzz SEO."
 msgstr "Admin Core van Buzz SEO."
 
-#: lib/Features/Admin.php:48
+#: lib/Features/Admin.php:50
 msgid "Select an image"
 msgstr "Selecteer een afbeelding"
 
-#: lib/Features/Admin.php:48 lib/Features/Admin.php:49
+#: lib/Features/Admin.php:50 lib/Features/Admin.php:51
 msgid "Select"
 msgstr "Selecteren"
 
@@ -531,6 +595,18 @@ msgstr "De tekst is eenvoudig te lezen. Goed gedaan!"
 msgid "The content is very easy to read. Splendid!"
 msgstr "De tekst is erg eenvoudig te lezen. Super!"
 
+#: lib/Features/Sitemaps.php:15 lib/Features/Sitemaps.php:37
+msgid "Sitemaps"
+msgstr "Sitemaps"
+
+#: lib/Features/Sitemaps.php:20
+msgid "Automatic generation of XML sitemaps."
+msgstr "Automatische generatie van XML sitemaps."
+
+#: lib/Features/Sitemaps.php:37
+msgid "XML Sitemaps"
+msgstr "XML Sitemaps"
+
 #: lib/PHPTAL/SettingsPage.php:72
 msgid "Nonce value is invalid."
 msgstr "Nonce waarde is niet geldig."
@@ -580,9 +656,6 @@ msgstr "Er zijn geen onderdelen beschikbaar"
 
 #~ msgid "Allow index"
 #~ msgstr "Indexeren toestaan"
-
-#~ msgid "Yes"
-#~ msgstr "Ja"
 
 #~ msgid "No"
 #~ msgstr "Nee"
