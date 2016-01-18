@@ -92,11 +92,11 @@ class Sitemaps extends BaseFeature
         // Get sitemap data
         $options = get_option('_settingsSettingsXML', false);
 
+        $talData = array();
+        $baseurl = home_url('/');
         if ($type === "1") {
             // Build the sitemapindex
             // Get all data
-            $talData = array();
-            $baseurl = home_url('/');
             foreach ($options['posttypes'] as $posttype => $value)
             {
                 $talData[] = array(
@@ -105,14 +105,25 @@ class Sitemaps extends BaseFeature
                 );
             }
 
-
             // Render
             \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemapIndex')
                 ->setTalData('sitemaps', $talData)
                 ->render();
         } else {
             // Build the sitemap
-            \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemap')->render();
+            
+            // TODO: Get all data
+            $talData[] = array(
+                'loc' => '',
+                'lastmod' => '',
+                'changefreq' => 'monthly',
+                'priority' => 0.8,
+            );
+            
+            // Render
+            \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemap')
+                ->setTalData('urls', $talData)
+                ->render();
         }
 
 
@@ -174,7 +185,6 @@ class Sitemaps extends BaseFeature
         } else {
             $result = null;
         }
-        
 
         return $result;
     }
