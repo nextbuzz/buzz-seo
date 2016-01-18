@@ -39,14 +39,14 @@
                         <td>
                             <label>
                                 <select name="SettingsXML[itemsperpage]">
-                                    <option tal:attributes="selected php:isset(itemsperpage) AND itemsperpage EQ 50">50</option>
-                                    <option tal:attributes="selected php:isset(itemsperpage) AND itemsperpage EQ 100">100</option>
-                                    <option tal:attributes="selected php:isset(itemsperpage) AND itemsperpage EQ 150">150</option>
-                                    <option tal:attributes="selected php:isset(itemsperpage) AND itemsperpage EQ 200">200</option>
                                     <option tal:attributes="selected php:isset(itemsperpage) AND itemsperpage EQ 250">250</option>
+                                    <option tal:attributes="selected php:isset(itemsperpage) AND itemsperpage EQ 200">200</option>
+                                    <option tal:attributes="selected php:isset(itemsperpage) AND itemsperpage EQ 150">150</option>
+                                    <option tal:attributes="selected php:isset(itemsperpage) AND itemsperpage EQ 100">100</option>
+                                    <option tal:attributes="selected php:isset(itemsperpage) AND itemsperpage EQ 50">50</option>
                                 </select>
                             </label>
-                            <p class="description" i18n:translate="">The maximum number of sitemap records per page.</p>
+                            <p class="description" i18n:translate="">The maximum number of sitemap records per page. Lower this value if you run into memory issues.</p>
                         </td>
                     </tr>
                     <tr>

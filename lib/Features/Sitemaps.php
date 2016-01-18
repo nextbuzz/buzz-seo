@@ -87,8 +87,10 @@ class Sitemaps extends BaseFeature
             $page = 1;
         }
 
-        // Get sitemap data
-        $options = get_option('_settingsSettingsXML', false);
+        // Get sitemap data and set some default options
+        $options = get_option('_settingsSettingsXML', array(
+            'itemsperpage' => 250
+        ));
         $itemsperpage = $options['itemsperpage'];
 
         $talData = array();
