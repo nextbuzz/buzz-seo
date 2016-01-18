@@ -68,6 +68,7 @@ class Sitemaps extends BaseFeature
      * - taxonomies: 0.6, weekly (at least 10 posts)
      *               0.4, weekly (at least 3 posts)
      *               0.2, weekly (lower number of posts)
+     * - author      0.8, weekly
      */
     public function checkRenderSitemap($query)
     {
