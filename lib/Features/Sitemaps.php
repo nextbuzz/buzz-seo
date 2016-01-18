@@ -10,8 +10,6 @@ namespace NextBuzz\SEO\Features;
 class Sitemaps extends BaseFeature
 {
 
-    private $postTypeDates = null;
-
     public function name()
     {
         return __("Sitemaps", "buzz-seo");
@@ -91,6 +89,7 @@ class Sitemaps extends BaseFeature
 
         // Get sitemap data
         $options = get_option('_settingsSettingsXML', false);
+        $itemsperpage = $options['itemsperpage'];
 
         $talData = array();
         $baseurl = home_url('/');
@@ -99,10 +98,21 @@ class Sitemaps extends BaseFeature
             // Get all data
             foreach ($options['posttypes'] as $posttype => $value)
             {
-                $talData[] = array(
-                    'loc' => $baseurl . '/sitemap-' . $posttype . '.xml',
-                    'lastmod' => $this->getLastModified($posttype),
-                );
+                // Get pagination count for post type (and just return ids, since we just want a count)
+                $numposts = count(get_posts(array(
+                    'post_type' => $posttype,
+                    'posts_per_page' => -1,
+                    'cache_results' => false,
+                    'fields' => 'ids'
+                )));
+                $pages = ceil($numposts / $itemsperpage);
+                for ($p = 1; $p <= $pages; $p++)
+                {
+                    $talData[] = array(
+                        'loc' => $baseurl . 'sitemap-' . $posttype . '-' . $p . '.xml',
+                        'lastmod' => $this->getLastModifiedDate($posttype, $p, $itemsperpage),
+                    );
+                }
             }
 
             // Render
@@ -111,15 +121,25 @@ class Sitemaps extends BaseFeature
                 ->render();
         } else {
             // Build the sitemap
-            
-            // TODO: Get all data
-            $talData[] = array(
-                'loc' => '',
-                'lastmod' => '',
-                'changefreq' => 'monthly',
-                'priority' => 0.8,
-            );
-            
+            // Get all data
+            $posts = get_posts(array(
+                'post_type' => $type,
+                'posts_per_page' => $itemsperpage,
+                'paged' => $page,
+                'orderby' => 'modified',
+                'order' => 'DESC'
+            ));
+
+            foreach ($posts as $post)
+            {
+                $talData[] = array(
+                    'loc' => get_permalink($post->ID),
+                    'lastmod' => \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($post->post_modified_gmt),
+                    'changefreq' => 'monthly',
+                    'priority' => 0.8,
+                );
+            }
+
             // Render
             \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemap')
                 ->setTalData('urls', $talData)
@@ -159,34 +179,27 @@ class Sitemaps extends BaseFeature
     }
 
     /**
-     * Get the last modified data for a post type
+     * Retrieve the last modified date of a posttype
      * 
      * @global type $wpdb
-     * @param string $postType
+     * @param string $posttype
+     * @param int $page
+     * @param int $itemsperpage
      * @return string
      */
-    private function getLastModified($postType)
+    private function getLastModifiedDate($posttype, $page, $itemsperpage)
     {
         global $wpdb;
-
-        // Retrieve the last modified dates and save the result in an array
-        if (!is_array($this->postTypeDates)) {
-            $this->postTypeDates = array();
-            $query = "SELECT post_type, MAX(post_modified_gmt) AS date FROM $wpdb->posts WHERE post_status IN ('publish','inherit') AND post_type IN ('" . implode("','", get_post_types(array('public' => true))) . "') GROUP BY post_type ORDER BY post_modified_gmt DESC";
-            $results = $wpdb->get_results($query);
-            foreach ($results as $obj)
-            {
-                $this->postTypeDates[$obj->post_type] = \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($obj->date);
-            }
-        }
-
-        if (isset($this->postTypeDates[$postType])) {
-            $result = $this->postTypeDates[$postType];
-        } else {
-            $result = null;
-        }
-
-        return $result;
+        
+        $results = $wpdb->get_results(
+            $wpdb->prepare(
+                "SELECT post_modified_gmt AS date FROM "
+                . "$wpdb->posts WHERE post_status IN ('publish','inherit') "
+                . "AND post_type=%s "
+                . "ORDER BY post_modified_gmt DESC LIMIT %d, %d", $posttype, ($itemsperpage * ($page - 1)), $itemsperpage
+            )
+        );
+        return \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($results[0]->date);
     }
 
 }
