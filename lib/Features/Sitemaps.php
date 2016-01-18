@@ -103,7 +103,6 @@ class Sitemaps extends BaseFeature
             'itemsperpage' => 250
         ));
         $itemsperpage = $options['itemsperpage'];
-        $itemsperpage = 2;
 
         $talData = array();
         $baseurl = home_url('/');
