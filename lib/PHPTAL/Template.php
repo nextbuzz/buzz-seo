@@ -54,6 +54,8 @@ abstract class Template extends \PHPTAL
      *
      * @param string|array $talKey Key value or array of key-value pairs
      * @param string|NULL $talValue The value of the key, if key is not an array
+     * 
+     * @return \NextBuzz\SEO\PHPTAL\Template to allow chaining
      */
     public function setTalData($talKey, $talValue = NULL)
     {
@@ -65,6 +67,8 @@ abstract class Template extends \PHPTAL
         } else {
             $this->set($talKey, $talValue);
         }
+        
+        return $this;
     }
 
 }

@@ -10,6 +10,8 @@ namespace NextBuzz\SEO\Features;
 class Sitemaps extends BaseFeature
 {
 
+    private $postTypeDates = null;
+
     public function name()
     {
         return __("Sitemaps", "buzz-seo");
@@ -51,8 +53,8 @@ class Sitemaps extends BaseFeature
 
         $wp->add_query_var('buzz_sitemap');
         $wp->add_query_var('buzz_sitemap_page');
-        
-        add_rewrite_rule( 'sitemap\.xml$', 'index.php?buzz_sitemap=1', 'top' );
+
+        add_rewrite_rule('sitemap\.xml$', 'index.php?buzz_sitemap=1', 'top');
         add_rewrite_rule('sitemap-([^/]+?)-?([0-9]+)?\.xml$', 'index.php?buzz_sitemap=$matches[1]&buzz_sitemap_page=$matches[2]', 'top');
     }
 
@@ -80,16 +82,34 @@ class Sitemaps extends BaseFeature
             header('X-Robots-Tag: noindex, follow', true);
             header('Content-Type: text/xml');
         }
-        
+
         // Get the page number
         $page = intval(get_query_var('buzz_sitemap_page'));
-        if ($page === 0 ) {
+        if ($page === 0) {
             $page = 1;
         }
-        
+
+        // Get sitemap data
+        $options = get_option('_settingsSettingsXML', false);
+
         if ($type === "1") {
             // Build the sitemapindex
-            \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemapIndex')->render();
+            // Get all data
+            $talData = array();
+            $baseurl = home_url('/');
+            foreach ($options['posttypes'] as $posttype => $value)
+            {
+                $talData[] = array(
+                    'loc' => $baseurl . '/sitemap-' . $posttype . '.xml',
+                    'lastmod' => $this->getLastModified($posttype),
+                );
+            }
+
+
+            // Render
+            \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemapIndex')
+                ->setTalData('sitemaps', $talData)
+                ->render();
         } else {
             // Build the sitemap
             \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemap')->render();
@@ -125,6 +145,38 @@ class Sitemaps extends BaseFeature
         }
 
         return $redirect;
+    }
+
+    /**
+     * Get the last modified data for a post type
+     * 
+     * @global type $wpdb
+     * @param string $postType
+     * @return string
+     */
+    private function getLastModified($postType)
+    {
+        global $wpdb;
+
+        // Retrieve the last modified dates and save the result in an array
+        if (!is_array($this->postTypeDates)) {
+            $this->postTypeDates = array();
+            $query = "SELECT post_type, MAX(post_modified_gmt) AS date FROM $wpdb->posts WHERE post_status IN ('publish','inherit') AND post_type IN ('" . implode("','", get_post_types(array('public' => true))) . "') GROUP BY post_type ORDER BY post_modified_gmt DESC";
+            $results = $wpdb->get_results($query);
+            foreach ($results as $obj)
+            {
+                $this->postTypeDates[$obj->post_type] = \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($obj->date);
+            }
+        }
+
+        if (isset($this->postTypeDates[$postType])) {
+            $result = $this->postTypeDates[$postType];
+        } else {
+            $result = null;
+        }
+        
+
+        return $result;
     }
 
 }
