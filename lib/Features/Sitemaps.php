@@ -161,6 +161,33 @@ class Sitemaps extends BaseFeature
             \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemapIndex')
                 ->setTalData('sitemaps', $talData)
                 ->render();
+        } else if ($options['includeauthor'] && $type === 'author') {
+            // Build author map
+            // Get all data
+            $users = get_users(array('who' => 'authors'));
+            $users = array_splice($users, (($page - 1) * $itemsperpage), $itemsperpage);
+            foreach ($users as $user)
+            {
+                $latestPost = get_posts(array(
+                    'posts_per_page' => '1',
+                    'author' => $user->ID,
+                    'orderby' => 'modified',
+                    'order' => 'DESC'
+                ));
+
+                $modified = is_array($latestPost) && isset($latestPost[0]) ? $latestPost[0]->post_modified_gmt : $user->user_registered;
+                $talData[] = array(
+                    'loc' => get_author_posts_url($user->ID),
+                    'lastmod' => \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($modified),
+                    'changefreq' => 'weekly',
+                    'priority' => 0.8,
+                );
+            }
+            
+            // Render
+            \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemap')
+                ->setTalData('urls', $talData)
+                ->render();
         } else {
             // Build the sitemap
             // Get all data
