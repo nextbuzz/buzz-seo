@@ -69,6 +69,12 @@ class Sitemaps extends BaseFeature
      *               0.4, weekly (at least 3 posts)
      *               0.2, weekly (lower number of posts)
      * - author      0.8, weekly
+     * 
+     * Note: the lastmod dates of the sitemapindex are not entirely correct for:
+     * - taxonomies
+     * - authors
+     * 
+     * They simply get the latest timestamp which can be fixed at a later point in time.
      */
     public function checkRenderSitemap($query)
     {
@@ -143,8 +149,9 @@ class Sitemaps extends BaseFeature
 
             // Add author map
             if ($options['includeauthor']) {
-                $users = get_users(array('who' => 'authors'));
-                $users = wp_list_pluck($users, 'ID');
+                $authors = get_users(array('who' => 'authors'));
+                $users = wp_list_pluck($authors, 'ID');
+                $latestUserStamp = max(wp_list_pluck($authors, 'user_registered'));
                 
                 $numusers = count($users);
                 $pages = ceil($numusers / $itemsperpage);
@@ -152,7 +159,7 @@ class Sitemaps extends BaseFeature
                 {
                     $talData[] = array(
                         'loc' => $baseurl . 'sitemap-author-' . $p . '.xml',
-                        'lastmod' => '',
+                        'lastmod' => \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($latestUserStamp),
                     );
                 }
             }
