@@ -103,6 +103,7 @@ class Sitemaps extends BaseFeature
             'itemsperpage' => 250
         ));
         $itemsperpage = $options['itemsperpage'];
+        $itemsperpage = 2;
 
         $talData = array();
         $baseurl = home_url('/');
@@ -127,6 +128,19 @@ class Sitemaps extends BaseFeature
                     );
                 }
             }
+            foreach ($options['taxonomies'] as $taxonomy => $value)
+            {
+                // Get taxonomies
+                $numposts = wp_count_terms($taxonomy, array('hide_empty' => true));
+                $pages = ceil($numposts / $itemsperpage);
+                for ($p = 1; $p <= $pages; $p++)
+                {
+                    $talData[] = array(
+                        'loc' => $baseurl . 'sitemap-' . $taxonomy . '-' . $p . '.xml',
+                        'lastmod' => $this->getLastModifiedDateTax($taxonomy, $p, $itemsperpage),
+                    );
+                }
+            }
 
             // Render
             \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemapIndex')
@@ -142,7 +156,7 @@ class Sitemaps extends BaseFeature
                 'orderby' => 'modified',
                 'order' => 'DESC'
             ));
-            
+
             $frontId = intval(get_option('page_on_front', -1));
             $blogId = intval(get_option('page_for_posts', -1));
 
@@ -206,7 +220,7 @@ class Sitemaps extends BaseFeature
     private function getLastModifiedDate($posttype, $page, $itemsperpage)
     {
         global $wpdb;
-        
+
         $results = $wpdb->get_results(
             $wpdb->prepare(
                 "SELECT post_modified_gmt AS date FROM "
@@ -215,7 +229,53 @@ class Sitemaps extends BaseFeature
                 . "ORDER BY post_modified_gmt DESC LIMIT %d, %d", $posttype, ($itemsperpage * ($page - 1)), $itemsperpage
             )
         );
-        return \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($results[0]->date);
+        if (is_array($results) && isset($results[0])) {
+            return \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($results[0]->date);
+        }
+
+        return null;
+    }
+
+    /**
+     * Retrieve the last modified date of a taxonomy
+     * 
+     * @global type $wpdb
+     * @param string $taxonomy
+     * @param int $page
+     * @param int $itemsperpage
+     * @return string
+     */
+    private function getLastModifiedDateTax($taxonomy, $page, $itemsperpage)
+    {
+        global $wpdb;
+        
+        $terms = get_terms($taxonomy);
+        
+        $termids = array();
+        foreach($terms as $term) {
+            $termids[] = intval($term->term_id);
+        }
+        
+        $results = get_posts(
+            array(
+                'posts_per_page' => 1,
+                'orderby' => 'modified',
+                'order' => 'DESC',
+                'tax_query' => array(
+                    array(
+                        'taxonomy' => $taxonomy,
+                        'field' => 'term_id',
+                        'terms' => $termids
+                    )
+                )
+            )
+        );
+        
+        if (is_array($results) && isset($results[0])) {
+            return \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($results[0]->post_modified_gmt);
+        }
+
+        return null;
     }
 
 }
