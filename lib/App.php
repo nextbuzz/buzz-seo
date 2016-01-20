@@ -34,7 +34,7 @@ class App
         } else {
             $enabledFeatures = array();
         }
-        
+
         if (self::$features === NULL) {
             self::$features = array();
         }
@@ -109,7 +109,7 @@ class App
         {
             return self::$features;
         }
-        
+
         return false;
     }
 

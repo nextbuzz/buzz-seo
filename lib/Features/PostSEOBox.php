@@ -9,6 +9,7 @@ namespace NextBuzz\SEO\Features;
  */
 class PostSEOBox extends BaseFeature
 {
+
     public function name()
     {
         return __("SEO Box", 'buzz-seo');
@@ -30,6 +31,10 @@ class PostSEOBox extends BaseFeature
 
         add_action('wp_head', array($this, 'addMetaDescription'), 1);
         add_action('wp_head', array($this, 'addRobots'), 1);
+
+        // Add canonical
+        remove_action('wp_head', 'rel_canonical');
+        add_action('wp_head', array($this, 'addCanonical'), 1);
 
         // Add facebook opengraph data
         add_action('wp_head', array($this, 'addOpenGraphTwitter'), 1);
@@ -107,12 +112,51 @@ class PostSEOBox extends BaseFeature
         }
     }
 
+    /**
+     * Add canonical url
+     *
+     * Based on wordpress its own rel_canonical function
+     * With the added functionality we can override it through the PostSEOBox admin interface.
+     *
+     * @return void
+     */
+    public function addCanonical()
+    {
+        if (!is_singular()) {
+            return;
+        }
+
+        if (!$id = get_queried_object_id()) {
+            return;
+        }
+
+        // Get the base url
+        $postMeta = $this->getPostMeta();
+        if (is_array($postMeta) && isset($postMeta['canonical']) && !empty($postMeta['canonical'])) {
+            $url = $postMeta['canonical'];
+        } else {
+            $url = get_permalink($id);
+        }
+
+        // Add pagination to url if any
+        $page = get_query_var('page');
+        if ($page >= 2) {
+            if ('' == get_option('permalink_structure')) {
+                $url = add_query_arg('page', $page, $url);
+            } else {
+                $url = trailingslashit($url) . user_trailingslashit($page, 'single_paged');
+            }
+        }
+
+        echo '<link rel="canonical" href="' . esc_url($url) . "\" />\n";
+    }
+
     public function addOpenGraphTwitter()
     {
         $postMeta = $this->getPostMeta();
 
         $hasFacebook = false;
-        $hasTwitter = false;
+        $hasTwitter  = false;
 
         if (isset($postMeta['fbTitle']) && $postMeta['fbTitle'] !== "") {
             $hasFacebook = true;
@@ -125,7 +169,7 @@ class PostSEOBox extends BaseFeature
 
         if (isset($postMeta['fbMediaId']) && intval($postMeta['fbMediaId']) !== 0) {
             $hasFacebook = true;
-            $image = wp_get_attachment_url(intval($postMeta['fbMediaId']));
+            $image       = wp_get_attachment_url(intval($postMeta['fbMediaId']));
             if ($image) {
                 echo '<meta property="og:image" content="' . esc_url($image) . '" />' . "\n";
             }
@@ -155,7 +199,7 @@ class PostSEOBox extends BaseFeature
 
         if (isset($postMeta['twMediaId']) && intval($postMeta['twMediaId']) !== 0) {
             $hasTwitter = true;
-            $image = wp_get_attachment_url(intval($postMeta['twMediaId']));
+            $image      = wp_get_attachment_url(intval($postMeta['twMediaId']));
             if ($image) {
                 echo '<meta property="tw:image" content="' . esc_url($image) . '" />' . "\n";
             }
@@ -164,7 +208,6 @@ class PostSEOBox extends BaseFeature
         if ($hasTwitter) {
             echo '<meta property="tw:card" content="summary" />' . "\n";
         }
-
     }
 
 }
