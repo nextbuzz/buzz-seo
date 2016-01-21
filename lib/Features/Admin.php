@@ -10,6 +10,7 @@ namespace NextBuzz\SEO\Features;
  */
 class Admin extends BaseFeature
 {
+
     public function name()
     {
         return __("Admin Core", "buzz-seo");
@@ -22,6 +23,11 @@ class Admin extends BaseFeature
 
     public function init()
     {
+        // Front end actions
+        add_filter('document_title_parts', array($this, 'filterTitleParts'), 15);
+        add_filter('document_title_separator', array($this, 'filterTitleSeparator'), 15);
+
+        // Everything below this is only used when in the admin interface
         if (!is_admin()) {
             return;
         }
@@ -47,7 +53,7 @@ class Admin extends BaseFeature
         wp_enqueue_script('buzz-seo-admin-js', plugins_url('buzz-seo/js/admin.js'), array('jquery'), BUZZSEO_VERSION, true);
         wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAdmin', array(
             'MediaUploader' => array(
-                'title' => __('Select an image', 'buzz-seo'),
+                'title'  => __('Select an image', 'buzz-seo'),
                 'button' => __('Select', 'buzz-seo'),
             )
         ));
@@ -64,8 +70,7 @@ class Admin extends BaseFeature
         add_menu_page('Buzz SEO', 'Buzz SEO', 'edit_posts', 'BuzzSEO', array($this, "addAdminUI"), 'dashicons-analytics');
 
         // Make sure this submenu is only visiable for admin users.
-        if(current_user_can('manage_options'))
-        {
+        if (current_user_can('manage_options')) {
             // Add Settings Sub Option Page
             add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_dashboard', 'SEOSettings', array($this, "addAdminUI"));
 
@@ -80,7 +85,7 @@ class Admin extends BaseFeature
 
         // Make sure settings is always last if it exists
         if (isset($submenu['BuzzSEO'][1][2]) && $submenu['BuzzSEO'][1][2] === 'SEOSettings') {
-            $settings = array_splice($submenu['BuzzSEO'], 1, 1);
+            $settings       = array_splice($submenu['BuzzSEO'], 1, 1);
             $settings[0][0] = '<div style="border-top: 1px solid rgba(255, 255, 255, .2); padding-top: .5rem;">' . $settings[0][0] . '</div>';
             array_push($submenu['BuzzSEO'], $settings[0]);
         }
@@ -91,13 +96,14 @@ class Admin extends BaseFeature
     /*
      * Add Admin UI
      */
+
     public function addAdminUI()
     {
         //Grab safe the page input.
         $page = filter_input(INPUT_GET, 'page');
         switch ($page) {
             case 'BuzzSEO':
-                \NextBuzz\SEO\PHPTAL\SettingsPage::factory('SettingsGeneral')->render();
+                \NextBuzz\SEO\PHPTAL\Settings\General::factory()->render();
                 break;
 
             case 'SEOSettings':
@@ -107,4 +113,43 @@ class Admin extends BaseFeature
                 break;
         }
     }
+
+    /**
+     * Update the title parts as set in the admin interface
+     *
+     * @param array $title
+     * @return array
+     */
+    public function filterTitleParts($title)
+    {
+        $options = get_option('_settingsSettingsGeneral', true);
+
+        if (!isset($options['showtitletagline']) && isset($title['tagline'])) {
+            unset($title['tagline']);
+        }
+
+        if (!isset($options['showtitlepagination']) && isset($title['page'])) {
+            unset($title['page']);
+        }
+
+        return $title;
+    }
+
+    /**
+     * Update the document title separator
+     *
+     * @param string $sep
+     * @return string
+     */
+    public function filterTitleSeparator($sep)
+    {
+        $options = get_option('_settingsSettingsGeneral', true);
+
+        if (isset($options['titleseparator'])) {
+            return $options['titleseparator'];
+        }
+
+        return $sep;
+    }
+
 }

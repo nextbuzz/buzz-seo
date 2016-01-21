@@ -1,6 +1,6 @@
 <div class="wrap">
     <h1 i18n:translate="">XML Sitemap settings</h1>
-    
+
     <div tal:condition="exists:message" class="updated">
         <p tal:content="message">Bericht</p>
     </div>
@@ -10,7 +10,7 @@
     </div>
 
     <p i18n:translate="">XML sitemaps are enabled. Please select sitemap generation options in the tabs below.</p>
-    
+
     <form method="post" action="">
         <tal:block tal:content="structure settingsNonce" />
         <div class="buzz-seo-tabs">
@@ -22,9 +22,7 @@
             <div class="inner">
                 <table class="form-table">
                     <tr>
-                        <th scope="row">
-                            Sitemap location
-                        </th>
+                        <th scope="row" i18n:translate="">Sitemap location</th>
                         <td>
                             <p>
                                 <a tal:attributes="href sitemapURL" target="_blank">sitemap.xml</a>
@@ -33,9 +31,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">
-                            Items per page
-                        </th>
+                        <th scope="row" i18n:translate="">Items per page</th>
                         <td>
                             <label>
                                 <select name="SettingsXML[itemsperpage]">
@@ -50,9 +46,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th scope="row">
-                            Style sitemap
-                        </th>
+                        <th scope="row" i18n:translate="">Style sitemap</th>
                         <td>
                             <label>
                                 <input type="checkbox" name="SettingsXML[styleoutput]" value="1" tal:attributes="checked exists:styleoutput"/>
@@ -75,7 +69,7 @@
                                         <input type="checkbox" name="SettingsXML[posttypes][${option/key}]" value="1" tal:attributes="checked option/check;" />
                                         <tal:block tal:content="structure option/name">Name</tal:block>
                                         (<code tal:content="structure option/key">key</code>)
-                                    </label>                                    
+                                    </label>
                                 </li>
                             </ul>
                             <p class="description" i18n:translate="">Select the post types that should be added to the XML sitemap.</p>
@@ -91,13 +85,13 @@
                                         <input type="checkbox" name="SettingsXML[taxonomies][${option/key}]" value="1" tal:attributes="checked option/check;" />
                                         <tal:block tal:content="structure option/name">Name</tal:block>
                                         (<code tal:content="structure option/key">key</code>)
-                                    </label>                                    
+                                    </label>
                                 </li>
                             </ul>
                             <p class="description" i18n:translate="">Select the taxonomies that should be added to the XML sitemap.</p>
                         </td>
                     </tr>
-                    
+
                     <tr>
                         <th scope="row" i18n:translate="">Add author pages</th>
                         <td>
@@ -112,7 +106,7 @@
                 </table>
             </div>
         </div>
-        
+
         <p class="submit">
             <button type="submit" id="submit" class="button button-primary" i18n:translate="">Save Changes</button>
         </p>
