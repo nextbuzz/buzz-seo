@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-01-20 16:13+0100\n"
-"PO-Revision-Date: 2016-01-20 16:13+0100\n"
+"POT-Creation-Date: 2016-01-21 12:05+0100\n"
+"PO-Revision-Date: 2016-01-21 12:10+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -248,7 +248,7 @@ msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:70
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:75
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -267,13 +267,66 @@ msgid ""
 msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsXML.xml:117
+#: tal/SettingsAdmin.xml:36 tal/SettingsGeneral.xml:64 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr "Opslaan"
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:73
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:78
 msgid "General"
 msgstr "Algemeen"
+
+#: tal/SettingsGeneral.xml:12
+msgid ""
+"Below you will find the basic plugin settings. Make sure these are setup "
+"correctly."
+msgstr ""
+"Hier vind je de basis plugin instellingen. Zorg ervoor dat deze goed zijn "
+"ingesteld."
+
+#: tal/SettingsGeneral.xml:18
+msgid "Document title"
+msgstr "Document titel"
+
+#: tal/SettingsGeneral.xml:19
+msgid "Post Type Archives"
+msgstr "Berichttype Archieven"
+
+#: tal/SettingsGeneral.xml:20
+msgid "Taxonomy Archives"
+msgstr "Taxonomie Archieven"
+
+#: tal/SettingsGeneral.xml:26
+msgid "Separator"
+msgstr "Scheidingsteken"
+
+#: tal/SettingsGeneral.xml:31
+msgid "Change the separator character used in the document title."
+msgstr "Verander het scheidingsteken dat in de document titel gebruikt wordt."
+
+#: tal/SettingsGeneral.xml:35
+msgid "Show tagline"
+msgstr "Toon ondertitel"
+
+#: tal/SettingsGeneral.xml:39 tal/SettingsGeneral.xml:49 tal/SettingsXML.xml:53
+#: tal/SettingsXML.xml:100
+msgid "Yes"
+msgstr "Ja"
+
+#: tal/SettingsGeneral.xml:41
+msgid "Show the tagline on the document title when visiting the homepage."
+msgstr "Toon de ondertitel van de site in de titel van de homepagina."
+
+#: tal/SettingsGeneral.xml:45
+msgid "Show pagination"
+msgstr "Toon paginatie"
+
+#: tal/SettingsGeneral.xml:51
+msgid ""
+"Show the page number on the document title if there are multiple pages and "
+"the page number equals two or higher."
+msgstr ""
+"Toon het paginanummer in de document titel wanneer een pagina paginatie "
+"bevat en het paginanummer twee of hoger is."
 
 #: tal/SettingsXML.xml:2
 msgid "XML Sitemap settings"
@@ -290,11 +343,19 @@ msgstr ""
 msgid "Sitemap content"
 msgstr "Sitemap inhoud"
 
-#: tal/SettingsXML.xml:32
+#: tal/SettingsXML.xml:25
+msgid "Sitemap location"
+msgstr "Sitemap locatie"
+
+#: tal/SettingsXML.xml:30
 msgid "The location of the XML file."
 msgstr "De locatie van het XML bestand."
 
-#: tal/SettingsXML.xml:49
+#: tal/SettingsXML.xml:34
+msgid "Items per page"
+msgstr "Aantal per pagina"
+
+#: tal/SettingsXML.xml:45
 msgid ""
 "The maximum number of sitemap records per page. Lower this value if you run "
 "into memory issues."
@@ -302,68 +363,68 @@ msgstr ""
 "Het maximum aantal sitemap items per pagina. Verlaag deze waarde als er "
 "geheugen op de server te weinig geheugen is."
 
-#: tal/SettingsXML.xml:59 tal/SettingsXML.xml:106
-msgid "Yes"
-msgstr "Ja"
+#: tal/SettingsXML.xml:49
+msgid "Style sitemap"
+msgstr "Stijl de sitemap"
 
-#: tal/SettingsXML.xml:61
+#: tal/SettingsXML.xml:55
 msgid "If enabled, performs basic CSS styling on the XML output."
 msgstr ""
 "Als dit is ingeschakeld wordt er een eenvoudige styling toegepast op de XML "
 "pagina's."
 
-#: tal/SettingsXML.xml:70
+#: tal/SettingsXML.xml:64
 msgid "Post types"
 msgstr "Berichttypen"
 
-#: tal/SettingsXML.xml:81
+#: tal/SettingsXML.xml:75
 msgid "Select the post types that should be added to the XML sitemap."
 msgstr ""
 "Selecteer de berichttypen die moeten worden weergegeven in de XML sitemap."
 
-#: tal/SettingsXML.xml:86
+#: tal/SettingsXML.xml:80
 msgid "Taxonomies"
 msgstr "Taxonomieën"
 
-#: tal/SettingsXML.xml:97
+#: tal/SettingsXML.xml:91
 msgid "Select the taxonomies that should be added to the XML sitemap."
 msgstr ""
 "Selecteer de taxonomieën die moeten worden weergegeven in de XML sitemap."
 
-#: tal/SettingsXML.xml:102
+#: tal/SettingsXML.xml:96
 msgid "Add author pages"
 msgstr "Voeg auteur pagina's toe"
 
-#: tal/SettingsXML.xml:108
+#: tal/SettingsXML.xml:102
 msgid "If enabled, also creates a sitemap of all author-pages."
 msgstr ""
 "Als dit is ingeschakeld, wordt ook de sitemap van alle auteurs toegevoegd."
 
-#: lib/Features/Admin.php:15 lib/Features/Admin.php:20
+#: lib/Features/Admin.php:16 lib/Features/Admin.php:21
 msgid "Admin Core"
 msgstr "Admin Core"
 
-#: lib/Features/Admin.php:20
+#: lib/Features/Admin.php:21
 msgid "Admin Core of Buzz SEO."
 msgstr "Admin Core van Buzz SEO."
 
-#: lib/Features/Admin.php:50
+#: lib/Features/Admin.php:56
 msgid "Select an image"
 msgstr "Selecteer een afbeelding"
 
-#: lib/Features/Admin.php:50 lib/Features/Admin.php:51
+#: lib/Features/Admin.php:56 lib/Features/Admin.php:57
 msgid "Select"
 msgstr "Selecteren"
 
-#: lib/Features/PostSEOBox.php:14
+#: lib/Features/PostSEOBox.php:15
 msgid "SEO Box"
 msgstr "SEO Box"
 
-#: lib/Features/PostSEOBox.php:19
+#: lib/Features/PostSEOBox.php:20
 msgid "Add an optimization SEO box for each post."
 msgstr "Voeg optimalisaties toe bij iedere post."
 
-#: lib/Features/PostSEOBox.php:54
+#: lib/Features/PostSEOBox.php:59
 msgid "Search Engine Optimization (SEO)"
 msgstr "Zoekmachine Optimalisatie (SEO)"
 

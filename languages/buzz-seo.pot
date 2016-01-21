@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-01-20 15:12:04+0000\n"
+"POT-Creation-Date: 2016-01-21 11:05:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-20 15:12:04+0000\n"
+"PO-Revision-Date: 2016-01-21 11:05:24+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:70
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:75
 msgid "Settings"
 msgstr ""
 
@@ -217,12 +217,56 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsXML.xml:117
+#: tal/SettingsAdmin.xml:36 tal/SettingsGeneral.xml:64 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:73
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:78
 msgid "General"
+msgstr ""
+
+#: tal/SettingsGeneral.xml:12
+msgid "Below you will find the basic plugin settings. Make sure these are setup correctly."
+msgstr ""
+
+#: tal/SettingsGeneral.xml:18
+msgid "Document title"
+msgstr ""
+
+#: tal/SettingsGeneral.xml:19
+msgid "Post Type Archives"
+msgstr ""
+
+#: tal/SettingsGeneral.xml:20
+msgid "Taxonomy Archives"
+msgstr ""
+
+#: tal/SettingsGeneral.xml:26
+msgid "Separator"
+msgstr ""
+
+#: tal/SettingsGeneral.xml:31
+msgid "Change the separator character used in the document title."
+msgstr ""
+
+#: tal/SettingsGeneral.xml:35
+msgid "Show tagline"
+msgstr ""
+
+#: tal/SettingsGeneral.xml:39 tal/SettingsGeneral.xml:49 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
+msgid "Yes"
+msgstr ""
+
+#: tal/SettingsGeneral.xml:41
+msgid "Show the tagline on the document title when visiting the homepage."
+msgstr ""
+
+#: tal/SettingsGeneral.xml:45
+msgid "Show pagination"
+msgstr ""
+
+#: tal/SettingsGeneral.xml:51
+msgid "Show the page number on the document title if there are multiple pages and the page number equals two or higher."
 msgstr ""
 
 #: tal/SettingsXML.xml:2
@@ -237,71 +281,79 @@ msgstr ""
 msgid "Sitemap content"
 msgstr ""
 
-#: tal/SettingsXML.xml:32
+#: tal/SettingsXML.xml:25
+msgid "Sitemap location"
+msgstr ""
+
+#: tal/SettingsXML.xml:30
 msgid "The location of the XML file."
 msgstr ""
 
-#: tal/SettingsXML.xml:49
+#: tal/SettingsXML.xml:34
+msgid "Items per page"
+msgstr ""
+
+#: tal/SettingsXML.xml:45
 msgid "The maximum number of sitemap records per page. Lower this value if you run into memory issues."
 msgstr ""
 
-#: tal/SettingsXML.xml:59 tal/SettingsXML.xml:106
-msgid "Yes"
+#: tal/SettingsXML.xml:49
+msgid "Style sitemap"
 msgstr ""
 
-#: tal/SettingsXML.xml:61
+#: tal/SettingsXML.xml:55
 msgid "If enabled, performs basic CSS styling on the XML output."
 msgstr ""
 
-#: tal/SettingsXML.xml:70
+#: tal/SettingsXML.xml:64
 msgid "Post types"
 msgstr ""
 
-#: tal/SettingsXML.xml:81
+#: tal/SettingsXML.xml:75
 msgid "Select the post types that should be added to the XML sitemap."
 msgstr ""
 
-#: tal/SettingsXML.xml:86
+#: tal/SettingsXML.xml:80
 msgid "Taxonomies"
 msgstr ""
 
-#: tal/SettingsXML.xml:97
+#: tal/SettingsXML.xml:91
 msgid "Select the taxonomies that should be added to the XML sitemap."
 msgstr ""
 
-#: tal/SettingsXML.xml:102
+#: tal/SettingsXML.xml:96
 msgid "Add author pages"
 msgstr ""
 
-#: tal/SettingsXML.xml:108
+#: tal/SettingsXML.xml:102
 msgid "If enabled, also creates a sitemap of all author-pages."
 msgstr ""
 
-#: lib/Features/Admin.php:15 lib/Features/Admin.php:20
+#: lib/Features/Admin.php:16 lib/Features/Admin.php:21
 msgid "Admin Core"
 msgstr ""
 
-#: lib/Features/Admin.php:20
+#: lib/Features/Admin.php:21
 msgid "Admin Core of Buzz SEO."
 msgstr ""
 
-#: lib/Features/Admin.php:50
+#: lib/Features/Admin.php:56
 msgid "Select an image"
 msgstr ""
 
-#: lib/Features/Admin.php:50 lib/Features/Admin.php:51
+#: lib/Features/Admin.php:56 lib/Features/Admin.php:57
 msgid "Select"
 msgstr ""
 
-#: lib/Features/PostSEOBox.php:14
+#: lib/Features/PostSEOBox.php:15
 msgid "SEO Box"
 msgstr ""
 
-#: lib/Features/PostSEOBox.php:19
+#: lib/Features/PostSEOBox.php:20
 msgid "Add an optimization SEO box for each post."
 msgstr ""
 
-#: lib/Features/PostSEOBox.php:54
+#: lib/Features/PostSEOBox.php:59
 msgid "Search Engine Optimization (SEO)"
 msgstr ""
 
