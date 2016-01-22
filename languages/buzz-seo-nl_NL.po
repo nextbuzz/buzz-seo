@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-01-21 12:05+0100\n"
-"PO-Revision-Date: 2016-01-21 12:10+0100\n"
+"POT-Creation-Date: 2016-01-22 13:06+0100\n"
+"PO-Revision-Date: 2016-01-22 13:11+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -44,7 +44,8 @@ msgstr ""
 "De titel zoals weergegeven in zoekmachines en in de browser titelbalk. Als "
 "deze wordt leeggelaten wordt de bericht titel gebruikt."
 
-#: tal/PostSEOBox.xml:18
+#: tal/PostSEOBox.xml:18 tal/SettingsGeneral.xml:87 tal/SettingsGeneral.xml:140
+#: tal/SettingsGeneral.xml:193
 msgid "Meta description"
 msgstr "Meta omschrijving"
 
@@ -52,7 +53,8 @@ msgstr "Meta omschrijving"
 msgid "The description which most search engines use."
 msgstr "De omschrijving die in de meeste zoekmachines wordt gebruikt."
 
-#: tal/PostSEOBox.xml:25
+#: tal/PostSEOBox.xml:25 tal/SettingsGeneral.xml:94 tal/SettingsGeneral.xml:147
+#: tal/SettingsGeneral.xml:200
 msgid "Index options"
 msgstr "Indexeer opties"
 
@@ -64,11 +66,13 @@ msgstr "Deze pagina niet indexeren (noindex)"
 msgid "Do not follow links (nofollow)"
 msgstr "Links op deze pagina niet volgen (nofollow)"
 
-#: tal/PostSEOBox.xml:42
+#: tal/PostSEOBox.xml:42 tal/SettingsGeneral.xml:111
+#: tal/SettingsGeneral.xml:164 tal/SettingsGeneral.xml:217
 msgid "Warning:"
 msgstr "Waarschuwing:"
 
-#: tal/PostSEOBox.xml:43
+#: tal/PostSEOBox.xml:43 tal/SettingsGeneral.xml:112
+#: tal/SettingsGeneral.xml:165 tal/SettingsGeneral.xml:218
 msgid ""
 "WordPress is set to no-indexing mode in global options. These page specific "
 "settings are ignored as long as the global setting is active."
@@ -267,7 +271,7 @@ msgid ""
 msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsGeneral.xml:64 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsGeneral.xml:228 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr "Opslaan"
 
@@ -295,38 +299,90 @@ msgstr "Berichttype Archieven"
 msgid "Taxonomy Archives"
 msgstr "Taxonomie Archieven"
 
-#: tal/SettingsGeneral.xml:26
+#: tal/SettingsGeneral.xml:21
+msgid "Additional Archives"
+msgstr "Additionele Archieven"
+
+#: tal/SettingsGeneral.xml:27
 msgid "Separator"
 msgstr "Scheidingsteken"
 
-#: tal/SettingsGeneral.xml:31
+#: tal/SettingsGeneral.xml:32
 msgid "Change the separator character used in the document title."
 msgstr "Verander het scheidingsteken dat in de document titel gebruikt wordt."
 
-#: tal/SettingsGeneral.xml:35
+#: tal/SettingsGeneral.xml:36
 msgid "Show tagline"
 msgstr "Toon ondertitel"
 
-#: tal/SettingsGeneral.xml:39 tal/SettingsGeneral.xml:49 tal/SettingsXML.xml:53
-#: tal/SettingsXML.xml:100
+#: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50
+#: tal/SettingsGeneral.xml:60 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr "Ja"
 
-#: tal/SettingsGeneral.xml:41
+#: tal/SettingsGeneral.xml:42
 msgid "Show the tagline on the document title when visiting the homepage."
 msgstr "Toon de ondertitel van de site in de titel van de homepagina."
 
-#: tal/SettingsGeneral.xml:45
+#: tal/SettingsGeneral.xml:46
 msgid "Show pagination"
 msgstr "Toon paginatie"
 
-#: tal/SettingsGeneral.xml:51
+#: tal/SettingsGeneral.xml:52
 msgid ""
 "Show the page number on the document title if there are multiple pages and "
 "the page number equals two or higher."
 msgstr ""
 "Toon het paginanummer in de document titel wanneer een pagina paginatie "
 "bevat en het paginanummer twee of hoger is."
+
+#: tal/SettingsGeneral.xml:56
+msgid "Show sitename"
+msgstr "Toon sitenaam"
+
+#: tal/SettingsGeneral.xml:62
+msgid "Show the site name on the document title."
+msgstr "Toon de sitenaam in de document titel."
+
+#: tal/SettingsGeneral.xml:73 tal/SettingsGeneral.xml:126
+#: tal/SettingsGeneral.xml:179
+msgid "Document title prefix"
+msgstr "Document titel voorvoegsel"
+
+#: tal/SettingsGeneral.xml:76 tal/SettingsGeneral.xml:129
+#: tal/SettingsGeneral.xml:182
+msgid "Add a prefix to the main document title on the archive."
+msgstr "Voeg een voorvoegsel toe aan de document titel van het archief."
+
+#: tal/SettingsGeneral.xml:80 tal/SettingsGeneral.xml:133
+#: tal/SettingsGeneral.xml:186
+msgid "Document title suffix"
+msgstr "Document titel achtervoegsel"
+
+#: tal/SettingsGeneral.xml:83 tal/SettingsGeneral.xml:136
+#: tal/SettingsGeneral.xml:189
+msgid "Add a suffix to the main document title on the archive."
+msgstr "Voeg een achtervoegsel toe aan de document titel van het archief."
+
+#: tal/SettingsGeneral.xml:90 tal/SettingsGeneral.xml:143
+#: tal/SettingsGeneral.xml:196
+msgid "The meta description used on the archive page."
+msgstr "De meta omschrijving van het archief."
+
+#: tal/SettingsGeneral.xml:100 tal/SettingsGeneral.xml:153
+#: tal/SettingsGeneral.xml:206
+msgid "Do not index archive (noindex)"
+msgstr "Dit archief niet indexeren (noindex)"
+
+#: tal/SettingsGeneral.xml:106 tal/SettingsGeneral.xml:159
+#: tal/SettingsGeneral.xml:212
+msgid "Do not follow archive links (nofollow)"
+msgstr "Links in dit archief niet volgen (nofollow)"
+
+#: tal/SettingsGeneral.xml:114 tal/SettingsGeneral.xml:167
+#: tal/SettingsGeneral.xml:220
+msgid "Tell search engines how to index this archive"
+msgstr "Laat zoekmachines weten hoe ze dit archief mogen indexeren."
 
 #: tal/SettingsXML.xml:2
 msgid "XML Sitemap settings"
@@ -705,6 +761,18 @@ msgstr "Bestand %s bestaat niet."
 #: lib/PHPTAL/Settings/Admin.php:24
 msgid "No Features available"
 msgstr "Er zijn geen onderdelen beschikbaar"
+
+#: lib/PHPTAL/Settings/General.php:56
+msgid "Author"
+msgstr "Auteur"
+
+#: lib/PHPTAL/Settings/General.php:57
+msgid "Date"
+msgstr "Datum"
+
+#: lib/PHPTAL/Settings/General.php:59
+msgid "archive"
+msgstr "archief"
 
 #~ msgid "Admin Core of Buzz SEO"
 #~ msgstr "De core van Buzz SEO"
