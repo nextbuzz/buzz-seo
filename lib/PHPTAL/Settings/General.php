@@ -43,15 +43,15 @@ class General extends \NextBuzz\SEO\PHPTAL\SettingsPage
         }
 
         // Get taxonomies
-        $taxonomies = get_taxonomies(array('public' => true), 'objects');
-        foreach ($taxonomies as &$taxonomy) {
+        $taxonomyTypes = get_taxonomies(array('public' => true), 'objects');
+        foreach ($taxonomyTypes as &$taxonomy) {
             // Unentitiy labels because default translations contain entities
             $taxonomy->label = html_entity_decode($taxonomy->label, ENT_QUOTES, "UTF-8");
         }
 
         $this->setTalData(array(
             'postTypes' => $postTypes,
-            'taxonomies' => $taxonomies,
+            'taxonomyTypes' => $taxonomyTypes,
             'archiveTranslation' => __("archive", "buzz-seo")
         ));
     }

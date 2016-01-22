@@ -81,12 +81,36 @@
                                 <p class="description" i18n:translate="">The meta description used on the archive page.</p>
                             </td>
                         </tr>
+                        <tr>
+                            <th scope="row" i18n:translate="">Index options</th>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="SettingsGeneral[posttypes][${item/name}][robots][noindex]" value="noindex" tal:attributes="checked exists:posttypes/${item/name}/robots/noindex" />
+                                            <span i18n:translate="">Do not index archive (noindex)</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="SettingsGeneral[posttypes][${item/name}][robots][nofollow]" value="nofollow" tal:attributes="checked exists:posttypes/${item/name}/robots/nofollow" />
+                                            <span i18n:translate="">Do not follow archive links (nofollow)</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                                <p tal:condition="not:php: get_option('blog_public')">
+                                    <strong i18n:translate="">Warning:</strong>
+                                    <span i18n:translate="" tal:omit-tag="">WordPress is set to no-indexing mode in global options. These page specific settings are ignored as long as the global setting is active.</span>
+                                </p>
+                                <p class="description" i18n:translate="">Tell search engines how to index this archive</p>
+                            </td>
+                        </tr>
                     </table>
                 </tal:block>
             </div>
 
             <div class="inner hidden">
-                <tal:block tal:repeat="item taxonomies">
+                <tal:block tal:repeat="item taxonomyTypes">
                     <h2 class="title" tal:content="structure item/label">Post type title</h2>
                     <table class="form-table">
                         <tr>
@@ -108,6 +132,30 @@
                             <td>
                                 <input type="text" name="SettingsGeneral[taxonomies][${item/name}][meta]" tal:attributes="value taxonomies/${item/name}/meta | nothing" />
                                 <p class="description" i18n:translate="">The meta description used on the archive page.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" i18n:translate="">Index options</th>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="SettingsGeneral[taxonomies][${item/name}][robots][noindex]" value="noindex" tal:attributes="checked exists:taxonomies/${item/name}/robots/noindex" />
+                                            <span i18n:translate="">Do not index archive (noindex)</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="SettingsGeneral[taxonomies][${item/name}][robots][nofollow]" value="nofollow" tal:attributes="checked exists:taxonomies/${item/name}/robots/nofollow" />
+                                            <span i18n:translate="">Do not follow archive links (nofollow)</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                                <p tal:condition="not:php: get_option('blog_public')">
+                                    <strong i18n:translate="">Warning:</strong>
+                                    <span i18n:translate="" tal:omit-tag="">WordPress is set to no-indexing mode in global options. These page specific settings are ignored as long as the global setting is active.</span>
+                                </p>
+                                <p class="description" i18n:translate="">Tell search engines how to index this archive</p>
                             </td>
                         </tr>
                     </table>
