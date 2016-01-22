@@ -88,25 +88,87 @@ class PostSEOBox extends BaseFeature
 
     public function addMetaDescription()
     {
-        $postMeta = $this->getPostMeta();
+        if (is_singular()) {
+            // Add singular description
 
-        if (is_array($postMeta) && isset($postMeta['metaDescription']) && is_string($postMeta['metaDescription']) && $postMeta['metaDescription'] !== '') {
-            echo '<meta name="description" content="' . esc_attr(strip_tags(stripslashes($postMeta['metaDescription']))) . '" />' . "\n";
+            $postMeta = $this->getPostMeta();
+            if (is_array($postMeta) && isset($postMeta['metaDescription']) && is_string($postMeta['metaDescription']) && $postMeta['metaDescription'] !== '') {
+                echo '<meta name="description" content="' . esc_attr(strip_tags(stripslashes($postMeta['metaDescription']))) . '" />' . "\n";
+            }
+        } else {
+            // Add archive descriptions
+
+            $options = get_option('_settingsSettingsGeneral', true);
+            $content = '';
+            if (is_category()) {
+                $content = trim($options['taxonomies']['category']['meta']);
+            } else
+            if (is_tag()) {
+                $content = trim($options['taxonomies']['post_tag']['meta']);
+            } else
+            if (is_date()) {
+                $content = trim($options['archives']['date']['meta']);
+            } else
+            if (is_author()) {
+                $content = trim($options['archives']['author']['meta']);
+            } else
+            if (is_tax()) {
+                $tax     = get_queried_object();
+                $content = trim($options['taxonomies'][$tax->taxonomy]['meta']);
+            } else {
+                $posttype = get_post_type();
+                $content  = trim($options['posttypes'][$posttype]['meta']);
+            }
+
+            if (!empty($content)) {
+                echo '<meta name="description" content="' . esc_attr(strip_tags(stripslashes($content))) . '" />' . "\n";
+            }
         }
     }
 
     public function addRobots()
     {
-        $postMeta = $this->getPostMeta();
-
-        if (isset($postMeta['robots']) && is_array($postMeta['robots'])) {
-            $robotsstr = implode(",", $postMeta['robots']);
-        }
-
         // Check if WordPress is set as do not index in options, if so override our settings
         if ('0' === get_option('blog_public')) {
             echo '<meta name="robots" content="noindex,nofollow" />' . "\n";
-        } else
+            return;
+        }
+
+        $robotsarr = null;
+        $robotsstr = null;
+        if (is_singular()) {
+            // Add singular robots
+            $postMeta  = $this->getPostMeta();
+            $robotsarr = $postMeta['robots'];
+        } else {
+            // Add archive robots
+
+            $options = get_option('_settingsSettingsGeneral', true);
+            if (is_category()) {
+                $robotsarr = $options['taxonomies']['category']['robots'];
+            } else
+            if (is_tag()) {
+                $robotsarr = $options['taxonomies']['post_tag']['robots'];
+            } else
+            if (is_date()) {
+                $robotsarr = $options['archives']['date']['robots'];
+            } else
+            if (is_author()) {
+                $robotsarr = $options['archives']['author']['robots'];
+            } else
+            if (is_tax()) {
+                $tax       = get_queried_object();
+                $robotsarr = $options['taxonomies'][$tax->taxonomy]['robots'];
+            } else {
+                $posttype  = get_post_type();
+                $robotsarr = $options['posttypes'][$posttype]['robots'];
+            }
+        }
+
+        if (isset($robotsarr) && is_array($robotsarr)) {
+            $robotsstr = implode(",", $robotsarr);
+        }
+
         if (isset($robotsstr) && is_string($robotsstr) && $robotsstr !== '') {
             echo '<meta name="robots" content="' . esc_attr($robotsstr) . '" />' . "\n";
         }
