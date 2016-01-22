@@ -139,7 +139,9 @@ class PostSEOBox extends BaseFeature
         if (is_singular()) {
             // Add singular robots
             $postMeta  = $this->getPostMeta();
-            $robotsarr = $postMeta['robots'];
+            if (isset($postMeta['robots'])) {
+                $robotsarr = $postMeta['robots'];
+            }
         } else {
             // Add archive robots
 
