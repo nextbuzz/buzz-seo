@@ -132,6 +132,10 @@ class Admin extends BaseFeature
             unset($title['page']);
         }
 
+        if (!isset($options['showtitlesitename']) && isset($title['site'])) {
+            unset($title['site']);
+        }
+
         return $title;
     }
 

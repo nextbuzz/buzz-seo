@@ -52,6 +52,10 @@ class General extends \NextBuzz\SEO\PHPTAL\SettingsPage
         $this->setTalData(array(
             'postTypes' => $postTypes,
             'taxonomyTypes' => $taxonomyTypes,
+            'additionalArchives' => array(
+                'author' => array('name' => 'author', 'label' => __("Author", "buzz-seo")),
+                'date' => array('name' => 'date', 'label' => __("Date", "buzz-seo")),
+            ),
             'archiveTranslation' => __("archive", "buzz-seo")
         ));
     }

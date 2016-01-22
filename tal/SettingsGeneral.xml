@@ -19,7 +19,6 @@
                 <a class="nav-tab" href="javascript:;" i18n:translate="">Post Type Archives</a>
                 <a class="nav-tab" href="javascript:;" i18n:translate="">Taxonomy Archives</a>
                 <a class="nav-tab" href="javascript:;" i18n:translate="">Additional Archives</a>
-                <a class="nav-tab" href="javascript:;" i18n:translate="">Other</a>
             </div>
 
             <div class="inner">
@@ -51,6 +50,16 @@
                                 <tal:block i18n:translate="">Yes</tal:block>
                             </label>
                             <p class="description" i18n:translate="">Show the page number on the document title if there are multiple pages and the page number equals two or higher.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" i18n:translate="">Show sitename</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsGeneral[showtitlesitename]" value="1" tal:attributes="checked exists:showtitlesitename"/>
+                                <tal:block i18n:translate="">Yes</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">Show the site name on the document title.</p>
                         </td>
                     </tr>
                 </table>
@@ -163,9 +172,56 @@
             </div>
 
             <div class="inner hidden">
-            </div>
-
-            <div class="inner hidden">
+                <tal:block tal:repeat="item additionalArchives">
+                    <h2 class="title" tal:content="structure item/label">Post type title</h2>
+                    <table class="form-table">
+                        <tr>
+                            <th scope="row" i18n:translate="">Document title prefix</th>
+                            <td>
+                                <input type="text" name="SettingsGeneral[archives][${item/name}][titleprefix]" tal:attributes="value archives/${item/name}/titleprefix | item/label" />
+                                <p class="description" i18n:translate="">Add a prefix to the main document title on the archive.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" i18n:translate="">Document title suffix</th>
+                            <td>
+                                <input type="text" name="SettingsGeneral[archives][${item/name}][titlesuffix]" tal:attributes="value archives/${item/name}/titlesuffix | archiveTranslation" />
+                                <p class="description" i18n:translate="">Add a suffix to the main document title on the archive.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" i18n:translate="">Meta description</th>
+                            <td>
+                                <input type="text" name="SettingsGeneral[archives][${item/name}][meta]" tal:attributes="value archives/${item/name}/meta | nothing" />
+                                <p class="description" i18n:translate="">The meta description used on the archive page.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" i18n:translate="">Index options</th>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="SettingsGeneral[archives][${item/name}][robots][noindex]" value="noindex" tal:attributes="checked exists:archives/${item/name}/robots/noindex" />
+                                            <span i18n:translate="">Do not index archive (noindex)</span>
+                                        </label>
+                                    </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="SettingsGeneral[archives][${item/name}][robots][nofollow]" value="nofollow" tal:attributes="checked exists:archives/${item/name}/robots/nofollow" />
+                                            <span i18n:translate="">Do not follow archive links (nofollow)</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                                <p tal:condition="not:php: get_option('blog_public')">
+                                    <strong i18n:translate="">Warning:</strong>
+                                    <span i18n:translate="" tal:omit-tag="">WordPress is set to no-indexing mode in global options. These page specific settings are ignored as long as the global setting is active.</span>
+                                </p>
+                                <p class="description" i18n:translate="">Tell search engines how to index this archive</p>
+                            </td>
+                        </tr>
+                    </table>
+                </tal:block>
             </div>
         </div>
         <p class="submit">
