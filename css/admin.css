@@ -6,6 +6,13 @@
   background: #fff;
   border-bottom: 1px solid #fff; }
 
+.buzz-seo-tabs input[type=text] {
+  width: 400px; }
+
+.buzz-seo-tabs textarea {
+  width: 400px;
+  height: 150px; }
+
 .buzz-seo-tabs .inside {
   display: block;
   border: 1px solid #dfdfdf;
