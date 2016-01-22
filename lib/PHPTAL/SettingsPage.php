@@ -78,7 +78,7 @@ class SettingsPage extends Template
         /* OK, its safe for us to save the data now. */
 
         // Sanitize the user input.
-        $data = $_POST[$this->name];
+        $data = $this->stripslashes($_POST[$this->name]);
 
         if (is_array($data)) {
             $this->sanatizeArray($data);
@@ -100,6 +100,23 @@ class SettingsPage extends Template
                 }
                 if (is_array($value)) {
                     $value = $this->sanatizeArray($value);
+                }
+            }
+        }
+
+        return $data;
+    }
+
+    private function stripslashes($data)
+    {
+        if (is_array($data)) {
+            foreach ($data as &$value)
+            {
+                if (is_string($value)) {
+                    $value = stripslashes($value);
+                }
+                if (is_array($value)) {
+                    $value = $this->stripslashes($value);
                 }
             }
         }

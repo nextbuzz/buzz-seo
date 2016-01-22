@@ -18,6 +18,8 @@
                 <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Document title</a>
                 <a class="nav-tab" href="javascript:;" i18n:translate="">Post Type Archives</a>
                 <a class="nav-tab" href="javascript:;" i18n:translate="">Taxonomy Archives</a>
+                <a class="nav-tab" href="javascript:;" i18n:translate="">Additional Archives</a>
+                <a class="nav-tab" href="javascript:;" i18n:translate="">Other</a>
             </div>
 
             <div class="inner">
@@ -52,6 +54,64 @@
                         </td>
                     </tr>
                 </table>
+            </div>
+
+            <div class="inner hidden">
+                <tal:block tal:repeat="item postTypes">
+                    <h2 class="title" tal:content="structure item/label">Post type title</h2>
+                    <table class="form-table">
+                        <tr>
+                            <th scope="row" i18n:translate="">Document title prefix</th>
+                            <td>
+                                <input type="text" name="SettingsGeneral[posttypes][${item/name}][titleprefix]" tal:attributes="value posttypes/${item/name}/titleprefix | item/label" />
+                                <p class="description" i18n:translate="">Add a prefix to the main document title on the archive.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" i18n:translate="">Document title suffix</th>
+                            <td>
+                                <input type="text" name="SettingsGeneral[posttypes][${item/name}][titlesuffix]" tal:attributes="value posttypes/${item/name}/titlesuffix | archiveTranslation" />
+                                <p class="description" i18n:translate="">Add a suffix to the main document title on the archive.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" i18n:translate="">Meta description</th>
+                            <td>
+                                <input type="text" name="SettingsGeneral[posttypes][${item/name}][meta]" tal:attributes="value posttypes/${item/name}/meta | nothing" />
+                                <p class="description" i18n:translate="">The meta description used on the archive page.</p>
+                            </td>
+                        </tr>
+                    </table>
+                </tal:block>
+            </div>
+
+            <div class="inner hidden">
+                <tal:block tal:repeat="item taxonomies">
+                    <h2 class="title" tal:content="structure item/label">Post type title</h2>
+                    <table class="form-table">
+                        <tr>
+                            <th scope="row" i18n:translate="">Document title prefix</th>
+                            <td>
+                                <input type="text" name="SettingsGeneral[taxonomies][${item/name}][titleprefix]" tal:attributes="value taxonomies/${item/name}/titleprefix | item/label" />
+                                <p class="description" i18n:translate="">Add a prefix to the main document title on the archive.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" i18n:translate="">Document title suffix</th>
+                            <td>
+                                <input type="text" name="SettingsGeneral[taxonomies][${item/name}][titlesuffix]" tal:attributes="value taxonomies/${item/name}/titlesuffix | archiveTranslation" />
+                                <p class="description" i18n:translate="">Add a suffix to the main document title on the archive.</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" i18n:translate="">Meta description</th>
+                            <td>
+                                <input type="text" name="SettingsGeneral[taxonomies][${item/name}][meta]" tal:attributes="value taxonomies/${item/name}/meta | nothing" />
+                                <p class="description" i18n:translate="">The meta description used on the archive page.</p>
+                            </td>
+                        </tr>
+                    </table>
+                </tal:block>
             </div>
 
             <div class="inner hidden">
