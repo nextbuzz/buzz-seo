@@ -34,7 +34,7 @@ class Sitemaps extends BaseFeature
     public function createAdminMenu()
     {
         // Add Settings Sub Option Page
-        add_submenu_page('BuzzSEO', __('XML Sitemaps', 'buzz-seo'), __('XML Sitemaps', 'buzz-seo'), 'edit_posts', 'XMLSitemaps', array($this, "addAdminUI"));
+        add_submenu_page('BuzzSEO', __('XML Sitemaps', 'buzz-seo'), __('XML Sitemaps', 'buzz-seo'), 'edit_posts', 'BuzzSEO_XMLSitemaps', array($this, "addAdminUI"));
     }
 
     /**
@@ -58,7 +58,7 @@ class Sitemaps extends BaseFeature
 
     /**
      * Render the xml output if requested.
-     * 
+     *
      * Note: currently priorities and change frequencies are added like this:
      * - frontpage:  1.0, daily
      * - homepage:   1.0, daily
@@ -69,11 +69,11 @@ class Sitemaps extends BaseFeature
      *               0.4, weekly (at least 3 posts)
      *               0.2, weekly (lower number of posts)
      * - author      0.8, weekly
-     * 
+     *
      * Note: the lastmod dates of the sitemapindex are not entirely correct for:
      * - taxonomies
      * - authors
-     * 
+     *
      * They simply get the latest timestamp which can be fixed at a later point in time.
      */
     public function checkRenderSitemap($query)
@@ -201,7 +201,7 @@ class Sitemaps extends BaseFeature
                     'priority' => 0.8,
                 );
             }
-            
+
             if (count($talData) === 0) {
                 header_remove();
                 $GLOBALS['wp_query']->set_404();
@@ -268,7 +268,7 @@ class Sitemaps extends BaseFeature
                 status_header(404);
                 return;
             }
-            
+
             // Render
             \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemap')
                 ->setTalData($options)
@@ -284,7 +284,7 @@ class Sitemaps extends BaseFeature
 
     /**
      * Get the output protocol. Defaults to HTTP/1.1 if none found
-     * 
+     *
      * @return string
      */
     private function getHTTPProtocol()
@@ -310,7 +310,7 @@ class Sitemaps extends BaseFeature
 
     /**
      * Retrieve the last modified date of a posttype
-     * 
+     *
      * @global type $wpdb
      * @param string $posttype
      * @param int $page
@@ -338,7 +338,7 @@ class Sitemaps extends BaseFeature
 
     /**
      * Retrieve the last modified date of a taxonomy
-     * 
+     *
      * @global type $wpdb
      * @param string $taxonomy
      * @param int $page
@@ -380,7 +380,7 @@ class Sitemaps extends BaseFeature
 
     /**
      * Retrieve the last modified date of a term
-     * 
+     *
      * @global type $wpdb
      * @param string $taxonomy
      * @param int $termId

@@ -6,7 +6,7 @@
   Description: A small SEO plugin. Requires PHP 5.3+ and WP 4.4+
   Version: 0.5.0
   Author: Next Buzz BV
-  Author URI: https://github.com/nextbuzz/
+  Author URI: https://www.nextbuzz.nl
   License: MIT
   Text Domain: buzz-seo
  */
@@ -24,10 +24,18 @@ if (!function_exists('add_action')) {
     exit;
 }
 
-// Load the autoloader
-require_once 'vendor/autoload.php';
+// Check wordpress version
+if (version_compare($wp_version, '4.4.0', '>=') && version_compare(PHP_VERSION, '5.3.0', '>=')) {
+    // Load the autoloader
+    require_once 'vendor/autoload.php';
 
-// Load our application
-if (class_exists('\NextBuzz\SEO\App')) {
-    \NextBuzz\SEO\App::getInstance();
+    // Load our application
+    if (class_exists('\NextBuzz\SEO\App')) {
+        \NextBuzz\SEO\App::getInstance();
+    }
+} else {
+    // Output a nag error on admin interface
+    add_action('admin_notices', function() {
+        echo '<div class="error"><p>Plugin Buzz SEO is enabled but doesn\'t work since WP or PHP version requirements are not met. Buzz SEO <strong>requires</strong> at least <strong>WP 4.4.0</strong> and <strong>PHP 5.3.0</strong>.</p></div>';
+    });
 }

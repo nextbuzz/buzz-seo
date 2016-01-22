@@ -72,7 +72,7 @@ class Admin extends BaseFeature
         // Make sure this submenu is only visiable for admin users.
         if (current_user_can('manage_options')) {
             // Add Settings Sub Option Page
-            add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_dashboard', 'SEOSettings', array($this, "addAdminUI"));
+            add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_dashboard', 'BuzzSEO_Settings', array($this, "addAdminUI"));
 
             // Rename Submenu
             $submenu['BuzzSEO'][0][0] = __('General', 'buzz-seo');
@@ -84,7 +84,7 @@ class Admin extends BaseFeature
         global $submenu;
 
         // Make sure settings is always last if it exists
-        if (isset($submenu['BuzzSEO'][1][2]) && $submenu['BuzzSEO'][1][2] === 'SEOSettings') {
+        if (isset($submenu['BuzzSEO'][1][2]) && $submenu['BuzzSEO'][1][2] === 'BuzzSEO_Settings') {
             $settings       = array_splice($submenu['BuzzSEO'], 1, 1);
             $settings[0][0] = '<div style="border-top: 1px solid rgba(255, 255, 255, .2); padding-top: .5rem;">' . $settings[0][0] . '</div>';
             array_push($submenu['BuzzSEO'], $settings[0]);
@@ -106,7 +106,7 @@ class Admin extends BaseFeature
                 \NextBuzz\SEO\PHPTAL\Settings\General::factory()->render();
                 break;
 
-            case 'SEOSettings':
+            case 'BuzzSEO_Settings':
                 \NextBuzz\SEO\PHPTAL\Settings\Admin::factory()->render();
                 break;
             default:
