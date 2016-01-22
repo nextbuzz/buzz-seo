@@ -48,5 +48,48 @@
             "template engine",
             "zope"
         ]
+    },
+    {
+        "name": "lengthofrope/create-jsonld",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/lengthofrope/create-jsonld.git",
+            "reference": "6e1797db0fc122ff3a9eb3dcbda76d5c7b3a81fd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/lengthofrope/create-jsonld/zipball/6e1797db0fc122ff3a9eb3dcbda76d5c7b3a81fd",
+            "reference": "6e1797db0fc122ff3a9eb3dcbda76d5c7b3a81fd",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "time": "2016-01-22 22:43:54",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "LengthOfRope\\JSONLD\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bas de Kort",
+                "email": "bdekort@gmail.com"
+            }
+        ],
+        "description": "Simple PHP library to create JSON-LD output.",
+        "homepage": "https://github.com/lengthofrope/create-jsonld",
+        "keywords": [
+            "JSON-LD",
+            "jsonld"
+        ]
     }
 ]
