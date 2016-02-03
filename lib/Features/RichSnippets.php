@@ -25,10 +25,6 @@ class RichSnippets extends BaseFeature
     public function init()
     {
         add_action('admin_menu', array($this, 'createAdminMenu'));
-
-        $JsonLD = \LengthOfRope\JSONLD\Create::factory();
-        $JsonLD->add(\LengthOfRope\JSONLD\Schema\OrganizationSchema::factory()->setLegalName("Next Buzz BV"));
-        echo $JsonLD->getJSONLD();
     }
 
     /**
