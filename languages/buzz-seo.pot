@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-01-22 12:06:08+0000\n"
+"POT-Creation-Date: 2016-02-05 15:32:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-01-22 12:06:08+0000\n"
+"PO-Revision-Date: 2016-02-05 15:32:25+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Current Facebook image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:95 tal/PostSEOBox.xml:133
+#: tal/PostSEOBox.xml:95 tal/PostSEOBox.xml:133 tal/SettingsStructuredData.xml:48
 msgid "Remove image"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgstr ""
 msgid "Facebook image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:104 tal/PostSEOBox.xml:142
+#: tal/PostSEOBox.xml:104 tal/PostSEOBox.xml:142 tal/SettingsStructuredData.xml:57
 msgid "Upload"
 msgstr ""
 
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:75
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:79
 msgid "Settings"
 msgstr ""
 
@@ -217,11 +217,11 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsGeneral.xml:228 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:118 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:78
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:82
 msgid "General"
 msgstr ""
 
@@ -257,7 +257,7 @@ msgstr ""
 msgid "Show tagline"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
+#: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:108 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr ""
 
@@ -311,6 +311,98 @@ msgstr ""
 
 #: tal/SettingsGeneral.xml:114 tal/SettingsGeneral.xml:167 tal/SettingsGeneral.xml:220
 msgid "Tell search engines how to index this archive"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:2
+msgid "Structured Data settings"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:12
+msgid "On this settings page you can enable structured (JSON-LD) data which should be added to your site. Search engines may use this data to better optimize the search results or to create rich snippets in the search results."
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:18
+msgid "Organization"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:19
+msgid "Article"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:23
+msgid "Structured data of the organization is added to the homepage. Leave the Name or URL empty if you don't want to add this information."
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:27
+msgid "Name"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:31
+msgid "The official name of the organization, e.g. the registered company name."
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:36
+msgid "URL"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:40
+msgid "The organization URL."
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:44
+msgid "Current logo"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:52
+msgid "Logo"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:59
+msgid "The organization logo."
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:63
+msgid "E-mail"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:66
+msgid "The contact e-mail address for this organization."
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:70
+msgid "Phone"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:73
+msgid "The phone number for this organization."
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:77
+msgid "Fax"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:80
+msgid "The fax number for this organization."
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:86
+msgid "Fields marked with a * are required to embed this data."
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:92
+msgid "Add article"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:100
+msgid "Add article structured data for posts in selected post types."
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:104
+msgid "Add author"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:110
+msgid "Add author to article structured data for posts in selected post types."
 msgstr ""
 
 #: tal/SettingsXML.xml:2
@@ -381,11 +473,11 @@ msgstr ""
 msgid "Admin Core of Buzz SEO."
 msgstr ""
 
-#: lib/Features/Admin.php:56
+#: lib/Features/Admin.php:60
 msgid "Select an image"
 msgstr ""
 
-#: lib/Features/Admin.php:56 lib/Features/Admin.php:57
+#: lib/Features/Admin.php:60 lib/Features/Admin.php:61
 msgid "Select"
 msgstr ""
 
@@ -579,6 +671,14 @@ msgstr ""
 
 #: lib/Features/Sitemaps.php:37
 msgid "XML Sitemaps"
+msgstr ""
+
+#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:39
+msgid "Structured Data"
+msgstr ""
+
+#: lib/Features/StructuredData.php:24
+msgid "Add structured data to the content to allow search engines to show the content as rich snippets."
 msgstr ""
 
 #: lib/PHPTAL/SettingsPage.php:72
