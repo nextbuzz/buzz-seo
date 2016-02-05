@@ -13,7 +13,5 @@ class StructuredData extends \NextBuzz\SEO\PHPTAL\SettingsPage
     public function __construct()
     {
         parent::__construct('SettingsStructuredData');
-
-
     }
 }

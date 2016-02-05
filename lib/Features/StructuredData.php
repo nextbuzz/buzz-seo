@@ -1,6 +1,7 @@
 <?php
 
 namespace NextBuzz\SEO\Features;
+use \LengthOfRope\JSONLD\Schema;
 
 /**
  * Rich Snippets feature implementing some JSON-LD structured data
@@ -25,6 +26,7 @@ class StructuredData extends BaseFeature
     public function init()
     {
         add_action('admin_menu', array($this, 'createAdminMenu'));
+        add_action('wp_head', array($this, 'addJSONLDToHead'), 1);
     }
 
     /**
@@ -42,5 +44,31 @@ class StructuredData extends BaseFeature
     public function addAdminUI()
     {
         \NextBuzz\SEO\PHPTAL\Settings\StructuredData::factory()->render();
+    }
+
+    /**
+     * Output JSON-LD data in the head of the HTML page if required
+     */
+    public function addJSONLDToHead()
+    {
+        $options = get_option('_settingsSettingsStructuredData', true);
+
+        // Add Organization
+        if ((is_home() || is_front_page()) &&
+            isset($options['homepage']) &&
+            isset($options['homepage']['Organization']) &&
+            isset($options['homepage']['Organization']['legalName']) &&
+            !empty($options['homepage']['Organization']['legalName'])) {
+
+            $Org = Schema\OrganizationSchema::factory()
+                    ->setLegalName($options['homepage']['Organization']['legalName']);
+
+            if (intval($options['homepage']['Organization']['logo']['id']) > 0) {
+                $logo = wp_get_attachment_image_src($options['homepage']['Organization']['logo']['id'], 'full');
+                $Org->setLogo($logo[0]);
+            }
+
+            echo \LengthOfRope\JSONLD\Create::factory()->add($Org)->getJSONLDScript() . PHP_EOL;
+        }
     }
 }
