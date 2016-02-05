@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-01-22 13:06+0100\n"
-"PO-Revision-Date: 2016-01-22 13:11+0100\n"
+"POT-Creation-Date: 2016-02-05 16:32+0100\n"
+"PO-Revision-Date: 2016-02-05 16:38+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: buzz-seo.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -136,6 +136,7 @@ msgid "Current Facebook image"
 msgstr "Huidige Facebook afbeelding"
 
 #: tal/PostSEOBox.xml:95 tal/PostSEOBox.xml:133
+#: tal/SettingsStructuredData.xml:48
 msgid "Remove image"
 msgstr "Verwijder afbeelding"
 
@@ -144,6 +145,7 @@ msgid "Facebook image"
 msgstr "Facebook afbeelding"
 
 #: tal/PostSEOBox.xml:104 tal/PostSEOBox.xml:142
+#: tal/SettingsStructuredData.xml:57
 msgid "Upload"
 msgstr "Uploaden"
 
@@ -252,7 +254,7 @@ msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:75
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:79
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -271,11 +273,12 @@ msgid ""
 msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsGeneral.xml:228 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsGeneral.xml:228
+#: tal/SettingsStructuredData.xml:118 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr "Opslaan"
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:78
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:82
 msgid "General"
 msgstr "Algemeen"
 
@@ -316,7 +319,8 @@ msgid "Show tagline"
 msgstr "Toon ondertitel"
 
 #: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50
-#: tal/SettingsGeneral.xml:60 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
+#: tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:108
+#: tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr "Ja"
 
@@ -383,6 +387,117 @@ msgstr "Links in dit archief niet volgen (nofollow)"
 #: tal/SettingsGeneral.xml:220
 msgid "Tell search engines how to index this archive"
 msgstr "Laat zoekmachines weten hoe ze dit archief mogen indexeren."
+
+#: tal/SettingsStructuredData.xml:2
+msgid "Structured Data settings"
+msgstr "Gestructureerde Data instellingen"
+
+#: tal/SettingsStructuredData.xml:12
+msgid ""
+"On this settings page you can enable structured (JSON-LD) data which should "
+"be added to your site. Search engines may use this data to better optimize "
+"the search results or to create rich snippets in the search results."
+msgstr ""
+"Op deze pagina kan je gestructureerde data inschakelen welke op bepaalde "
+"pagina`s wordt toegevoegd aan de site. Zoekmachines kunnen deze data "
+"gebruiken om de zoekresultaten beter te optimaliseren of van rich snippets "
+"te voorzien."
+
+#: tal/SettingsStructuredData.xml:18
+msgid "Organization"
+msgstr "Organisatie"
+
+#: tal/SettingsStructuredData.xml:19
+msgid "Article"
+msgstr "Artikel"
+
+#: tal/SettingsStructuredData.xml:23
+msgid ""
+"Structured data of the organization is added to the homepage. Leave the Name "
+"or URL empty if you don't want to add this information."
+msgstr ""
+"Gestructureerde data van de organisatie wordt toegevoegd aan de homepage. "
+"Laat de Naam of URL leeg als je deze data niet toegevoegd wilt hebben."
+
+#: tal/SettingsStructuredData.xml:27
+msgid "Name"
+msgstr "Naam"
+
+#: tal/SettingsStructuredData.xml:31
+msgid ""
+"The official name of the organization, e.g. the registered company name."
+msgstr ""
+"De officiële naam van de organisatie, bijv de geregistreerde bedrijfsnaam."
+
+#: tal/SettingsStructuredData.xml:36
+msgid "URL"
+msgstr "URL"
+
+#: tal/SettingsStructuredData.xml:40
+msgid "The organization URL."
+msgstr "De URL van de organisatie."
+
+#: tal/SettingsStructuredData.xml:44
+msgid "Current logo"
+msgstr "Huidige logo"
+
+#: tal/SettingsStructuredData.xml:52
+msgid "Logo"
+msgstr "Logo"
+
+#: tal/SettingsStructuredData.xml:59
+msgid "The organization logo."
+msgstr "Het logo van de organisatie."
+
+#: tal/SettingsStructuredData.xml:63
+msgid "E-mail"
+msgstr "E-mail"
+
+#: tal/SettingsStructuredData.xml:66
+msgid "The contact e-mail address for this organization."
+msgstr "Het contact e-mailadres van de organisatie."
+
+#: tal/SettingsStructuredData.xml:70
+msgid "Phone"
+msgstr "Telefoonnummer"
+
+#: tal/SettingsStructuredData.xml:73
+msgid "The phone number for this organization."
+msgstr "Het telefoonnummer van de organisatie."
+
+#: tal/SettingsStructuredData.xml:77
+msgid "Fax"
+msgstr "Fax"
+
+#: tal/SettingsStructuredData.xml:80
+msgid "The fax number for this organization."
+msgstr "Het faxnummer van de organisatie."
+
+#: tal/SettingsStructuredData.xml:86
+msgid "Fields marked with a * are required to embed this data."
+msgstr ""
+"Velden gemarkeerd met een * zijn verplicht om de data toe te voegen als "
+"gestructureerde data."
+
+#: tal/SettingsStructuredData.xml:92
+msgid "Add article"
+msgstr "Artikeldata toevoegen"
+
+#: tal/SettingsStructuredData.xml:100
+msgid "Add article structured data for posts in selected post types."
+msgstr ""
+"Voeg artikeldata gestructureerd toe voor berichten in de geselecteerde "
+"berichttypen."
+
+#: tal/SettingsStructuredData.xml:104
+msgid "Add author"
+msgstr "Voeg auteur toe"
+
+#: tal/SettingsStructuredData.xml:110
+msgid "Add author to article structured data for posts in selected post types."
+msgstr ""
+"Voeg de auteur van het artikel toe aan de gestructureerde data voor "
+"hierboven ingestelde berichttypen."
 
 #: tal/SettingsXML.xml:2
 msgid "XML Sitemap settings"
@@ -464,11 +579,11 @@ msgstr "Admin Core"
 msgid "Admin Core of Buzz SEO."
 msgstr "Admin Core van Buzz SEO."
 
-#: lib/Features/Admin.php:56
+#: lib/Features/Admin.php:60
 msgid "Select an image"
 msgstr "Selecteer een afbeelding"
 
-#: lib/Features/Admin.php:56 lib/Features/Admin.php:57
+#: lib/Features/Admin.php:60 lib/Features/Admin.php:61
 msgid "Select"
 msgstr "Selecteren"
 
@@ -745,6 +860,18 @@ msgstr "Automatische generatie van XML sitemaps."
 #: lib/Features/Sitemaps.php:37
 msgid "XML Sitemaps"
 msgstr "XML Sitemaps"
+
+#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:39
+msgid "Structured Data"
+msgstr "Gestructureerde Data"
+
+#: lib/Features/StructuredData.php:24
+msgid ""
+"Add structured data to the content to allow search engines to show the "
+"content as rich snippets."
+msgstr ""
+"Voeg gestructureerde data toe aan de content om zoekmachines de benodigde "
+"informatie te voorzien voor bijv. rich snippets te tonen."
 
 #: lib/PHPTAL/SettingsPage.php:72
 msgid "Nonce value is invalid."

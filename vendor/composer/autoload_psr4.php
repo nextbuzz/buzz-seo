@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'NextBuzz\\SEO\\' => array($baseDir . '/lib'),
+    'LengthOfRope\\JSONLD\\' => array($vendorDir . '/lengthofrope/create-jsonld/src'),
 );

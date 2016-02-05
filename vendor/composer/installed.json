@@ -48,5 +48,53 @@
             "template engine",
             "zope"
         ]
+    },
+    {
+        "name": "lengthofrope/create-jsonld",
+        "version": "0.9.0",
+        "version_normalized": "0.9.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/lengthofrope/create-jsonld.git",
+            "reference": "310141b042e1e55b7ad98ae967b3337185883cd5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/lengthofrope/create-jsonld/zipball/310141b042e1e55b7ad98ae967b3337185883cd5",
+            "reference": "310141b042e1e55b7ad98ae967b3337185883cd5",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3"
+        },
+        "require-dev": {
+            "easyrdf/easyrdf": "0.9.*",
+            "ml/json-ld": "1.0.*",
+            "twig/twig": "~1.0"
+        },
+        "time": "2016-02-03 11:34:30",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "LengthOfRope\\JSONLD\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bas de Kort",
+                "email": "bdekort@gmail.com"
+            }
+        ],
+        "description": "Simple PHP library to create JSON-LD output.",
+        "homepage": "https://github.com/lengthofrope/create-jsonld",
+        "keywords": [
+            "JSON-LD",
+            "jsonld"
+        ]
     }
 ]

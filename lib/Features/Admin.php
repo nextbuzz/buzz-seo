@@ -50,7 +50,11 @@ class Admin extends BaseFeature
     public function enqueueAdminScripts()
     {
         wp_enqueue_style('buzz-seo-admin', plugins_url('buzz-seo/css/admin.css'), false, BUZZSEO_VERSION);
-        wp_enqueue_script('buzz-seo-admin-js', plugins_url('buzz-seo/js/admin.js'), array('jquery'), BUZZSEO_VERSION, true);
+
+        // All required for media upload
+        wp_enqueue_media();
+
+        wp_enqueue_script('buzz-seo-admin-js', plugins_url('buzz-seo/js/admin.js'), array('jquery', 'thickbox', 'media-upload'), BUZZSEO_VERSION, true);
         wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAdmin', array(
             'MediaUploader' => array(
                 'title'  => __('Select an image', 'buzz-seo'),
@@ -72,7 +76,7 @@ class Admin extends BaseFeature
         // Make sure this submenu is only visiable for admin users.
         if (current_user_can('manage_options')) {
             // Add Settings Sub Option Page
-            add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_dashboard', 'SEOSettings', array($this, "addAdminUI"));
+            add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_dashboard', 'BuzzSEO_Settings', array($this, "addAdminUI"));
 
             // Rename Submenu
             $submenu['BuzzSEO'][0][0] = __('General', 'buzz-seo');
@@ -84,7 +88,7 @@ class Admin extends BaseFeature
         global $submenu;
 
         // Make sure settings is always last if it exists
-        if (isset($submenu['BuzzSEO'][1][2]) && $submenu['BuzzSEO'][1][2] === 'SEOSettings') {
+        if (isset($submenu['BuzzSEO'][1][2]) && $submenu['BuzzSEO'][1][2] === 'BuzzSEO_Settings') {
             $settings       = array_splice($submenu['BuzzSEO'], 1, 1);
             $settings[0][0] = '<div style="border-top: 1px solid rgba(255, 255, 255, .2); padding-top: .5rem;">' . $settings[0][0] . '</div>';
             array_push($submenu['BuzzSEO'], $settings[0]);
@@ -106,7 +110,7 @@ class Admin extends BaseFeature
                 \NextBuzz\SEO\PHPTAL\Settings\General::factory()->render();
                 break;
 
-            case 'SEOSettings':
+            case 'BuzzSEO_Settings':
                 \NextBuzz\SEO\PHPTAL\Settings\Admin::factory()->render();
                 break;
             default:
@@ -151,10 +155,10 @@ class Admin extends BaseFeature
                 $title['title'] = trim($options['archives']['author']['titleprefix'] . ' ' . $title['title'] . ' ' . $options['archives']['author']['titlesuffix']);
             } else
             if (is_tax()) {
-                $tax = get_queried_object();
+                $tax            = get_queried_object();
                 $title['title'] = trim($options['taxonomies'][$tax->taxonomy]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['taxonomies'][$tax->taxonomy]['titlesuffix']);
             } else {
-                $posttype = get_post_type();
+                $posttype       = get_post_type();
                 $title['title'] = trim($options['posttypes'][$posttype]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['posttypes'][$posttype]['titlesuffix']);
             }
         }

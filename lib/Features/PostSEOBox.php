@@ -147,23 +147,23 @@ class PostSEOBox extends BaseFeature
 
             $options = get_option('_settingsSettingsGeneral', true);
             if (is_category()) {
-                $robotsarr = $options['taxonomies']['category']['robots'];
+                $robotsarr = isset($options['taxonomies']['category']['robots']) ? $options['taxonomies']['category']['robots'] : '';
             } else
             if (is_tag()) {
-                $robotsarr = $options['taxonomies']['post_tag']['robots'];
+                $robotsarr = isset($options['taxonomies']['post_tag']['robots']) ? $options['taxonomies']['post_tag']['robots'] : '';
             } else
             if (is_date()) {
-                $robotsarr = $options['archives']['date']['robots'];
+                $robotsarr = isset($options['archives']['date']['robots']) ? $options['archives']['date']['robots'] : '';
             } else
             if (is_author()) {
-                $robotsarr = $options['archives']['author']['robots'];
+                $robotsarr = isset($options['archives']['author']['robots']) ? $options['archives']['author']['robots'] : '';
             } else
             if (is_tax()) {
                 $tax       = get_queried_object();
-                $robotsarr = $options['taxonomies'][$tax->taxonomy]['robots'];
+                $robotsarr = isset($options['taxonomies'][$tax->taxonomy]['robots']) ? $options['taxonomies'][$tax->taxonomy]['robots'] : '';
             } else {
                 $posttype  = get_post_type();
-                $robotsarr = $options['posttypes'][$posttype]['robots'];
+                $robotsarr = isset($options['posttypes'][$posttype]['robots']) ? $options['posttypes'][$posttype]['robots'] : '';
             }
         }
 
