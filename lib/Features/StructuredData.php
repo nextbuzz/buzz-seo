@@ -9,12 +9,12 @@ namespace NextBuzz\SEO\Features;
  *
  * @author Bas de Kort <bas@nextbuzz.nl>
  */
-class RichSnippets extends BaseFeature
+class StructuredData extends BaseFeature
 {
 
     public function name()
     {
-        return __("Rich Snippets", "buzz-seo");
+        return __("Structured Data", "buzz-seo");
     }
 
     public function desc()
@@ -33,7 +33,7 @@ class RichSnippets extends BaseFeature
     public function createAdminMenu()
     {
         // Add Settings Sub Option Page
-        add_submenu_page('BuzzSEO', __('Rich Snippets', 'buzz-seo'), __('Rich Snippets', 'buzz-seo'), 'edit_posts', 'BuzzSEO_JSONLD', array($this, "addAdminUI"));
+        add_submenu_page('BuzzSEO', __('Structured Data', 'buzz-seo'), __('Structured Data', 'buzz-seo'), 'edit_posts', 'BuzzSEO_JSONLD', array($this, "addAdminUI"));
     }
 
     /**
@@ -41,6 +41,6 @@ class RichSnippets extends BaseFeature
      */
     public function addAdminUI()
     {
-        \NextBuzz\SEO\PHPTAL\Settings\RichSnippets::factory()->render();
+        \NextBuzz\SEO\PHPTAL\Settings\StructuredData::factory()->render();
     }
 }

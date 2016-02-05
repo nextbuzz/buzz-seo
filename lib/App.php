@@ -24,7 +24,7 @@ class App
             'Admin',
             'PostSEOBox',
             'PostSEOBoxAnalysis',
-            'RichSnippets',
+            'StructuredData',
             'Sitemaps',
         );
 

@@ -50,7 +50,11 @@ class Admin extends BaseFeature
     public function enqueueAdminScripts()
     {
         wp_enqueue_style('buzz-seo-admin', plugins_url('buzz-seo/css/admin.css'), false, BUZZSEO_VERSION);
-        wp_enqueue_script('buzz-seo-admin-js', plugins_url('buzz-seo/js/admin.js'), array('jquery'), BUZZSEO_VERSION, true);
+
+        // All required for media upload
+        wp_enqueue_media();
+
+        wp_enqueue_script('buzz-seo-admin-js', plugins_url('buzz-seo/js/admin.js'), array('jquery', 'thickbox', 'media-upload'), BUZZSEO_VERSION, true);
         wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAdmin', array(
             'MediaUploader' => array(
                 'title'  => __('Select an image', 'buzz-seo'),
@@ -151,10 +155,10 @@ class Admin extends BaseFeature
                 $title['title'] = trim($options['archives']['author']['titleprefix'] . ' ' . $title['title'] . ' ' . $options['archives']['author']['titlesuffix']);
             } else
             if (is_tax()) {
-                $tax = get_queried_object();
+                $tax            = get_queried_object();
                 $title['title'] = trim($options['taxonomies'][$tax->taxonomy]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['taxonomies'][$tax->taxonomy]['titlesuffix']);
             } else {
-                $posttype = get_post_type();
+                $posttype       = get_post_type();
                 $title['title'] = trim($options['posttypes'][$posttype]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['posttypes'][$posttype]['titlesuffix']);
             }
         }
