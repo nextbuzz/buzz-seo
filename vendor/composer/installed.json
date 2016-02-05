@@ -51,8 +51,8 @@
     },
     {
         "name": "lengthofrope/create-jsonld",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "version": "0.9.0",
+        "version_normalized": "0.9.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/lengthofrope/create-jsonld.git",
@@ -74,7 +74,7 @@
         },
         "time": "2016-02-03 11:34:30",
         "type": "library",
-        "installation-source": "source",
+        "installation-source": "dist",
         "autoload": {
             "psr-4": {
                 "LengthOfRope\\JSONLD\\": "src/"
