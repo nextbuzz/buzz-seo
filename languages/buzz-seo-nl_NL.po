@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-02-25 14:39+0100\n"
-"PO-Revision-Date: 2016-02-25 14:40+0100\n"
+"POT-Creation-Date: 2016-02-25 17:07+0100\n"
+"PO-Revision-Date: 2016-02-25 17:12+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -623,6 +623,16 @@ msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
 
+#: lib/Features/CleanupHead.php:15
+msgid "Cleanup HTML header"
+msgstr "Ruim de HTML header op"
+
+#: lib/Features/CleanupHead.php:20
+msgid "Removes WordPress junk from the HTML header to speed up page loading."
+msgstr ""
+"Verwijderd wat WordPress troep uit de HTML header waardoor de pagina sneller "
+"laden."
+
 #: lib/Features/PostSEOBox.php:15
 msgid "SEO Box"
 msgstr "SEO Box"
@@ -895,11 +905,11 @@ msgstr "Automatische generatie van XML sitemaps."
 
 #: lib/Features/Sitemaps.php:37
 msgid "XML Sitemaps"
-msgstr "XML Sitemaps"
+msgstr "XML sitemaps"
 
 #: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:39
 msgid "Structured Data"
-msgstr "Gestructureerde Data"
+msgstr "Gestructureerde data"
 
 #: lib/Features/StructuredData.php:24
 msgid ""
@@ -921,7 +931,7 @@ msgstr "Instellingen opgeslagen."
 msgid "File %s does not exist."
 msgstr "Bestand %s bestaat niet."
 
-#: lib/PHPTAL/Settings/Admin.php:24
+#: lib/PHPTAL/Settings/Admin.php:29
 msgid "No Features available"
 msgstr "Er zijn geen onderdelen beschikbaar"
 

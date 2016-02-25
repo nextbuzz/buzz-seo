@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-02-25 13:39:15+0000\n"
+"POT-Creation-Date: 2016-02-25 16:07:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-25 13:39:15+0000\n"
+"PO-Revision-Date: 2016-02-25 16:07:35+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -505,6 +505,14 @@ msgstr ""
 msgid "Unknown update checker status `%s`."
 msgstr ""
 
+#: lib/Features/CleanupHead.php:15
+msgid "Cleanup HTML header"
+msgstr ""
+
+#: lib/Features/CleanupHead.php:20
+msgid "Removes WordPress junk from the HTML header to speed up page loading."
+msgstr ""
+
 #: lib/Features/PostSEOBox.php:15
 msgid "SEO Box"
 msgstr ""
@@ -717,7 +725,7 @@ msgstr ""
 msgid "File %s does not exist."
 msgstr ""
 
-#: lib/PHPTAL/Settings/Admin.php:24
+#: lib/PHPTAL/Settings/Admin.php:29
 msgid "No Features available"
 msgstr ""
 
