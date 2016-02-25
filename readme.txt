@@ -3,8 +3,8 @@ Contributors: lengthofrope, nextbuzz
 Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
-Tested up to: 4.5
-Stable tag: 0.6.8
+Tested up to: 4.5-beta
+Stable tag: 0.7.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -43,8 +43,13 @@ try to solve it in a future release.
 
 == Changelog ==
 
+= 0.7.0 =
+* Add: Possibility to cleanup the HTML head section.
+* Fix: Saving permalinks did not work when enabling/ disabling sitemap.
+* Update: translations.
+
 = 0.6.8 =
-* Update translations
+* Update translations.
 
 = 0.6.7 =
 * Still figuring out how the updater works exactly. Nothing else.
