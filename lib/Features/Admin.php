@@ -206,6 +206,22 @@ class Admin extends BaseFeature
 
     public function initGithubUpdater()
     {
+        // Add some translations
+        add_filter('puc_manual_check_link-buzz-seo', function() {
+            return __('Check for updates', 'buzz-seo');
+        }, 10, 0);
+
+        add_filter('puc_manual_check_message-buzz-seo', function($message, $status) {
+            if ( $status == 'no_update' ) {
+				return __('Buzz SEO plugin is up to date.', 'buzz-seo');
+			} else if ( $status == 'update_available' ) {
+                return __('A new version of the Buzz SEO plugin is available.', 'buzz-seo');
+			} else {
+                return sprintf(__('Unknown update checker status `%s`.', 'buzz-seo'), htmlentities($status));
+			}
+        }, 10, 2);
+
+
         // Require file since it doesn't have an autoloader
         require_once BUZZSEO_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
 
