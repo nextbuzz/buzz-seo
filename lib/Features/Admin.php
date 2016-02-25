@@ -44,6 +44,19 @@ class Admin extends BaseFeature
         $this->initGithubUpdater();
     }
 
+    /**
+     * Make sure wordpress can translate the plugin metadata as well
+     * This method is never called, but here to allow it to be added to the pot file.
+     *
+     * @ignore
+     */
+    public static function setupPluginMetadataTranslations()
+    {
+        $void = __('This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+', 'buzz-seo');
+    }
+
+
+
     public function allowDisable()
     {
         return false;
