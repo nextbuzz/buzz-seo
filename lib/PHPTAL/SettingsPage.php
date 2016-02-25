@@ -81,7 +81,7 @@ class SettingsPage extends Template
         $data = $this->stripslashes($_POST[$this->name]);
 
         if (is_array($data)) {
-            $this->sanatizeArray($data);
+            $data = $this->sanatizeArray($data);
 
             // Update the meta data for this box
             update_option('_settings' . $this->name, $data);
