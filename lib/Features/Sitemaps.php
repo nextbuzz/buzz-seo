@@ -52,6 +52,9 @@ class Sitemaps extends BaseFeature
         $wp->add_query_var('buzz_sitemap');
         $wp->add_query_var('buzz_sitemap_page');
 
+        // Note: the same rules should also be added in the NextBuzz\SEO\PHPTAL\Settings\Admin::rewritePermalinks
+        // method, because otherwise we cannot handle permalink saving correctly, because of the way the templates
+        // are loaded. A disadvantage of using PHPTAL this way.
         add_rewrite_rule('sitemap\.xml$', 'index.php?buzz_sitemap=1', 'top');
         add_rewrite_rule('sitemap-([^/]+?)-?([0-9]+)?\.xml$', 'index.php?buzz_sitemap=$matches[1]&buzz_sitemap_page=$matches[2]', 'top');
     }
