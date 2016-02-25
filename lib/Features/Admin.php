@@ -44,6 +44,19 @@ class Admin extends BaseFeature
         $this->initGithubUpdater();
     }
 
+    /**
+     * Make sure wordpress can translate the plugin metadata as well
+     * This method is never called, but here to allow it to be added to the pot file.
+     *
+     * @ignore
+     */
+    public static function setupPluginMetadataTranslations()
+    {
+        $void = __('This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+', 'buzz-seo');
+    }
+
+
+
     public function allowDisable()
     {
         return false;
@@ -206,6 +219,22 @@ class Admin extends BaseFeature
 
     public function initGithubUpdater()
     {
+        // Add some translations
+        add_filter('puc_manual_check_link-buzz-seo', function() {
+            return __('Check for updates', 'buzz-seo');
+        }, 10, 0);
+
+        add_filter('puc_manual_check_message-buzz-seo', function($message, $status) {
+            if ( $status == 'no_update' ) {
+				return __('Buzz SEO plugin is up to date.', 'buzz-seo');
+			} else if ( $status == 'update_available' ) {
+                return __('A new version of the Buzz SEO plugin is available.', 'buzz-seo');
+			} else {
+                return sprintf(__('Unknown update checker status `%s`.', 'buzz-seo'), htmlentities($status));
+			}
+        }, 10, 2);
+
+
         // Require file since it doesn't have an autoloader
         require_once BUZZSEO_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
 

@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-02-25 11:17+0100\n"
-"PO-Revision-Date: 2016-02-25 11:18+0100\n"
+"POT-Creation-Date: 2016-02-25 14:39+0100\n"
+"PO-Revision-Date: 2016-02-25 14:40+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -254,7 +254,7 @@ msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:100
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:113
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -278,7 +278,7 @@ msgstr ""
 msgid "Save Changes"
 msgstr "Opslaan"
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:103
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:116
 msgid "General"
 msgstr "Algemeen"
 
@@ -579,7 +579,16 @@ msgstr "Admin Core"
 msgid "Admin Core of Buzz SEO."
 msgstr "Admin Core van Buzz SEO."
 
-#: lib/Features/Admin.php:63
+#: lib/Features/Admin.php:55
+msgid ""
+"This is a WordPress SEO plugin. It covers the basics of SEO optimization. "
+"Requires PHP 5.3+ and WP 4.1+"
+msgstr ""
+"Dit is een WordPress SEO plugin. Het bevat de basis tools om uw site te "
+"optimaliseren voor zoekmachines (SEO). Deze plugin heeft minimaal PHP 5.3+ "
+"en WP 4.1+ nodig."
+
+#: lib/Features/Admin.php:76
 msgid ""
 "The theme you are using is using the deprecated wp_title() functions which "
 "prevents Buzz SEO from generating the correct titles. Please ask your theme "
@@ -590,13 +599,29 @@ msgstr ""
 "de document titels niet optimaliseren. Vraag de ontwikkelaar van het thema "
 "om het thema te updaten."
 
-#: lib/Features/Admin.php:81
+#: lib/Features/Admin.php:94
 msgid "Select an image"
 msgstr "Selecteer een afbeelding"
 
-#: lib/Features/Admin.php:81 lib/Features/Admin.php:82
+#: lib/Features/Admin.php:94 lib/Features/Admin.php:95
 msgid "Select"
 msgstr "Selecteren"
+
+#: lib/Features/Admin.php:224
+msgid "Check for updates"
+msgstr "Controleren op updates"
+
+#: lib/Features/Admin.php:229
+msgid "Buzz SEO plugin is up to date."
+msgstr "Buzz SEO plugin is up-to-date."
+
+#: lib/Features/Admin.php:231
+msgid "A new version of the Buzz SEO plugin is available."
+msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
+
+#: lib/Features/Admin.php:233
+msgid "Unknown update checker status `%s`."
+msgstr "Onbekende update status `%s`."
 
 #: lib/Features/PostSEOBox.php:15
 msgid "SEO Box"
