@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.5
-Stable tag: 0.6.3
+Stable tag: 0.6.4
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -37,6 +37,9 @@ the plugins. Since we stopped using SVN ages ago, we cannot be found on the Word
 Yes, once installed, the plugin checks the GitHub repository and updates the plugin from there.
 
 == Changelog ==
+
+= 0.6.4 =
+* Messed up the previous release
 
 = 0.6.3 =
 * Fixed the stable tag
