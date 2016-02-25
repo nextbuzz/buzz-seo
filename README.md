@@ -1,3 +1,3 @@
 # Next Buzz SEO
 
-This might become a simple WordPress SEO plugin someday. Currently in active development.
+This is a WordPress SEO plugin. It covers the basics of SEO optimization.

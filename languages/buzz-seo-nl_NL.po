@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-02-05 16:32+0100\n"
-"PO-Revision-Date: 2016-02-05 16:38+0100\n"
+"POT-Creation-Date: 2016-02-25 11:17+0100\n"
+"PO-Revision-Date: 2016-02-25 11:18+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -254,7 +254,7 @@ msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:79
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:100
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -278,7 +278,7 @@ msgstr ""
 msgid "Save Changes"
 msgstr "Opslaan"
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:82
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:103
 msgid "General"
 msgstr "Algemeen"
 
@@ -579,11 +579,22 @@ msgstr "Admin Core"
 msgid "Admin Core of Buzz SEO."
 msgstr "Admin Core van Buzz SEO."
 
-#: lib/Features/Admin.php:60
+#: lib/Features/Admin.php:63
+msgid ""
+"The theme you are using is using the deprecated wp_title() functions which "
+"prevents Buzz SEO from generating the correct titles. Please ask your theme "
+"developer to update the theme."
+msgstr ""
+"Het actieve thema dat gebruikt wordt, maakt nog gebruik van de verouderde "
+"wp_title() functie om de document titel te genereren. Hierdoor kan Buzz SEO "
+"de document titels niet optimaliseren. Vraag de ontwikkelaar van het thema "
+"om het thema te updaten."
+
+#: lib/Features/Admin.php:81
 msgid "Select an image"
 msgstr "Selecteer een afbeelding"
 
-#: lib/Features/Admin.php:60 lib/Features/Admin.php:61
+#: lib/Features/Admin.php:81 lib/Features/Admin.php:82
 msgid "Select"
 msgstr "Selecteren"
 

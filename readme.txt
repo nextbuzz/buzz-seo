@@ -8,7 +8,7 @@ Stable tag: 0.6.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
-This is a simple WordPress SEO plugin. It covers all the basics of SEO optimization.
+This is a WordPress SEO plugin. It covers the basics of SEO optimization.
 
 == Description ==
 
