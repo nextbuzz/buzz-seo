@@ -38,6 +38,9 @@ Yes, once installed, the plugin checks the GitHub repository and updates the plu
 
 == Changelog ==
 
+= 0.6.3 =
+* Fixed the stable tag
+
 = 0.6.2 =
 * Fixed an issue when activating the plugin
 * Added a notice if the active WordPress Theme still uses the old `wp_title()` to generate the document title.
