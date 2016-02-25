@@ -14,6 +14,7 @@
 // Set the folder of this plugin
 if (!defined('BUZZSEO_DIR')) {
     define('BUZZSEO_VERSION', '0.6.1');
+    define('BUZZSEO_FILE', __FILE__);
     define('BUZZSEO_DIR', plugin_dir_path(__FILE__));
     define('BUZZSEO_DIR_REL', dirname(plugin_basename(__FILE__)));
 }
