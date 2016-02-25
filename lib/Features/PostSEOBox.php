@@ -101,23 +101,23 @@ class PostSEOBox extends BaseFeature
             $options = get_option('_settingsSettingsGeneral', true);
             $content = '';
             if (is_category()) {
-                $content = trim($options['taxonomies']['category']['meta']);
+                $content = @trim($options['taxonomies']['category']['meta']);
             } else
             if (is_tag()) {
-                $content = trim($options['taxonomies']['post_tag']['meta']);
+                $content = @trim($options['taxonomies']['post_tag']['meta']);
             } else
             if (is_date()) {
-                $content = trim($options['archives']['date']['meta']);
+                $content = @trim($options['archives']['date']['meta']);
             } else
             if (is_author()) {
-                $content = trim($options['archives']['author']['meta']);
+                $content = @trim($options['archives']['author']['meta']);
             } else
             if (is_tax()) {
                 $tax     = get_queried_object();
-                $content = trim($options['taxonomies'][$tax->taxonomy]['meta']);
+                $content = @trim($options['taxonomies'][$tax->taxonomy]['meta']);
             } else {
                 $posttype = get_post_type();
-                $content  = trim($options['posttypes'][$posttype]['meta']);
+                $content  = @trim($options['posttypes'][$posttype]['meta']);
             }
 
             if (!empty($content)) {

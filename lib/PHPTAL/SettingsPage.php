@@ -80,14 +80,22 @@ class SettingsPage extends Template
         // Sanitize the user input.
         $data = $this->stripslashes($_POST[$this->name]);
 
+        // Old options
+        $old_options = get_option('_settings' . $this->name, true);
+        // Delete options cache, because we want the new options retrieved when needed.
+        wp_cache_delete('_settings' . $this->name);
+
         if (is_array($data)) {
-            $this->sanatizeArray($data);
+            $data = $this->sanatizeArray($data);
 
             // Update the meta data for this box
             update_option('_settings' . $this->name, $data);
         } else {
             update_option('_settings' . $this->name, array());
         }
+
+        // Add a action so we can hook after saving
+        do_action('buzz-seo-settings-page-save-' . $this->name, $old_options, $data);
     }
 
     private function sanatizeArray($data)

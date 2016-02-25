@@ -177,23 +177,23 @@ class Admin extends BaseFeature
         // Update archive title if archive
         if (!is_singular()) {
             if (is_category()) {
-                $title['title'] = trim($options['taxonomies']['category']['titleprefix'] . ' ' . $title['title'] . ' ' . $options['taxonomies']['category']['titlesuffix']);
+                $title['title'] = @trim($options['taxonomies']['category']['titleprefix'] . ' ' . $title['title'] . ' ' . $options['taxonomies']['category']['titlesuffix']);
             } else
             if (is_tag()) {
-                $title['title'] = trim($options['taxonomies']['post_tag']['titleprefix'] . ' ' . $title['title'] . ' ' . $options['taxonomies']['post_tag']['titlesuffix']);
+                $title['title'] = @trim($options['taxonomies']['post_tag']['titleprefix'] . ' ' . $title['title'] . ' ' . $options['taxonomies']['post_tag']['titlesuffix']);
             } else
             if (is_date()) {
-                $title['title'] = trim($options['archives']['date']['titleprefix'] . ' ' . $title['title'] . ' ' . $options['archives']['date']['titlesuffix']);
+                $title['title'] = @trim($options['archives']['date']['titleprefix'] . ' ' . $title['title'] . ' ' . $options['archives']['date']['titlesuffix']);
             } else
             if (is_author()) {
-                $title['title'] = trim($options['archives']['author']['titleprefix'] . ' ' . $title['title'] . ' ' . $options['archives']['author']['titlesuffix']);
+                $title['title'] = @trim($options['archives']['author']['titleprefix'] . ' ' . $title['title'] . ' ' . $options['archives']['author']['titlesuffix']);
             } else
             if (is_tax()) {
                 $tax            = get_queried_object();
-                $title['title'] = trim($options['taxonomies'][$tax->taxonomy]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['taxonomies'][$tax->taxonomy]['titlesuffix']);
+                $title['title'] = @trim($options['taxonomies'][$tax->taxonomy]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['taxonomies'][$tax->taxonomy]['titlesuffix']);
             } else {
                 $posttype       = get_post_type();
-                $title['title'] = trim($options['posttypes'][$posttype]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['posttypes'][$posttype]['titlesuffix']);
+                $title['title'] = @trim($options['posttypes'][$posttype]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['posttypes'][$posttype]['titlesuffix']);
             }
         }
 
