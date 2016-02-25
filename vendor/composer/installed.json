@@ -51,17 +51,17 @@
     },
     {
         "name": "lengthofrope/create-jsonld",
-        "version": "0.9.0",
-        "version_normalized": "0.9.0.0",
+        "version": "0.9.1",
+        "version_normalized": "0.9.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/lengthofrope/create-jsonld.git",
-            "reference": "310141b042e1e55b7ad98ae967b3337185883cd5"
+            "reference": "3a9cab1efcbc0dfd8632ac2f4fb7abb73f58eb70"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/lengthofrope/create-jsonld/zipball/310141b042e1e55b7ad98ae967b3337185883cd5",
-            "reference": "310141b042e1e55b7ad98ae967b3337185883cd5",
+            "url": "https://api.github.com/repos/lengthofrope/create-jsonld/zipball/3a9cab1efcbc0dfd8632ac2f4fb7abb73f58eb70",
+            "reference": "3a9cab1efcbc0dfd8632ac2f4fb7abb73f58eb70",
             "shasum": ""
         },
         "require": {
@@ -72,7 +72,7 @@
             "ml/json-ld": "1.0.*",
             "twig/twig": "~1.0"
         },
-        "time": "2016-02-03 11:34:30",
+        "time": "2016-02-25 03:56:32",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -95,6 +95,47 @@
         "keywords": [
             "JSON-LD",
             "jsonld"
+        ]
+    },
+    {
+        "name": "yahnis-elsts/plugin-update-checker",
+        "version": "v2.2",
+        "version_normalized": "2.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/YahnisElsts/plugin-update-checker.git",
+            "reference": "155eff79642bb9996eeb6ef33ac06db8d5629847"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/155eff79642bb9996eeb6ef33ac06db8d5629847",
+            "reference": "155eff79642bb9996eeb6ef33ac06db8d5629847",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.0"
+        },
+        "time": "2015-07-28 10:43:46",
+        "type": "library",
+        "installation-source": "dist",
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Yahnis Elsts",
+                "email": "whiteshadow@w-shadow.com",
+                "homepage": "http://w-shadow.com/",
+                "role": "Developer"
+            }
+        ],
+        "description": "A custom update checker for WordPress plugins. Useful if you can't host your plugin in the official WP plugin repository but still want it to support automatic plugin updates.",
+        "homepage": "https://github.com/YahnisElsts/plugin-update-checker/",
+        "keywords": [
+            "automatic updates",
+            "plugin updates",
+            "wordpress"
         ]
     }
 ]

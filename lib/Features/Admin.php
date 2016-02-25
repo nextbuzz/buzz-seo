@@ -23,6 +23,9 @@ class Admin extends BaseFeature
 
     public function init()
     {
+        // Check for title-tag theme support
+        add_action('admin_init', array($this, 'checkTitleTagSupport'));
+
         // Front end actions
         add_filter('document_title_parts', array($this, 'filterTitleParts'), 15);
         add_filter('document_title_separator', array($this, 'filterTitleSeparator'), 15);
@@ -37,11 +40,29 @@ class Admin extends BaseFeature
         add_action('admin_menu', array($this, 'createAdminMenu'));
 
         add_action('custom_menu_order', array($this, 'changeSubmenuOrder'));
+
+        $this->initGithubUpdater();
     }
 
     public function allowDisable()
     {
         return false;
+    }
+
+    /*
+     * Check if the theme allows WordPress to manage the document title.
+     * Which is required to properly display the document titles
+     */
+
+    public function checkTitleTagSupport()
+    {
+        if (!current_theme_supports('title-tag')) {
+            // Output a nag error on admin interface
+            add_action('admin_notices', function()
+            {
+                echo '<div class="error"><p>' . __('The theme you are using is using the deprecated wp_title() functions which prevents Buzz SEO from generating the correct titles. Please ask your theme developer to update the theme.', 'buzz-seo') . '</p></div>';
+            });
+        }
     }
 
     /**
@@ -181,6 +202,19 @@ class Admin extends BaseFeature
         }
 
         return $sep;
+    }
+
+    public function initGithubUpdater()
+    {
+        // Require file since it doesn't have an autoloader
+        require_once BUZZSEO_DIR . 'vendor/yahnis-elsts/plugin-update-checker/plugin-update-checker.php';
+
+        $className = \PucFactory::getLatestClassVersion('PucGitHubChecker');
+
+        /* @var $updateChecker \PucGitHubChecker_2_2 */
+        $updateChecker = new $className(
+            'https://github.com/nextbuzz/buzz-seo/', BUZZSEO_FILE, 'master'
+        );
     }
 
 }
