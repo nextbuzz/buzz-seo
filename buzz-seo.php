@@ -25,7 +25,7 @@ if (!function_exists('add_action')) {
 }
 
 // Check wordpress version
-if (version_compare($wp_version, '4.4.0', '>=') && version_compare(PHP_VERSION, '5.3.0', '>=')) {
+if (isset($wp_version) && version_compare($wp_version, '4.4.0', '>=') && version_compare(PHP_VERSION, '5.3.0', '>=')) {
     // Load the autoloader
     require_once 'vendor/autoload.php';
 
