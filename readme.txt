@@ -38,6 +38,9 @@ Yes, once installed, the plugin checks the GitHub repository and updates the plu
 
 == Changelog ==
 
+= 0.6.6 =
+* Fixed another issue with the sitemap generator if no items where selected.
+
 = 0.6.5 =
 * Fixed an issue with the sitemap generator if no items where selected.
 
