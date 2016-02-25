@@ -23,6 +23,9 @@ class Admin extends BaseFeature
 
     public function init()
     {
+        // Check for title-tag theme support
+        add_action('admin_init', array($this, 'checkTitleTagSupport'));
+
         // Front end actions
         add_filter('document_title_parts', array($this, 'filterTitleParts'), 15);
         add_filter('document_title_separator', array($this, 'filterTitleSeparator'), 15);
@@ -44,6 +47,21 @@ class Admin extends BaseFeature
         return false;
     }
 
+    /*
+     * Check if the theme allows WordPress to manage the document title.
+     * Which is required to properly display the document titles
+     */
+
+    public function checkTitleTagSupport()
+    {
+        if (!current_theme_supports('title-tag')) {
+            // Output a nag error on admin interface
+            add_action('admin_notices', function() {
+                echo '<div class="error"><p>' . __('The theme you are using is using the deprecated wp_title() functions which prevents Buzz SEO from generating the correct titles. Please ask your theme developer to update the theme.', 'buzz-seo') . '</p></div>';
+            });
+        } 
+    }
+
     /**
      * Enqueue admin scripts and styles
      */
@@ -57,7 +75,7 @@ class Admin extends BaseFeature
         wp_enqueue_script('buzz-seo-admin-js', plugins_url('buzz-seo/js/admin.js'), array('jquery', 'thickbox', 'media-upload'), BUZZSEO_VERSION, true);
         wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAdmin', array(
             'MediaUploader' => array(
-                'title'  => __('Select an image', 'buzz-seo'),
+                'title' => __('Select an image', 'buzz-seo'),
                 'button' => __('Select', 'buzz-seo'),
             )
         ));
@@ -89,7 +107,7 @@ class Admin extends BaseFeature
 
         // Make sure settings is always last if it exists
         if (isset($submenu['BuzzSEO'][1][2]) && $submenu['BuzzSEO'][1][2] === 'BuzzSEO_Settings') {
-            $settings       = array_splice($submenu['BuzzSEO'], 1, 1);
+            $settings = array_splice($submenu['BuzzSEO'], 1, 1);
             $settings[0][0] = '<div style="border-top: 1px solid rgba(255, 255, 255, .2); padding-top: .5rem;">' . $settings[0][0] . '</div>';
             array_push($submenu['BuzzSEO'], $settings[0]);
         }
@@ -155,10 +173,10 @@ class Admin extends BaseFeature
                 $title['title'] = trim($options['archives']['author']['titleprefix'] . ' ' . $title['title'] . ' ' . $options['archives']['author']['titlesuffix']);
             } else
             if (is_tax()) {
-                $tax            = get_queried_object();
+                $tax = get_queried_object();
                 $title['title'] = trim($options['taxonomies'][$tax->taxonomy]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['taxonomies'][$tax->taxonomy]['titlesuffix']);
             } else {
-                $posttype       = get_post_type();
+                $posttype = get_post_type();
                 $title['title'] = trim($options['posttypes'][$posttype]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['posttypes'][$posttype]['titlesuffix']);
             }
         }
