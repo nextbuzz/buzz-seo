@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.5
-Stable tag: 0.6.7
+Stable tag: 0.6.8
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -36,7 +36,15 @@ the plugins. Since we stopped using SVN ages ago, we cannot be found on the Word
 
 Yes, once installed, the plugin checks the GitHub repository and updates the plugin from there.
 
+= I found a bug! =
+
+Please report it on our GitHub issue tracker (https://github.com/nextbuzz/buzz-seo/issues) so we can check into it and
+try to solve it in a future release.
+
 == Changelog ==
+
+= 0.6.8 =
+* Update translations
 
 = 0.6.7 =
 * Still figuring out how the updater works exactly. Nothing else.
