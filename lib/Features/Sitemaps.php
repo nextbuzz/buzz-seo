@@ -166,19 +166,12 @@ class Sitemaps extends BaseFeature
                 }
             }
 
-            if (count($talData) === 0) {
-                header_remove();
-                $GLOBALS['wp_query']->set_404();
-                status_header(404);
-                return;
-            }
-
             // Render
             \NextBuzz\SEO\PHPTAL\XML::factory('XMLSitemapIndex')
                 ->setTalData($options)
                 ->setTalData('sitemaps', $talData)
                 ->render();
-        } else if ($options['includeauthor'] && $type === 'author') {
+        } else if (isset($options['includeauthor']) && $options['includeauthor'] && $type === 'author') {
             // Build author map
             // Get all data
             $users = get_users(array('who' => 'authors'));
@@ -198,13 +191,6 @@ class Sitemaps extends BaseFeature
                     'changefreq' => 'weekly',
                     'priority'   => 0.8,
                 );
-            }
-
-            if (count($talData) === 0) {
-                header_remove();
-                $GLOBALS['wp_query']->set_404();
-                status_header(404);
-                return;
             }
 
             // Render
@@ -256,13 +242,6 @@ class Sitemaps extends BaseFeature
                         'priority'   => $priority,
                     );
                 }
-            }
-
-            if (count($talData) === 0) {
-                header_remove();
-                $GLOBALS['wp_query']->set_404();
-                status_header(404);
-                return;
             }
 
             // Render
