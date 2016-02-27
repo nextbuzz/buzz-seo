@@ -12,45 +12,81 @@ class CleanupHead extends BaseFeature
 
     public function name()
     {
-        return __("Cleanup HTML header", 'buzz-seo');
+        return __("Cleanup HTML", 'buzz-seo');
     }
 
     public function desc()
     {
-        return __("Removes WordPress junk from the HTML header to speed up page loading.", 'buzz-seo');
+        return __("Removes WordPress junk from the HTML to speed up page loading.", 'buzz-seo');
     }
 
     public function init()
     {
+        add_action('admin_menu', array($this, 'createAdminMenu'));
+
+        $options = get_option('_settingsSettingsCleanup', true);
+
+        // Nothing checked, so do nothing
+        if (!is_array($options)) {
+            return;
+        }
+
+        // Removes the shortlink
+        if (isset($options['shortlink'])) {
+            remove_action('wp_head', 'wp_shortlink_wp_head');
+        }
+
         // Remove the links to the extra feeds such as category feeds
-        remove_action('wp_head', 'feed_links_extra', 3);
+        if (isset($options['extrafeeds'])) {
+            remove_action('wp_head', 'feed_links_extra', 3);
+        }
 
         // Remove the links to the general feeds: Post and Comment Feed
-        remove_action('wp_head', 'feed_links', 2);
+        if (isset($options['feeds'])) {
+            remove_action('wp_head', 'feed_links', 2);
+        }
 
         // Remove the link to the Really Simple Discovery service endpoint, EditURI link
-        remove_action('wp_head', 'rsd_link');
+        if (isset($options['rsd'])) {
+            remove_action('wp_head', 'rsd_link');
+        }
 
         // Remove the link to the Windows Live Writer manifest file.
-        remove_action('wp_head', 'wlwmanifest_link');
-
-        // Remove the index link
-        remove_action('wp_head', 'index_rel_link');
-
-        // Remove prev link
-        remove_action('wp_head', 'parent_post_rel_link', 10, 0);
-
-        // Remove start link
-        remove_action('wp_head', 'start_post_rel_link', 10, 0);
+        if (isset($options['wlw'])) {
+            remove_action('wp_head', 'wlwmanifest_link');
+        }
 
         // Remove relational links for the posts adjacent to the current post.
-        remove_action('wp_head', 'adjacent_posts_rel_link', 10, 0);
+        if (isset($options['rel'])) {
+            remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+        }
 
         // Remove the WP version
-        remove_action('wp_head', 'wp_generator');
+        if (isset($options['wpver'])) {
+            remove_action('wp_head', 'wp_generator');
+        }
 
         // Remove WP Emoij
-        add_action('init', array($this, 'disableWPEmoij'));
+        if (isset($options['emoji'])) {
+            add_action('init', array($this, 'disableWPEmoij'));
+        }
+    }
+
+    /**
+     * Add the administrator submenu
+     */
+    public function createAdminMenu()
+    {
+        // Add Settings Sub Option Page
+        add_submenu_page('BuzzSEO', __('Cleanup HTML', 'buzz-seo'), __('Cleanup HTML', 'buzz-seo'), 'edit_posts', 'BuzzSEO_CleanupHead', array($this, "addAdminUI"));
+    }
+
+    /**
+     * Create the admin interface pages.
+     */
+    public function addAdminUI()
+    {
+        \NextBuzz\SEO\PHPTAL\Settings\CleanupHead::factory()->render();
     }
 
     public function disableWPEmoij()
@@ -77,4 +113,5 @@ class CleanupHead extends BaseFeature
             return array();
         }
     }
+
 }

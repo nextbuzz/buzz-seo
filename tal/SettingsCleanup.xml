@@ -1,0 +1,124 @@
+<div class="wrap">
+    <h1 i18n:translate="">Cleanup HTML</h1>
+
+    <div tal:condition="exists:message" class="updated">
+        <p tal:content="message">Bericht</p>
+    </div>
+
+    <div tal:condition="exists:errorMessage" class="error">
+        <p tal:content="errorMessage">Error</p>
+    </div>
+
+    <p i18n:translate="">WordPress adds some additional hidden data to your pages which can be useful, but might not be wanted. Items in the `Recommended`-section are good to disable from a SEO point-of-view.</p>
+
+    <form method="post" action="">
+        <tal:block tal:content="structure settingsNonce" />
+        <div class="buzz-seo-tabs">
+            <div class="nav-tab-wrapper">
+                <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Recommended</a>
+                <a class="nav-tab" href="javascript:;" i18n:translate="">RSS Feeds</a>
+                <a class="nav-tab" href="javascript:;" i18n:translate="">Not recommended</a>
+            </div>
+
+            <div class="inner">
+                <table class="form-table">
+                    <tr>
+                        <th scope="row" i18n:translate="">Really Simple Discovery</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsCleanup[rsd]" value="1" tal:attributes="checked exists:rsd"/>
+                                <tal:block i18n:translate="">Remove</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">Remove the link to the Really Simple Discovery service endpoint, EditURI link. Remove this if you don't use third party software to remotely post to your blog.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" i18n:translate="">Windows Live Writer</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsCleanup[wlw]" value="1" tal:attributes="checked exists:wlw"/>
+                                <tal:block i18n:translate="">Remove</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">Windows Live Writer is a WYSIWYG editor that runs on Windows, and that can post to your WordPress site remotely. If you don't use it, you can safely remove it.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" i18n:translate="">Shortlink</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsCleanup[shortlink]" value="1" tal:attributes="checked exists:shortlink"/>
+                                <tal:block i18n:translate="">Remove</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">WordPress provides an alternative (short) link to each page. This can be safely removed.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" i18n:translate="">Emoji</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsCleanup[emoji]" value="1" tal:attributes="checked exists:emoji"/>
+                                <tal:block i18n:translate="">Remove</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">This removes support for ideograms and smileys in WordPress and removes a lot of useless CSS and JS code. Note: Emoji still can be used and shown if your OS supports it, but might be shown differently on each OS.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" i18n:translate="">WP Version</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsCleanup[wpver]" value="1" tal:attributes="checked exists:wpver"/>
+                                <tal:block i18n:translate="">Remove</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">Remove the WP version. Only hackers and script kiddies are interested in this.</p>
+                        </td>
+                    </tr>    
+                </table>
+            </div>
+            
+            <div class="inner hidden">
+                <p i18n:translate="">Important: search engines like Google cannot use the feeds if you remove them, so be sure to add the feeds to your sitemap in Google Webmaster Tools manually.</p>
+                <table class="form-table">
+                    <tr>
+                        <th scope="row" i18n:translate="">General feeds</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsCleanup[feeds]" value="1" tal:attributes="checked exists:feeds"/>
+                                <tal:block i18n:translate="">Remove</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">Remove the links to the post and comment feeds. This one should definitely be checked off if you don't want to show links to your RSS feeds to search engines and anyone else trying to find them automatically such as comment spambots!</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" i18n:translate="">Extra feeds</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsCleanup[extrafeeds]" value="1" tal:attributes="checked exists:extrafeeds"/>
+                                <tal:block i18n:translate="">Remove</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">Remove the links to the extra feeds such as category feeds.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="inner hidden">
+                <table class="form-table">
+                    <tr>
+                        <th scope="row" i18n:translate="">Relational links</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsCleanup[rel]" value="1" tal:attributes="checked exists:rel"/>
+                                <tal:block i18n:translate="">Remove</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">Remove relational links for the posts adjacent to the current post.</p>
+                        </td>
+                    </tr>    
+                </table>
+            </div>
+        </div>
+
+        <p class="submit">
+            <button type="submit" id="submit" class="button button-primary" i18n:translate="">Save Changes</button>
+        </p>
+    </form>
+</div>
