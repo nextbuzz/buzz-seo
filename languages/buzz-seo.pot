@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-02-25 16:07:35+0000\n"
+"POT-Creation-Date: 2016-02-27 19:34:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-25 16:07:35+0000\n"
+"PO-Revision-Date: 2016-02-27 19:34:03+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -217,8 +217,100 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:118 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:118 tal/SettingsXML.xml:111
 msgid "Save Changes"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:2 lib/Features/CleanupHead.php:15 lib/Features/CleanupHead.php:81
+msgid "Cleanup HTML"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:12
+msgid "WordPress adds some additional hidden data to your pages which can be useful, but might not be wanted. Items in the `Recommended`-section are good to disable from a SEO point-of-view."
+msgstr ""
+
+#: tal/SettingsCleanup.xml:18
+msgid "Recommended"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:19
+msgid "RSS Feeds"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:20
+msgid "Not recommended"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:26
+msgid "Really Simple Discovery"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:30 tal/SettingsCleanup.xml:40 tal/SettingsCleanup.xml:50 tal/SettingsCleanup.xml:60 tal/SettingsCleanup.xml:70 tal/SettingsCleanup.xml:86 tal/SettingsCleanup.xml:96 tal/SettingsCleanup.xml:111
+msgid "Remove"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:32
+msgid "Remove the link to the Really Simple Discovery service endpoint, EditURI link. Remove this if you don't use third party software to remotely post to your blog."
+msgstr ""
+
+#: tal/SettingsCleanup.xml:36
+msgid "Windows Live Writer"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:42
+msgid "Windows Live Writer is a WYSIWYG editor that runs on Windows, and that can post to your WordPress site remotely. If you don't use it, you can safely remove it."
+msgstr ""
+
+#: tal/SettingsCleanup.xml:46
+msgid "Shortlink"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:52
+msgid "WordPress provides an alternative (short) link to each page. This can be safely removed."
+msgstr ""
+
+#: tal/SettingsCleanup.xml:56
+msgid "Emoji"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:62
+msgid "This removes support for ideograms and smileys in WordPress and removes a lot of useless CSS and JS code. Note: Emoji still can be used and shown if your OS supports it, but might be shown differently on each OS."
+msgstr ""
+
+#: tal/SettingsCleanup.xml:66
+msgid "WP Version"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:72
+msgid "Remove the WP version. Only hackers and script kiddies are interested in this."
+msgstr ""
+
+#: tal/SettingsCleanup.xml:79
+msgid "Important: search engines like Google cannot use the feeds if you remove them, so be sure to add the feeds to your sitemap in Google Webmaster Tools manually."
+msgstr ""
+
+#: tal/SettingsCleanup.xml:82
+msgid "General feeds"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:88
+msgid "Remove the links to the post and comment feeds. This one should definitely be checked off if you don't want to show links to your RSS feeds to search engines and anyone else trying to find them automatically such as comment spambots!"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:92
+msgid "Extra feeds"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:98
+msgid "Remove the links to the extra feeds such as category feeds."
+msgstr ""
+
+#: tal/SettingsCleanup.xml:107
+msgid "Relational links"
+msgstr ""
+
+#: tal/SettingsCleanup.xml:113
+msgid "Remove relational links for the posts adjacent to the current post."
 msgstr ""
 
 #: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:116
@@ -505,12 +597,8 @@ msgstr ""
 msgid "Unknown update checker status `%s`."
 msgstr ""
 
-#: lib/Features/CleanupHead.php:15
-msgid "Cleanup HTML header"
-msgstr ""
-
 #: lib/Features/CleanupHead.php:20
-msgid "Removes WordPress junk from the HTML header to speed up page loading."
+msgid "Removes WordPress junk from the HTML to speed up page loading."
 msgstr ""
 
 #: lib/Features/PostSEOBox.php:15
