@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-02-25 17:07+0100\n"
-"PO-Revision-Date: 2016-02-25 17:12+0100\n"
+"POT-Creation-Date: 2016-02-27 20:34+0100\n"
+"PO-Revision-Date: 2016-02-27 20:46+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: buzz-seo.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -273,10 +273,155 @@ msgid ""
 msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsGeneral.xml:228
-#: tal/SettingsStructuredData.xml:118 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsCleanup.xml:121
+#: tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:118
+#: tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr "Opslaan"
+
+#: tal/SettingsCleanup.xml:2 lib/Features/CleanupHead.php:15
+#: lib/Features/CleanupHead.php:81
+msgid "Cleanup HTML"
+msgstr "HTML opruimen"
+
+#: tal/SettingsCleanup.xml:12
+msgid ""
+"WordPress adds some additional hidden data to your pages which can be "
+"useful, but might not be wanted. Items in the `Recommended`-section are good "
+"to disable from a SEO point-of-view."
+msgstr ""
+"WordPress voeg wat additionele verborgen data toe aan de HTML code welke "
+"handig kan zijn, maar niet altijd gewenst. Items in de `Aanbevolen`-sectie "
+"zijn vanuit SEO gezien slim om te verwijderen."
+
+#: tal/SettingsCleanup.xml:18
+msgid "Recommended"
+msgstr "Aanbevolen"
+
+#: tal/SettingsCleanup.xml:19
+msgid "RSS Feeds"
+msgstr "RSS Feeds"
+
+#: tal/SettingsCleanup.xml:20
+msgid "Not recommended"
+msgstr "Afgeraden"
+
+#: tal/SettingsCleanup.xml:26
+msgid "Really Simple Discovery"
+msgstr "Really Simple Discovery"
+
+#: tal/SettingsCleanup.xml:30 tal/SettingsCleanup.xml:40
+#: tal/SettingsCleanup.xml:50 tal/SettingsCleanup.xml:60
+#: tal/SettingsCleanup.xml:70 tal/SettingsCleanup.xml:86
+#: tal/SettingsCleanup.xml:96 tal/SettingsCleanup.xml:111
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: tal/SettingsCleanup.xml:32
+msgid ""
+"Remove the link to the Really Simple Discovery service endpoint, EditURI "
+"link. Remove this if you don't use third party software to remotely post to "
+"your blog."
+msgstr ""
+"Verwijder de link naar de Really Simple Discovery service; de EditURI link. "
+"Verwijder dit als je geen externe software gebruikt om je blog op afstand te "
+"beheren."
+
+#: tal/SettingsCleanup.xml:36
+msgid "Windows Live Writer"
+msgstr "Windows Live Writer"
+
+#: tal/SettingsCleanup.xml:42
+msgid ""
+"Windows Live Writer is a WYSIWYG editor that runs on Windows, and that can "
+"post to your WordPress site remotely. If you don't use it, you can safely "
+"remove it."
+msgstr ""
+"Windows Live Writer is een WYSIWYG editor die voor Windows computers "
+"beschikbaar is en berichten kan plaatsen op je blog. Gebruik je het niet? "
+"Zet het dan uit."
+
+#: tal/SettingsCleanup.xml:46
+msgid "Shortlink"
+msgstr "Korte link"
+
+#: tal/SettingsCleanup.xml:52
+msgid ""
+"WordPress provides an alternative (short) link to each page. This can be "
+"safely removed."
+msgstr ""
+"WordPress voegt een alternatieve (korte) link toe aan alle pagina`s. Dit kan "
+"veilig worden verwijderd."
+
+#: tal/SettingsCleanup.xml:56
+msgid "Emoji"
+msgstr "Emoji"
+
+#: tal/SettingsCleanup.xml:62
+msgid ""
+"This removes support for ideograms and smileys in WordPress and removes a "
+"lot of useless CSS and JS code. Note: Emoji still can be used and shown if "
+"your OS supports it, but might be shown differently on each OS."
+msgstr ""
+"Dit verwijderd ingebouwde support binnen WordPress om ideogrammen en smileys "
+"te tonen en verwijderd daarmee veel nutteloze CSS and JS code. Opmerking: "
+"Emoji kunnen nog steeds zichtbaar zijn op je site afhankelijk van het OS dat "
+"je gebruikt, maar zullen er niet meer voor iedereen hetzelfde uit zien."
+
+#: tal/SettingsCleanup.xml:66
+msgid "WP Version"
+msgstr "WP Versie"
+
+#: tal/SettingsCleanup.xml:72
+msgid ""
+"Remove the WP version. Only hackers and script kiddies are interested in "
+"this."
+msgstr ""
+"Verwijder de WP versie uit de broncode. Alleen hackers en script kiddies "
+"zijn hierin geïnteresseerd."
+
+#: tal/SettingsCleanup.xml:79
+msgid ""
+"Important: search engines like Google cannot use the feeds if you remove "
+"them, so be sure to add the feeds to your sitemap in Google Webmaster Tools "
+"manually."
+msgstr ""
+"Belangrijk: zoekmachines zoals Google kunnen de feeds niet gebruiken als je "
+"deze verwijderd. Verzeker jezelf ervan dat je de links handmatig hebt "
+"toegevoegd in Google Webmaster Tools als je onderstaande opties aanvinkt."
+
+#: tal/SettingsCleanup.xml:82
+msgid "General feeds"
+msgstr "Algemene feeds"
+
+#: tal/SettingsCleanup.xml:88
+msgid ""
+"Remove the links to the post and comment feeds. This one should definitely "
+"be checked off if you don't want to show links to your RSS feeds to search "
+"engines and anyone else trying to find them automatically such as comment "
+"spambots!"
+msgstr ""
+"Verwijder de links naar de berichten en reactie feeds. Dit uitschakelen "
+"heeft als voordeel dat niemand (bijv. spambots) meer automatisch je RSS "
+"feeds kunnen vinden, maar let goed op de opmerking hierboven."
+
+#: tal/SettingsCleanup.xml:92
+msgid "Extra feeds"
+msgstr "Extra feeds"
+
+#: tal/SettingsCleanup.xml:98
+msgid "Remove the links to the extra feeds such as category feeds."
+msgstr "Verwijder de links naar de extra feeds zoals de categorie feeds."
+
+#: tal/SettingsCleanup.xml:107
+msgid "Relational links"
+msgstr "Relationele links"
+
+#: tal/SettingsCleanup.xml:113
+msgid "Remove relational links for the posts adjacent to the current post."
+msgstr ""
+"Verwijder relationele links voor de berichten grenzend (vorige en volgende) "
+"aan je huidige bericht."
 
 #: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:116
 msgid "General"
@@ -623,15 +768,10 @@ msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
 
-#: lib/Features/CleanupHead.php:15
-msgid "Cleanup HTML header"
-msgstr "Ruim de HTML header op"
-
 #: lib/Features/CleanupHead.php:20
-msgid "Removes WordPress junk from the HTML header to speed up page loading."
+msgid "Removes WordPress junk from the HTML to speed up page loading."
 msgstr ""
-"Verwijderd wat WordPress troep uit de HTML header waardoor de pagina sneller "
-"laden."
+"Verwijder WordPress troep uit de HTML om de pagina`s sneller te laten laden."
 
 #: lib/Features/PostSEOBox.php:15
 msgid "SEO Box"
@@ -946,6 +1086,15 @@ msgstr "Datum"
 #: lib/PHPTAL/Settings/General.php:59
 msgid "archive"
 msgstr "archief"
+
+#~ msgid "Cleanup HTML header"
+#~ msgstr "Ruim de HTML header op"
+
+#~ msgid ""
+#~ "Removes WordPress junk from the HTML header to speed up page loading."
+#~ msgstr ""
+#~ "Verwijderd wat WordPress troep uit de HTML header waardoor de pagina "
+#~ "sneller laden."
 
 #~ msgid "Admin Core of Buzz SEO"
 #~ msgstr "De core van Buzz SEO"

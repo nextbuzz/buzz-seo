@@ -75,6 +75,11 @@ class SettingsPage extends Template
 
         $this->setTalData('message', __("Settings saved.", "buzz-seo"));
 
+        // Make sure if we save a checkbox page and all is not checked, we still have postdata
+        if (!isset($_POST[$this->name])) {
+            $_POST[$this->name] = null;
+        }
+
         /* OK, its safe for us to save the data now. */
 
         // Sanitize the user input.

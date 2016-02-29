@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.5-beta
-Stable tag: 0.7.0
+Stable tag: 0.7.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -42,6 +42,10 @@ Please report it on our GitHub issue tracker (https://github.com/nextbuzz/buzz-s
 try to solve it in a future release.
 
 == Changelog ==
+
+= 0.7.1 =
+* Add admin interface for HTML cleanup
+* Updated translations
 
 = 0.7.0 =
 * Add: Possibility to cleanup the HTML head section.
