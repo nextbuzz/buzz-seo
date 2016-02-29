@@ -99,25 +99,25 @@
     },
     {
         "name": "yahnis-elsts/plugin-update-checker",
-        "version": "v2.2",
-        "version_normalized": "2.2.0.0",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
             "url": "https://github.com/YahnisElsts/plugin-update-checker.git",
-            "reference": "155eff79642bb9996eeb6ef33ac06db8d5629847"
+            "reference": "04176ffa38c32a17ed7c889e50766c954d18e7c4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/155eff79642bb9996eeb6ef33ac06db8d5629847",
-            "reference": "155eff79642bb9996eeb6ef33ac06db8d5629847",
+            "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/04176ffa38c32a17ed7c889e50766c954d18e7c4",
+            "reference": "04176ffa38c32a17ed7c889e50766c954d18e7c4",
             "shasum": ""
         },
         "require": {
             "php": ">=5.2.0"
         },
-        "time": "2015-07-28 10:43:46",
+        "time": "2016-02-18 11:50:19",
         "type": "library",
-        "installation-source": "dist",
+        "installation-source": "source",
         "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
