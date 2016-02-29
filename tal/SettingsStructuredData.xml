@@ -16,7 +16,7 @@
         <div class="buzz-seo-tabs">
             <div class="nav-tab-wrapper">
                 <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Organization</a>
-                <a class="nav-tab" href="javascript:;" i18n:translate="">Article</a>
+                <a class="nav-tab" href="javascript:;" i18n:translate="">Creative works</a>
             </div>
 
             <div class="inner">
@@ -89,25 +89,47 @@
             <div class="inner hidden">
                 <table class="form-table">
                     <tr>
-                        <th scope="row" i18n:translate="">Add article</th>
+                        <th scope="row" i18n:translate="">Creative works</th>
                         <td>
-                            <tal:block tal:repeat="item postTypes">
-                                <p><label>
-                                    <input type="checkbox" name="SettingsStructuredData[addarticle][${item/name}]" value="1" tal:attributes="checked exists:addarticle/${item/name}"/>
-                                    <tal:block tal:content="structure item/label">label</tal:block>
-                                </label></p>
-                            </tal:block>
-                            <p class="description" i18n:translate="">Add article structured data for posts in selected post types.</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" i18n:translate="">Add author</th>
-                        <td>
-                            <label>
-                                <input type="checkbox" name="SettingsStructuredData[addauthor]" value="1" tal:attributes="checked exists:addauthor"/>
-                                <tal:block i18n:translate="">Yes</tal:block>
-                            </label>
-                            <p class="description" i18n:translate="">Add author to article structured data for posts in selected post types.</p>
+                            <div class="buzz-seo-tabs">
+                                <div class="nav-tab-wrapper">
+                                    <a tal:repeat="work creativeWorks" class="nav-tab" href="javascript:;" tal:content="structure work/name">work</a>
+                                </div>
+                                <div tal:repeat="work creativeWorks" class="inner hidden">
+                                    <table class="form-table">
+                                        <tr>
+                                            <th scope="row" i18n:translate="">Content should be about</th>
+                                            <td>
+                                                <p tal:content="structure work/intro">Intro</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" i18n:translate="">Post types</th>
+                                            <td>
+                                                <tal:block tal:repeat="item postTypes">
+                                                    <p>
+                                                        <label>
+                                                            <input type="checkbox" name="SettingsStructuredData[addarticle][${repeat/work/key}][${item/name}]" value="1" tal:attributes="checked exists:addarticle/${repeat/work/key}/${item/name}"/>
+                                                            <tal:block tal:content="structure item/label">label</tal:block>
+                                                        </label>
+                                                    </p>
+                                                </tal:block>
+                                                <p class="description" i18n:translate="">Add article structured data for posts in selected post types.</p>
+                                            </td>
+                                        </tr>
+                                        <tr tal:condition="exists:work/addauthoroption">
+                                            <th scope="row" i18n:translate="">Add author</th>
+                                            <td>
+                                                <label>
+                                                    <input type="checkbox" name="SettingsStructuredData[addauthor][${repeat/work/key}]" value="1" tal:attributes="checked exists:addauthor/${repeat/work/key}"/>
+                                                    <tal:block i18n:translate="">Yes</tal:block>
+                                                </label>
+                                                <p class="description" i18n:translate="">Add author to article structured data for posts in selected post types.</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 </table>

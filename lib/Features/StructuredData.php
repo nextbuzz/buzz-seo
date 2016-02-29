@@ -86,57 +86,57 @@ class StructuredData extends BaseFeature
 
         // Add Article
         if (isset($options['addarticle']) && is_array($options['addarticle']) && is_singular()) {
-            $addForPostTypes = array_keys($options['addarticle']);
             $posttype = get_post_type();
-            if (in_array($posttype, $addForPostTypes)) {
-                // We are in a posttype that we want to add the article data for, but since we are not in the loop, get
-                // the author data in an arbitrary way
-                $post = get_post();
+            foreach($options['addarticle'] as $creativeWorkType => $postTypes) {
+                $addForPostTypes = array_keys($postTypes);
+                if (in_array($posttype, $addForPostTypes)) {
+                    // We are in a posttype that we want to add the article data for, but since we are not in the loop, get
+                    // the author data in an arbitrary way
+                    $post = get_post();
 
-                if ($posttype === "post") {
-                    $Article = Schema\BlogPostingSchema::factory();
-                } else {
-                    $Article = Schema\ArticleSchema::factory();
-                }
-                $Article->setDatePublished(get_the_date('c'), $post);
-                $Article->setHeadline(get_the_title($post));
-                $url     = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
-                if (is_array($url)) {
-                    $Article->setImage(Schema\ImageObjectSchema::factory()->setUrl($url[0])->setWidth($url[1])->setHeight($url[2]));
-                }
-                $Article->setDateModified(get_the_modified_date('c'), $post);
-                $excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $post->ID));
-                if (!empty($excerpt)) {
-                    $Article->setDescription(strip_tags($excerpt));
-                }
-
-
-                // Add author
-                if (isset($options['addauthor'])) {
-                    $authorF    = get_the_author_meta('first_name', $post->post_author);
-                    $authorL    = get_the_author_meta('last_name', $post->post_author);
-                    $authormail = get_the_author_meta('email', $post->post_author);
-                    $authorurl  = get_the_author_meta('url', $post->post_author);
-
-                    $Author = Schema\PersonSchema::factory();
-                    if (!empty($authorF)) {
-                        $Author->setGivenName($authorF);
+                    $class = "\\LengthOfRope\\JSONLD\\Schema\\" . $creativeWorkType . "Schema";
+                    $Article = $class::factory();
+                    
+                    $Article->setDatePublished(get_the_date('c'), $post);
+                    $Article->setHeadline(get_the_title($post));
+                    $url     = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+                    if (is_array($url)) {
+                        $Article->setImage(Schema\ImageObjectSchema::factory()->setUrl($url[0])->setWidth($url[1])->setHeight($url[2]));
                     }
-                    if (!empty($authorL)) {
-                        $Author->setFamilyName($authorL);
-                    }
-                    if (!empty($authormail)) {
-                        $Author->setEmail($authormail);
-                    }
-                    if (!empty($authorurl)) {
-                        $Author->setUrl($authorurl);
+                    $Article->setDateModified(get_the_modified_date('c'), $post);
+                    $excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $post->ID));
+                    if (!empty($excerpt)) {
+                        $Article->setDescription(strip_tags($excerpt));
                     }
 
-                    $Article->setAuthor($Author);
-                }
 
-                $hasData = true;
-                $Create->add($Article);
+                    // Add author
+                    if (is_array($options['addauthor']) && isset($options['addauthor'][$creativeWorkType])) {
+                        $authorF    = get_the_author_meta('first_name', $post->post_author);
+                        $authorL    = get_the_author_meta('last_name', $post->post_author);
+                        $authormail = get_the_author_meta('email', $post->post_author);
+                        $authorurl  = get_the_author_meta('url', $post->post_author);
+
+                        $Author = Schema\PersonSchema::factory();
+                        if (!empty($authorF)) {
+                            $Author->setGivenName($authorF);
+                        }
+                        if (!empty($authorL)) {
+                            $Author->setFamilyName($authorL);
+                        }
+                        if (!empty($authormail)) {
+                            $Author->setEmail($authormail);
+                        }
+                        if (!empty($authorurl)) {
+                            $Author->setUrl($authorurl);
+                        }
+
+                        $Article->setAuthor($Author);
+                    }
+
+                    $hasData = true;
+                    $Create->add($Article);
+                }
             }
         }
 
