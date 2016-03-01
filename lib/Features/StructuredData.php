@@ -26,7 +26,7 @@ class StructuredData extends BaseFeature
 
     public function init()
     {
-        add_action('admin_init', array($this, 'initBack'));
+        add_action('current_screen', array($this, 'initBack'));
         add_action('admin_menu', array($this, 'createAdminMenu'));
         add_action('wp_head', array($this, 'addJSONLDToHead'), 1);
     }
@@ -38,8 +38,37 @@ class StructuredData extends BaseFeature
      */
     public function initBack()
     {
+        $options = get_option('_settingsSettingsStructuredData', true);
+
         // Load SEO box for all Single pages
         $meta = new \NextBuzz\SEO\PHPTAL\MetaBox('StructuredDataBox', __('Structured Data (SEO)', 'buzz-seo'));
+
+        // Add requirements messages for article/blogposting (post-thumbnail)
+        $msg = array();
+        $thmb = false;
+        if (isset($options['addarticle']) && is_array($options['addarticle'])) {
+            $screen = get_current_screen();
+            $posttype = $screen->post_type;
+            foreach ($options['addarticle'] as $creativeWorkType => $postTypes)
+            {
+                $addForPostTypes = array_keys($postTypes);
+                if (in_array($posttype, $addForPostTypes)) {
+                    switch ($creativeWorkType) {
+                        case 'Article':
+                        case 'BlogPosting':
+                            $m = __('Featured image', 'buzz-seo');
+                            if (!in_array($m, $msg)) {
+                                $meta->setRequired('thumbnail', __('A featured image is required.', 'buzz-seo'));
+                                $msg[] = $m;
+                            }
+                            break;
+
+                        default:
+                    }
+                }
+            }
+            $meta->setTalData('require', $msg);
+        }
         //$meta->setRequired('test', 'het veld test is nodig');
         //$meta->setRecommended('test', 'het veld test is nodig');
     }
@@ -111,18 +140,24 @@ class StructuredData extends BaseFeature
                     $post = get_post();
 
                     $class = "\\LengthOfRope\\JSONLD\\Schema\\" . $creativeWorkType . "Schema";
-                    $Article = $class::factory();
+                    $CreativeWork = $class::factory();
 
-                    $Article->setDatePublished(get_the_date('c'), $post);
-                    $Article->setHeadline(get_the_title($post));
+                    $CreativeWork->setDatePublished(get_the_date('c'), $post);
+                    $CreativeWork->setName(get_the_title($post));
+
+                    // Article and blog require a headline, we simply set it to the post title.
+                    if ($CreativeWork instanceof Schema\ArticleSchema ||
+                        $CreativeWork instanceof Schema\BlogPostingSchema) {
+                        $CreativeWork->setHeadline(get_the_title($post));
+                    }
                     $url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
                     if (is_array($url)) {
-                        $Article->setImage(Schema\ImageObjectSchema::factory()->setUrl($url[0])->setWidth($url[1])->setHeight($url[2]));
+                        $CreativeWork->setImage(Schema\ImageObjectSchema::factory()->setUrl($url[0])->setWidth($url[1])->setHeight($url[2]));
                     }
-                    $Article->setDateModified(get_the_modified_date('c'), $post);
+                    $CreativeWork->setDateModified(get_the_modified_date('c'), $post);
                     $excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $post->ID));
                     if (!empty($excerpt)) {
-                        $Article->setDescription(strip_tags($excerpt));
+                        $CreativeWork->setDescription(strip_tags($excerpt));
                     }
 
 
@@ -147,11 +182,11 @@ class StructuredData extends BaseFeature
                             $Author->setUrl($authorurl);
                         }
 
-                        $Article->setAuthor($Author);
+                        $CreativeWork->setAuthor($Author);
                     }
 
                     $hasData = true;
-                    $Create->add($Article);
+                    $Create->add($CreativeWork);
                 }
             }
         }

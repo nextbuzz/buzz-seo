@@ -172,12 +172,11 @@ class MetaBox extends Template
             return;
         }
 
-        foreach ($required as $req=>$errorMessage)
+        foreach ($required as $req => $errorMessage)
         {
             $this->setRequired($req, $errorMessage);
         }
     }
-    
 
     /**
      * Add recommended (non empty) fields
@@ -192,7 +191,7 @@ class MetaBox extends Template
             return;
         }
 
-        foreach ($recommended as $req=>$errorMessage)
+        foreach ($recommended as $req => $errorMessage)
         {
             $this->setRecommended($req, $errorMessage);
         }
@@ -207,6 +206,8 @@ class MetaBox extends Template
      */
     public function validateRequired($data)
     {
+        static $test = 1;
+        
         // Don't want to do this on autosave
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
             return $data;
@@ -217,17 +218,22 @@ class MetaBox extends Template
 
         $ok = true;
         $this->errorMessageIndex = '';
-        foreach ($this->requiredFields as $index=>$req)
+        $post_thumb = get_post_meta($_POST['post_ID'], '_thumbnail_id', true);
+        foreach ($this->requiredFields as $index => $req)
         {
-            if (!isset($currentBoxData[$req['field']]) || empty($currentBoxData[$req['field']])) {
+            // TODO: Add exception, if 'thumbnail', check for has_post_thumbnail
+            if ($req['field'] === 'thumbnail' && strlen($post_thumb) === 0) {
+                $ok = false;
+                $this->errorMessageIndex .= $index . '-';
+            } elseif ($req['field'] !== 'thumbnail' && (!isset($currentBoxData[$req['field']]) || empty($currentBoxData[$req['field']]))) {
                 $ok = false;
                 $this->errorMessageIndex .= $index . '-';
             }
         }
-        
+
         $okReccommended = true;
         $this->recMessageIndex = '';
-        foreach ($this->recommendedFields as $index=>$req)
+        foreach ($this->recommendedFields as $index => $req)
         {
             if (!isset($currentBoxData[$req['field']]) || empty($currentBoxData[$req['field']])) {
                 $okReccommended = false;
@@ -267,7 +273,7 @@ class MetaBox extends Template
     {
         return remove_query_arg('message', $location);
     }
-    
+
     /**
      * Show admin errors for missing required fields
      * @access private
@@ -277,21 +283,22 @@ class MetaBox extends Template
         if (isset($_GET[$this->name . 'Notice'])) {
             $errors = explode('-', $_GET[$this->name . 'Notice']);
             echo '<div class="notice-error notice"><ul>';
-            foreach($errors as $index) {
+            foreach ($errors as $index)
+            {
                 echo '<li>' . $this->requiredFields[$index]['error'] . '</li>';
             }
             echo '</ul></div>';
         }
-        
+
         if (isset($_GET[$this->name . 'RecNotice'])) {
             $errors = explode('-', $_GET[$this->name . 'RecNotice']);
             echo '<div class="notice notice-warning is-dismissible"><ul>';
-            foreach($errors as $index) {
+            foreach ($errors as $index)
+            {
                 echo '<li>' . $this->recommendedFields[$index]['error'] . '</li>';
             }
             echo '</ul></div>';
         }
-
     }
 
 }
