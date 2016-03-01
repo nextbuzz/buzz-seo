@@ -70,8 +70,8 @@ class StructuredData extends BaseFeature
                     }
                 }
             }
-            $meta->setTalData('require', $msg);
         }
+        $meta->setTalData('require', $msg);
         //$meta->setRequired('test', 'het veld test is nodig');
         //$meta->setRecommended('test', 'het veld test is nodig');
     }
