@@ -29,6 +29,7 @@ class StructuredData extends \NextBuzz\SEO\PHPTAL\SettingsPage
             'Book' => array(
                 'name' => __('Book', 'buzz-seo'),
                 'intro' => __('A book', 'buzz-seo'),
+                'addauthoroption' => true,
             ),
             'Code' => array(
                 'name' => __('Code', 'buzz-seo'),
@@ -38,14 +39,17 @@ class StructuredData extends \NextBuzz\SEO\PHPTAL\SettingsPage
             'Game' => array(
                 'name' => __('Game', 'buzz-seo'),
                 'intro' => __('A game', 'buzz-seo'),
+                'addauthoroption' => true,
             ),
             'Movie' => array(
                 'name' => __('Movie', 'buzz-seo'),
                 'intro' => __('A movie', 'buzz-seo'),
+                'addauthoroption' => true,
             ),
             'MusicRecording' => array(
                 'name' => __('Music recording', 'buzz-seo'),
                 'intro' => __('A music recording (track), usually a single song.', 'buzz-seo'),
+                'addauthoroption' => true,
             ),
             'Painting' =>  array(
                 'name' => __('Painting', 'buzz-seo'),
