@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-02-27 20:34+0100\n"
-"PO-Revision-Date: 2016-02-27 20:46+0100\n"
+"POT-Creation-Date: 2016-03-01 05:06+0100\n"
+"PO-Revision-Date: 2016-03-01 05:06+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -274,7 +274,7 @@ msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
 #: tal/SettingsAdmin.xml:36 tal/SettingsCleanup.xml:121
-#: tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:118
+#: tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:140
 #: tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr "Opslaan"
@@ -464,7 +464,7 @@ msgid "Show tagline"
 msgstr "Toon ondertitel"
 
 #: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50
-#: tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:108
+#: tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:125
 #: tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr "Ja"
@@ -552,9 +552,9 @@ msgstr ""
 msgid "Organization"
 msgstr "Organisatie"
 
-#: tal/SettingsStructuredData.xml:19
-msgid "Article"
-msgstr "Artikel"
+#: tal/SettingsStructuredData.xml:19 tal/SettingsStructuredData.xml:92
+msgid "Creative works"
+msgstr "Creatieve werken"
 
 #: tal/SettingsStructuredData.xml:23
 msgid ""
@@ -624,25 +624,31 @@ msgstr ""
 "Velden gemarkeerd met een * zijn verplicht om de data toe te voegen als "
 "gestructureerde data."
 
-#: tal/SettingsStructuredData.xml:92
-msgid "Add article"
-msgstr "Artikeldata toevoegen"
+#: tal/SettingsStructuredData.xml:101
+msgid "Content should be about"
+msgstr "De content moet gaan over"
 
-#: tal/SettingsStructuredData.xml:100
+#: tal/SettingsStructuredData.xml:107 tal/SettingsXML.xml:64
+msgid "Post types"
+msgstr "Berichttypen"
+
+#: tal/SettingsStructuredData.xml:117
 msgid "Add article structured data for posts in selected post types."
 msgstr ""
 "Voeg artikeldata gestructureerd toe voor berichten in de geselecteerde "
 "berichttypen."
 
-#: tal/SettingsStructuredData.xml:104
-msgid "Add author"
-msgstr "Voeg auteur toe"
+#: tal/SettingsStructuredData.xml:121
+msgid "Add author as owner"
+msgstr "Voeg auteur toe als eigenaar"
 
-#: tal/SettingsStructuredData.xml:110
-msgid "Add author to article structured data for posts in selected post types."
+#: tal/SettingsStructuredData.xml:127
+msgid ""
+"Add the author of the post as owner of the structured data in selected post "
+"types."
 msgstr ""
-"Voeg de auteur van het artikel toe aan de gestructureerde data voor "
-"hierboven ingestelde berichttypen."
+"Voeg de auteur van het bericht toe als eigenaar van de gestructureerde data "
+"in de geselecteerde berichttypen."
 
 #: tal/SettingsXML.xml:2
 msgid "XML Sitemap settings"
@@ -689,10 +695,6 @@ msgstr ""
 "Als dit is ingeschakeld wordt er een eenvoudige styling toegepast op de XML "
 "pagina's."
 
-#: tal/SettingsXML.xml:64
-msgid "Post types"
-msgstr "Berichttypen"
-
 #: tal/SettingsXML.xml:75
 msgid "Select the post types that should be added to the XML sitemap."
 msgstr ""
@@ -715,6 +717,23 @@ msgstr "Voeg auteur pagina's toe"
 msgid "If enabled, also creates a sitemap of all author-pages."
 msgstr ""
 "Als dit is ingeschakeld, wordt ook de sitemap van alle auteurs toegevoegd."
+
+#: tal/StructuredDataBox.xml:1
+msgid ""
+"This post contains structured data. While not visible to the end-user, this "
+"is very visible to search engines. Additional requirements may apply."
+msgstr ""
+"Dit bericht bevat gestructureerde data. Hoewel dit niet zichtbaar is voor de "
+"eindgebruiker, is het wel zichtbaar voor zoekmachines. Mogelijk moet er aan "
+"extra voorwaarden worden voldaan om deze pagina op te slaan."
+
+#: tal/StructuredDataBox.xml:3
+msgid "Additional requirements:"
+msgstr "Additionele voorwaarden:"
+
+#: tal/StructuredDataBox.xml:7
+msgid "None"
+msgstr "Geen"
 
 #: lib/Features/Admin.php:16 lib/Features/Admin.php:21
 msgid "Admin Core"
@@ -795,7 +814,7 @@ msgstr "Voeg content analyse toe bij iedere post."
 
 #: lib/Features/PostSEOBoxAnalysis.php:41
 msgid "SEO Content Analysis"
-msgstr "SEO Content Analyse"
+msgstr "Content Analyse (SEO)"
 
 #: lib/Features/PostSEOBoxAnalysis.php:51
 msgid "There are currently no errors found in the analysis."
@@ -1047,7 +1066,8 @@ msgstr "Automatische generatie van XML sitemaps."
 msgid "XML Sitemaps"
 msgstr "XML sitemaps"
 
-#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:39
+#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:47
+#: lib/Features/StructuredData.php:85
 msgid "Structured Data"
 msgstr "Gestructureerde data"
 
@@ -1058,6 +1078,18 @@ msgid ""
 msgstr ""
 "Voeg gestructureerde data toe aan de content om zoekmachines de benodigde "
 "informatie te voorzien voor bijv. rich snippets te tonen."
+
+#: lib/Features/StructuredData.php:47
+msgid "Structured Data (SEO)"
+msgstr "Gestructureerde Data (SEO)"
+
+#: lib/Features/StructuredData.php:62
+msgid "Featured image"
+msgstr "Uitgelichte afbeelding"
+
+#: lib/Features/StructuredData.php:64
+msgid "A featured image is required."
+msgstr "Er moet een uitgelichte afbeelding worden toegevoegd."
 
 #: lib/PHPTAL/SettingsPage.php:72
 msgid "Nonce value is invalid."
@@ -1086,6 +1118,108 @@ msgstr "Datum"
 #: lib/PHPTAL/Settings/General.php:59
 msgid "archive"
 msgstr "archief"
+
+#: lib/PHPTAL/Settings/StructuredData.php:20
+msgid "Article"
+msgstr "Artikel"
+
+#: lib/PHPTAL/Settings/StructuredData.php:21
+msgid ""
+"An article, such as a news article or piece of investigative report. "
+"Newspapers and magazines have articles of many different types and this is "
+"intended to cover them all."
+msgstr ""
+"Een artikel, zoals een nieuwsartikel of een onderzoeksrapport. Kranten en "
+"tijdschrijften bevatten vele soorten artikelen, en dit artikel is bedoeld om "
+"ze allemaal af te vangen."
+
+#: lib/PHPTAL/Settings/StructuredData.php:25
+msgid "Blog posting"
+msgstr "Blog bericht"
+
+#: lib/PHPTAL/Settings/StructuredData.php:26
+msgid "A blog post"
+msgstr "Een blog bericht"
+
+#: lib/PHPTAL/Settings/StructuredData.php:30
+msgid "Book"
+msgstr "Boek"
+
+#: lib/PHPTAL/Settings/StructuredData.php:31
+msgid "A book"
+msgstr "Een boek"
+
+#: lib/PHPTAL/Settings/StructuredData.php:35
+msgid "Code"
+msgstr "Code"
+
+#: lib/PHPTAL/Settings/StructuredData.php:36
+msgid ""
+"Computer programming source code. Example: Full (compile ready) solutions, "
+"code snippet samples, scripts, templates."
+msgstr ""
+"Broncode van een computerprogramma. Bijvoorbeeld: Volledige (compileerbare) "
+"oplossingen, code voorbeelden, scripts, templates."
+
+#: lib/PHPTAL/Settings/StructuredData.php:40
+msgid "Game"
+msgstr "Spel"
+
+#: lib/PHPTAL/Settings/StructuredData.php:41
+msgid "A game"
+msgstr "Een spel"
+
+#: lib/PHPTAL/Settings/StructuredData.php:45
+msgid "Movie"
+msgstr "Film"
+
+#: lib/PHPTAL/Settings/StructuredData.php:46
+msgid "A movie"
+msgstr "Een film"
+
+#: lib/PHPTAL/Settings/StructuredData.php:50
+msgid "Music recording"
+msgstr "Muziekopname"
+
+#: lib/PHPTAL/Settings/StructuredData.php:51
+msgid "A music recording (track), usually a single song."
+msgstr "Een muziekopname (lied), doorgaans een enkel nummer."
+
+#: lib/PHPTAL/Settings/StructuredData.php:55
+msgid "Painting"
+msgstr "Schilderij"
+
+#: lib/PHPTAL/Settings/StructuredData.php:56
+msgid "A painting"
+msgstr "Een schilderij"
+
+#: lib/PHPTAL/Settings/StructuredData.php:60
+msgid "Photograph"
+msgstr "Foto"
+
+#: lib/PHPTAL/Settings/StructuredData.php:61
+msgid "A photograph"
+msgstr "Een foto"
+
+#: lib/PHPTAL/Settings/StructuredData.php:65
+msgid "Recipe"
+msgstr "Recept"
+
+#: lib/PHPTAL/Settings/StructuredData.php:66
+msgid "A recipe"
+msgstr "Een recept"
+
+#~ msgid "Add article"
+#~ msgstr "Artikeldata toevoegen"
+
+#~ msgid "Add author"
+#~ msgstr "Voeg auteur toe"
+
+#~ msgid ""
+#~ "Add author to article structured data for posts in selected post types."
+#~ msgstr ""
+#~ "Voeg de auteur van het artikel toe aan de gestructureerde data voor "
+#~ "hierboven ingestelde berichttypen."
 
 #~ msgid "Cleanup HTML header"
 #~ msgstr "Ruim de HTML header op"

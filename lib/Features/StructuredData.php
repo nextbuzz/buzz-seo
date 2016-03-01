@@ -26,8 +26,54 @@ class StructuredData extends BaseFeature
 
     public function init()
     {
+        add_action('current_screen', array($this, 'initBack'));
         add_action('admin_menu', array($this, 'createAdminMenu'));
         add_action('wp_head', array($this, 'addJSONLDToHead'), 1);
+    }
+
+    /**
+     * Initialize everything that is only needed in backend
+     *
+     * @return void
+     */
+    public function initBack()
+    {
+        $options = get_option('_settingsSettingsStructuredData', true);
+
+        if (is_home() || is_front_page()) {
+            return;
+        }
+        // Load SEO box for all Single pages
+        $meta = new \NextBuzz\SEO\PHPTAL\MetaBox('StructuredDataBox', __('Structured Data (SEO)', 'buzz-seo'));
+
+        // Add requirements messages for article/blogposting (post-thumbnail)
+        $msg = array();
+        $thmb = false;
+        if (isset($options['addarticle']) && is_array($options['addarticle'])) {
+            $screen = get_current_screen();
+            $posttype = $screen->post_type;
+            foreach ($options['addarticle'] as $creativeWorkType => $postTypes)
+            {
+                $addForPostTypes = array_keys($postTypes);
+                if (in_array($posttype, $addForPostTypes)) {
+                    switch ($creativeWorkType) {
+                        case 'Article':
+                        case 'BlogPosting':
+                            $m = __('Featured image', 'buzz-seo');
+                            if (!in_array($m, $msg)) {
+                                $meta->setRequired('thumbnail', __('A featured image is required.', 'buzz-seo'));
+                                $msg[] = $m;
+                            }
+                            break;
+
+                        default:
+                    }
+                }
+            }
+            $meta->setTalData('require', $msg);
+        }
+        //$meta->setRequired('test', 'het veld test is nodig');
+        //$meta->setRecommended('test', 'het veld test is nodig');
     }
 
     /**
@@ -54,7 +100,7 @@ class StructuredData extends BaseFeature
     {
         $options = get_option('_settingsSettingsStructuredData', true);
 
-        $Create  = \LengthOfRope\JSONLD\Create::factory();
+        $Create = \LengthOfRope\JSONLD\Create::factory();
         $hasData = false;
         // Add Organization
         if ((is_home() || is_front_page()) &&
@@ -68,7 +114,8 @@ class StructuredData extends BaseFeature
             $Org = Schema\OrganizationSchema::factory();
 
             $add = array('legalName', 'url', 'email', 'telephone', 'faxNumber');
-            foreach ($add as $key) {
+            foreach ($add as $key)
+            {
                 if (!empty($options['homepage']['Organization'][$key])) {
                     $func = "set" . ucFirst($key);
                     $Org->$func($options['homepage']['Organization'][$key]);
@@ -86,57 +133,64 @@ class StructuredData extends BaseFeature
 
         // Add Article
         if (isset($options['addarticle']) && is_array($options['addarticle']) && is_singular()) {
-            $addForPostTypes = array_keys($options['addarticle']);
             $posttype = get_post_type();
-            if (in_array($posttype, $addForPostTypes)) {
-                // We are in a posttype that we want to add the article data for, but since we are not in the loop, get
-                // the author data in an arbitrary way
-                $post = get_post();
+            foreach ($options['addarticle'] as $creativeWorkType => $postTypes)
+            {
+                $addForPostTypes = array_keys($postTypes);
+                if (in_array($posttype, $addForPostTypes)) {
+                    // We are in a posttype that we want to add the article data for, but since we are not in the loop, get
+                    // the author data in an arbitrary way
+                    $post = get_post();
 
-                if ($posttype === "post") {
-                    $Article = Schema\BlogPostingSchema::factory();
-                } else {
-                    $Article = Schema\ArticleSchema::factory();
-                }
-                $Article->setDatePublished(get_the_date('c'), $post);
-                $Article->setHeadline(get_the_title($post));
-                $url     = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
-                if (is_array($url)) {
-                    $Article->setImage(Schema\ImageObjectSchema::factory()->setUrl($url[0])->setWidth($url[1])->setHeight($url[2]));
-                }
-                $Article->setDateModified(get_the_modified_date('c'), $post);
-                $excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $post->ID));
-                if (!empty($excerpt)) {
-                    $Article->setDescription(strip_tags($excerpt));
-                }
+                    $class = "\\LengthOfRope\\JSONLD\\Schema\\" . $creativeWorkType . "Schema";
+                    $CreativeWork = $class::factory();
 
+                    $CreativeWork->setDatePublished(get_the_date('c'), $post);
+                    $CreativeWork->setName(get_the_title($post));
 
-                // Add author
-                if (isset($options['addauthor'])) {
-                    $authorF    = get_the_author_meta('first_name', $post->post_author);
-                    $authorL    = get_the_author_meta('last_name', $post->post_author);
-                    $authormail = get_the_author_meta('email', $post->post_author);
-                    $authorurl  = get_the_author_meta('url', $post->post_author);
-
-                    $Author = Schema\PersonSchema::factory();
-                    if (!empty($authorF)) {
-                        $Author->setGivenName($authorF);
+                    // Article and blog require a headline, we simply set it to the post title.
+                    if ($CreativeWork instanceof Schema\ArticleSchema ||
+                        $CreativeWork instanceof Schema\BlogPostingSchema) {
+                        $CreativeWork->setHeadline(get_the_title($post));
                     }
-                    if (!empty($authorL)) {
-                        $Author->setFamilyName($authorL);
+                    $url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+                    if (is_array($url)) {
+                        $CreativeWork->setImage(Schema\ImageObjectSchema::factory()->setUrl($url[0])->setWidth($url[1])->setHeight($url[2]));
                     }
-                    if (!empty($authormail)) {
-                        $Author->setEmail($authormail);
-                    }
-                    if (!empty($authorurl)) {
-                        $Author->setUrl($authorurl);
+                    $CreativeWork->setDateModified(get_the_modified_date('c'), $post);
+                    $excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $post->ID));
+                    if (!empty($excerpt)) {
+                        $CreativeWork->setDescription(strip_tags($excerpt));
                     }
 
-                    $Article->setAuthor($Author);
-                }
 
-                $hasData = true;
-                $Create->add($Article);
+                    // Add author
+                    if (is_array($options['addauthor']) && isset($options['addauthor'][$creativeWorkType])) {
+                        $authorF = get_the_author_meta('first_name', $post->post_author);
+                        $authorL = get_the_author_meta('last_name', $post->post_author);
+                        $authormail = get_the_author_meta('email', $post->post_author);
+                        $authorurl = get_the_author_meta('url', $post->post_author);
+
+                        $Author = Schema\PersonSchema::factory();
+                        if (!empty($authorF)) {
+                            $Author->setGivenName($authorF);
+                        }
+                        if (!empty($authorL)) {
+                            $Author->setFamilyName($authorL);
+                        }
+                        if (!empty($authormail)) {
+                            $Author->setEmail($authormail);
+                        }
+                        if (!empty($authorurl)) {
+                            $Author->setUrl($authorurl);
+                        }
+
+                        $CreativeWork->setAuthor($Author);
+                    }
+
+                    $hasData = true;
+                    $Create->add($CreativeWork);
+                }
             }
         }
 
