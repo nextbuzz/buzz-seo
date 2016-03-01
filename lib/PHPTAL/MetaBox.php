@@ -206,8 +206,6 @@ class MetaBox extends Template
      */
     public function validateRequired($data)
     {
-        static $test = 1;
-        
         // Don't want to do this on autosave
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
             return $data;
@@ -218,10 +216,9 @@ class MetaBox extends Template
 
         $ok = true;
         $this->errorMessageIndex = '';
-        $post_thumb = get_post_meta($_POST['post_ID'], '_thumbnail_id', true);
+        $post_thumb = isset($_POST['post_ID']) ? get_post_meta($_POST['post_ID'], '_thumbnail_id', true) : '';
         foreach ($this->requiredFields as $index => $req)
         {
-            // TODO: Add exception, if 'thumbnail', check for has_post_thumbnail
             if ($req['field'] === 'thumbnail' && strlen($post_thumb) === 0) {
                 $ok = false;
                 $this->errorMessageIndex .= $index . '-';
