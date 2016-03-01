@@ -4,5 +4,5 @@
 </p>
 <ul>
     <li tal:repeat="rq require" tal:content="structure rq">None</li>
-    <li tal:condition="not:require">None</li>
+    <li tal:condition="not:require" i18n:translate="">None</li>
 </ul>

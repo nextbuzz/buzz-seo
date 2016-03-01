@@ -40,6 +40,9 @@ class StructuredData extends BaseFeature
     {
         $options = get_option('_settingsSettingsStructuredData', true);
 
+        if (is_home() || is_front_page()) {
+            return;
+        }
         // Load SEO box for all Single pages
         $meta = new \NextBuzz\SEO\PHPTAL\MetaBox('StructuredDataBox', __('Structured Data (SEO)', 'buzz-seo'));
 

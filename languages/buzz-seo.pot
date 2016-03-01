@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-02-27 19:34:03+0000\n"
+"POT-Creation-Date: 2016-03-01 04:06:03+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-02-27 19:34:03+0000\n"
+"PO-Revision-Date: 2016-03-01 04:06:03+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3
@@ -217,7 +217,7 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:118 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:140 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr ""
 
@@ -349,7 +349,7 @@ msgstr ""
 msgid "Show tagline"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:108 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
+#: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:125 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr ""
 
@@ -417,8 +417,8 @@ msgstr ""
 msgid "Organization"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:19
-msgid "Article"
+#: tal/SettingsStructuredData.xml:19 tal/SettingsStructuredData.xml:92
+msgid "Creative works"
 msgstr ""
 
 #: tal/SettingsStructuredData.xml:23
@@ -481,20 +481,24 @@ msgstr ""
 msgid "Fields marked with a * are required to embed this data."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:92
-msgid "Add article"
+#: tal/SettingsStructuredData.xml:101
+msgid "Content should be about"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:100
+#: tal/SettingsStructuredData.xml:107 tal/SettingsXML.xml:64
+msgid "Post types"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:117
 msgid "Add article structured data for posts in selected post types."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:104
-msgid "Add author"
+#: tal/SettingsStructuredData.xml:121
+msgid "Add author as owner"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:110
-msgid "Add author to article structured data for posts in selected post types."
+#: tal/SettingsStructuredData.xml:127
+msgid "Add the author of the post as owner of the structured data in selected post types."
 msgstr ""
 
 #: tal/SettingsXML.xml:2
@@ -533,10 +537,6 @@ msgstr ""
 msgid "If enabled, performs basic CSS styling on the XML output."
 msgstr ""
 
-#: tal/SettingsXML.xml:64
-msgid "Post types"
-msgstr ""
-
 #: tal/SettingsXML.xml:75
 msgid "Select the post types that should be added to the XML sitemap."
 msgstr ""
@@ -555,6 +555,18 @@ msgstr ""
 
 #: tal/SettingsXML.xml:102
 msgid "If enabled, also creates a sitemap of all author-pages."
+msgstr ""
+
+#: tal/StructuredDataBox.xml:1
+msgid "This post contains structured data. While not visible to the end-user, this is very visible to search engines. Additional requirements may apply."
+msgstr ""
+
+#: tal/StructuredDataBox.xml:3
+msgid "Additional requirements:"
+msgstr ""
+
+#: tal/StructuredDataBox.xml:7
+msgid "None"
 msgstr ""
 
 #: lib/Features/Admin.php:16 lib/Features/Admin.php:21
@@ -793,12 +805,24 @@ msgstr ""
 msgid "XML Sitemaps"
 msgstr ""
 
-#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:39
+#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:47 lib/Features/StructuredData.php:85
 msgid "Structured Data"
 msgstr ""
 
 #: lib/Features/StructuredData.php:24
 msgid "Add structured data to the content to allow search engines to show the content as rich snippets."
+msgstr ""
+
+#: lib/Features/StructuredData.php:47
+msgid "Structured Data (SEO)"
+msgstr ""
+
+#: lib/Features/StructuredData.php:62
+msgid "Featured image"
+msgstr ""
+
+#: lib/Features/StructuredData.php:64
+msgid "A featured image is required."
 msgstr ""
 
 #: lib/PHPTAL/SettingsPage.php:72
@@ -827,5 +851,85 @@ msgstr ""
 
 #: lib/PHPTAL/Settings/General.php:59
 msgid "archive"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:20
+msgid "Article"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:21
+msgid "An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all."
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:25
+msgid "Blog posting"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:26
+msgid "A blog post"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:30
+msgid "Book"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:31
+msgid "A book"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:35
+msgid "Code"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:36
+msgid "Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates."
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:40
+msgid "Game"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:41
+msgid "A game"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:45
+msgid "Movie"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:46
+msgid "A movie"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:50
+msgid "Music recording"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:51
+msgid "A music recording (track), usually a single song."
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:55
+msgid "Painting"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:56
+msgid "A painting"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:60
+msgid "Photograph"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:61
+msgid "A photograph"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:65
+msgid "Recipe"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:66
+msgid "A recipe"
 msgstr ""
 
