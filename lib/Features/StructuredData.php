@@ -26,8 +26,21 @@ class StructuredData extends BaseFeature
 
     public function init()
     {
+        add_action('admin_init', array($this, 'initBack'));
         add_action('admin_menu', array($this, 'createAdminMenu'));
         add_action('wp_head', array($this, 'addJSONLDToHead'), 1);
+    }
+
+    /**
+     * Initialize everything that is only needed in backend
+     *
+     * @return void
+     */
+    public function initBack()
+    {
+        // Load SEO box for all Single pages
+        $meta = new \NextBuzz\SEO\PHPTAL\MetaBox('StructuredDataBox', __('Structured Data (SEO)', 'buzz-seo'));
+        //$meta->setRequired('test', 'het veld test is nodig');
     }
 
     /**
@@ -54,7 +67,7 @@ class StructuredData extends BaseFeature
     {
         $options = get_option('_settingsSettingsStructuredData', true);
 
-        $Create  = \LengthOfRope\JSONLD\Create::factory();
+        $Create = \LengthOfRope\JSONLD\Create::factory();
         $hasData = false;
         // Add Organization
         if ((is_home() || is_front_page()) &&
@@ -68,7 +81,8 @@ class StructuredData extends BaseFeature
             $Org = Schema\OrganizationSchema::factory();
 
             $add = array('legalName', 'url', 'email', 'telephone', 'faxNumber');
-            foreach ($add as $key) {
+            foreach ($add as $key)
+            {
                 if (!empty($options['homepage']['Organization'][$key])) {
                     $func = "set" . ucFirst($key);
                     $Org->$func($options['homepage']['Organization'][$key]);
@@ -87,7 +101,8 @@ class StructuredData extends BaseFeature
         // Add Article
         if (isset($options['addarticle']) && is_array($options['addarticle']) && is_singular()) {
             $posttype = get_post_type();
-            foreach($options['addarticle'] as $creativeWorkType => $postTypes) {
+            foreach ($options['addarticle'] as $creativeWorkType => $postTypes)
+            {
                 $addForPostTypes = array_keys($postTypes);
                 if (in_array($posttype, $addForPostTypes)) {
                     // We are in a posttype that we want to add the article data for, but since we are not in the loop, get
@@ -96,10 +111,10 @@ class StructuredData extends BaseFeature
 
                     $class = "\\LengthOfRope\\JSONLD\\Schema\\" . $creativeWorkType . "Schema";
                     $Article = $class::factory();
-                    
+
                     $Article->setDatePublished(get_the_date('c'), $post);
                     $Article->setHeadline(get_the_title($post));
-                    $url     = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+                    $url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
                     if (is_array($url)) {
                         $Article->setImage(Schema\ImageObjectSchema::factory()->setUrl($url[0])->setWidth($url[1])->setHeight($url[2]));
                     }
@@ -112,10 +127,10 @@ class StructuredData extends BaseFeature
 
                     // Add author
                     if (is_array($options['addauthor']) && isset($options['addauthor'][$creativeWorkType])) {
-                        $authorF    = get_the_author_meta('first_name', $post->post_author);
-                        $authorL    = get_the_author_meta('last_name', $post->post_author);
+                        $authorF = get_the_author_meta('first_name', $post->post_author);
+                        $authorL = get_the_author_meta('last_name', $post->post_author);
                         $authormail = get_the_author_meta('email', $post->post_author);
-                        $authorurl  = get_the_author_meta('url', $post->post_author);
+                        $authorurl = get_the_author_meta('url', $post->post_author);
 
                         $Author = Schema\PersonSchema::factory();
                         if (!empty($authorF)) {

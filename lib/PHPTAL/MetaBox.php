@@ -18,6 +18,8 @@ class MetaBox extends Template
     private $context;
     private $priority;
     private $title;
+    private $requiredFields = array();
+    private $errorMessageIndex = '';
 
     /**
      * Constructor
@@ -39,10 +41,16 @@ class MetaBox extends Template
 
         add_action('add_meta_boxes', array($this, 'addMetaBoxAction'));
         add_action('save_post', array($this, 'savePostAction'));
+
+        // Save filter and create admin notices for errors
+        add_filter('wp_insert_post_data', array($this, 'validateRequired'));
+        add_action('admin_notices', array($this, 'showAdminNoticeRequiredFields'));
     }
 
     /**
      * Called on action 'add_meta_boxes'.
+     * 
+     * @access private
      * @param string $post_type
      */
     public function addMetaBoxAction($post_type)
@@ -58,6 +66,8 @@ class MetaBox extends Template
 
     /**
      * Render the actual meta box
+     * 
+     * @access private
      * @param object $post The current post
      */
     public function renderMetaBoxContent($post)
@@ -76,6 +86,8 @@ class MetaBox extends Template
 
     /**
      * This method is called on saving the post containing the MetaBox.
+     * 
+     * @access private
      * @param integer $post_id
      */
     public function savePostAction($post_id)
@@ -118,7 +130,7 @@ class MetaBox extends Template
         /* OK, its safe for us to save the data now. */
 
         // Sanitize the user input.
-        $data = $_POST[$this->name];
+        $data = isset($_POST[$this->name]) ? $_POST[$this->name] : false;
 
         if (is_array($data)) {
             $this->sanatizeArray($data);
@@ -143,6 +155,95 @@ class MetaBox extends Template
         }
 
         return $data;
+    }
+
+    /**
+     * Add required (non empty) fields
+     * 
+     * @param $required string|array Keynames of metabox fields that cannot be empty
+     * @param $errorMessage string with error or false if $required param is an array
+     */
+    public function setRequired($required, $errorMessage = false)
+    {
+        if (!is_array($required)) {
+            $this->requiredFields[] = array('field' => $required, 'error' => $errorMessage);
+            return;
+        }
+
+        foreach ($required as $req=>$errorMessage)
+        {
+            $this->setRequired($req, $errorMessage);
+        }
+    }
+
+    /**
+     * Validate fielddata
+     * 
+     * @access private
+     * @param string $data The post data
+     * @return string
+     */
+    public function validateRequired($data)
+    {
+        // Don't want to do this on autosave
+        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return $data;
+        }
+
+        // Get the post data belonging to this metabox
+        $currentBoxData = isset($_POST[$this->name]) ? $_POST[$this->name] : array();
+
+        $ok = true;
+        $this->errorMessageIndex = '';
+        foreach ($this->requiredFields as $index=>$req)
+        {
+            if (!isset($currentBoxData[$req['field']]) || empty($currentBoxData[$req['field']])) {
+                $ok = false;
+                $this->errorMessageIndex .= $index . '-';
+            }
+        }
+
+        if (!$ok) {
+            // Revert to draft
+            $data['post_status'] = 'draft';
+
+            // Remove the publish success message
+            add_filter('redirect_post_location', function($loc) {
+                return add_query_arg($this->name . 'Notice', substr($this->errorMessageIndex, 0, -1), $loc);
+            });
+
+            add_filter('redirect_post_location', array($this, 'removeMessage'));
+        }
+
+        return $data;
+    }
+
+    /**
+     * Remove the succesfully published message when there is a validation error
+     * 
+     * @access private
+     * @param type $location
+     * @return type
+     */
+    public function removeMessage($location)
+    {
+        return remove_query_arg('message', $location);
+    }
+    
+    /**
+     * Show admin errors for missing required fields
+     * @access private
+     */
+    public function showAdminNoticeRequiredFields()
+    {
+        if (isset($_GET[$this->name . 'Notice'])) {
+            $errors = explode('-', $_GET[$this->name . 'Notice']);
+            echo '<div class="error notice is-dismissible"><ul>';
+            foreach($errors as $index) {
+                echo '<li>' . $this->requiredFields[$index]['error'] . '</li>';
+            }
+            echo '</ul></div>';
+        }
     }
 
 }
