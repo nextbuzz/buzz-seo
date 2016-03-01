@@ -19,7 +19,9 @@ class MetaBox extends Template
     private $priority;
     private $title;
     private $requiredFields = array();
+    private $recommendedFields = array();
     private $errorMessageIndex = '';
+    private $recMessageIndex = '';
 
     /**
      * Constructor
@@ -175,6 +177,26 @@ class MetaBox extends Template
             $this->setRequired($req, $errorMessage);
         }
     }
+    
+
+    /**
+     * Add recommended (non empty) fields
+     * 
+     * @param $recommended string|array Keynames of metabox fields that cannot be empty
+     * @param $errorMessage string with error or false if $required param is an array
+     */
+    public function setRecommended($recommended, $errorMessage = false)
+    {
+        if (!is_array($recommended)) {
+            $this->recommendedFields[] = array('field' => $recommended, 'error' => $errorMessage);
+            return;
+        }
+
+        foreach ($recommended as $req=>$errorMessage)
+        {
+            $this->setRecommended($req, $errorMessage);
+        }
+    }
 
     /**
      * Validate fielddata
@@ -202,16 +224,32 @@ class MetaBox extends Template
                 $this->errorMessageIndex .= $index . '-';
             }
         }
+        
+        $okReccommended = true;
+        $this->recMessageIndex = '';
+        foreach ($this->recommendedFields as $index=>$req)
+        {
+            if (!isset($currentBoxData[$req['field']]) || empty($currentBoxData[$req['field']])) {
+                $okReccommended = false;
+                $this->recMessageIndex .= $index . '-';
+            }
+        }
+
+        if (!$okReccommended) {
+            add_filter('redirect_post_location', function($loc) {
+                return add_query_arg($this->name . 'RecNotice', substr($this->recMessageIndex, 0, -1), $loc);
+            });
+        }
 
         if (!$ok) {
             // Revert to draft
             $data['post_status'] = 'draft';
 
-            // Remove the publish success message
             add_filter('redirect_post_location', function($loc) {
                 return add_query_arg($this->name . 'Notice', substr($this->errorMessageIndex, 0, -1), $loc);
             });
 
+            // Remove the publish success message
             add_filter('redirect_post_location', array($this, 'removeMessage'));
         }
 
@@ -238,12 +276,22 @@ class MetaBox extends Template
     {
         if (isset($_GET[$this->name . 'Notice'])) {
             $errors = explode('-', $_GET[$this->name . 'Notice']);
-            echo '<div class="error notice is-dismissible"><ul>';
+            echo '<div class="notice-error notice"><ul>';
             foreach($errors as $index) {
                 echo '<li>' . $this->requiredFields[$index]['error'] . '</li>';
             }
             echo '</ul></div>';
         }
+        
+        if (isset($_GET[$this->name . 'RecNotice'])) {
+            $errors = explode('-', $_GET[$this->name . 'RecNotice']);
+            echo '<div class="notice notice-warning is-dismissible"><ul>';
+            foreach($errors as $index) {
+                echo '<li>' . $this->recommendedFields[$index]['error'] . '</li>';
+            }
+            echo '</ul></div>';
+        }
+
     }
 
 }

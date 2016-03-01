@@ -41,6 +41,7 @@ class StructuredData extends BaseFeature
         // Load SEO box for all Single pages
         $meta = new \NextBuzz\SEO\PHPTAL\MetaBox('StructuredDataBox', __('Structured Data (SEO)', 'buzz-seo'));
         //$meta->setRequired('test', 'het veld test is nodig');
+        //$meta->setRecommended('test', 'het veld test is nodig');
     }
 
     /**
