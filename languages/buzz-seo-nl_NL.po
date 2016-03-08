@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-03-01 05:06+0100\n"
-"PO-Revision-Date: 2016-03-01 05:06+0100\n"
+"POT-Creation-Date: 2016-03-08 22:00+0100\n"
+"PO-Revision-Date: 2016-03-08 22:02+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: tal/PostSEOBox.xml:3
+#: tal/PostSEOBox.xml:3 tal/SettingsStructuredData.xml:18
 msgid "Basic"
 msgstr "Basis"
 
@@ -136,7 +136,7 @@ msgid "Current Facebook image"
 msgstr "Huidige Facebook afbeelding"
 
 #: tal/PostSEOBox.xml:95 tal/PostSEOBox.xml:133
-#: tal/SettingsStructuredData.xml:48
+#: tal/SettingsStructuredData.xml:49
 msgid "Remove image"
 msgstr "Verwijder afbeelding"
 
@@ -145,7 +145,7 @@ msgid "Facebook image"
 msgstr "Facebook afbeelding"
 
 #: tal/PostSEOBox.xml:104 tal/PostSEOBox.xml:142
-#: tal/SettingsStructuredData.xml:57
+#: tal/SettingsStructuredData.xml:58
 msgid "Upload"
 msgstr "Uploaden"
 
@@ -274,7 +274,7 @@ msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
 #: tal/SettingsAdmin.xml:36 tal/SettingsCleanup.xml:121
-#: tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:140
+#: tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:141
 #: tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr "Opslaan"
@@ -464,7 +464,7 @@ msgid "Show tagline"
 msgstr "Toon ondertitel"
 
 #: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50
-#: tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:125
+#: tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:126
 #: tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr "Ja"
@@ -548,15 +548,15 @@ msgstr ""
 "gebruiken om de zoekresultaten beter te optimaliseren of van rich snippets "
 "te voorzien."
 
-#: tal/SettingsStructuredData.xml:18
-msgid "Organization"
-msgstr "Organisatie"
-
-#: tal/SettingsStructuredData.xml:19 tal/SettingsStructuredData.xml:92
+#: tal/SettingsStructuredData.xml:19 lib/PHPTAL/Settings/StructuredData.php:20
 msgid "Creative works"
 msgstr "Creatieve werken"
 
-#: tal/SettingsStructuredData.xml:23
+#: tal/SettingsStructuredData.xml:20 lib/PHPTAL/Settings/StructuredData.php:75
+msgid "Organizations"
+msgstr "Organisaties"
+
+#: tal/SettingsStructuredData.xml:24
 msgid ""
 "Structured data of the organization is added to the homepage. Leave the Name "
 "or URL empty if you don't want to add this information."
@@ -564,85 +564,85 @@ msgstr ""
 "Gestructureerde data van de organisatie wordt toegevoegd aan de homepage. "
 "Laat de Naam of URL leeg als je deze data niet toegevoegd wilt hebben."
 
-#: tal/SettingsStructuredData.xml:27
+#: tal/SettingsStructuredData.xml:28
 msgid "Name"
 msgstr "Naam"
 
-#: tal/SettingsStructuredData.xml:31
+#: tal/SettingsStructuredData.xml:32
 msgid ""
 "The official name of the organization, e.g. the registered company name."
 msgstr ""
 "De officiële naam van de organisatie, bijv de geregistreerde bedrijfsnaam."
 
-#: tal/SettingsStructuredData.xml:36
+#: tal/SettingsStructuredData.xml:37
 msgid "URL"
 msgstr "URL"
 
-#: tal/SettingsStructuredData.xml:40
+#: tal/SettingsStructuredData.xml:41
 msgid "The organization URL."
 msgstr "De URL van de organisatie."
 
-#: tal/SettingsStructuredData.xml:44
+#: tal/SettingsStructuredData.xml:45
 msgid "Current logo"
 msgstr "Huidige logo"
 
-#: tal/SettingsStructuredData.xml:52
+#: tal/SettingsStructuredData.xml:53
 msgid "Logo"
 msgstr "Logo"
 
-#: tal/SettingsStructuredData.xml:59
+#: tal/SettingsStructuredData.xml:60
 msgid "The organization logo."
 msgstr "Het logo van de organisatie."
 
-#: tal/SettingsStructuredData.xml:63
+#: tal/SettingsStructuredData.xml:64
 msgid "E-mail"
 msgstr "E-mail"
 
-#: tal/SettingsStructuredData.xml:66
+#: tal/SettingsStructuredData.xml:67
 msgid "The contact e-mail address for this organization."
 msgstr "Het contact e-mailadres van de organisatie."
 
-#: tal/SettingsStructuredData.xml:70
+#: tal/SettingsStructuredData.xml:71
 msgid "Phone"
 msgstr "Telefoonnummer"
 
-#: tal/SettingsStructuredData.xml:73
+#: tal/SettingsStructuredData.xml:74
 msgid "The phone number for this organization."
 msgstr "Het telefoonnummer van de organisatie."
 
-#: tal/SettingsStructuredData.xml:77
+#: tal/SettingsStructuredData.xml:78
 msgid "Fax"
 msgstr "Fax"
 
-#: tal/SettingsStructuredData.xml:80
+#: tal/SettingsStructuredData.xml:81
 msgid "The fax number for this organization."
 msgstr "Het faxnummer van de organisatie."
 
-#: tal/SettingsStructuredData.xml:86
+#: tal/SettingsStructuredData.xml:87
 msgid "Fields marked with a * are required to embed this data."
 msgstr ""
 "Velden gemarkeerd met een * zijn verplicht om de data toe te voegen als "
 "gestructureerde data."
 
-#: tal/SettingsStructuredData.xml:101
+#: tal/SettingsStructuredData.xml:102
 msgid "Content should be about"
 msgstr "De content moet gaan over"
 
-#: tal/SettingsStructuredData.xml:107 tal/SettingsXML.xml:64
+#: tal/SettingsStructuredData.xml:108 tal/SettingsXML.xml:64
 msgid "Post types"
 msgstr "Berichttypen"
 
-#: tal/SettingsStructuredData.xml:117
+#: tal/SettingsStructuredData.xml:118
 msgid "Add article structured data for posts in selected post types."
 msgstr ""
 "Voeg artikeldata gestructureerd toe voor berichten in de geselecteerde "
 "berichttypen."
 
-#: tal/SettingsStructuredData.xml:121
+#: tal/SettingsStructuredData.xml:122
 msgid "Add author as owner"
 msgstr "Voeg auteur toe als eigenaar"
 
-#: tal/SettingsStructuredData.xml:127
+#: tal/SettingsStructuredData.xml:128
 msgid ""
 "Add the author of the post as owner of the structured data in selected post "
 "types."
@@ -1119,11 +1119,11 @@ msgstr "Datum"
 msgid "archive"
 msgstr "archief"
 
-#: lib/PHPTAL/Settings/StructuredData.php:20
+#: lib/PHPTAL/Settings/StructuredData.php:23
 msgid "Article"
 msgstr "Artikel"
 
-#: lib/PHPTAL/Settings/StructuredData.php:21
+#: lib/PHPTAL/Settings/StructuredData.php:24
 msgid ""
 "An article, such as a news article or piece of investigative report. "
 "Newspapers and magazines have articles of many different types and this is "
@@ -1133,27 +1133,27 @@ msgstr ""
 "tijdschrijften bevatten vele soorten artikelen, en dit artikel is bedoeld om "
 "ze allemaal af te vangen."
 
-#: lib/PHPTAL/Settings/StructuredData.php:25
+#: lib/PHPTAL/Settings/StructuredData.php:28
 msgid "Blog posting"
 msgstr "Blog bericht"
 
-#: lib/PHPTAL/Settings/StructuredData.php:26
+#: lib/PHPTAL/Settings/StructuredData.php:29
 msgid "A blog post"
 msgstr "Een blog bericht"
 
-#: lib/PHPTAL/Settings/StructuredData.php:30
+#: lib/PHPTAL/Settings/StructuredData.php:33
 msgid "Book"
 msgstr "Boek"
 
-#: lib/PHPTAL/Settings/StructuredData.php:31
+#: lib/PHPTAL/Settings/StructuredData.php:34
 msgid "A book"
 msgstr "Een boek"
 
-#: lib/PHPTAL/Settings/StructuredData.php:35
+#: lib/PHPTAL/Settings/StructuredData.php:38
 msgid "Code"
 msgstr "Code"
 
-#: lib/PHPTAL/Settings/StructuredData.php:36
+#: lib/PHPTAL/Settings/StructuredData.php:39
 msgid ""
 "Computer programming source code. Example: Full (compile ready) solutions, "
 "code snippet samples, scripts, templates."
@@ -1161,53 +1161,84 @@ msgstr ""
 "Broncode van een computerprogramma. Bijvoorbeeld: Volledige (compileerbare) "
 "oplossingen, code voorbeelden, scripts, templates."
 
-#: lib/PHPTAL/Settings/StructuredData.php:40
+#: lib/PHPTAL/Settings/StructuredData.php:43
 msgid "Game"
 msgstr "Spel"
 
-#: lib/PHPTAL/Settings/StructuredData.php:41
+#: lib/PHPTAL/Settings/StructuredData.php:44
 msgid "A game"
 msgstr "Een spel"
 
-#: lib/PHPTAL/Settings/StructuredData.php:45
+#: lib/PHPTAL/Settings/StructuredData.php:48
 msgid "Movie"
 msgstr "Film"
 
-#: lib/PHPTAL/Settings/StructuredData.php:46
+#: lib/PHPTAL/Settings/StructuredData.php:49
 msgid "A movie"
 msgstr "Een film"
 
-#: lib/PHPTAL/Settings/StructuredData.php:50
+#: lib/PHPTAL/Settings/StructuredData.php:53
 msgid "Music recording"
 msgstr "Muziekopname"
 
-#: lib/PHPTAL/Settings/StructuredData.php:51
+#: lib/PHPTAL/Settings/StructuredData.php:54
 msgid "A music recording (track), usually a single song."
 msgstr "Een muziekopname (lied), doorgaans een enkel nummer."
 
-#: lib/PHPTAL/Settings/StructuredData.php:55
+#: lib/PHPTAL/Settings/StructuredData.php:58
 msgid "Painting"
 msgstr "Schilderij"
 
-#: lib/PHPTAL/Settings/StructuredData.php:56
+#: lib/PHPTAL/Settings/StructuredData.php:59
 msgid "A painting"
 msgstr "Een schilderij"
 
-#: lib/PHPTAL/Settings/StructuredData.php:60
+#: lib/PHPTAL/Settings/StructuredData.php:63
 msgid "Photograph"
 msgstr "Foto"
 
-#: lib/PHPTAL/Settings/StructuredData.php:61
+#: lib/PHPTAL/Settings/StructuredData.php:64
 msgid "A photograph"
 msgstr "Een foto"
 
-#: lib/PHPTAL/Settings/StructuredData.php:65
+#: lib/PHPTAL/Settings/StructuredData.php:68
 msgid "Recipe"
 msgstr "Recept"
 
-#: lib/PHPTAL/Settings/StructuredData.php:66
+#: lib/PHPTAL/Settings/StructuredData.php:69
 msgid "A recipe"
 msgstr "Een recept"
+
+#: lib/PHPTAL/Settings/StructuredData.php:75
+#: lib/PHPTAL/Settings/StructuredData.php:78
+msgid "Organization"
+msgstr "Organisatie"
+
+#: lib/PHPTAL/Settings/StructuredData.php:79
+msgid "An organization such as a school, NGO, corporation, club, etc."
+msgstr ""
+"Een organisatie zoals een school, NGO (niet-overheidsorganisatie), "
+"corporatie, club, enz."
+
+#: lib/PHPTAL/Settings/StructuredData.php:83
+msgid "Corporation"
+msgstr "Corporatie"
+
+#: lib/PHPTAL/Settings/StructuredData.php:84
+msgid "A business corporation."
+msgstr "Een corporatie."
+
+#: lib/PHPTAL/Settings/StructuredData.php:88
+msgid "Sports organization"
+msgstr "Sport organisatie"
+
+#: lib/PHPTAL/Settings/StructuredData.php:89
+msgid ""
+"Represents the collection of all sports organizations, including sports "
+"teams, governing bodies, and sports associations."
+msgstr ""
+"Vertegenwoordigt de verzameling van alle sportorganisaties, met inbegrip van "
+"sportteams, bestuursorganen, en sportverenigingen."
 
 #~ msgid "Add article"
 #~ msgstr "Artikeldata toevoegen"
