@@ -1,0 +1,27 @@
+{
+    "name": "lengthofrope/create-jsonld-tiny",
+    "description": "Simple PHP library to create JSON-LD output. Tiny version",
+    "type": "library",
+    "keywords": ["JSON-LD", "jsonld"],
+    "homepage": "https://github.com/lengthofrope/create-jsonld-tiny",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bas de Kort",
+            "email": "bdekort@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3"
+    },
+    "require-dev": {
+        "easyrdf/easyrdf": "0.9.*",
+        "ml/json-ld": "1.0.*",
+        "twig/twig": "~1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LengthOfRope\\JSONLD\\": "src/"
+        }
+    }
+}

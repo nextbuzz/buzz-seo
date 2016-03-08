@@ -2,14 +2,14 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-03-01 04:06:03+0000\n"
+"POT-Creation-Date: 2016-03-08 21:00:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-01 04:06:03+0000\n"
+"PO-Revision-Date: 2016-03-08 21:00:15+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
-#: tal/PostSEOBox.xml:3
+#: tal/PostSEOBox.xml:3 tal/SettingsStructuredData.xml:18
 msgid "Basic"
 msgstr ""
 
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Current Facebook image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:95 tal/PostSEOBox.xml:133 tal/SettingsStructuredData.xml:48
+#: tal/PostSEOBox.xml:95 tal/PostSEOBox.xml:133 tal/SettingsStructuredData.xml:49
 msgid "Remove image"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgstr ""
 msgid "Facebook image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:104 tal/PostSEOBox.xml:142 tal/SettingsStructuredData.xml:57
+#: tal/PostSEOBox.xml:104 tal/PostSEOBox.xml:142 tal/SettingsStructuredData.xml:58
 msgid "Upload"
 msgstr ""
 
@@ -217,7 +217,7 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:140 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:141 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr ""
 
@@ -349,7 +349,7 @@ msgstr ""
 msgid "Show tagline"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:125 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
+#: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:126 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr ""
 
@@ -413,91 +413,91 @@ msgstr ""
 msgid "On this settings page you can enable structured (JSON-LD) data which should be added to your site. Search engines may use this data to better optimize the search results or to create rich snippets in the search results."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:18
-msgid "Organization"
-msgstr ""
-
-#: tal/SettingsStructuredData.xml:19 tal/SettingsStructuredData.xml:92
+#: tal/SettingsStructuredData.xml:19 lib/PHPTAL/Settings/StructuredData.php:20
 msgid "Creative works"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:23
+#: tal/SettingsStructuredData.xml:20 lib/PHPTAL/Settings/StructuredData.php:75
+msgid "Organizations"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:24
 msgid "Structured data of the organization is added to the homepage. Leave the Name or URL empty if you don't want to add this information."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:27
+#: tal/SettingsStructuredData.xml:28
 msgid "Name"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:31
+#: tal/SettingsStructuredData.xml:32
 msgid "The official name of the organization, e.g. the registered company name."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:36
+#: tal/SettingsStructuredData.xml:37
 msgid "URL"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:40
+#: tal/SettingsStructuredData.xml:41
 msgid "The organization URL."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:44
+#: tal/SettingsStructuredData.xml:45
 msgid "Current logo"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:52
+#: tal/SettingsStructuredData.xml:53
 msgid "Logo"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:59
+#: tal/SettingsStructuredData.xml:60
 msgid "The organization logo."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:63
+#: tal/SettingsStructuredData.xml:64
 msgid "E-mail"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:66
+#: tal/SettingsStructuredData.xml:67
 msgid "The contact e-mail address for this organization."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:70
+#: tal/SettingsStructuredData.xml:71
 msgid "Phone"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:73
+#: tal/SettingsStructuredData.xml:74
 msgid "The phone number for this organization."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:77
+#: tal/SettingsStructuredData.xml:78
 msgid "Fax"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:80
+#: tal/SettingsStructuredData.xml:81
 msgid "The fax number for this organization."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:86
+#: tal/SettingsStructuredData.xml:87
 msgid "Fields marked with a * are required to embed this data."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:101
+#: tal/SettingsStructuredData.xml:102
 msgid "Content should be about"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:107 tal/SettingsXML.xml:64
+#: tal/SettingsStructuredData.xml:108 tal/SettingsXML.xml:64
 msgid "Post types"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:117
+#: tal/SettingsStructuredData.xml:118
 msgid "Add article structured data for posts in selected post types."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:121
+#: tal/SettingsStructuredData.xml:122
 msgid "Add author as owner"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:127
+#: tal/SettingsStructuredData.xml:128
 msgid "Add the author of the post as owner of the structured data in selected post types."
 msgstr ""
 
@@ -853,83 +853,107 @@ msgstr ""
 msgid "archive"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:20
+#: lib/PHPTAL/Settings/StructuredData.php:23
 msgid "Article"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:21
+#: lib/PHPTAL/Settings/StructuredData.php:24
 msgid "An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all."
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:25
+#: lib/PHPTAL/Settings/StructuredData.php:28
 msgid "Blog posting"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:26
+#: lib/PHPTAL/Settings/StructuredData.php:29
 msgid "A blog post"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:30
+#: lib/PHPTAL/Settings/StructuredData.php:33
 msgid "Book"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:31
+#: lib/PHPTAL/Settings/StructuredData.php:34
 msgid "A book"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:35
+#: lib/PHPTAL/Settings/StructuredData.php:38
 msgid "Code"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:36
+#: lib/PHPTAL/Settings/StructuredData.php:39
 msgid "Computer programming source code. Example: Full (compile ready) solutions, code snippet samples, scripts, templates."
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:40
+#: lib/PHPTAL/Settings/StructuredData.php:43
 msgid "Game"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:41
+#: lib/PHPTAL/Settings/StructuredData.php:44
 msgid "A game"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:45
+#: lib/PHPTAL/Settings/StructuredData.php:48
 msgid "Movie"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:46
+#: lib/PHPTAL/Settings/StructuredData.php:49
 msgid "A movie"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:50
+#: lib/PHPTAL/Settings/StructuredData.php:53
 msgid "Music recording"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:51
+#: lib/PHPTAL/Settings/StructuredData.php:54
 msgid "A music recording (track), usually a single song."
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:55
+#: lib/PHPTAL/Settings/StructuredData.php:58
 msgid "Painting"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:56
+#: lib/PHPTAL/Settings/StructuredData.php:59
 msgid "A painting"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:60
+#: lib/PHPTAL/Settings/StructuredData.php:63
 msgid "Photograph"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:61
+#: lib/PHPTAL/Settings/StructuredData.php:64
 msgid "A photograph"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:65
+#: lib/PHPTAL/Settings/StructuredData.php:68
 msgid "Recipe"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StructuredData.php:66
+#: lib/PHPTAL/Settings/StructuredData.php:69
 msgid "A recipe"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:75 lib/PHPTAL/Settings/StructuredData.php:78
+msgid "Organization"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:79
+msgid "An organization such as a school, NGO, corporation, club, etc."
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:83
+msgid "Corporation"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:84
+msgid "A business corporation."
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:88
+msgid "Sports organization"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:89
+msgid "Represents the collection of all sports organizations, including sports teams, governing bodies, and sports associations."
 msgstr ""
 
