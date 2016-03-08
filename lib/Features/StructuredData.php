@@ -143,26 +143,30 @@ class StructuredData extends BaseFeature
                     $post = get_post();
 
                     $class = "\\LengthOfRope\\JSONLD\\Schema\\" . $creativeWorkType . "Schema";
-                    $CreativeWork = $class::factory();
-
-                    $CreativeWork->setDatePublished(get_the_date('c'), $post);
-                    $CreativeWork->setName(get_the_title($post));
+                    $Schema = $class::factory();
+                    
+                    if ($Schema instanceof Schema\ThingSchema) {
+                        $Schema->setName(get_the_title($post));
+                        $url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
+                        if (is_array($url)) {
+                            $Schema->setImage(Schema\ImageObjectSchema::factory()->setUrl($url[0])->setWidth($url[1])->setHeight($url[2]));
+                        }
+                        $excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $post->ID));
+                        if (!empty($excerpt)) {
+                            $Schema->setDescription(strip_tags($excerpt));
+                        }
+                    }
 
                     // Article and blog require a headline, we simply set it to the post title.
-                    if ($CreativeWork instanceof Schema\ArticleSchema ||
-                        $CreativeWork instanceof Schema\BlogPostingSchema) {
-                        $CreativeWork->setHeadline(get_the_title($post));
-                    }
-                    $url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
-                    if (is_array($url)) {
-                        $CreativeWork->setImage(Schema\ImageObjectSchema::factory()->setUrl($url[0])->setWidth($url[1])->setHeight($url[2]));
-                    }
-                    $CreativeWork->setDateModified(get_the_modified_date('c'), $post);
-                    $excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $post->ID));
-                    if (!empty($excerpt)) {
-                        $CreativeWork->setDescription(strip_tags($excerpt));
+                    if ($Schema instanceof Schema\ArticleSchema ||
+                        $Schema instanceof Schema\BlogPostingSchema) {
+                        $Schema->setHeadline(get_the_title($post));
                     }
 
+                    if ($Schema instanceof Schema\CreativeWorkSchema) {
+                        $Schema->setDatePublished(get_the_date('c'), $post);
+                        $Schema->setDateModified(get_the_modified_date('c'), $post);
+                    }
 
                     // Add author
                     if (is_array($options['addauthor']) && isset($options['addauthor'][$creativeWorkType])) {
@@ -185,11 +189,15 @@ class StructuredData extends BaseFeature
                             $Author->setUrl($authorurl);
                         }
 
-                        $CreativeWork->setAuthor($Author);
+                        $Schema->setAuthor($Author);
+                    }
+                    
+                    if ($Schema instanceof Schema\LocalBusinessSchema) {
+                        
                     }
 
                     $hasData = true;
-                    $Create->add($CreativeWork);
+                    $Create->add($Schema);
                 }
             }
         }

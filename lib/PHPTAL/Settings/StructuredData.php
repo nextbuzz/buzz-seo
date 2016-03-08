@@ -84,11 +84,6 @@ class StructuredData extends \NextBuzz\SEO\PHPTAL\SettingsPage
                         'intro' => __('A business corporation.', 'buzz-seo'),
                         'addauthoroption' => false,
                     ),
-                    'LocalBusiness' => array(
-                        'name' => __('Local business', 'buzz-seo'),
-                        'intro' => __('A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc.', 'buzz-seo'),
-                        'addauthoroption' => false,
-                    ),
                     'SportsOrganization' => array(
                         'name' => __('Sports organization', 'buzz-seo'),
                         'intro' => __('Represents the collection of all sports organizations, including sports teams, governing bodies, and sports associations.', 'buzz-seo'),
