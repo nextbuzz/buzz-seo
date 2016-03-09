@@ -1,0 +1,37 @@
+<div class="wrap">
+    <h1 i18n:translate="">Google Analytics</h1>
+
+    <div tal:condition="exists:message" class="updated">
+        <p tal:content="message">Bericht</p>
+    </div>
+
+    <div tal:condition="exists:errorMessage" class="error">
+        <p tal:content="errorMessage">Error</p>
+    </div>
+
+    <p i18n:translate="">This section is to setup Google Analytics on your website. Make sure you don't use other plugins that do the same, because adding the code multiple times might give issues in the results.</p>
+
+    <form method="post" action="">
+        <tal:block tal:content="structure settingsNonce" />
+        <div class="buzz-seo-tabs">
+            <div class="nav-tab-wrapper">
+                <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Basic</a>
+            </div>
+
+            <div class="inner">
+                <table class="form-table">
+                    <tr>
+                        <th scope="row" i18n:translate="">Universal Tracking ID</th>
+                        <td>
+                            <input type="text" name="SettingsAnalytics[uacode]" tal:attributes="value uacode | nothing" placeholder="UA-xxxxxxxx-x" />
+                            <p class="description" i18n:translate="">Add the Universal Analytics tracking ID from Google Analytics. This is an ID like UA-xxxxxxxx-x.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <p class="submit">
+            <button type="submit" id="submit" class="button button-primary" i18n:translate="">Save Changes</button>
+        </p>
+    </form>
+</div>
