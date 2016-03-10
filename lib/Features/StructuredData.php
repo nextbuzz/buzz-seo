@@ -175,7 +175,7 @@ class StructuredData extends BaseFeature
                     }
 
                     // Add author
-                    if (is_array($options['addauthor']) && isset($options['addauthor'][$creativeWorkType])) {
+                    if (isset($options['addauthor']) && is_array($options['addauthor']) && isset($options['addauthor'][$creativeWorkType])) {
                         $authorF = get_the_author_meta('first_name', $post->post_author);
                         $authorL = get_the_author_meta('last_name', $post->post_author);
                         $authormail = get_the_author_meta('email', $post->post_author);

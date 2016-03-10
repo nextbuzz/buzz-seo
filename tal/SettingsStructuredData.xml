@@ -18,6 +18,7 @@
                 <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Basic</a>
                 <a class="nav-tab" href="javascript:;" i18n:translate="">Creative works</a>
                 <a class="nav-tab" href="javascript:;" i18n:translate="">Organizations</a>
+                <a class="nav-tab" href="javascript:;" i18n:translate="">Person</a>
             </div>
 
             <div class="inner">
