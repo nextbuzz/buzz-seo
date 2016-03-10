@@ -91,6 +91,16 @@ class StructuredData extends \NextBuzz\SEO\PHPTAL\SettingsPage
                     )
                 ),
             ),
+            array(
+                'name' => __('Person', 'buzz-seo'),
+                'items' => array(
+                    'Person' => array(
+                        'name' => __('Person', 'buzz-seo'),
+                        'intro' => __('A person (alive, dead, undead, or fictional).', 'buzz-seo'),
+                        'addauthoroption' => false,
+                    ),
+                ),
+            ),
         );
 
         // Get posttypes

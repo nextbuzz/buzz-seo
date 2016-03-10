@@ -54,6 +54,9 @@ class StructuredData extends BaseFeature
             $posttype = $screen->post_type;
             foreach ($options['addarticle'] as $creativeWorkType => $postTypes)
             {
+                if (!is_array($postTypes)) {
+                    continue;
+                }
                 $addForPostTypes = array_keys($postTypes);
                 if (in_array($posttype, $addForPostTypes)) {
                     switch ($creativeWorkType) {
@@ -136,6 +139,9 @@ class StructuredData extends BaseFeature
             $posttype = get_post_type();
             foreach ($options['addarticle'] as $creativeWorkType => $postTypes)
             {
+                if (!is_array($postTypes)) {
+                    continue;
+                }
                 $addForPostTypes = array_keys($postTypes);
                 if (in_array($posttype, $addForPostTypes)) {
                     // We are in a posttype that we want to add the article data for, but since we are not in the loop, get
@@ -144,7 +150,7 @@ class StructuredData extends BaseFeature
 
                     $class = "\\LengthOfRope\\JSONLD\\Schema\\" . $creativeWorkType . "Schema";
                     $Schema = $class::factory();
-                    
+
                     if ($Schema instanceof Schema\ThingSchema) {
                         $Schema->setName(get_the_title($post));
                         $url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
@@ -169,7 +175,7 @@ class StructuredData extends BaseFeature
                     }
 
                     // Add author
-                    if (is_array($options['addauthor']) && isset($options['addauthor'][$creativeWorkType])) {
+                    if (isset($options['addauthor']) && is_array($options['addauthor']) && isset($options['addauthor'][$creativeWorkType])) {
                         $authorF = get_the_author_meta('first_name', $post->post_author);
                         $authorL = get_the_author_meta('last_name', $post->post_author);
                         $authormail = get_the_author_meta('email', $post->post_author);
@@ -191,9 +197,9 @@ class StructuredData extends BaseFeature
 
                         $Schema->setAuthor($Author);
                     }
-                    
+
                     if ($Schema instanceof Schema\LocalBusinessSchema) {
-                        
+
                     }
 
                     $hasData = true;

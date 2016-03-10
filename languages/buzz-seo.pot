@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-03-08 21:00:15+0000\n"
+"POT-Creation-Date: 2016-03-10 08:15:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-08 21:00:15+0000\n"
+"PO-Revision-Date: 2016-03-10 08:15:10+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3 tal/SettingsStructuredData.xml:18
@@ -101,7 +101,7 @@ msgstr ""
 msgid "Current Facebook image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:95 tal/PostSEOBox.xml:133 tal/SettingsStructuredData.xml:49
+#: tal/PostSEOBox.xml:95 tal/PostSEOBox.xml:133 tal/SettingsStructuredData.xml:50
 msgid "Remove image"
 msgstr ""
 
@@ -109,7 +109,7 @@ msgstr ""
 msgid "Facebook image"
 msgstr ""
 
-#: tal/PostSEOBox.xml:104 tal/PostSEOBox.xml:142 tal/SettingsStructuredData.xml:58
+#: tal/PostSEOBox.xml:104 tal/PostSEOBox.xml:142 tal/SettingsStructuredData.xml:59
 msgid "Upload"
 msgstr ""
 
@@ -217,8 +217,32 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:141 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:41 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:142 tal/SettingsXML.xml:111
 msgid "Save Changes"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:2
+msgid "Google Analytics"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:12
+msgid "This section is to setup Google Analytics on your website. Make sure you don't use other plugins that do the same, because adding the code multiple times might give issues in the results."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:24
+msgid "Universal Tracking ID"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:27
+msgid "Add the Universal Analytics tracking ID from Google Analytics. This is an ID like UA-xxxxxxxx-x."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:31
+msgid "Site Verification"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:34
+msgid "Add the Google Site verification code from Google Webmaster Tools to let Google know you are the owner of this site."
 msgstr ""
 
 #: tal/SettingsCleanup.xml:2 lib/Features/CleanupHead.php:15 lib/Features/CleanupHead.php:81
@@ -349,7 +373,7 @@ msgstr ""
 msgid "Show tagline"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:126 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
+#: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:127 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr ""
 
@@ -421,83 +445,87 @@ msgstr ""
 msgid "Organizations"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:24
+#: tal/SettingsStructuredData.xml:21 lib/PHPTAL/Settings/StructuredData.php:95 lib/PHPTAL/Settings/StructuredData.php:98
+msgid "Person"
+msgstr ""
+
+#: tal/SettingsStructuredData.xml:25
 msgid "Structured data of the organization is added to the homepage. Leave the Name or URL empty if you don't want to add this information."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:28
+#: tal/SettingsStructuredData.xml:29
 msgid "Name"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:32
+#: tal/SettingsStructuredData.xml:33
 msgid "The official name of the organization, e.g. the registered company name."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:37
+#: tal/SettingsStructuredData.xml:38
 msgid "URL"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:41
+#: tal/SettingsStructuredData.xml:42
 msgid "The organization URL."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:45
+#: tal/SettingsStructuredData.xml:46
 msgid "Current logo"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:53
+#: tal/SettingsStructuredData.xml:54
 msgid "Logo"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:60
+#: tal/SettingsStructuredData.xml:61
 msgid "The organization logo."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:64
+#: tal/SettingsStructuredData.xml:65
 msgid "E-mail"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:67
+#: tal/SettingsStructuredData.xml:68
 msgid "The contact e-mail address for this organization."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:71
+#: tal/SettingsStructuredData.xml:72
 msgid "Phone"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:74
+#: tal/SettingsStructuredData.xml:75
 msgid "The phone number for this organization."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:78
+#: tal/SettingsStructuredData.xml:79
 msgid "Fax"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:81
+#: tal/SettingsStructuredData.xml:82
 msgid "The fax number for this organization."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:87
+#: tal/SettingsStructuredData.xml:88
 msgid "Fields marked with a * are required to embed this data."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:102
+#: tal/SettingsStructuredData.xml:103
 msgid "Content should be about"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:108 tal/SettingsXML.xml:64
+#: tal/SettingsStructuredData.xml:109 tal/SettingsXML.xml:64
 msgid "Post types"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:118
+#: tal/SettingsStructuredData.xml:119
 msgid "Add article structured data for posts in selected post types."
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:122
+#: tal/SettingsStructuredData.xml:123
 msgid "Add author as owner"
 msgstr ""
 
-#: tal/SettingsStructuredData.xml:128
+#: tal/SettingsStructuredData.xml:129
 msgid "Add the author of the post as owner of the structured data in selected post types."
 msgstr ""
 
@@ -607,6 +635,14 @@ msgstr ""
 
 #: lib/Features/Admin.php:233
 msgid "Unknown update checker status `%s`."
+msgstr ""
+
+#: lib/Features/Analytics.php:15 lib/Features/Analytics.php:40
+msgid "Analytics"
+msgstr ""
+
+#: lib/Features/Analytics.php:20
+msgid "Support for analytics."
 msgstr ""
 
 #: lib/Features/CleanupHead.php:20
@@ -805,7 +841,7 @@ msgstr ""
 msgid "XML Sitemaps"
 msgstr ""
 
-#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:47 lib/Features/StructuredData.php:85
+#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:47 lib/Features/StructuredData.php:88
 msgid "Structured Data"
 msgstr ""
 
@@ -817,11 +853,11 @@ msgstr ""
 msgid "Structured Data (SEO)"
 msgstr ""
 
-#: lib/Features/StructuredData.php:62
+#: lib/Features/StructuredData.php:65
 msgid "Featured image"
 msgstr ""
 
-#: lib/Features/StructuredData.php:64
+#: lib/Features/StructuredData.php:67
 msgid "A featured image is required."
 msgstr ""
 
@@ -955,5 +991,9 @@ msgstr ""
 
 #: lib/PHPTAL/Settings/StructuredData.php:89
 msgid "Represents the collection of all sports organizations, including sports teams, governing bodies, and sports associations."
+msgstr ""
+
+#: lib/PHPTAL/Settings/StructuredData.php:99
+msgid "A person (alive, dead, undead, or fictional)."
 msgstr ""
 

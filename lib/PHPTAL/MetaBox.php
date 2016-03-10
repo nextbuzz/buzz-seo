@@ -51,12 +51,18 @@ class MetaBox extends Template
 
     /**
      * Called on action 'add_meta_boxes'.
-     * 
+     *
      * @access private
      * @param string $post_type
      */
     public function addMetaBoxAction($post_type)
     {
+        // If this is a hidden post_type, we don't add anything
+        $obj = get_post_type_object($post_type);
+        if (!$obj->public) {
+            return;
+        }
+
         // Only add the meta box if the correct post type
         if (count($this->postTypes) === 0 || in_array($post_type, $this->postTypes)) {
             wp_enqueue_media();
@@ -68,7 +74,7 @@ class MetaBox extends Template
 
     /**
      * Render the actual meta box
-     * 
+     *
      * @access private
      * @param object $post The current post
      */
@@ -88,7 +94,7 @@ class MetaBox extends Template
 
     /**
      * This method is called on saving the post containing the MetaBox.
-     * 
+     *
      * @access private
      * @param integer $post_id
      */
@@ -161,7 +167,7 @@ class MetaBox extends Template
 
     /**
      * Add required (non empty) fields
-     * 
+     *
      * @param $required string|array Keynames of metabox fields that cannot be empty
      * @param $errorMessage string with error or false if $required param is an array
      */
@@ -180,7 +186,7 @@ class MetaBox extends Template
 
     /**
      * Add recommended (non empty) fields
-     * 
+     *
      * @param $recommended string|array Keynames of metabox fields that cannot be empty
      * @param $errorMessage string with error or false if $required param is an array
      */
@@ -199,7 +205,7 @@ class MetaBox extends Template
 
     /**
      * Validate fielddata
-     * 
+     *
      * @access private
      * @param string $data The post data
      * @return string
@@ -208,6 +214,12 @@ class MetaBox extends Template
     {
         // Don't want to do this on autosave
         if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+            return $data;
+        }
+
+        // If this is a hidden post_type, we don't add anything
+        $obj = get_post_type_object($data['post_type']);
+        if (!$obj->public) {
             return $data;
         }
 
@@ -261,7 +273,7 @@ class MetaBox extends Template
 
     /**
      * Remove the succesfully published message when there is a validation error
-     * 
+     *
      * @access private
      * @param type $location
      * @return type

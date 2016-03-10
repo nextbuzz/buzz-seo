@@ -22,6 +22,7 @@ class App
         // Load features
         $features = array(
             'Admin',
+            'Analytics',
             'CleanupHead',
             'PostSEOBox',
             'PostSEOBoxAnalysis',
