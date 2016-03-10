@@ -27,6 +27,13 @@
                             <p class="description" i18n:translate="">Add the Universal Analytics tracking ID from Google Analytics. This is an ID like UA-xxxxxxxx-x.</p>
                         </td>
                     </tr>
+                    <tr>
+                        <th scope="row" i18n:translate="">Site Verification</th>
+                        <td>
+                            <input type="text" name="SettingsAnalytics[siteverification]" tal:attributes="value siteverification | nothing" placeholder="xxxx_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx_xxxxxxxx" />
+                            <p class="description" i18n:translate="">Add the Google Site verification code from Google Webmaster Tools to let Google know you are the owner of this site.</p>
+                        </td>
+                    </tr>
                 </table>
             </div>
         </div>

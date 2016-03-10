@@ -23,7 +23,12 @@ class Analytics extends BaseFeature
     public function init()
     {
         add_action('admin_menu', array($this, 'createAdminMenu'));
-        add_action('wp_footer', array($this, 'addUACode'));
+
+        // Verification code somewhere on top
+        add_action('wp_head', array($this, 'addSiteVerificationCode'), 0);
+
+        // Make sure Google Analytics code is late in the head
+        add_action('wp_head', array($this, 'addUACode'), 99);
     }
 
     /**
@@ -48,7 +53,7 @@ class Analytics extends BaseFeature
         $options = get_option('_settingsSettingsAnalytics', true);
 
         // Nothing checked, so do nothing
-        if (!is_array($options)) {
+        if (!is_array($options) || !isset($options['uacode'])) {
             return;
         }
 
@@ -62,6 +67,21 @@ class Analytics extends BaseFeature
                 ga('create', '{$uacode}', 'auto');
                 ga('send', 'pageview');
               </script>";
+        }
+    }
+
+    public function addSiteVerificationCode()
+    {
+        $options = get_option('_settingsSettingsAnalytics', true);
+
+        // Nothing checked, so do nothing
+        if (!is_array($options) || !isset($options['siteverification'])) {
+            return;
+        }
+
+        $verificationcode = $options['siteverification'];
+        if (!empty($verificationcode)) {
+            echo '<meta name="google-site-verification" content="' . esc_attr($verificationcode) . '" />' . PHP_EOL;
         }
     }
 }
