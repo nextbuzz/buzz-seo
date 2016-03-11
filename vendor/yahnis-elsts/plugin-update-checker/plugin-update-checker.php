@@ -983,9 +983,13 @@ class PluginUpdate_3_0 {
 	public $homepage;
 	public $download_url;
 	public $upgrade_notice;
+	public $tested;
 	public $filename; //Plugin filename relative to the plugins directory.
 
-	private static $fields = array('id', 'slug', 'version', 'homepage', 'download_url', 'upgrade_notice', 'filename');
+	private static $fields = array(
+		'id', 'slug', 'version', 'homepage', 'tested',
+		'download_url', 'upgrade_notice', 'filename'
+	);
 	
 	/**
 	 * Create a new instance of PluginUpdate from its JSON-encoded representation.
@@ -1026,7 +1030,9 @@ class PluginUpdate_3_0 {
 	public static function fromObject($object) {
 		$update = new self();
 		$fields = self::$fields;
-		if (!empty($object->slug)) $fields = apply_filters('puc_retain_fields-'.$object->slug, $fields);
+		if ( !empty($object->slug) ) {
+			$fields = apply_filters('puc_retain_fields-' . $object->slug, $fields);
+		}
 		foreach($fields as $field){
 			if (property_exists($object, $field)) {
 				$update->$field = $object->$field;
@@ -1046,7 +1052,9 @@ class PluginUpdate_3_0 {
 	public function toStdClass() {
 		$object = new StdClass();
 		$fields = self::$fields;
-		if (!empty($this->slug)) $fields = apply_filters('puc_retain_fields-'.$this->slug, $fields);
+		if ( !empty($this->slug) ) {
+			$fields = apply_filters('puc_retain_fields-' . $this->slug, $fields);
+		}
 		foreach($fields as $field){
 			if (property_exists($this, $field)) {
 				$object->$field = $this->$field;
@@ -1069,6 +1077,7 @@ class PluginUpdate_3_0 {
 		$update->new_version = $this->version;
 		$update->url = $this->homepage;
 		$update->package = $this->download_url;
+		$update->tested = $this->tested;
 		$update->plugin = $this->filename;
 
 		if ( !empty($this->upgrade_notice) ){
