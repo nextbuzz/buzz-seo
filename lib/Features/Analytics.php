@@ -48,6 +48,15 @@ class Analytics extends BaseFeature
         \NextBuzz\SEO\PHPTAL\Settings\Analytics::factory()->render();
     }
 
+    /**
+     * Allow overriding the analytics Tracker var
+     * @return string
+     */
+    private function trackerVar()
+    {
+        return esc_js(apply_filters('buzz_seo_ga_tracker_var', 'ga'));
+    }
+
     public function addUACode()
     {
         $options = get_option('_settingsSettingsAnalytics', true);
@@ -59,14 +68,38 @@ class Analytics extends BaseFeature
 
         $uacode = $options['uacode'];
         if (!empty($uacode) && preg_match("/\bua-\d{4,9}-\d{1,4}\b/i", $uacode)) {
-            echo "<script>
-                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            $code       = "(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
                 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
                 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-                })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-                ga('create', '{$uacode}', 'auto');
-                ga('send', 'pageview');
-              </script>";
+                })(window,document,'script','//www.google-analytics.com/analytics.js','" . $this->trackerVar() . "');";
+            // Set UA code
+            $domainName = 'auto';
+            if (isset($options['setdomainname']) && !empty($options['setdomainname'])) {
+                $domainName = $options['setdomainname'];
+            }
+            $code .= $this->trackerVar() . "('create', '" . esc_js($uacode) . "', '" . esc_js($domainName) . "');";
+
+            // Anonymize
+            if (isset($options['anonymize'])) {
+                $code .= $this->trackerVar() . "('set', 'anonymizeIp', true);";
+            }
+
+            // Track user ID
+            $userId = intval(get_current_user_id());
+            if (isset($options['userid']) && $userId > 0) {
+                $code .= $this->trackerVar() . "('set', 'userId', " . $userId . ");";
+            }
+
+            // Display advertising
+            if (isset($options['displayadvertising'])) {
+                $code .= $this->trackerVar() . "('require', 'displayfeatures');";
+            }
+
+            // Track pageview
+            $code .= $this->trackerVar() . "('send', 'pageview');";
+
+            // Output script
+            echo "<script>{$code}</script>";
         }
     }
 
@@ -84,4 +117,5 @@ class Analytics extends BaseFeature
             echo '<meta name="google-site-verification" content="' . esc_attr($verificationcode) . '" />' . PHP_EOL;
         }
     }
+
 }
