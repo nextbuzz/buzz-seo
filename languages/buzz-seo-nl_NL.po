@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-03-10 09:15+0100\n"
-"PO-Revision-Date: 2016-03-10 09:20+0100\n"
+"POT-Creation-Date: 2016-03-11 09:27+0100\n"
+"PO-Revision-Date: 2016-03-11 09:32+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -273,13 +273,14 @@ msgid ""
 msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:41
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:84
 #: tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228
 #: tal/SettingsStructuredData.xml:142 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr "Opslaan"
 
-#: tal/SettingsAnalytics.xml:2
+#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:15
+#: lib/Features/Analytics.php:40
 msgid "Google Analytics"
 msgstr "Google Analytics"
 
@@ -294,11 +295,15 @@ msgstr ""
 "andere plugins, want als hij vaker dan 1 keer wordt geladen krijg je "
 "verkeerde resultaten."
 
-#: tal/SettingsAnalytics.xml:24
+#: tal/SettingsAnalytics.xml:19
+msgid "Options"
+msgstr "Opties"
+
+#: tal/SettingsAnalytics.xml:25
 msgid "Universal Tracking ID"
 msgstr "Universele Tracking ID"
 
-#: tal/SettingsAnalytics.xml:27
+#: tal/SettingsAnalytics.xml:28
 msgid ""
 "Add the Universal Analytics tracking ID from Google Analytics. This is an ID "
 "like UA-xxxxxxxx-x."
@@ -306,17 +311,83 @@ msgstr ""
 "Voeg de `Universal Analytics Tracking ID` van Google Analytics hier toe. "
 "Deze code heeft het volgende formaat: UA-xxxxxxxx-x."
 
-#: tal/SettingsAnalytics.xml:31
+#: tal/SettingsAnalytics.xml:32
 msgid "Site Verification"
 msgstr "Site verificatie"
 
-#: tal/SettingsAnalytics.xml:34
+#: tal/SettingsAnalytics.xml:35
 msgid ""
 "Add the Google Site verification code from Google Webmaster Tools to let "
 "Google know you are the owner of this site."
 msgstr ""
 "Voeg de `Google Site Verification` code van Google Webmaster Tools hier in "
 "zodat Google weet dat jij de eigenaar bent van de site."
+
+#: tal/SettingsAnalytics.xml:44
+msgid "Anonymize IP addresses"
+msgstr "Anonimizeer IP adressen"
+
+#: tal/SettingsAnalytics.xml:48 tal/SettingsAnalytics.xml:58
+#: tal/SettingsAnalytics.xml:68 tal/SettingsGeneral.xml:40
+#: tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60
+#: tal/SettingsStructuredData.xml:127 tal/SettingsXML.xml:53
+#: tal/SettingsXML.xml:100
+msgid "Yes"
+msgstr "Ja"
+
+#: tal/SettingsAnalytics.xml:50
+msgid ""
+"Enabling this option is mandatory in certain countries due to national "
+"privacy laws."
+msgstr ""
+"Het inschakelen van deze optie is verplicht in bepaalde landen als gevolg "
+"van de nationale privacywetgeving."
+
+#: tal/SettingsAnalytics.xml:54
+msgid "Track User ID"
+msgstr "Volg Gebruiker ID"
+
+#: tal/SettingsAnalytics.xml:60
+msgid ""
+"Lets you associate engagement data from multiple devices and multiple "
+"sessions using the User ID, so you can see how logged in users interact over "
+"a longer period with your content. You are required by law in certain "
+"countries to notify your users when enabling this option."
+msgstr ""
+"Aan de hand van de Gebruiker ID kunt u betrokkenheidsgegevens van "
+"verschillende apparaten en meerdere sessies koppelen, zodat u kunt zien hoe "
+"gebruikers gedurende een langere periode met uw inhoud omgaan. U bent "
+"wettelijk verplicht in bepaalde landen om uw gebruikers te waarschuwen "
+"wanneer u deze optie inschakelt."
+
+#: tal/SettingsAnalytics.xml:64
+msgid "Advertising Features"
+msgstr "Advertentiefuncties"
+
+#: tal/SettingsAnalytics.xml:70
+msgid ""
+"Set the Google Analytics code to support Advertising Features. Advertising "
+"features include: Remarketing with Google Analytics, Google Display Network "
+"Impression Reporting, Google Analytics Demographics and Interest Reporting. "
+"You are required by law in certain countries to notify your users when "
+"enabling this option."
+msgstr ""
+"Stel de Google Analytics code in om advertentiefuncties te ondersteunen. "
+"Onder meer: ​​Remarketing met Google Analytics, Google Display Netwerk "
+"Impressie Reportages, Google Analytics Demografische en Interesserapporten. "
+"U bent wettelijk verplicht in bepaalde landen om uw gebruikers te "
+"waarschuwen wanneer u deze optie inschakelt."
+
+#: tal/SettingsAnalytics.xml:74
+msgid "Set Domain Name"
+msgstr "Domein Naam"
+
+#: tal/SettingsAnalytics.xml:77
+msgid ""
+"(Optional) Set a custom domain name. Needed when tracking multiple domains."
+msgstr ""
+"(Optioneel) Stel een eigen domeinnaam in. Nodig wanneer u meerdere domeinen "
+"gebruikt met uw Analytics code."
 
 #: tal/SettingsCleanup.xml:2 lib/Features/CleanupHead.php:15
 #: lib/Features/CleanupHead.php:81
@@ -501,12 +572,6 @@ msgstr "Verander het scheidingsteken dat in de document titel gebruikt wordt."
 #: tal/SettingsGeneral.xml:36
 msgid "Show tagline"
 msgstr "Toon ondertitel"
-
-#: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50
-#: tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:127
-#: tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
-msgid "Yes"
-msgstr "Ja"
 
 #: tal/SettingsGeneral.xml:42
 msgid "Show the tagline on the document title when visiting the homepage."
@@ -830,10 +895,6 @@ msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 #: lib/Features/Admin.php:233
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
-
-#: lib/Features/Analytics.php:15 lib/Features/Analytics.php:40
-msgid "Analytics"
-msgstr "Analytics"
 
 #: lib/Features/Analytics.php:20
 msgid "Support for analytics."
@@ -1296,6 +1357,9 @@ msgstr ""
 #: lib/PHPTAL/Settings/StructuredData.php:99
 msgid "A person (alive, dead, undead, or fictional)."
 msgstr "Een persoon (levend, dood, ondood, of fictioneel)."
+
+#~ msgid "Analytics"
+#~ msgstr "Analytics"
 
 #~ msgid "Add article"
 #~ msgstr "Artikeldata toevoegen"

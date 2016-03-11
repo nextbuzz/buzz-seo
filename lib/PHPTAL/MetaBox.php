@@ -59,7 +59,7 @@ class MetaBox extends Template
     {
         // If this is a hidden post_type, we don't add anything
         $obj = get_post_type_object($post_type);
-        if (!$obj->public) {
+        if (is_null($obj) || !$obj->public) {
             return;
         }
 
@@ -219,7 +219,7 @@ class MetaBox extends Template
 
         // If this is a hidden post_type, we don't add anything
         $obj = get_post_type_object($data['post_type']);
-        if (!$obj->public) {
+        if (is_null($obj) || !$obj->public) {
             return $data;
         }
 

@@ -16,6 +16,7 @@
         <div class="buzz-seo-tabs">
             <div class="nav-tab-wrapper">
                 <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Basic</a>
+                <a class="nav-tab" href="javascript:;" i18n:translate="">Options</a>
             </div>
 
             <div class="inner">
@@ -32,6 +33,48 @@
                         <td>
                             <input type="text" name="SettingsAnalytics[siteverification]" tal:attributes="value siteverification | nothing" placeholder="xxxx_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx_xxxxxxxx" />
                             <p class="description" i18n:translate="">Add the Google Site verification code from Google Webmaster Tools to let Google know you are the owner of this site.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="inner hidden">
+                <table class="form-table">
+                    <tr>
+                        <th scope="row" i18n:translate="">Anonymize IP addresses</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsAnalytics[anonymize]" value="1" tal:attributes="checked exists:anonymize" />
+                                <tal:block i18n:translate="">Yes</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">Enabling this option is mandatory in certain countries due to national privacy laws.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" i18n:translate="">Track User ID</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsAnalytics[userid]" value="1" tal:attributes="checked exists:userid" />
+                                <tal:block i18n:translate="">Yes</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">Lets you associate engagement data from multiple devices and multiple sessions using the User ID, so you can see how logged in users interact over a longer period with your content. You are required by law in certain countries to notify your users when enabling this option.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" i18n:translate="">Advertising Features</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsAnalytics[displayadvertising]" value="1" tal:attributes="checked exists:displayadvertising" />
+                                <tal:block i18n:translate="">Yes</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">Set the Google Analytics code to support Advertising Features. Advertising features include: Remarketing with Google Analytics, Google Display Network Impression Reporting, Google Analytics Demographics and Interest Reporting. You are required by law in certain countries to notify your users when enabling this option.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" i18n:translate="">Set Domain Name</th>
+                        <td>
+                            <input type="text" name="SettingsAnalytics[setdomainname]" tal:attributes="value setdomainname | nothing" placeholder="auto" />
+                            <p class="description" i18n:translate="">(Optional) Set a custom domain name. Needed when tracking multiple domains.</p>
                         </td>
                     </tr>
                 </table>

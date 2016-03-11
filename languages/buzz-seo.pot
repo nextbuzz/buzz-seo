@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-03-10 08:15:10+0000\n"
+"POT-Creation-Date: 2016-03-11 08:27:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-10 08:15:10+0000\n"
+"PO-Revision-Date: 2016-03-11 08:27:00+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3 tal/SettingsStructuredData.xml:18
@@ -217,11 +217,11 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:41 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:142 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:84 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:142 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:2
+#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:15 lib/Features/Analytics.php:40
 msgid "Google Analytics"
 msgstr ""
 
@@ -229,20 +229,60 @@ msgstr ""
 msgid "This section is to setup Google Analytics on your website. Make sure you don't use other plugins that do the same, because adding the code multiple times might give issues in the results."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:24
+#: tal/SettingsAnalytics.xml:19
+msgid "Options"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:25
 msgid "Universal Tracking ID"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:27
+#: tal/SettingsAnalytics.xml:28
 msgid "Add the Universal Analytics tracking ID from Google Analytics. This is an ID like UA-xxxxxxxx-x."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:31
+#: tal/SettingsAnalytics.xml:32
 msgid "Site Verification"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:34
+#: tal/SettingsAnalytics.xml:35
 msgid "Add the Google Site verification code from Google Webmaster Tools to let Google know you are the owner of this site."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:44
+msgid "Anonymize IP addresses"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:48 tal/SettingsAnalytics.xml:58 tal/SettingsAnalytics.xml:68 tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:127 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
+msgid "Yes"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:50
+msgid "Enabling this option is mandatory in certain countries due to national privacy laws."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:54
+msgid "Track User ID"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:60
+msgid "Lets you associate engagement data from multiple devices and multiple sessions using the User ID, so you can see how logged in users interact over a longer period with your content. You are required by law in certain countries to notify your users when enabling this option."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:64
+msgid "Advertising Features"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:70
+msgid "Set the Google Analytics code to support Advertising Features. Advertising features include: Remarketing with Google Analytics, Google Display Network Impression Reporting, Google Analytics Demographics and Interest Reporting. You are required by law in certain countries to notify your users when enabling this option."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:74
+msgid "Set Domain Name"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:77
+msgid "(Optional) Set a custom domain name. Needed when tracking multiple domains."
 msgstr ""
 
 #: tal/SettingsCleanup.xml:2 lib/Features/CleanupHead.php:15 lib/Features/CleanupHead.php:81
@@ -371,10 +411,6 @@ msgstr ""
 
 #: tal/SettingsGeneral.xml:36
 msgid "Show tagline"
-msgstr ""
-
-#: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:127 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
-msgid "Yes"
 msgstr ""
 
 #: tal/SettingsGeneral.xml:42
@@ -635,10 +671,6 @@ msgstr ""
 
 #: lib/Features/Admin.php:233
 msgid "Unknown update checker status `%s`."
-msgstr ""
-
-#: lib/Features/Analytics.php:15 lib/Features/Analytics.php:40
-msgid "Analytics"
 msgstr ""
 
 #: lib/Features/Analytics.php:20
