@@ -103,21 +103,22 @@
         "version_normalized": "9999999-dev",
         "source": {
             "type": "git",
-            "url": "https://github.com/lengthofrope/plugin-update-checker.git",
-            "reference": "0b4a9d16cfde1556bafc656981f2ee9e15b89446"
+            "url": "https://github.com/YahnisElsts/plugin-update-checker.git",
+            "reference": "71631d1306725d3a60c396608abbce63de811110"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/lengthofrope/plugin-update-checker/zipball/0b4a9d16cfde1556bafc656981f2ee9e15b89446",
-            "reference": "0b4a9d16cfde1556bafc656981f2ee9e15b89446",
+            "url": "https://api.github.com/repos/YahnisElsts/plugin-update-checker/zipball/71631d1306725d3a60c396608abbce63de811110",
+            "reference": "71631d1306725d3a60c396608abbce63de811110",
             "shasum": ""
         },
         "require": {
             "php": ">=5.2.0"
         },
-        "time": "2016-03-11 05:51:43",
+        "time": "2016-03-15 11:56:45",
         "type": "library",
         "installation-source": "source",
+        "notification-url": "https://packagist.org/downloads/",
         "license": [
             "MIT"
         ],
@@ -135,9 +136,6 @@
             "automatic updates",
             "plugin updates",
             "wordpress"
-        ],
-        "support": {
-            "source": "https://github.com/lengthofrope/plugin-update-checker/tree/master"
-        }
+        ]
     }
 ]

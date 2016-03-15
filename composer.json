@@ -12,12 +12,6 @@
             "role": "Developer"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/lengthofrope/plugin-update-checker"
-        }
-    ],
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
