@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-03-16 06:01+0100\n"
-"PO-Revision-Date: 2016-03-16 06:05+0100\n"
+"POT-Creation-Date: 2016-03-16 15:00+0100\n"
+"PO-Revision-Date: 2016-03-16 15:00+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: buzz-seo.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -864,23 +864,6 @@ msgid "If enabled, also creates a sitemap of all author-pages."
 msgstr ""
 "Als dit is ingeschakeld, wordt ook de sitemap van alle auteurs toegevoegd."
 
-#: tal/StructuredDataBox.xml:1
-msgid ""
-"This post contains structured data. While not visible to the end-user, this "
-"is very visible to search engines. Additional requirements may apply."
-msgstr ""
-"Dit bericht bevat gestructureerde data. Hoewel dit niet zichtbaar is voor de "
-"eindgebruiker, is het wel zichtbaar voor zoekmachines. Mogelijk moet er aan "
-"extra voorwaarden worden voldaan om deze pagina op te slaan."
-
-#: tal/StructuredDataBox.xml:3
-msgid "Additional requirements:"
-msgstr "Additionele voorwaarden:"
-
-#: tal/StructuredDataBox.xml:7
-msgid "None"
-msgstr "Geen"
-
 #: lib/Features/Admin.php:16 lib/Features/Admin.php:21
 msgid "Admin Core"
 msgstr "Admin Core"
@@ -1217,8 +1200,7 @@ msgstr "Automatische generatie van XML sitemaps."
 msgid "XML Sitemaps"
 msgstr "XML sitemaps"
 
-#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:48
-#: lib/Features/StructuredData.php:89
+#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:71
 msgid "Structured Data"
 msgstr "Gestructureerde data"
 
@@ -1229,20 +1211,6 @@ msgid ""
 msgstr ""
 "Voeg gestructureerde data toe aan de content om zoekmachines de benodigde "
 "informatie te voorzien voor bijv. rich snippets te tonen."
-
-#: lib/Features/StructuredData.php:48
-msgid "Structured Data (SEO)"
-msgstr "Gestructureerde Data (SEO)"
-
-#: lib/Features/StructuredData.php:66
-msgid "Featured image"
-msgstr "Uitgelichte afbeelding"
-
-#: lib/Features/StructuredData.php:68
-msgid "A featured image is required for structured data to appear in the post."
-msgstr ""
-"Een uitgelichte afbeelding is verplicht om gestructureerde data aan het "
-"bericht toe te voegen."
 
 #: lib/PHPTAL/SettingsPage.php:72
 msgid "Nonce value is invalid."
@@ -1391,6 +1359,32 @@ msgstr ""
 #: lib/PHPTAL/Settings/StructuredData.php:99
 msgid "A person (alive, dead, undead, or fictional)."
 msgstr "Een persoon (levend, dood, ondood, of fictioneel)."
+
+#~ msgid ""
+#~ "This post contains structured data. While not visible to the end-user, "
+#~ "this is very visible to search engines. Additional requirements may apply."
+#~ msgstr ""
+#~ "Dit bericht bevat gestructureerde data. Hoewel dit niet zichtbaar is voor "
+#~ "de eindgebruiker, is het wel zichtbaar voor zoekmachines. Mogelijk moet "
+#~ "er aan extra voorwaarden worden voldaan om deze pagina op te slaan."
+
+#~ msgid "Additional requirements:"
+#~ msgstr "Additionele voorwaarden:"
+
+#~ msgid "None"
+#~ msgstr "Geen"
+
+#~ msgid "Structured Data (SEO)"
+#~ msgstr "Gestructureerde Data (SEO)"
+
+#~ msgid "Featured image"
+#~ msgstr "Uitgelichte afbeelding"
+
+#~ msgid ""
+#~ "A featured image is required for structured data to appear in the post."
+#~ msgstr ""
+#~ "Een uitgelichte afbeelding is verplicht om gestructureerde data aan het "
+#~ "bericht toe te voegen."
 
 #~ msgid "A featured image is required."
 #~ msgstr "Er moet een uitgelichte afbeelding worden toegevoegd."
