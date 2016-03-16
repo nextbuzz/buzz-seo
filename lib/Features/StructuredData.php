@@ -26,58 +26,40 @@ class StructuredData extends BaseFeature
 
     public function init()
     {
-        add_action('current_screen', array($this, 'initBack'));
         add_action('admin_menu', array($this, 'createAdminMenu'));
         add_action('wp_head', array($this, 'addJSONLDToHead'), 1);
         add_filter('the_content', array($this, 'addJSONLDToLoop'), 1);
+
+        // Remove hentry on post types that have structured data
+        add_filter('post_class', array($this, 'removeHentry'));
     }
 
     /**
-     * Initialize everything that is only needed in backend
+     * Post types that have custom structured data added, do not also need the hentry item to be added,
+     * so remove them
      *
-     * @return void
+     * @param array $classes
+     * @return array
      */
-    public function initBack()
+    public function removeHentry($classes)
     {
         $options = get_option('_settingsSettingsStructuredData', true);
 
-        if (is_home() || is_front_page()) {
-            return;
-        }
-        // Load SEO box for all Single pages
-        $meta = new \NextBuzz\SEO\PHPTAL\MetaBox('StructuredDataBox', __('Structured Data (SEO)', 'buzz-seo'));
-
-        // Add requirements messages for article/blogposting (post-thumbnail)
-        $msg = array();
-        $thmb = false;
-        if (isset($options['addarticle']) && is_array($options['addarticle'])) {
-            $screen = get_current_screen();
-            $posttype = $screen->post_type;
-            foreach ($options['addarticle'] as $creativeWorkType => $postTypes)
-            {
+        $posttype = get_post_type();
+        if (isset($posttype) && is_array($options) && isset($options['addarticle'])) {
+            foreach ($options['addarticle'] as $postTypes) {
                 if (!is_array($postTypes)) {
                     continue;
                 }
                 $addForPostTypes = array_keys($postTypes);
                 if (in_array($posttype, $addForPostTypes)) {
-                    switch ($creativeWorkType) {
-                        case 'Article':
-                        case 'BlogPosting':
-                            $m = __('Featured image', 'buzz-seo');
-                            if (!in_array($m, $msg)) {
-                                $meta->setRecommended('thumbnail', __('A featured image is required for structured data to appear in the post.', 'buzz-seo'));
-                                $msg[] = $m;
-                            }
-                            break;
-
-                        default:
-                    }
+                    $classes = array_diff($classes, array('hentry'));
+                    return $classes;
                 }
             }
         }
-        $meta->setTalData('require', $msg);
-        //$meta->setRequired('test', 'het veld test is nodig');
-        //$meta->setRecommended('test', 'het veld test is nodig');
+
+        return $classes;
     }
 
     /**
@@ -104,7 +86,7 @@ class StructuredData extends BaseFeature
     {
         $options = get_option('_settingsSettingsStructuredData', true);
 
-        $Create = \LengthOfRope\JSONLD\Create::factory();
+        $Create  = \LengthOfRope\JSONLD\Create::factory();
         $hasData = false;
         // Add Organization
         if ((is_home() || is_front_page()) &&
@@ -118,8 +100,7 @@ class StructuredData extends BaseFeature
             $Org = Schema\OrganizationSchema::factory();
 
             $add = array('legalName', 'url', 'email', 'telephone', 'faxNumber');
-            foreach ($add as $key)
-            {
+            foreach ($add as $key) {
                 if (!empty($options['homepage']['Organization'][$key])) {
                     $func = "set" . ucFirst($key);
                     $Org->$func($options['homepage']['Organization'][$key]);
@@ -171,13 +152,12 @@ class StructuredData extends BaseFeature
         }
         $options = get_option('_settingsSettingsStructuredData', true);
 
-        $Create = \LengthOfRope\JSONLD\Create::factory();
+        $Create  = \LengthOfRope\JSONLD\Create::factory();
         $hasData = false;
         // Add Article
         if (isset($options['addarticle']) && is_array($options['addarticle'])) {
             $posttype = get_post_type();
-            foreach ($options['addarticle'] as $creativeWorkType => $postTypes)
-            {
+            foreach ($options['addarticle'] as $creativeWorkType => $postTypes) {
                 if (!is_array($postTypes)) {
                     continue;
                 }
@@ -187,7 +167,7 @@ class StructuredData extends BaseFeature
                     // the author data in an arbitrary way
                     $postId = get_the_ID();
 
-                    $class = "\\LengthOfRope\\JSONLD\\Schema\\" . $creativeWorkType . "Schema";
+                    $class  = "\\LengthOfRope\\JSONLD\\Schema\\" . $creativeWorkType . "Schema";
                     $Schema = $class::factory();
 
                     if ($Schema instanceof Schema\ThingSchema) {
@@ -218,10 +198,10 @@ class StructuredData extends BaseFeature
 
                     // Add author
                     if (isset($options['addauthor']) && is_array($options['addauthor']) && isset($options['addauthor'][$creativeWorkType])) {
-                        $authorF = get_the_author_meta('first_name');
-                        $authorL = get_the_author_meta('last_name');
+                        $authorF    = get_the_author_meta('first_name');
+                        $authorL    = get_the_author_meta('last_name');
                         $authormail = get_the_author_meta('email');
-                        $authorurl = get_the_author_meta('url');
+                        $authorurl  = get_the_author_meta('url');
 
                         $Author = Schema\PersonSchema::factory();
                         if (!empty($authorF)) {
@@ -249,6 +229,8 @@ class StructuredData extends BaseFeature
         if ($hasData) {
             return $content . $Create->getJSONLDScript() . PHP_EOL;
         }
+
+        return $content;
     }
 
 }

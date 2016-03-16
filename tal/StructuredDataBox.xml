@@ -1,8 +1,0 @@
-<p i18n:translate="">This post contains structured data. While not visible to the end-user, this is very visible to search engines. Additional requirements may apply.</p>
-<p>
-    <strong i18n:translate="">Additional requirements:</strong>
-</p>
-<ul>
-    <li tal:repeat="rq require" tal:content="structure rq">None</li>
-    <li tal:condition="not:require" i18n:translate="">None</li>
-</ul>

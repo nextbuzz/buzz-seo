@@ -18,10 +18,6 @@ class MetaBox extends Template
     private $context;
     private $priority;
     private $title;
-    private $requiredFields = array();
-    private $recommendedFields = array();
-    private $errorMessageIndex = '';
-    private $recMessageIndex = '';
 
     /**
      * Constructor
@@ -43,10 +39,6 @@ class MetaBox extends Template
 
         add_action('add_meta_boxes', array($this, 'addMetaBoxAction'));
         add_action('save_post', array($this, 'savePostAction'));
-
-        // Save filter and create admin notices for errors
-        add_filter('wp_insert_post_data', array($this, 'validateRequired'));
-        add_action('admin_notices', array($this, 'showAdminNoticeRequiredFields'));
     }
 
     /**
@@ -163,151 +155,6 @@ class MetaBox extends Template
         }
 
         return $data;
-    }
-
-    /**
-     * Add required (non empty) fields
-     *
-     * @param $required string|array Keynames of metabox fields that cannot be empty
-     * @param $errorMessage string with error or false if $required param is an array
-     */
-    public function setRequired($required, $errorMessage = false)
-    {
-        if (!is_array($required)) {
-            $this->requiredFields[] = array('field' => $required, 'error' => $errorMessage);
-            return;
-        }
-
-        foreach ($required as $req => $errorMessage)
-        {
-            $this->setRequired($req, $errorMessage);
-        }
-    }
-
-    /**
-     * Add recommended (non empty) fields
-     *
-     * @param $recommended string|array Keynames of metabox fields that cannot be empty
-     * @param $errorMessage string with error or false if $required param is an array
-     */
-    public function setRecommended($recommended, $errorMessage = false)
-    {
-        if (!is_array($recommended)) {
-            $this->recommendedFields[] = array('field' => $recommended, 'error' => $errorMessage);
-            return;
-        }
-
-        foreach ($recommended as $req => $errorMessage)
-        {
-            $this->setRecommended($req, $errorMessage);
-        }
-    }
-
-    /**
-     * Validate fielddata
-     *
-     * @access private
-     * @param string $data The post data
-     * @return string
-     */
-    public function validateRequired($data)
-    {
-        // Don't want to do this on autosave
-        if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-            return $data;
-        }
-
-        // If this is a hidden post_type, we don't add anything
-        $obj = get_post_type_object($data['post_type']);
-        if (is_null($obj) || !$obj->public) {
-            return $data;
-        }
-
-        // Get the post data belonging to this metabox
-        $currentBoxData = isset($_POST[$this->name]) ? $_POST[$this->name] : array();
-
-        $ok = true;
-        $this->errorMessageIndex = '';
-        $post_thumb = isset($_POST['post_ID']) ? get_post_meta($_POST['post_ID'], '_thumbnail_id', true) : '';
-        foreach ($this->requiredFields as $index => $req)
-        {
-            if ($req['field'] === 'thumbnail' && strlen($post_thumb) === 0) {
-                $ok = false;
-                $this->errorMessageIndex .= $index . '-';
-            } elseif ($req['field'] !== 'thumbnail' && (!isset($currentBoxData[$req['field']]) || empty($currentBoxData[$req['field']]))) {
-                $ok = false;
-                $this->errorMessageIndex .= $index . '-';
-            }
-        }
-
-        $okReccommended = true;
-        $this->recMessageIndex = '';
-        foreach ($this->recommendedFields as $index => $req)
-        {
-            if (!isset($currentBoxData[$req['field']]) || empty($currentBoxData[$req['field']])) {
-                $okReccommended = false;
-                $this->recMessageIndex .= $index . '-';
-            }
-        }
-
-        if (!$okReccommended) {
-            add_filter('redirect_post_location', function($loc) {
-                return add_query_arg($this->name . 'RecNotice', substr($this->recMessageIndex, 0, -1), $loc);
-            });
-        }
-
-        if (!$ok) {
-            // Revert to draft
-            $data['post_status'] = 'draft';
-
-            add_filter('redirect_post_location', function($loc) {
-                return add_query_arg($this->name . 'Notice', substr($this->errorMessageIndex, 0, -1), $loc);
-            });
-
-            // Remove the publish success message
-            add_filter('redirect_post_location', array($this, 'removeMessage'));
-        }
-
-        return $data;
-    }
-
-    /**
-     * Remove the succesfully published message when there is a validation error
-     *
-     * @access private
-     * @param type $location
-     * @return type
-     */
-    public function removeMessage($location)
-    {
-        return remove_query_arg('message', $location);
-    }
-
-    /**
-     * Show admin errors for missing required fields
-     * @access private
-     */
-    public function showAdminNoticeRequiredFields()
-    {
-        if (isset($_GET[$this->name . 'Notice'])) {
-            $errors = explode('-', $_GET[$this->name . 'Notice']);
-            echo '<div class="notice-error notice"><ul>';
-            foreach ($errors as $index)
-            {
-                echo '<li>' . $this->requiredFields[$index]['error'] . '</li>';
-            }
-            echo '</ul></div>';
-        }
-
-        if (isset($_GET[$this->name . 'RecNotice'])) {
-            $errors = explode('-', $_GET[$this->name . 'RecNotice']);
-            echo '<div class="notice notice-warning is-dismissible"><ul>';
-            foreach ($errors as $index)
-            {
-                echo '<li>' . $this->recommendedFields[$index]['error'] . '</li>';
-            }
-            echo '</ul></div>';
-        }
     }
 
 }

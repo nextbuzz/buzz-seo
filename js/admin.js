@@ -443,7 +443,7 @@
             }
             text = text.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '');
             text = text.replace(/^y/, '');
-            
+
             var syllables = text.match(/[aeiouy]{1,2}/g);
             return (syllables === null) ? 0 : syllables.length;
         }
@@ -518,7 +518,11 @@
                     }
 
                     mediaIdField.val(attachment.id);
-                    mediaThumbField.val(attachment.sizes.thumbnail.url);
+                    if (attachment.sizes.thumbnail) {
+                        mediaThumbField.val(attachment.sizes.thumbnail.url);
+                    } else {
+                        mediaThumbField.val(attachment.url);
+                    }
                 });
             });
 
