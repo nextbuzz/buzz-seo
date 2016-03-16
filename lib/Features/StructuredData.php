@@ -276,6 +276,8 @@ class StructuredData extends BaseFeature
         if ($hasData) {
             return $content . $Create->getJSONLDScript() . PHP_EOL;
         }
+
+        return $content;
     }
 
 }
