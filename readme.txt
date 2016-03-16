@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.5-beta
-Stable tag: 0.7.6
+Stable tag: 0.7.7
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -43,8 +43,14 @@ try to solve it in a future release.
 
 == Changelog ==
 
+= 0.7.7 =
+* Add: Add site name for search results in structured data
+* Update: Move most structured data to the loop to prevent a lot of queries early on in the WP initialization process
+* Update: Recommend featured image for articles, instead of requireing
+* Update: Enhance support for structured data
+
 = 0.7.6 =
-* Add advanced trackingt options to Google Analytics code
+* Add advanced tracking options to Google Analytics code
 * Fix: metaboxes are no longer loaded on non-post-type editing screens
 * Fix: Github updater does not work in PHP 7
 
