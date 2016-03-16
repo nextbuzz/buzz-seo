@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-03-16 05:00:29+0000\n"
+"POT-Creation-Date: 2016-03-16 13:59:53+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-16 05:00:29+0000\n"
+"PO-Revision-Date: 2016-03-16 13:59:53+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3 tal/SettingsStructuredData.xml:18 tal/SettingsStructuredData.xml:28
@@ -649,18 +649,6 @@ msgstr ""
 msgid "If enabled, also creates a sitemap of all author-pages."
 msgstr ""
 
-#: tal/StructuredDataBox.xml:1
-msgid "This post contains structured data. While not visible to the end-user, this is very visible to search engines. Additional requirements may apply."
-msgstr ""
-
-#: tal/StructuredDataBox.xml:3
-msgid "Additional requirements:"
-msgstr ""
-
-#: tal/StructuredDataBox.xml:7
-msgid "None"
-msgstr ""
-
 #: lib/Features/Admin.php:16 lib/Features/Admin.php:21
 msgid "Admin Core"
 msgstr ""
@@ -901,24 +889,12 @@ msgstr ""
 msgid "XML Sitemaps"
 msgstr ""
 
-#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:48 lib/Features/StructuredData.php:89
+#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:71
 msgid "Structured Data"
 msgstr ""
 
 #: lib/Features/StructuredData.php:24
 msgid "Add structured data to the content to allow search engines to show the content as rich snippets."
-msgstr ""
-
-#: lib/Features/StructuredData.php:48
-msgid "Structured Data (SEO)"
-msgstr ""
-
-#: lib/Features/StructuredData.php:66
-msgid "Featured image"
-msgstr ""
-
-#: lib/Features/StructuredData.php:68
-msgid "A featured image is required for structured data to appear in the post."
 msgstr ""
 
 #: lib/PHPTAL/SettingsPage.php:72
