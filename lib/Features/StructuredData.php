@@ -26,7 +26,6 @@ class StructuredData extends BaseFeature
 
     public function init()
     {
-        add_action('current_screen', array($this, 'initBack'));
         add_action('admin_menu', array($this, 'createAdminMenu'));
         add_action('wp_head', array($this, 'addJSONLDToHead'), 1);
         add_filter('the_content', array($this, 'addJSONLDToLoop'), 1);
@@ -61,52 +60,6 @@ class StructuredData extends BaseFeature
         }
 
         return $classes;
-    }
-
-    /**
-     * Initialize everything that is only needed in backend
-     *
-     * @return void
-     */
-    public function initBack()
-    {
-        $options = get_option('_settingsSettingsStructuredData', true);
-
-        if (is_home() || is_front_page()) {
-            return;
-        }
-        // Load SEO box for all Single pages
-        $meta = new \NextBuzz\SEO\PHPTAL\MetaBox('StructuredDataBox', __('Structured Data (SEO)', 'buzz-seo'));
-
-        // Add requirements messages for article/blogposting (post-thumbnail)
-        $msg = array();
-        if (isset($options['addarticle']) && is_array($options['addarticle'])) {
-            $screen   = get_current_screen();
-            $posttype = $screen->post_type;
-            foreach ($options['addarticle'] as $creativeWorkType => $postTypes) {
-                if (!is_array($postTypes)) {
-                    continue;
-                }
-                $addForPostTypes = array_keys($postTypes);
-                if (in_array($posttype, $addForPostTypes)) {
-                    switch ($creativeWorkType) {
-                        case 'Article':
-                        case 'BlogPosting':
-                            $m = __('Featured image', 'buzz-seo');
-                            if (!in_array($m, $msg)) {
-                                $meta->setRecommended('thumbnail', __('A featured image is required for structured data to appear in the post.', 'buzz-seo'));
-                                $msg[] = $m;
-                            }
-                            break;
-
-                        default:
-                    }
-                }
-            }
-        }
-        $meta->setTalData('require', $msg);
-        //$meta->setRequired('test', 'het veld test is nodig');
-        //$meta->setRecommended('test', 'het veld test is nodig');
     }
 
     /**
