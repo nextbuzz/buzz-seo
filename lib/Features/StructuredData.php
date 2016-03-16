@@ -30,6 +30,37 @@ class StructuredData extends BaseFeature
         add_action('admin_menu', array($this, 'createAdminMenu'));
         add_action('wp_head', array($this, 'addJSONLDToHead'), 1);
         add_filter('the_content', array($this, 'addJSONLDToLoop'), 1);
+
+        // Remove hentry on post types that have structured data
+        add_filter('post_class', array($this, 'removeHentry'));
+    }
+
+    /**
+     * Post types that have custom structured data added, do not also need the hentry item to be added,
+     * so remove them
+     *
+     * @param array $classes
+     * @return array
+     */
+    public function removeHentry($classes)
+    {
+        $options = get_option('_settingsSettingsStructuredData', true);
+
+        $posttype = get_post_type();
+        if (isset($posttype) && is_array($options) && isset($options['addarticle'])) {
+            foreach ($options['addarticle'] as $postTypes) {
+                if (!is_array($postTypes)) {
+                    continue;
+                }
+                $addForPostTypes = array_keys($postTypes);
+                if (in_array($posttype, $addForPostTypes)) {
+                    $classes = array_diff($classes, array('hentry'));
+                    return $classes;
+                }
+            }
+        }
+
+        return $classes;
     }
 
     /**
@@ -49,12 +80,10 @@ class StructuredData extends BaseFeature
 
         // Add requirements messages for article/blogposting (post-thumbnail)
         $msg = array();
-        $thmb = false;
         if (isset($options['addarticle']) && is_array($options['addarticle'])) {
-            $screen = get_current_screen();
+            $screen   = get_current_screen();
             $posttype = $screen->post_type;
-            foreach ($options['addarticle'] as $creativeWorkType => $postTypes)
-            {
+            foreach ($options['addarticle'] as $creativeWorkType => $postTypes) {
                 if (!is_array($postTypes)) {
                     continue;
                 }
@@ -104,7 +133,7 @@ class StructuredData extends BaseFeature
     {
         $options = get_option('_settingsSettingsStructuredData', true);
 
-        $Create = \LengthOfRope\JSONLD\Create::factory();
+        $Create  = \LengthOfRope\JSONLD\Create::factory();
         $hasData = false;
         // Add Organization
         if ((is_home() || is_front_page()) &&
@@ -118,8 +147,7 @@ class StructuredData extends BaseFeature
             $Org = Schema\OrganizationSchema::factory();
 
             $add = array('legalName', 'url', 'email', 'telephone', 'faxNumber');
-            foreach ($add as $key)
-            {
+            foreach ($add as $key) {
                 if (!empty($options['homepage']['Organization'][$key])) {
                     $func = "set" . ucFirst($key);
                     $Org->$func($options['homepage']['Organization'][$key]);
@@ -171,13 +199,12 @@ class StructuredData extends BaseFeature
         }
         $options = get_option('_settingsSettingsStructuredData', true);
 
-        $Create = \LengthOfRope\JSONLD\Create::factory();
+        $Create  = \LengthOfRope\JSONLD\Create::factory();
         $hasData = false;
         // Add Article
         if (isset($options['addarticle']) && is_array($options['addarticle'])) {
             $posttype = get_post_type();
-            foreach ($options['addarticle'] as $creativeWorkType => $postTypes)
-            {
+            foreach ($options['addarticle'] as $creativeWorkType => $postTypes) {
                 if (!is_array($postTypes)) {
                     continue;
                 }
@@ -187,7 +214,7 @@ class StructuredData extends BaseFeature
                     // the author data in an arbitrary way
                     $postId = get_the_ID();
 
-                    $class = "\\LengthOfRope\\JSONLD\\Schema\\" . $creativeWorkType . "Schema";
+                    $class  = "\\LengthOfRope\\JSONLD\\Schema\\" . $creativeWorkType . "Schema";
                     $Schema = $class::factory();
 
                     if ($Schema instanceof Schema\ThingSchema) {
@@ -218,10 +245,10 @@ class StructuredData extends BaseFeature
 
                     // Add author
                     if (isset($options['addauthor']) && is_array($options['addauthor']) && isset($options['addauthor'][$creativeWorkType])) {
-                        $authorF = get_the_author_meta('first_name');
-                        $authorL = get_the_author_meta('last_name');
+                        $authorF    = get_the_author_meta('first_name');
+                        $authorL    = get_the_author_meta('last_name');
                         $authormail = get_the_author_meta('email');
-                        $authorurl = get_the_author_meta('url');
+                        $authorurl  = get_the_author_meta('url');
 
                         $Author = Schema\PersonSchema::factory();
                         if (!empty($authorF)) {
