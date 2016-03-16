@@ -135,11 +135,31 @@ class StructuredData extends BaseFeature
             $Create->add($Org);
         }
 
+        // Add Website
+        if ((is_home() || is_front_page()) &&
+            isset($options['homepage']) &&
+            isset($options['homepage']['Website']) &&
+            isset($options['homepage']['Website']['name']) &&
+            isset($options['homepage']['Website']['alternateName'])) {
+
+            $Web = Schema\WebSiteSchema::factory();
+
+            // Add url
+            $Web->setUrl(get_site_url());
+            $Web->setName(!empty($options['homepage']['Website']['name']) ? $options['homepage']['Website']['name'] : get_bloginfo('name'));
+            if (!empty($options['homepage']['Website']['alternateName'])) {
+                $Web->setAlternateName($options['homepage']['Website']['alternateName']);
+            }
+
+            $hasData = true;
+            $Create->add($Web);
+        }
+
         if ($hasData) {
             echo $Create->getJSONLDScript() . PHP_EOL;
         }
     }
-    
+
     /**
      * Output JSON-LD data in the loop of the HTML page if required
      */

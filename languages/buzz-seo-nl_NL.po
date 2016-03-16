@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-03-11 09:27+0100\n"
-"PO-Revision-Date: 2016-03-11 09:32+0100\n"
+"POT-Creation-Date: 2016-03-16 06:01+0100\n"
+"PO-Revision-Date: 2016-03-16 06:05+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: buzz-seo.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -21,6 +21,7 @@ msgstr ""
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
 #: tal/PostSEOBox.xml:3 tal/SettingsStructuredData.xml:18
+#: tal/SettingsStructuredData.xml:28
 msgid "Basic"
 msgstr "Basis"
 
@@ -136,7 +137,7 @@ msgid "Current Facebook image"
 msgstr "Huidige Facebook afbeelding"
 
 #: tal/PostSEOBox.xml:95 tal/PostSEOBox.xml:133
-#: tal/SettingsStructuredData.xml:50
+#: tal/SettingsStructuredData.xml:97
 msgid "Remove image"
 msgstr "Verwijder afbeelding"
 
@@ -145,7 +146,7 @@ msgid "Facebook image"
 msgstr "Facebook afbeelding"
 
 #: tal/PostSEOBox.xml:104 tal/PostSEOBox.xml:142
-#: tal/SettingsStructuredData.xml:59
+#: tal/SettingsStructuredData.xml:106
 msgid "Upload"
 msgstr "Uploaden"
 
@@ -275,7 +276,7 @@ msgstr ""
 
 #: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:84
 #: tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228
-#: tal/SettingsStructuredData.xml:142 tal/SettingsXML.xml:111
+#: tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr "Opslaan"
 
@@ -330,7 +331,7 @@ msgstr "Anonimizeer IP adressen"
 #: tal/SettingsAnalytics.xml:48 tal/SettingsAnalytics.xml:58
 #: tal/SettingsAnalytics.xml:68 tal/SettingsGeneral.xml:40
 #: tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60
-#: tal/SettingsStructuredData.xml:127 tal/SettingsXML.xml:53
+#: tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53
 #: tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr "Ja"
@@ -665,7 +666,47 @@ msgstr "Organisaties"
 msgid "Person"
 msgstr "Persoon"
 
-#: tal/SettingsStructuredData.xml:25
+#: tal/SettingsStructuredData.xml:33
+msgid "Website"
+msgstr "Website"
+
+#: tal/SettingsStructuredData.xml:34 lib/PHPTAL/Settings/StructuredData.php:75
+#: lib/PHPTAL/Settings/StructuredData.php:78
+msgid "Organization"
+msgstr "Organisatie"
+
+#: tal/SettingsStructuredData.xml:41 tal/SettingsStructuredData.xml:70
+msgid "Remark"
+msgstr "Opmerking"
+
+#: tal/SettingsStructuredData.xml:43
+msgid ""
+"Structured data of the website is added to the homepage. Filling out these "
+"fields will influence the way search engines show your site in search "
+"results. Defaults to site name."
+msgstr ""
+"Gestructureerde data over de website wordt op de homepage toegevoegd. Het "
+"aanpassen van deze velden heeft invloed op hoe zoekmachines de site "
+"weergeven in de zoekresultaten. Als je dit leeg laat wordt de sitenaam "
+"gebruikt."
+
+#: tal/SettingsStructuredData.xml:47 tal/SettingsStructuredData.xml:76
+msgid "Name"
+msgstr "Naam"
+
+#: tal/SettingsStructuredData.xml:51
+msgid "The preferred name of your website."
+msgstr "De gewenste naam van de website."
+
+#: tal/SettingsStructuredData.xml:56
+msgid "Alternative name"
+msgstr "Alternatieve naam"
+
+#: tal/SettingsStructuredData.xml:60
+msgid "An alternate name you want search engines to consider."
+msgstr "De alternatieve naam die zoekmachines mogen gebruiken."
+
+#: tal/SettingsStructuredData.xml:72
 msgid ""
 "Structured data of the organization is added to the homepage. Leave the Name "
 "or URL empty if you don't want to add this information."
@@ -673,85 +714,81 @@ msgstr ""
 "Gestructureerde data van de organisatie wordt toegevoegd aan de homepage. "
 "Laat de Naam of URL leeg als je deze data niet toegevoegd wilt hebben."
 
-#: tal/SettingsStructuredData.xml:29
-msgid "Name"
-msgstr "Naam"
-
-#: tal/SettingsStructuredData.xml:33
+#: tal/SettingsStructuredData.xml:80
 msgid ""
 "The official name of the organization, e.g. the registered company name."
 msgstr ""
 "De officiële naam van de organisatie, bijv de geregistreerde bedrijfsnaam."
 
-#: tal/SettingsStructuredData.xml:38
+#: tal/SettingsStructuredData.xml:85
 msgid "URL"
 msgstr "URL"
 
-#: tal/SettingsStructuredData.xml:42
+#: tal/SettingsStructuredData.xml:89
 msgid "The organization URL."
 msgstr "De URL van de organisatie."
 
-#: tal/SettingsStructuredData.xml:46
+#: tal/SettingsStructuredData.xml:93
 msgid "Current logo"
 msgstr "Huidige logo"
 
-#: tal/SettingsStructuredData.xml:54
+#: tal/SettingsStructuredData.xml:101
 msgid "Logo"
 msgstr "Logo"
 
-#: tal/SettingsStructuredData.xml:61
+#: tal/SettingsStructuredData.xml:108
 msgid "The organization logo."
 msgstr "Het logo van de organisatie."
 
-#: tal/SettingsStructuredData.xml:65
+#: tal/SettingsStructuredData.xml:112
 msgid "E-mail"
 msgstr "E-mail"
 
-#: tal/SettingsStructuredData.xml:68
+#: tal/SettingsStructuredData.xml:115
 msgid "The contact e-mail address for this organization."
 msgstr "Het contact e-mailadres van de organisatie."
 
-#: tal/SettingsStructuredData.xml:72
+#: tal/SettingsStructuredData.xml:119
 msgid "Phone"
 msgstr "Telefoonnummer"
 
-#: tal/SettingsStructuredData.xml:75
+#: tal/SettingsStructuredData.xml:122
 msgid "The phone number for this organization."
 msgstr "Het telefoonnummer van de organisatie."
 
-#: tal/SettingsStructuredData.xml:79
+#: tal/SettingsStructuredData.xml:126
 msgid "Fax"
 msgstr "Fax"
 
-#: tal/SettingsStructuredData.xml:82
+#: tal/SettingsStructuredData.xml:129
 msgid "The fax number for this organization."
 msgstr "Het faxnummer van de organisatie."
 
-#: tal/SettingsStructuredData.xml:88
+#: tal/SettingsStructuredData.xml:135
 msgid "Fields marked with a * are required to embed this data."
 msgstr ""
 "Velden gemarkeerd met een * zijn verplicht om de data toe te voegen als "
 "gestructureerde data."
 
-#: tal/SettingsStructuredData.xml:103
+#: tal/SettingsStructuredData.xml:155
 msgid "Content should be about"
 msgstr "De content moet gaan over"
 
-#: tal/SettingsStructuredData.xml:109 tal/SettingsXML.xml:64
+#: tal/SettingsStructuredData.xml:161 tal/SettingsXML.xml:64
 msgid "Post types"
 msgstr "Berichttypen"
 
-#: tal/SettingsStructuredData.xml:119
+#: tal/SettingsStructuredData.xml:171
 msgid "Add article structured data for posts in selected post types."
 msgstr ""
 "Voeg artikeldata gestructureerd toe voor berichten in de geselecteerde "
 "berichttypen."
 
-#: tal/SettingsStructuredData.xml:123
+#: tal/SettingsStructuredData.xml:175
 msgid "Add author as owner"
 msgstr "Voeg auteur toe als eigenaar"
 
-#: tal/SettingsStructuredData.xml:129
+#: tal/SettingsStructuredData.xml:181
 msgid ""
 "Add the author of the post as owner of the structured data in selected post "
 "types."
@@ -1180,8 +1217,8 @@ msgstr "Automatische generatie van XML sitemaps."
 msgid "XML Sitemaps"
 msgstr "XML sitemaps"
 
-#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:47
-#: lib/Features/StructuredData.php:88
+#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:48
+#: lib/Features/StructuredData.php:89
 msgid "Structured Data"
 msgstr "Gestructureerde data"
 
@@ -1193,17 +1230,19 @@ msgstr ""
 "Voeg gestructureerde data toe aan de content om zoekmachines de benodigde "
 "informatie te voorzien voor bijv. rich snippets te tonen."
 
-#: lib/Features/StructuredData.php:47
+#: lib/Features/StructuredData.php:48
 msgid "Structured Data (SEO)"
 msgstr "Gestructureerde Data (SEO)"
 
-#: lib/Features/StructuredData.php:65
+#: lib/Features/StructuredData.php:66
 msgid "Featured image"
 msgstr "Uitgelichte afbeelding"
 
-#: lib/Features/StructuredData.php:67
-msgid "A featured image is required."
-msgstr "Er moet een uitgelichte afbeelding worden toegevoegd."
+#: lib/Features/StructuredData.php:68
+msgid "A featured image is required for structured data to appear in the post."
+msgstr ""
+"Een uitgelichte afbeelding is verplicht om gestructureerde data aan het "
+"bericht toe te voegen."
 
 #: lib/PHPTAL/SettingsPage.php:72
 msgid "Nonce value is invalid."
@@ -1323,11 +1362,6 @@ msgstr "Recept"
 msgid "A recipe"
 msgstr "Een recept"
 
-#: lib/PHPTAL/Settings/StructuredData.php:75
-#: lib/PHPTAL/Settings/StructuredData.php:78
-msgid "Organization"
-msgstr "Organisatie"
-
 #: lib/PHPTAL/Settings/StructuredData.php:79
 msgid "An organization such as a school, NGO, corporation, club, etc."
 msgstr ""
@@ -1357,6 +1391,9 @@ msgstr ""
 #: lib/PHPTAL/Settings/StructuredData.php:99
 msgid "A person (alive, dead, undead, or fictional)."
 msgstr "Een persoon (levend, dood, ondood, of fictioneel)."
+
+#~ msgid "A featured image is required."
+#~ msgstr "Er moet een uitgelichte afbeelding worden toegevoegd."
 
 #~ msgid "Analytics"
 #~ msgstr "Analytics"

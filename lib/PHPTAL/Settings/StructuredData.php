@@ -114,6 +114,7 @@ class StructuredData extends \NextBuzz\SEO\PHPTAL\SettingsPage
         $this->setTalData(array(
             'postTypes' => $postTypes,
             'tabs' => $tabs,
+            'websitePlaceholder' => get_bloginfo('name')
         ));
     }
 
