@@ -64,7 +64,7 @@ class StructuredData extends BaseFeature
                         case 'BlogPosting':
                             $m = __('Featured image', 'buzz-seo');
                             if (!in_array($m, $msg)) {
-                                $meta->setRequired('thumbnail', __('A featured image is required.', 'buzz-seo'));
+                                $meta->setRecommended('thumbnail', __('A featured image is required for structured data to appear in the post.', 'buzz-seo'));
                                 $msg[] = $m;
                             }
                             break;
@@ -156,6 +156,9 @@ class StructuredData extends BaseFeature
                         $url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), 'full');
                         if (is_array($url)) {
                             $Schema->setImage(Schema\ImageObjectSchema::factory()->setUrl($url[0])->setWidth($url[1])->setHeight($url[2]));
+                        } else {
+                            // Skip this post since it has no image
+                            continue;
                         }
                         $excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $post->ID));
                         if (!empty($excerpt)) {
@@ -196,10 +199,6 @@ class StructuredData extends BaseFeature
                         }
 
                         $Schema->setAuthor($Author);
-                    }
-
-                    if ($Schema instanceof Schema\LocalBusinessSchema) {
-
                     }
 
                     $hasData = true;
