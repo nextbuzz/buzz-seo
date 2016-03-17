@@ -13,5 +13,12 @@ class StatusCodes extends \NextBuzz\SEO\PHPTAL\SettingsPage
     public function __construct($tplName)
     {
         parent::__construct('SettingsStatusCodes');
+        
+        $table404 = new \NextBuzz\SEO\Tables\Table404();
+        $table404->prepare_items();
+        
+        $this->setTalData(array(
+            'table404' => $table404->get_display(),
+        ));
     }
 }

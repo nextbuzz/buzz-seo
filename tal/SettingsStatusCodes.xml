@@ -22,6 +22,7 @@
 
             <div class="inner">
                 <p i18n:translate="">Whenever WordPress generates a 404 page, the URL responsible for the 404 will be added in the list below.</p>
+                <tal:block tal:content="structure table404">404 List Table</tal:block>
             </div>
             
             <div class="inner hidden">

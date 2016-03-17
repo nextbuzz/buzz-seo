@@ -9,7 +9,7 @@ namespace NextBuzz\SEO\Tools;
  * Note: this is just a simple convertor and does not feature all possibilities of PO/POT files. Also it
  *       has some minor issues, so be warned :)
  *
- * @author Bas de Kort <bas@nextbuzz.nl>
+ * @author LengthOfRope, Bas de Kort <bdekort@gmail.com>
  */
 class CreatePot
 {
