@@ -1,0 +1,51 @@
+<div class="wrap">
+    <h1 i18n:translate="">Status Codes</h1>
+
+    <div tal:condition="exists:message" class="updated">
+        <p tal:content="message">Bericht</p>
+    </div>
+
+    <div tal:condition="exists:errorMessage" class="error">
+        <p tal:content="errorMessage">Error</p>
+    </div>
+
+    <p i18n:translate="">Here you can manage your 404 errors and 301 redirects.</p>
+
+    <form method="post" action="">
+        <tal:block tal:content="structure settingsNonce" />
+        <div class="buzz-seo-tabs">
+            <div class="nav-tab-wrapper">
+                <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Not found (404)</a>
+                <a class="nav-tab" href="javascript:;" i18n:translate="">Redirect (301)</a>
+                <a class="nav-tab" href="javascript:;" i18n:translate="">Options</a>
+            </div>
+
+            <div class="inner">
+                <p i18n:translate="">Whenever WordPress generates a 404 page, the URL responsible for the 404 will be added in the list below.</p>
+            </div>
+            
+            <div class="inner hidden">
+                <p i18n:translate="">Here you can manage 301 redirects. Note: existing pages override the existing redirects. This prevents newly created pages not being accessible if a redirect for that URL already exists.</p>
+            </div>
+            
+            <div class="inner hidden">
+                <table class="form-table">
+                    <tr>
+                        <th scope="row" i18n:translate="">Auto manage slugchanges</th>
+                        <td>
+                            <label>
+                                <input type="checkbox" name="SettingsStatusCodes[manageslugs]" value="1" tal:attributes="checked exists:manageslugs"/>
+                                <tal:block i18n:translate="">Yes</tal:block>
+                            </label>
+                            <p class="description" i18n:translate="">When changing the slug of existing posts, adds 301 redirects on the fly from the old slug to the new one.</p>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <p class="submit">
+            <button type="submit" id="submit" class="button button-primary" i18n:translate="">Save Changes</button>
+        </p>
+    </form>
+</div>
