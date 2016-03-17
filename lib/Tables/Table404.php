@@ -20,9 +20,20 @@ class Table404 extends WPListTable
         ));
     }
 
+    public function display()
+    {
+        echo '<style type="text/css">';
+        echo '.wp-list-table .column-id { width: 5%; }';
+        echo '.wp-list-table .column-URI { width: 80%; }';
+        echo '.wp-list-table .column-count { width: 15%; }';
+        echo '</style>';
+
+        parent::display();
+    }
+
     public function no_items()
     {
-        _e('No 404 errors registered yet. Good job!', 'buzz-seo');
+        _e('No 404 errors registered. Good job!', 'buzz-seo');
     }
 
     public function column_default($item, $column_name)
@@ -67,13 +78,13 @@ class Table404 extends WPListTable
         return ( $order === 'asc' ) ? $result : -$result;
     }
 
-    public function column_booktitle($item)
+    public function column_URI($item)
     {
         $actions = array(
-            'edit' => sprintf('<a href="?page=%s&action=%s&book=%s">Edit</a>', $_REQUEST['page'], 'edit', $item['ID']),
-            'delete' => sprintf('<a href="?page=%s&action=%s&book=%s">Delete</a>', $_REQUEST['page'], 'delete', $item['ID']),
+            'convert' => sprintf('<a href="?page=%s&action=%s&ID=%s">' . __("Convert to 301", "buzz-seo") . '</a>', $_REQUEST['page'], 'edit', $item['ID']),
+            'delete' => sprintf('<a href="?page=%s&action=%s&ID=%s">' . __("Delete", "buzz-seo") . '</a>', $_REQUEST['page'], 'delete', $item['ID']),
         );
-        return sprintf('%1$s %2$s', $item['booktitle'], $this->row_actions($actions));
+        return sprintf('%1$s %2$s', $item['URI'], $this->row_actions($actions));
     }
 
     public function get_bulk_actions()
@@ -131,22 +142,29 @@ class Table404 extends WPListTable
         if (!isset($_POST) || !isset($_POST['error404'])) {
             return;
         }
-        
-        $bulkitems = array();
-        foreach($this->items as $item) {
-            if (in_array($item['ID'], $_POST['error404'])) {
-                $bulkitems[] = $item;
+
+        $errors404 = get_option('_settingsSettingsStatusCodes404', array());
+
+        // Both convert and delete should remove the item from the 404 list
+        if ('delete' === $this->current_action() || 'convert' === $this->current_action()) {
+            $data = array();
+            foreach ($errors404 as $uri => $info)
+            {
+                if (in_array(md5($uri), $_POST['error404'])) {
+                    unset($errors404[$uri]);
+                }
             }
-        }
-        
-        //Detect when a bulk action is being triggered... 
-        if ('delete' === $this->current_action()) {
-            wp_die('TODO: Delete items');
+            
+            // Save new data
+            update_option('_settingsSettingsStatusCodes404', $errors404, false);
         }
 
+        // Convert should as well add the item to the 301 list
         if ('convert' === $this->current_action()) {
             wp_die('TODO: Convert items');
         }
+        
+        wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
     }
 
 }
