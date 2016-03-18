@@ -24,11 +24,11 @@
                 <p i18n:translate="">Whenever WordPress generates a 404 page, the URL responsible for the 404 will be added in the list below.</p>
                 <tal:block tal:content="structure table404">404 List Table</tal:block>
             </div>
-            
+
             <div class="inner hidden">
-                <p i18n:translate="">Here you can manage 301 redirects. Note: existing pages override the existing redirects. This prevents newly created pages not being accessible if a redirect for that URL already exists.</p>
+                <p i18n:translate="">Here you can manage 301 redirects. Note: existing pages override the existing redirects. This prevents newly created pages not being accessible if a redirect for that URL already exists. If you leave the `Redirect to` empty, the URL will redirect to the homepage.</p>
             </div>
-            
+
             <div class="inner hidden">
                 <table class="form-table">
                     <tr>

@@ -9,6 +9,7 @@ namespace NextBuzz\SEO\Features;
  */
 class StatusCodes extends BaseFeature
 {
+
     public function name()
     {
         return __("Status Codes", 'buzz-seo');
@@ -60,15 +61,28 @@ class StatusCodes extends BaseFeature
      */
     public function manage404()
     {
-        global $wp_query;
-
         // If not a 404 page, bail early
-        if (!$wp_query->is_404())
-        {
+        if (!is_404()) {
             return;
         }
 
         $uri = $_SERVER['REQUEST_URI'];
+
+        // Check if we can redirect this item
+        $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
+        if (array_key_exists($uri, $redirects301)) {
+            $redirect = $redirects301[$uri];
+
+            // Redirect home no redirect is empty
+            $redirectTo = empty($redirect['redirect']) ? home_url() : $redirect['redirect'];
+
+            wp_redirect($redirectTo, 301);
+            exit;
+
+            // Bail because we don't want it added to 404
+            return;
+        }
+
 
         // Make sure array exists
         $errors404 = get_option('_settingsSettingsStatusCodes404', array());
@@ -90,4 +104,5 @@ class StatusCodes extends BaseFeature
         // Make sure it does not autoload
         update_option('_settingsSettingsStatusCodes404', $errors404, false);
     }
+
 }
