@@ -27,6 +27,7 @@
 
             <div class="inner hidden">
                 <p i18n:translate="">Here you can manage 301 redirects. Note: existing pages override the existing redirects. This prevents newly created pages not being accessible if a redirect for that URL already exists. If you leave the `Redirect to` empty, the URL will redirect to the homepage.</p>
+                <tal:block tal:content="structure table301">301 List Table</tal:block>
             </div>
 
             <div class="inner hidden">
