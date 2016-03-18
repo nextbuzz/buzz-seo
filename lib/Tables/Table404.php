@@ -152,8 +152,10 @@ class Table404 extends WPListTable
         $errors404 = get_option('_settingsSettingsStatusCodes404', array());
 
         if ('delete' === $_GET['action'] || 'convert' === $_GET['action']) {
+            $convertUri = false;
             foreach ($errors404 as $uri => $info) {
                 if (md5($uri) === $_GET['ID']) {
+                    $convertUri = $uri;
                     unset($errors404[$uri]);
                 }
             }
@@ -164,7 +166,17 @@ class Table404 extends WPListTable
 
         // Convert should as well add the item to the 301 list
         if ('convert' === $_GET['action']) {
-            wp_die('TODO: Convert items');
+            $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
+
+            if (!isset($redirects301[$convertUri])) {
+                $redirects301[$uri] = array(
+                    'redirect'  => '',
+                    'timestamp' => time(),
+                );
+            }
+
+            // Save new data
+            update_option('_settingsSettingsStatusCodes301', $redirects301, false);
         }
 
         wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
@@ -179,9 +191,11 @@ class Table404 extends WPListTable
         $errors404 = get_option('_settingsSettingsStatusCodes404', array());
 
         // Both convert and delete should remove the item from the 404 list
+        $addToConvert = array();
         if ('delete' === $this->current_action() || 'convert' === $this->current_action()) {
             foreach ($errors404 as $uri => $info) {
                 if (in_array(md5($uri), $_POST['error404'])) {
+                    $addToConvert[] = $uri;
                     unset($errors404[$uri]);
                 }
             }
@@ -192,7 +206,19 @@ class Table404 extends WPListTable
 
         // Convert should as well add the item to the 301 list
         if ('convert' === $this->current_action()) {
-            wp_die('TODO: Convert items');
+            $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
+
+            foreach ($addToConvert as $uri) {
+                if (!isset($redirects301[$uri])) {
+                    $redirects301[$uri] = array(
+                        'redirect'  => '',
+                        'timestamp' => time(),
+                    );
+                }
+            }
+
+            // Save new data
+            update_option('_settingsSettingsStatusCodes301', $redirects301, false);
         }
 
         wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
