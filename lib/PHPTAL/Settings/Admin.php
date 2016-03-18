@@ -15,16 +15,16 @@ class Admin extends \NextBuzz\SEO\PHPTAL\SettingsPage
     {
         // Add additional action after saving (must be above parent constructor!)
         add_action('buzz-seo-settings-page-save-SettingsAdmin', array($this, 'rewritePermalinks'), 10, 2);
-        
+
         // Allow seeing the results of our save immidiately
         add_action('buzz-seo-settings-page-save-SettingsAdmin', array($this, 'redirectAfterSave'), 99, 2);
-        
+
         parent::__construct('SettingsAdmin');
-        
+
         if (isset($_GET['saved'])) {
             $this->setTalData('message', __("Settings saved.", "buzz-seo"));
         }
-        
+
         // grab app
         $seo = \NextBuzz\SEO\App::getInstance();
 
@@ -70,7 +70,7 @@ class Admin extends \NextBuzz\SEO\PHPTAL\SettingsPage
             {
                 unset($rules['sitemap\.xml$']);
                 unset($rules['sitemap-([^/]+?)-?([0-9]+)?\.xml$']);
-                
+
                 return $rules;
             });
             flush_rewrite_rules();
@@ -82,7 +82,7 @@ class Admin extends \NextBuzz\SEO\PHPTAL\SettingsPage
             flush_rewrite_rules();
         }
     }
-    
+
     /**
      * Manually refresh the page if admin settings are saved so we see result immidiately
      * @param type $old_options
@@ -91,7 +91,7 @@ class Admin extends \NextBuzz\SEO\PHPTAL\SettingsPage
      */
     public function redirectAfterSave($old_options, $new_options)
     {
-        header("Location: " . $_SERVER['REQUEST_URI'] . '&saved=1');
+        wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
     }
 
 }

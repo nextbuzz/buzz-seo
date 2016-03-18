@@ -23,9 +23,6 @@ class Admin extends BaseFeature
 
     public function init()
     {
-        // Check for title-tag theme support
-        add_action('admin_init', array($this, 'checkTitleTagSupport'));
-
         // Front end actions
         add_filter('document_title_parts', array($this, 'filterTitleParts'), 15);
         add_filter('document_title_separator', array($this, 'filterTitleSeparator'), 15);
@@ -34,6 +31,14 @@ class Admin extends BaseFeature
         if (!is_admin()) {
             return;
         }
+        
+        // Turn on output buffering in admin, so we can use wp_redirect in TAL
+        add_action('admin_init', function() {
+            ob_start();
+        });
+
+        // Check for title-tag theme support
+        add_action('admin_init', array($this, 'checkTitleTagSupport'));
 
         add_action('admin_enqueue_scripts', array($this, 'enqueueAdminScripts'));
 
