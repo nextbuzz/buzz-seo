@@ -29,7 +29,7 @@ class StatusCodes extends BaseFeature
         if (!is_array($options)) {
             return;
         }
-        
+
         if (isset($options['manage404'])) {
             add_action('template_redirect', array($this, 'manage404'));
         }
@@ -51,40 +51,42 @@ class StatusCodes extends BaseFeature
     {
         \NextBuzz\SEO\PHPTAL\Settings\StatusCodes::factory()->render();
     }
-    
+
     /**
      * Save request uri to db if a 404 is found.
-     * 
+     *
      * @global type $wp_query
      * @return type
      */
     public function manage404()
     {
         global $wp_query;
-        
+
         // If not a 404 page, bail early
         if (!$wp_query->is_404())
         {
             return;
         }
-        
+
         $uri = $_SERVER['REQUEST_URI'];
-        
+
         // Make sure array exists
         $errors404 = get_option('_settingsSettingsStatusCodes404', array());
-        
+
         // Add entry to array
         if (!array_key_exists($uri, $errors404)) {
             $errors404[$uri] = array();
         }
-        
+
         // Update count
         if (!isset($errors404[$uri]['count'])) {
             $errors404[$uri]['count'] = 1;
         } else {
             $errors404[$uri]['count'] += 1;
         }
-        
+
+        $errors404[$uri]['timestamp'] = time();
+
         // Make sure it does not autoload
         update_option('_settingsSettingsStatusCodes404', $errors404, false);
     }

@@ -15,8 +15,8 @@ class Table404 extends WPListTable
         global $status, $page;
         parent::__construct(array(
             'singular' => __('Not Found (404)', 'buzz-seo'), //singular name of the listed records
-            'plural' => __('Not Found (404)', 'buzz-seo'), //plural name of the listed records
-            'ajax' => false        //does this table support ajax?
+            'plural'   => __('Not Found (404)', 'buzz-seo'), //plural name of the listed records
+            'ajax'     => false        //does this table support ajax?
         ));
     }
 
@@ -24,8 +24,9 @@ class Table404 extends WPListTable
     {
         echo '<style type="text/css">';
         echo '.wp-list-table .column-id { width: 5%; }';
-        echo '.wp-list-table .column-URI { width: 80%; }';
-        echo '.wp-list-table .column-count { width: 15%; }';
+        echo '.wp-list-table .column-URI { width: 75%; }';
+        echo '.wp-list-table .column-timestamp { width: 15%; }';
+        echo '.wp-list-table .column-count { width: 5%; }';
         echo '</style>';
 
         parent::display();
@@ -42,6 +43,8 @@ class Table404 extends WPListTable
             case 'URI':
             case 'count':
                 return $item[$column_name];
+            case 'timestamp':
+                return date_i18n(get_option('date_format') . ' ' . get_option('time_format'), intval($item[$column_name]));
             default:
                 return print_r($item, true); //Show the whole array for troubleshooting purposes
         }
@@ -50,8 +53,9 @@ class Table404 extends WPListTable
     public function get_sortable_columns()
     {
         $sortable_columns = array(
-            'URI' => array('URI', false),
-            'count' => array('count', true),
+            'URI'       => array('URI', false),
+            'timestamp' => array('timestamp', false),
+            'count'     => array('count', true),
         );
         return $sortable_columns;
     }
@@ -59,9 +63,10 @@ class Table404 extends WPListTable
     public function get_columns()
     {
         $columns = array(
-            'cb' => '<input type="checkbox" />',
-            'URI' => __('Request URI', 'buzz-seo'),
-            'count' => __('Count', 'buzz-seo'),
+            'cb'        => '<input type="checkbox" />',
+            'URI'       => __('Request URI', 'buzz-seo'),
+            'timestamp' => __('Last request', 'buzz-seo'),
+            'count'     => __('Count', 'buzz-seo'),
         );
         return $columns;
     }
@@ -71,9 +76,9 @@ class Table404 extends WPListTable
         // If no sort, default to title
         $orderby = (!empty($_GET['orderby']) ) ? $_GET['orderby'] : 'count';
         // If no order, default to asc
-        $order = (!empty($_GET['order']) ) ? $_GET['order'] : 'desc';
+        $order   = (!empty($_GET['order']) ) ? $_GET['order'] : 'desc';
         // Determine sort order
-        $result = strcmp($a[$orderby], $b[$orderby]);
+        $result  = strcmp($a[$orderby], $b[$orderby]);
         // Send final sort direction to usort
         return ( $order === 'asc' ) ? $result : -$result;
     }
@@ -81,8 +86,8 @@ class Table404 extends WPListTable
     public function column_URI($item)
     {
         $actions = array(
-            'convert' => sprintf('<a href="?page=%s&action=%s&ID=%s">' . __("Convert to 301", "buzz-seo") . '</a>', $_REQUEST['page'], 'edit', $item['ID']),
-            'delete' => sprintf('<a href="?page=%s&action=%s&ID=%s">' . __("Delete", "buzz-seo") . '</a>', $_REQUEST['page'], 'delete', $item['ID']),
+            'convert' => sprintf('<a href="?page=%s&action=%s&ID=%s">' . __("Convert to 301", "buzz-seo") . '</a>', $_REQUEST['page'], 'convert', $item['ID']),
+            'delete'  => sprintf('<a href="?page=%s&action=%s&ID=%s">' . __("Delete", "buzz-seo") . '</a>', $_REQUEST['page'], 'delete', $item['ID']),
         );
         return sprintf('%1$s %2$s', $item['URI'], $this->row_actions($actions));
     }
@@ -91,7 +96,7 @@ class Table404 extends WPListTable
     {
         $actions = array(
             'convert' => __('Convert to 301', 'buzz-seo'),
-            'delete' => __('Delete', 'buzz-seo'),
+            'delete'  => __('Delete', 'buzz-seo'),
         );
         return $actions;
     }
@@ -106,35 +111,63 @@ class Table404 extends WPListTable
     public function prepare_items()
     {
         $errors404 = get_option('_settingsSettingsStatusCodes404', array());
-        $data = array();
-        foreach ($errors404 as $uri => $info)
-        {
+        $data      = array();
+        foreach ($errors404 as $uri => $info) {
             $data[] = array(
-                'ID' => md5($uri),
-                'URI' => $uri,
-                'count' => $info['count'],
+                'ID'        => md5($uri),
+                'URI'       => $uri,
+                'timestamp' => $info['timestamp'],
+                'count'     => $info['count'],
             );
         }
 
-        $columns = $this->get_columns();
-        $hidden = array();
-        $sortable = $this->get_sortable_columns();
+        $columns               = $this->get_columns();
+        $hidden                = array();
+        $sortable              = $this->get_sortable_columns();
         $this->_column_headers = array($columns, $hidden, $sortable);
         usort($data, array(&$this, 'usort_reorder'));
 
-        $per_page = 25;
-        $current_page = $this->get_pagenum();
-        $total_items = count($data);
+        $per_page        = 25;
+        $current_page    = $this->get_pagenum();
+        $total_items     = count($data);
         // only ncessary because we have sample data
         $currentPageData = array_slice($data, ( ( $current_page - 1 ) * $per_page), $per_page);
         $this->set_pagination_args(array(
             'total_items' => $total_items, //WE have to calculate the total number of items
-            'per_page' => $per_page                     //WE have to determine how many items to show on a page
+            'per_page'    => $per_page                     //WE have to determine how many items to show on a page
         ));
-        $this->items = $currentPageData;
+        $this->items     = $currentPageData;
 
         // Handle bulk action
+        $this->process_single_action();
         $this->process_bulk_action();
+    }
+
+    private function process_single_action()
+    {
+        if (!isset($_GET) || !isset($_GET['action']) || !isset($_GET['ID']) || isset($_GET['saved'])) {
+            return;
+        }
+
+        $errors404 = get_option('_settingsSettingsStatusCodes404', array());
+
+        if ('delete' === $_GET['action'] || 'convert' === $_GET['action']) {
+            foreach ($errors404 as $uri => $info) {
+                if (md5($uri) === $_GET['ID']) {
+                    unset($errors404[$uri]);
+                }
+            }
+
+            // Save new data
+            update_option('_settingsSettingsStatusCodes404', $errors404, false);
+        }
+
+        // Convert should as well add the item to the 301 list
+        if ('convert' === $_GET['action']) {
+            wp_die('TODO: Convert items');
+        }
+
+        wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
     }
 
     private function process_bulk_action()
@@ -147,14 +180,12 @@ class Table404 extends WPListTable
 
         // Both convert and delete should remove the item from the 404 list
         if ('delete' === $this->current_action() || 'convert' === $this->current_action()) {
-            $data = array();
-            foreach ($errors404 as $uri => $info)
-            {
+            foreach ($errors404 as $uri => $info) {
                 if (in_array(md5($uri), $_POST['error404'])) {
                     unset($errors404[$uri]);
                 }
             }
-            
+
             // Save new data
             update_option('_settingsSettingsStatusCodes404', $errors404, false);
         }
@@ -163,7 +194,7 @@ class Table404 extends WPListTable
         if ('convert' === $this->current_action()) {
             wp_die('TODO: Convert items');
         }
-        
+
         wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
     }
 
