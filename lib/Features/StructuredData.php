@@ -165,7 +165,6 @@ class StructuredData extends BaseFeature
                 if (in_array($posttype, $addForPostTypes)) {
                     // We are in a posttype that we want to add the article data for, but since we are not in the loop, get
                     // the author data in an arbitrary way
-                    $postId = get_the_ID();
 
                     $class  = "\\LengthOfRope\\JSONLD\\Schema\\" . $creativeWorkType . "Schema";
                     $Schema = $class::factory();
@@ -179,7 +178,7 @@ class StructuredData extends BaseFeature
                             // Skip this post since it has no image
                             continue;
                         }
-                        $excerpt = apply_filters('the_excerpt', get_post_field('post_excerpt', $postId));
+                        $excerpt = get_the_excerpt();
                         if (!empty($excerpt)) {
                             $Schema->setDescription(strip_tags($excerpt));
                         }
