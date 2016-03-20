@@ -13,7 +13,7 @@
      * as visible. We do this by toggling the 'hidden' class attribute of the corresponding variables.
      **/
     $(function () {
-        var tabContainer = $('.buzz-seo-tabs'), hashCount = 1, hashDepth = 0;
+        var tabContainer = $('.buzz-seo-tabs'), hashCount = 1, hashDepth = 0, tablist = [];
         tabContainer.each(function () {
             hashDepth++;
             var that = $(this), navTabs = that.children('.nav-tab-wrapper'),
@@ -22,6 +22,7 @@
             navTabs.children().each(function () {
                 $(this).data("hashId", hashDepth + "_" + hashCount++);
                 $(this).data("hashDepth", hashDepth);
+                tablist.push($(this));
                 $(this).on('click', function (evt) {
                     evt.preventDefault();
                     
@@ -68,6 +69,17 @@
                 });
             });
         });
+        
+        // Open all existing hash tabs
+        var hash = location.hash.replace('#',''), hashes = hash.split('-'), tab, tabindex;
+        hashes.shift();
+        
+        for(tabindex in tablist) {
+            tab = tablist[tabindex];
+            if (hashes.indexOf(tab.data("hashId")) !== -1) {
+                tab.click();
+            }
+        }
     });
 
     /**
