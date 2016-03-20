@@ -52,7 +52,7 @@ class StatusCodes extends BaseFeature
     {
         \NextBuzz\SEO\PHPTAL\Settings\StatusCodes::factory()->render();
     }
-
+   
     /**
      * Save request uri to db if a 404 is found.
      *
@@ -61,13 +61,18 @@ class StatusCodes extends BaseFeature
      */
     public function manage404()
     {
-        // If not a 404 page, bail early
-        if (!is_404()) {
+        // If not a 404 page or in_admin, bail early
+        if (!is_404() || is_admin()) {
             return;
         }
-
+        
+        // Skip admin redirect url
+        if (get_query_var('name') === 'admin') {
+            return;
+        }
+        
         $uri = $_SERVER['REQUEST_URI'];
-
+        
         // Check if we can redirect this item
         $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
         if (array_key_exists($uri, $redirects301)) {
