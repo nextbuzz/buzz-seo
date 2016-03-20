@@ -13,16 +13,38 @@
      * as visible. We do this by toggling the 'hidden' class attribute of the corresponding variables.
      **/
     $(function () {
-        var tabContainer = $('.buzz-seo-tabs');
+        var tabContainer = $('.buzz-seo-tabs'), hashCount = 1, hashDepth = 0;
         tabContainer.each(function () {
+            hashDepth++;
             var that = $(this), navTabs = that.children('.nav-tab-wrapper'),
                     tabIndex = null;
 
             navTabs.children().each(function () {
+                $(this).data("hashId", hashDepth + "_" + hashCount++);
+                $(this).data("hashDepth", hashDepth);
                 $(this).on('click', function (evt) {
-
                     evt.preventDefault();
+                    
+                    var hash = location.hash.replace('#','');
+                    if (hash === '') {
+                        // Setup hash
+                        location.hash = 'tab';
+                    } else {
+                        // Remove hash id's in same childloop
+                        var hashes = hash.split('-'), newhash = 'tab';
+                        hashes.shift();
+                        for (var hashindex in hashes) {
+                            var hashitem = hashes[hashindex], hashitempart = hashitem.split('_');
+                            if (parseInt(hashitempart[0]) !== $(this).data("hashDepth") && hashitem !== $(this).data("hashId")) {
+                                newhash += '-' + hashitem;
+                            }
+                        }
+                        location.hash = newhash;
+                    }
 
+                    // Add current tab to new hash
+                    location.hash += '-' + $(this).data("hashId");
+                    
                     // If this tab is not active...
                     if (!$(this).hasClass('nav-tab-active')) {
 
