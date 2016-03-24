@@ -41,9 +41,9 @@ class Table301 extends WPListTable
     {
         switch ($column_name) {
             case 'URI':
-                return "<input type='text' name='redirectFrom[" . $item['ID'] . "]' placeholder='". esc_attr(__("URI that needs redirection. Field cannot be empty", "buzz-seo")) . "' value='".esc_attr($item[$column_name])."' />";
+                return "<input type='text' name='redirectFrom[" . $item['ID'] . "]' placeholder='" . esc_attr(__("URI that needs redirection. Field cannot be empty", "buzz-seo")) . "' value='" . esc_attr($item[$column_name]) . "' />";
             case 'redirect':
-                return "<input type='text' name='redirectTo[" . $item['ID'] . "]' placeholder='".  esc_attr(home_url()) . "' value='".esc_attr($item[$column_name])."' />";
+                return "<input type='text' name='redirectTo[" . $item['ID'] . "]' placeholder='" . esc_attr(home_url()) . "' value='" . esc_attr($item[$column_name]) . "' />";
             case 'timestamp':
                 return date_i18n(get_option('date_format') . ' ' . get_option('time_format'), intval($item[$column_name]));
             default:
@@ -139,7 +139,11 @@ class Table301 extends WPListTable
 
         // Handle bulk action
         $this->process_single_action();
-        $this->process_bulk_action();
+        $shouldRedirect  = $this->process_bulk_save();
+        $shouldRedirect2 = $this->process_bulk_action();
+        if ($shouldRedirect || $shouldRedirect2) {
+            wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
+        }
     }
 
     private function process_single_action()
@@ -164,15 +168,19 @@ class Table301 extends WPListTable
         wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
     }
 
+    /**
+     * Handle the checkbox changes
+     * @return type
+     */
     private function process_bulk_action()
     {
-        if (!isset($_POST) || !isset($_POST['error404'])) {
-            return;
+        if (!isset($_POST) || !isset($_POST['redirect301'])) {
+            return false;
         }
 
         $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
 
-        // Both convert and delete should remove the item from the 404 list
+        // Both convert and delete should remove the item from the 301 list
         if ('delete301' === $this->current_action()) {
             foreach ($redirects301 as $uri => $info) {
                 if (in_array(md5($uri), $_POST['redirect301'])) {
@@ -181,10 +189,38 @@ class Table301 extends WPListTable
             }
 
             // Save new data
-            update_option('_settingsSettingsStatusCodes404', $redirects301, false);
+            update_option('_settingsSettingsStatusCodes301', $redirects301, false);
         }
 
-        wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
+        return true;
+    }
+
+    /**
+     * Handle saving of all boxes
+     * @return type
+     */
+    private function process_bulk_save()
+    {
+        if (!isset($_POST) || !isset($_POST['redirectTo']) || !isset($_POST['redirectFrom'])) {
+            return false;
+        }
+
+        if (!is_array($_POST['redirectTo']) || !is_array($_POST['redirectFrom'])) {
+            return false;
+        }
+
+        $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
+
+        foreach ($redirects301 as $uri => $info) {
+            if (array_key_exists(md5($uri), $_POST['redirectTo'])) {
+                $redirects301[$uri]['redirect'] = $_POST['redirectTo'][md5($uri)];
+            }
+        }
+
+        // Save new data
+        update_option('_settingsSettingsStatusCodes301', $redirects301, false);
+
+        return true;
     }
 
 }
