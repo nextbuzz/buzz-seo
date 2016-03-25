@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.5-beta
-Stable tag: 0.7.8
+Stable tag: 0.7.9
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -42,6 +42,10 @@ Please report it on our GitHub issue tracker (https://github.com/nextbuzz/buzz-s
 try to solve it in a future release.
 
 == Changelog ==
+
+= 0.7.9 =
+* Add: filter to change menu name in admin panel 
+* Remove: check for updates in plugin list
 
 = 0.7.8 =
 * Fix: addJSONLDToLoop does not return content in StructuredData which results in unexpected behaviour
