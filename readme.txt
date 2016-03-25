@@ -44,7 +44,7 @@ try to solve it in a future release.
 == Changelog ==
 
 = 0.7.9 =
-* Add: filter to change menu name in admin panel 
+* Add: filter to change menu name in admin panel, usage: add_filter('buzz-seo-menu-name', function($name) { return $name;});
 * Remove: check for updates in plugin list
 
 = 0.7.8 =
