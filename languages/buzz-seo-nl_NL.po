@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-03-16 15:00+0100\n"
-"PO-Revision-Date: 2016-03-16 15:00+0100\n"
+"POT-Creation-Date: 2016-03-25 20:36+0100\n"
+"PO-Revision-Date: 2016-03-25 20:36+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: buzz-seo.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -255,7 +255,7 @@ msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:113
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:115
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -534,7 +534,7 @@ msgstr ""
 "Verwijder relationele links voor de berichten grenzend (vorige en volgende) "
 "aan je huidige bericht."
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:116
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:118
 msgid "General"
 msgstr "Algemeen"
 
@@ -881,7 +881,13 @@ msgstr ""
 "optimaliseren voor zoekmachines (SEO). Deze plugin heeft minimaal PHP 5.3+ "
 "en WP 4.1+ nodig."
 
-#: lib/Features/Admin.php:76
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:56
+#: lib/Features/Admin.php:77 lib/Features/Admin.php:231
+#: lib/Features/Admin.php:233
+msgid "Buzz SEO"
+msgstr "Buzz SEO"
+
+#: lib/Features/Admin.php:77
 msgid ""
 "The theme you are using is using the deprecated wp_title() functions which "
 "prevents Buzz SEO from generating the correct titles. Please ask your theme "
@@ -892,27 +898,27 @@ msgstr ""
 "de document titels niet optimaliseren. Vraag de ontwikkelaar van het thema "
 "om het thema te updaten."
 
-#: lib/Features/Admin.php:94
+#: lib/Features/Admin.php:95
 msgid "Select an image"
 msgstr "Selecteer een afbeelding"
 
-#: lib/Features/Admin.php:94 lib/Features/Admin.php:95
+#: lib/Features/Admin.php:95 lib/Features/Admin.php:96
 msgid "Select"
 msgstr "Selecteren"
 
-#: lib/Features/Admin.php:224
+#: lib/Features/Admin.php:226
 msgid "Check for updates"
 msgstr "Controleren op updates"
 
-#: lib/Features/Admin.php:229
+#: lib/Features/Admin.php:231
 msgid "Buzz SEO plugin is up to date."
 msgstr "Buzz SEO plugin is up-to-date."
 
-#: lib/Features/Admin.php:231
+#: lib/Features/Admin.php:233
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 
-#: lib/Features/Admin.php:233
+#: lib/Features/Admin.php:235
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
 

@@ -223,7 +223,7 @@ class Admin extends BaseFeature
     {
         // Add some translations
         add_filter('puc_manual_check_link-buzz-seo', function() {
-            return __('Check for updates', 'buzz-seo');
+            return '';
         }, 10, 0);
 
         add_filter('puc_manual_check_message-buzz-seo', function($message, $status) {
