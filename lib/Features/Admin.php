@@ -53,6 +53,7 @@ class Admin extends BaseFeature
     public static function setupPluginMetadataTranslations()
     {
         $void = __('This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+', 'buzz-seo');
+        $void = __('Buzz SEO', 'buzz-seo');
     }
 
 
@@ -104,8 +105,9 @@ class Admin extends BaseFeature
     {
         global $submenu;
 
-        // Add Menu Page
-        add_menu_page('Buzz SEO', 'Buzz SEO', 'edit_posts', 'BuzzSEO', array($this, "addAdminUI"), 'dashicons-analytics');
+        // Add Menu Page and allow programmers to change its administrative name
+        $name = apply_filters('buzz-seo-menu-name', 'Buzz SEO');
+        add_menu_page($name, $name, 'edit_posts', 'BuzzSEO', array($this, "addAdminUI"), 'dashicons-analytics');
 
         // Make sure this submenu is only visiable for admin users.
         if (current_user_can('manage_options')) {
@@ -221,7 +223,7 @@ class Admin extends BaseFeature
     {
         // Add some translations
         add_filter('puc_manual_check_link-buzz-seo', function() {
-            return __('Check for updates', 'buzz-seo');
+            return '';
         }, 10, 0);
 
         add_filter('puc_manual_check_message-buzz-seo', function($message, $status) {
