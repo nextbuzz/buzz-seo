@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.5-beta
-Stable tag: 0.7.9
+Stable tag: 0.7.10
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -41,10 +41,39 @@ Yes, once installed, the plugin checks the GitHub repository and updates the plu
 Please report it on our GitHub issue tracker (https://github.com/nextbuzz/buzz-seo/issues) so we can check into it and
 try to solve it in a future release.
 
+= Can I disable the metaboxes in the admin interface for a certain post type? =
+
+All non-public post types do not show the metaboxes on the admin pages. It is also possible to disable the metaboxes
+for public post-types by using a filter:
+
+`
+<?php
+add_filter('buzz-seo-disable-posttype', function($posttypes) {
+    $posttypes[] = 'customposttypeslug';
+    return $posttypes;
+});
+?>
+`
+
+= Can I change the name of the admin ui menu? =
+
+Yes, this is possible by using the following filter:
+
+`
+<?php
+add_filter('buzz-seo-menu-name', function($current_name) {
+    return 'SEO';
+});
+?>
+`
+
 == Changelog ==
 
+= 0.7.10 =
+* Add: filter to allow removing the interface for certain post types
+
 = 0.7.9 =
-* Add: filter to change menu name in admin panel, usage: add_filter('buzz-seo-menu-name', function($name) { return $name;});
+* Add: filter to change menu name in admin panel
 * Remove: check for updates in plugin list
 
 = 0.7.8 =

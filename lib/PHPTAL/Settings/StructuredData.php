@@ -105,10 +105,17 @@ class StructuredData extends \NextBuzz\SEO\PHPTAL\SettingsPage
 
         // Get posttypes
         $postTypes = get_post_types(array('public' => true), 'objects');
+
         foreach ($postTypes as &$postType)
         {
             // Unentitiy labels because default translations contain entities
             $postType->label = html_entity_decode($postType->label, ENT_QUOTES, "UTF-8");
+        }
+
+        // Check if we don't want the boxes to show in code, we also don't want to enable jsonld
+        $hidePostTypes = apply_filters('buzz-seo-disable-posttype', array());
+        foreach($hidePostTypes as $pt) {
+            unset($postTypes[$pt]);
         }
 
         $this->setTalData(array(
