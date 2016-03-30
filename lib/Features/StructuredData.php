@@ -150,6 +150,12 @@ class StructuredData extends BaseFeature
         if (!is_singular()) {
             return $content;
         }
+
+        // Check if we don't want the boxes to show in code, we also don't want to output jsonld
+        $pt = get_post_type();
+        if (in_array($pt, apply_filters('buzz-seo-disable-posttype', array()))) {
+            return $content;
+        }
         $options = get_option('_settingsSettingsStructuredData', true);
 
         $Create  = \LengthOfRope\JSONLD\Create::factory();
