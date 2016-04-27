@@ -1,3 +1,4 @@
+<!-- Note: Because this uses wp-tables, added a submit on each tab -->
 <div class="wrap">
     <h1 i18n:translate="">Status Codes</h1>
 
@@ -11,26 +12,37 @@
 
     <p i18n:translate="">Here you can manage your 404 errors and 301 redirects.</p>
 
-    <form method="post" action="">
-        <tal:block tal:content="structure settingsNonce" />
-        <div class="buzz-seo-tabs">
-            <div class="nav-tab-wrapper">
-                <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Not found (404)</a>
-                <a class="nav-tab" href="javascript:;" i18n:translate="">Redirect (301)</a>
-                <a class="nav-tab" href="javascript:;" i18n:translate="">Options</a>
-            </div>
+    <div class="buzz-seo-tabs">
+        <div class="nav-tab-wrapper">
+            <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Not found (404)</a>
+            <a class="nav-tab" href="javascript:;" i18n:translate="">Redirect (301)</a>
+            <a class="nav-tab" href="javascript:;" i18n:translate="">Options</a>
+        </div>
 
-            <div class="inner">
+        <div class="inner">
+            <form method="post" action="">
                 <p i18n:translate="">Whenever WordPress generates a 404 page, the URL responsible for the 404 will be added in the list below.</p>
                 <tal:block tal:content="structure table404">404 List Table</tal:block>
-            </div>
+                <p class="submit">
+                    <button type="submit" id="submit404" class="button button-primary" i18n:translate="">Save Changes</button>
+                </p>
+            </form>
+        </div>
 
-            <div class="inner hidden">
+        <div class="inner hidden">
+            <form method="post" action="">
                 <p i18n:translate="">Here you can manage 301 redirects. Note: existing pages override the existing redirects. This prevents newly created pages not being accessible if a redirect for that URL already exists. If you leave the `Redirect to` empty, the URL will redirect to the homepage.</p>
                 <tal:block tal:content="structure table301">301 List Table</tal:block>
-            </div>
 
-            <div class="inner hidden">
+                <p class="submit">
+                    <button type="submit" id="submit301" class="button button-primary" i18n:translate="">Save Changes</button>
+                </p>
+            </form>
+        </div>
+
+        <div class="inner hidden">
+            <form method="post" action="">
+                <tal:block tal:content="structure settingsNonce" />
                 <table class="form-table">
                     <tr>
                         <th scope="row" i18n:translate="">Auto 301 slugchanges</th>
@@ -53,11 +65,11 @@
                         </td>
                     </tr>
                 </table>
-            </div>
-        </div>
 
-        <p class="submit">
-            <button type="submit" id="submit" class="button button-primary" i18n:translate="">Save Changes</button>
-        </p>
-    </form>
+                <p class="submit">
+                    <button type="submit" id="submit" class="button button-primary" i18n:translate="">Save Changes</button>
+                </p>
+            </form>
+        </div>
+    </div>
 </div>
