@@ -32,11 +32,14 @@ class StatusCodes extends BaseFeature
         }
 
         if (isset($options['manage404'])) {
-            add_action('template_redirect', array($this, 'manage404'));
+            add_action('template_redirect', array($this, 'manage404'), 10);
         }
 
+        // Check for redirects (must be after manage404)
+        add_action('template_redirect', array($this, 'do301Redirects'), 11);
+
         if (isset($options['manage301'])) {
-            add_action('template_redirect', array($this, 'manage301'));
+            //add_action('template_redirect', array($this, 'manage301'));
         }
     }
 
@@ -59,12 +62,9 @@ class StatusCodes extends BaseFeature
     }
 
     /**
-     * Save request uri to db if a 404 is found.
-     *
-     * @global type $wp_query
-     * @return type
+     * Check if we have a redirect for the page when a 404 is found and redirect to that page.
      */
-    public function manage404()
+    public function do301Redirects()
     {
         // If not a 404 page or in_admin, bail early
         if (!is_404() || is_admin()) {
@@ -88,11 +88,34 @@ class StatusCodes extends BaseFeature
 
             wp_redirect($redirectTo, 301);
             exit;
+        }
+    }
 
-            // Bail because we don't want it added to 404
+    /**
+     * Save request uri to db if a 404 is found.
+     *
+     * @global type $wp_query
+     * @return type
+     */
+    public function manage404()
+    {
+        // If not a 404 page or in_admin, bail early
+        if (!is_404() || is_admin()) {
             return;
         }
 
+        // Skip admin redirect url
+        if (get_query_var('name') === 'admin') {
+            return;
+        }
+
+        $uri = $_SERVER['REQUEST_URI'];
+
+        // Check if this is not already a 301
+        $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
+        if (array_key_exists($uri, $redirects301)) {
+            return;
+        }
 
         // Make sure array exists
         $errors404 = get_option('_settingsSettingsStatusCodes404', array());

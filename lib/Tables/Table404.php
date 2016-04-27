@@ -165,9 +165,6 @@ class Table404 extends WPListTable
 
             // Save new data
             update_option('_settingsSettingsStatusCodes404', $errors404, false);
-
-            wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
-            exit;
         }
 
         // Convert should as well add the item to the 301 list
@@ -183,7 +180,9 @@ class Table404 extends WPListTable
 
             // Save new data
             update_option('_settingsSettingsStatusCodes301', $redirects301, false);
+        }
 
+        if ('delete' === $_GET['action'] || 'convert' === $_GET['action']) {
             wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
             exit;
         }

@@ -14,22 +14,12 @@
 
     <div class="buzz-seo-tabs">
         <div class="nav-tab-wrapper">
-            <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Not found (404)</a>
-            <a class="nav-tab" href="javascript:;" i18n:translate="">Redirect (301)</a>
+            <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Redirect (301)</a>
+            <a class="nav-tab" href="javascript:;" i18n:translate="">Not found (404)</a>
             <a class="nav-tab" href="javascript:;" i18n:translate="">Options</a>
         </div>
 
         <div class="inner">
-            <form method="post" action="">
-                <p i18n:translate="">Whenever WordPress generates a 404 page, the URL responsible for the 404 will be added in the list below.</p>
-                <tal:block tal:content="structure table404">404 List Table</tal:block>
-                <p class="submit">
-                    <button type="submit" id="submit404" class="button button-primary" i18n:translate="">Save Changes</button>
-                </p>
-            </form>
-        </div>
-
-        <div class="inner hidden">
             <table class="form-table">
                 <tr>
                     <th scope="row">
@@ -97,6 +87,16 @@
                     </td>
                 </tr>
             </table>
+        </div>
+
+        <div class="inner hidden">
+            <form method="post" action="">
+                <p i18n:translate="">Whenever WordPress generates a 404 page, the URL responsible for the 404 will be added in the list below.</p>
+                <tal:block tal:content="structure table404">404 List Table</tal:block>
+                <p class="submit">
+                    <button type="submit" id="submit404" class="button button-primary" i18n:translate="">Save Changes</button>
+                </p>
+            </form>
         </div>
 
         <div class="inner hidden">
