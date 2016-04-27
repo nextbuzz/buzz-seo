@@ -34,6 +34,10 @@ class StatusCodes extends BaseFeature
         if (isset($options['manage404'])) {
             add_action('template_redirect', array($this, 'manage404'));
         }
+
+        if (isset($options['manage301'])) {
+            add_action('template_redirect', array($this, 'manage301'));
+        }
     }
 
     /**
@@ -42,7 +46,8 @@ class StatusCodes extends BaseFeature
     public function createAdminMenu()
     {
         // Add Settings Sub Option Page
-        add_submenu_page('BuzzSEO', __('Status Codes', 'buzz-seo'), __('Status Codes', 'buzz-seo'), 'edit_posts', 'BuzzSEO_StatusCodes', array($this, "addAdminUI"));
+        add_submenu_page('BuzzSEO', __('Status Codes', 'buzz-seo'), __('Status Codes', 'buzz-seo'), 'edit_posts',
+            'BuzzSEO_StatusCodes', array($this, "addAdminUI"));
     }
 
     /**
@@ -52,7 +57,7 @@ class StatusCodes extends BaseFeature
     {
         \NextBuzz\SEO\PHPTAL\Settings\StatusCodes::factory()->render();
     }
-   
+
     /**
      * Save request uri to db if a 404 is found.
      *
@@ -65,14 +70,14 @@ class StatusCodes extends BaseFeature
         if (!is_404() || is_admin()) {
             return;
         }
-        
+
         // Skip admin redirect url
         if (get_query_var('name') === 'admin') {
             return;
         }
-        
+
         $uri = $_SERVER['REQUEST_URI'];
-        
+
         // Check if we can redirect this item
         $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
         if (array_key_exists($uri, $redirects301)) {
@@ -108,6 +113,14 @@ class StatusCodes extends BaseFeature
 
         // Make sure it does not autoload
         update_option('_settingsSettingsStatusCodes404', $errors404, false);
+    }
+
+    /**
+     * Auto add a redirect if the slug of an existing page changes
+     */
+    public function manage301()
+    {
+
     }
 
 }
