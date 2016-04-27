@@ -30,14 +30,73 @@
         </div>
 
         <div class="inner hidden">
-            <form method="post" action="">
-                <p i18n:translate="">Here you can manage 301 redirects. Note: existing pages override the existing redirects. This prevents newly created pages not being accessible if a redirect for that URL already exists. If you leave the `Redirect to` empty, the URL will redirect to the homepage.</p>
-                <tal:block tal:content="structure table301">301 List Table</tal:block>
+            <table class="form-table">
+                <tr>
+                    <th scope="row">
+                        <tal:block i18n:translate="">Redirect (301)</tal:block>
+                    </th>
+                    <td>
+                        <div class="buzz-seo-tabs">
+                            <div class="nav-tab-wrapper">
+                                <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Manage existing</a>
+                                <a class="nav-tab" href="javascript:;" i18n:translate="">Add new</a>
+                            </div>
 
-                <p class="submit">
-                    <button type="submit" id="submit301" class="button button-primary" i18n:translate="">Save Changes</button>
-                </p>
-            </form>
+                            <div class="inner">
+                                <form method="post" action="">
+                                    <table class="form-table">
+                                        <tr>
+                                            <th scope="row">
+                                                <tal:block i18n:translate="">Remark</tal:block>
+                                            </th>
+                                            <td i18n:translate="">Here you can manage 301 redirects. Note: existing pages override the existing redirects. This prevents newly created pages not being accessible if a redirect for that URL already exists. If you leave the `Redirect to` empty, the URL will redirect to the homepage.</td>
+                                        </tr>
+                                    </table>
+                                    <tal:block tal:content="structure table301">301 List Table</tal:block>
+
+                                    <p class="submit">
+                                        <button type="submit" id="submit301" class="button button-primary" i18n:translate="">Save Changes</button>
+                                    </p>
+                                </form>
+                            </div>
+
+                            <div class="inner hidden">
+                                <form method="post" action="">
+                                    <tal:block tal:content="structure add301Nonce" />
+                                    <table class="form-table">
+                                        <tr>
+                                            <th scope="row">
+                                                <tal:block i18n:translate="">Remark</tal:block>
+                                            </th>
+                                            <td i18n:translate="">Here you can add new 301 redirects.</td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <tal:block i18n:translate="">Request URI</tal:block>
+                                            </th>
+                                            <td>
+                                                <input type="text" name="addNew301RequestURI" i18n:attributes="placeholder" placeholder="URI that needs redirection. Field cannot be empty" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <tal:block i18n:translate="">Redirect URI</tal:block>
+                                            </th>
+                                            <td>
+                                                <input type="text" name="addNew301RedirectURI" tal:attributes="placeholder homeURI" />
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    <p class="submit">
+                                        <button type="submit" id="submit301add" class="button button-primary" i18n:translate="">Add</button>
+                                    </p>
+                                </form>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </table>
         </div>
 
         <div class="inner hidden">
@@ -73,3 +132,13 @@
         </div>
     </div>
 </div>
+
+<!-- Hover on tr fix -->
+<style>
+    tr:hover .row-actions {
+    position: relative !important;
+    }
+    tr:hover > td > .row-actions {
+    position: static !important;
+    }
+</style>

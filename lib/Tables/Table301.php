@@ -163,9 +163,10 @@ class Table301 extends WPListTable
 
             // Save new data
             update_option('_settingsSettingsStatusCodes301', $redirects301, false);
-        }
 
-        wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
+            wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
+            exit;
+        }
     }
 
     /**

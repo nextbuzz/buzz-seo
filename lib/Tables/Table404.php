@@ -44,7 +44,8 @@ class Table404 extends WPListTable
             case 'count':
                 return $item[$column_name];
             case 'timestamp':
-                return date_i18n(get_option('date_format') . ' ' . get_option('time_format'), intval($item[$column_name]));
+                return date_i18n(get_option('date_format') . ' ' . get_option('time_format'),
+                    intval($item[$column_name]));
             default:
                 return print_r($item, true); //Show the whole array for troubleshooting purposes
         }
@@ -86,8 +87,10 @@ class Table404 extends WPListTable
     public function column_URI($item)
     {
         $actions = array(
-            'convert' => sprintf('<a href="?page=%s&action=%s&ID=%s">' . __("Convert to 301", "buzz-seo") . '</a>', $_REQUEST['page'], 'convert', $item['ID']),
-            'delete'  => sprintf('<a href="?page=%s&action=%s&ID=%s">' . __("Delete", "buzz-seo") . '</a>', $_REQUEST['page'], 'delete', $item['ID']),
+            'convert' => sprintf('<a href="?page=%s&action=%s&ID=%s">' . __("Convert to 301", "buzz-seo") . '</a>',
+                $_REQUEST['page'], 'convert', $item['ID']),
+            'delete'  => sprintf('<a href="?page=%s&action=%s&ID=%s">' . __("Delete", "buzz-seo") . '</a>',
+                $_REQUEST['page'], 'delete', $item['ID']),
         );
         return sprintf('%1$s %2$s', $item['URI'], $this->row_actions($actions));
     }
@@ -162,6 +165,9 @@ class Table404 extends WPListTable
 
             // Save new data
             update_option('_settingsSettingsStatusCodes404', $errors404, false);
+
+            wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
+            exit;
         }
 
         // Convert should as well add the item to the 301 list
@@ -177,9 +183,10 @@ class Table404 extends WPListTable
 
             // Save new data
             update_option('_settingsSettingsStatusCodes301', $redirects301, false);
-        }
 
-        wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
+            wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
+            exit;
+        }
     }
 
     private function process_bulk_action()
