@@ -184,9 +184,11 @@ class StructuredData extends BaseFeature
                             // Skip this post since it has no image
                             continue;
                         }
-                        $excerpt = get_the_excerpt();
-                        if (!empty($excerpt)) {
-                            $Schema->setDescription(strip_tags($excerpt));
+                        if (has_excerpt()) {
+                            $excerpt = get_the_excerpt();
+                            if (!empty($excerpt)) {
+                                $Schema->setDescription(strip_tags($excerpt));
+                            }
                         }
                     }
 
