@@ -10,6 +10,8 @@ namespace NextBuzz\SEO\Features;
 class StatusCodes extends BaseFeature
 {
 
+    private $oldSlug;
+
     public function name()
     {
         return __("Status Codes", 'buzz-seo');
@@ -39,7 +41,8 @@ class StatusCodes extends BaseFeature
         add_action('template_redirect', array($this, 'do301Redirects'), 11);
 
         if (isset($options['manage301'])) {
-            //add_action('template_redirect', array($this, 'manage301'));
+            add_filter('wp_insert_post_data', array($this, 'manage301SlugChangesGetOld'), 99, 2);
+            add_action('save_post', array($this, 'manage301SlugChanges'), 10, 3);
         }
     }
 
@@ -141,9 +144,35 @@ class StatusCodes extends BaseFeature
     /**
      * Auto add a redirect if the slug of an existing page changes
      */
-    public function manage301()
+    public function manage301SlugChangesGetOld($data, $postArr)
     {
+        $this->oldSlug = get_permalink($postArr['ID']);
 
+        return $data;
+    }
+
+    /**
+     * Auto add a redirect if the slug of an existing page changes
+     */
+    public function manage301SlugChanges($postId, $data, $update)
+    {
+        $newSlug = get_permalink($postId);
+
+        // Add 301 if it is an update and the slug has changed
+        if ($update && $newSlug !== $this->oldSlug) {
+            $oldPath = parse_url($this->oldSlug, PHP_URL_PATH);
+            $newPath = parse_url($newSlug, PHP_URL_PATH);
+            $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
+
+            // Add (or overwrite) 301
+            $redirects301[$oldPath] = array(
+                'redirect' => $newPath,
+                'timestamp' => time(),
+            );
+
+            // Save new data
+            update_option('_settingsSettingsStatusCodes301', $redirects301, false);
+        }
     }
 
 }
