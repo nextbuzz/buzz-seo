@@ -41,11 +41,13 @@ class Table301 extends WPListTable
     {
         switch ($column_name) {
             case 'URI':
-                return "<input type='text' name='redirectFrom[" . $item['ID'] . "]' placeholder='" . esc_attr(__("URI that needs redirection. Field cannot be empty", "buzz-seo")) . "' value='" . esc_attr($item[$column_name]) . "' />";
+                return "<input type='text' name='redirectFrom[" . $item['ID'] . "]' placeholder='" . esc_attr(__("URI that needs redirection. Field cannot be empty",
+                            "buzz-seo")) . "' value='" . esc_attr($item[$column_name]) . "' />";
             case 'redirect':
                 return "<input type='text' name='redirectTo[" . $item['ID'] . "]' placeholder='" . esc_attr(home_url()) . "' value='" . esc_attr($item[$column_name]) . "' />";
             case 'timestamp':
-                return date_i18n(get_option('date_format') . ' ' . get_option('time_format'), intval($item[$column_name]));
+                return date_i18n(get_option('date_format') . ' ' . get_option('time_format'),
+                    intval($item[$column_name]));
             default:
                 return print_r($item, true); //Show the whole array for troubleshooting purposes
         }
@@ -87,7 +89,8 @@ class Table301 extends WPListTable
     public function column_URI($item)
     {
         $actions = array(
-            'delete301' => sprintf('<a href="?page=%s&action=%s&ID=%s">' . __("Delete", "buzz-seo") . '</a>', $_REQUEST['page'], 'delete301', $item['ID']),
+            'delete301' => sprintf('<a href="?page=%s&action=%s&ID=%s">' . __("Delete", "buzz-seo") . '</a>',
+                $_REQUEST['page'], 'delete301', $item['ID']),
         );
         return sprintf('%1$s %2$s', $this->column_default($item, 'URI'), $this->row_actions($actions));
     }
@@ -213,8 +216,17 @@ class Table301 extends WPListTable
         $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
 
         foreach ($redirects301 as $uri => $info) {
-            if (array_key_exists(md5($uri), $_POST['redirectTo'])) {
-                $redirects301[$uri]['redirect'] = $_POST['redirectTo'][md5($uri)];
+            $ID = md5($uri);
+            if (array_key_exists($ID, $_POST['redirectTo'])) {
+                if ($uri === $_POST['redirectFrom'][$ID]) {
+                    $redirects301[$uri]['redirect'] = $_POST['redirectTo'][md5($uri)];
+                } else {
+                    // From has changed
+                    $fromTrailing = trailingslashit($_POST['redirectFrom'][$ID]);
+                    $redirects301[$fromTrailing] = $redirects301[$uri];
+                    $redirects301[$fromTrailing]['redirect'] = $_POST['redirectTo'][md5($uri)];
+                    unset($redirects301[$uri]);
+                }
             }
         }
 
