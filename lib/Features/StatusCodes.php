@@ -33,12 +33,12 @@ class StatusCodes extends BaseFeature
             return;
         }
 
-        if (isset($options['manage404'])) {
-            add_action('template_redirect', array($this, 'manage404'), 10);
-        }
+        // Check for redirects (must be with priority 0 to beat WordPress own internal redirection handling)
+        add_action('template_redirect', array($this, 'do301Redirects'), 0);
 
-        // Check for redirects (must be after manage404)
-        add_action('template_redirect', array($this, 'do301Redirects'), 11);
+        if (isset($options['manage404'])) {
+            add_action('template_redirect', array($this, 'manage404'));
+        }
 
         if (isset($options['manage301'])) {
             add_filter('wp_insert_post_data', array($this, 'manage301SlugChangesGetOld'), 99, 2);
@@ -79,12 +79,21 @@ class StatusCodes extends BaseFeature
             return;
         }
 
-        $uri = $_SERVER['REQUEST_URI'];
+        $uri = trailingslashit($_SERVER['REQUEST_URI']);
+        $uriNoTrail = untrailingslashit($_SERVER['REQUEST_URI']);
 
         // Check if we can redirect this item
         $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
         if (array_key_exists($uri, $redirects301)) {
             $redirect = $redirects301[$uri];
+
+            // Redirect home no redirect is empty
+            $redirectTo = empty($redirect['redirect']) ? home_url() : $redirect['redirect'];
+
+            wp_redirect($redirectTo, 301);
+            exit;
+        } elseif (array_key_exists($uriNoTrail, $redirects301)) {
+            $redirect = $redirects301[$uriNoTrail];
 
             // Redirect home no redirect is empty
             $redirectTo = empty($redirect['redirect']) ? home_url() : $redirect['redirect'];
@@ -112,11 +121,12 @@ class StatusCodes extends BaseFeature
             return;
         }
 
-        $uri = $_SERVER['REQUEST_URI'];
+        $uri = trailingslashit($_SERVER['REQUEST_URI']);
+        $uriNoTrail = untrailingslashit($_SERVER['REQUEST_URI']);
 
         // Check if this is not already a 301
         $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
-        if (array_key_exists($uri, $redirects301)) {
+        if (array_key_exists($uri, $redirects301) || array_key_exists($uriNoTrail, $redirects301)) {
             return;
         }
 
@@ -161,7 +171,9 @@ class StatusCodes extends BaseFeature
         // Add 301 if it is an update and the slug has changed
         if ($update && $newSlug !== $this->oldSlug) {
             $oldPath = parse_url($this->oldSlug, PHP_URL_PATH);
+            $oldPath = trailingslashit($oldPath);
             $newPath = parse_url($newSlug, PHP_URL_PATH);
+            $newPath = trailingslashit($newPath);
             $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
 
             // Add (or overwrite) 301

@@ -158,7 +158,7 @@ class Table404 extends WPListTable
             $convertUri = false;
             foreach ($errors404 as $uri => $info) {
                 if (md5($uri) === $_GET['ID']) {
-                    $convertUri = $uri;
+                    $convertUri = trailingslashit($uri);
                     unset($errors404[$uri]);
                 }
             }
@@ -201,7 +201,7 @@ class Table404 extends WPListTable
         if ('delete' === $this->current_action() || 'convert' === $this->current_action()) {
             foreach ($errors404 as $uri => $info) {
                 if (in_array(md5($uri), $_POST['error404'])) {
-                    $addToConvert[] = $uri;
+                    $addToConvert[] = trailingslashit($uri);
                     unset($errors404[$uri]);
                 }
             }

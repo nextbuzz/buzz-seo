@@ -49,6 +49,7 @@ class StatusCodes extends \NextBuzz\SEO\PHPTAL\SettingsPage
         $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
 
         $uri = filter_input(INPUT_POST, 'addNew301RequestURI');
+        $uri = trailingslashit($uri);
         $redirect = filter_input(INPUT_POST, 'addNew301RedirectURI');
 
         if (!isset($redirects301[$uri]) && $uri !== $redirect && !empty($uri)) {
