@@ -39,7 +39,7 @@
                                             <th scope="row">
                                                 <tal:block i18n:translate="">Remark</tal:block>
                                             </th>
-                                            <td i18n:translate="">Here you can manage 301 redirects. Note: existing pages override the existing redirects. This prevents newly created pages not being accessible if a redirect for that URL already exists. If you leave the `Redirect to` empty, the URL will redirect to the homepage.</td>
+                                            <td i18n:translate="">Here you can manage 301 redirects. Note: redirects in this list are only executed if WordPress would generate a 404 page. This prevents newly created pages not being accessible if a redirect for that URL already exists. If you leave the `Redirect to` empty, the URL will redirect to the homepage.</td>
                                         </tr>
                                     </table>
                                     <tal:block tal:content="structure table301">301 List Table</tal:block>

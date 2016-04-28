@@ -2,11 +2,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-04-27 18:31:38+0000\n"
+"POT-Creation-Date: 2016-04-28 15:29:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-27 18:31:38+0000\n"
+"PO-Revision-Date: 2016-04-28 15:29:05+0000\n"
 "Language-Team: Next Buzz <info@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3 tal/SettingsStructuredData.xml:18 tal/SettingsStructuredData.xml:28
@@ -494,18 +494,18 @@ msgid "Remark"
 msgstr ""
 
 #: tal/SettingsStatusCodes.xml:42
-msgid "Here you can manage 301 redirects. Note: existing pages override the existing redirects. This prevents newly created pages not being accessible if a redirect for that URL already exists. If you leave the `Redirect to` empty, the URL will redirect to the homepage."
+msgid "Here you can manage 301 redirects. Note: redirects in this list are only executed if WordPress would generate a 404 page. This prevents newly created pages not being accessible if a redirect for that URL already exists. If you leave the `Redirect to` empty, the URL will redirect to the homepage."
 msgstr ""
 
 #: tal/SettingsStatusCodes.xml:61
 msgid "Here you can add new 301 redirects."
 msgstr ""
 
-#: tal/SettingsStatusCodes.xml:65 lib/Tables/Table404.php:68
+#: tal/SettingsStatusCodes.xml:65 lib/Tables/Table301.php:70 lib/Tables/Table404.php:68
 msgid "Request URI"
 msgstr ""
 
-#: tal/SettingsStatusCodes.xml:73 lib/Tables/Table301.php:69
+#: tal/SettingsStatusCodes.xml:73 lib/Tables/Table301.php:71
 msgid "Redirect URI"
 msgstr ""
 
@@ -993,11 +993,11 @@ msgstr ""
 msgid "archive"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StatusCodes.php:63
+#: lib/PHPTAL/Settings/StatusCodes.php:64
 msgid "Redirect added."
 msgstr ""
 
-#: lib/PHPTAL/Settings/StatusCodes.php:67
+#: lib/PHPTAL/Settings/StatusCodes.php:68
 msgid "Could not save new redirect."
 msgstr ""
 
@@ -1105,15 +1105,11 @@ msgstr ""
 msgid "A person (alive, dead, undead, or fictional)."
 msgstr ""
 
-#: lib/Tables/Table301.php:44
-msgid "URI that needs redirection. Field cannot be empty"
-msgstr ""
-
-#: lib/Tables/Table301.php:70
+#: lib/Tables/Table301.php:72
 msgid "Added"
 msgstr ""
 
-#: lib/Tables/Table301.php:90 lib/Tables/Table301.php:98 lib/Tables/Table404.php:92 lib/Tables/Table404.php:102
+#: lib/Tables/Table404.php:92 lib/Tables/Table301.php:101 lib/Tables/Table404.php:102
 msgid "Delete"
 msgstr ""
 

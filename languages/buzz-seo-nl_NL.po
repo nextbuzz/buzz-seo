@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-04-27 20:31+0200\n"
-"PO-Revision-Date: 2016-04-27 20:40+0200\n"
+"POT-Creation-Date: 2016-04-28 17:29+0200\n"
+"PO-Revision-Date: 2016-04-28 17:34+0200\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: buzz-seo.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -674,28 +674,29 @@ msgstr "Opmerking"
 
 #: tal/SettingsStatusCodes.xml:42
 msgid ""
-"Here you can manage 301 redirects. Note: existing pages override the "
-"existing redirects. This prevents newly created pages not being accessible "
-"if a redirect for that URL already exists. If you leave the `Redirect to` "
-"empty, the URL will redirect to the homepage."
+"Here you can manage 301 redirects. Note: redirects in this list are only "
+"executed if WordPress would generate a 404 page. This prevents newly created "
+"pages not being accessible if a redirect for that URL already exists. If you "
+"leave the `Redirect to` empty, the URL will redirect to the homepage."
 msgstr ""
-"Hier kan je de 301 verwijzingen beheren. Let op: als een pagina bestaat met "
-"de gebruikte redirect, wordt die pagina getoond in plaats van de redirect. "
-"Dit voorkomt dat nieuwe pagina's niet toegankelijk zijn omdat een (oude) "
-"verwijzing nog in de database staat. Als je de verwijzing leeg laat wordt er "
-"verwezen naar de homepage."
+"Hier kan je 301 verwijzingen beheren. Let op: verwijzingen uit deze lijst "
+"worden alleen uitgevoerd als WordPress een 404 pagina zou tonen. Dit "
+"voorkomt dat nieuw aangemaakte pagina's niet toegankelijk zijn omdat er een "
+"(oude) redirect in de lijst staat.<br/>Als je het veld 'Verwijzing URI' leeg "
+"laat, wordt er verwezen naar de voorpagina."
 
 #: tal/SettingsStatusCodes.xml:61
 msgid "Here you can add new 301 redirects."
 msgstr "Hier kan je nieuwe 301 verwijzingen toevoegen."
 
-#: tal/SettingsStatusCodes.xml:65 lib/Tables/Table404.php:68
+#: tal/SettingsStatusCodes.xml:65 lib/Tables/Table301.php:70
+#: lib/Tables/Table404.php:68
 msgid "Request URI"
 msgstr "Verzoek URI"
 
-#: tal/SettingsStatusCodes.xml:73 lib/Tables/Table301.php:69
+#: tal/SettingsStatusCodes.xml:73 lib/Tables/Table301.php:71
 msgid "Redirect URI"
-msgstr "Omleiding URI"
+msgstr "Verwijzing URI"
 
 #: tal/SettingsStatusCodes.xml:82
 msgid "Add"
@@ -1333,11 +1334,11 @@ msgstr "Datum"
 msgid "archive"
 msgstr "archief"
 
-#: lib/PHPTAL/Settings/StatusCodes.php:63
+#: lib/PHPTAL/Settings/StatusCodes.php:64
 msgid "Redirect added."
 msgstr "Verwijzing toegevoegd."
 
-#: lib/PHPTAL/Settings/StatusCodes.php:67
+#: lib/PHPTAL/Settings/StatusCodes.php:68
 msgid "Could not save new redirect."
 msgstr "Kon de verwijzing niet opslaan."
 
@@ -1461,44 +1462,57 @@ msgstr ""
 msgid "A person (alive, dead, undead, or fictional)."
 msgstr "Een persoon (levend, dood, ondood, of fictioneel)."
 
-#: lib/Tables/Table301.php:44
-msgid "URI that needs redirection. Field cannot be empty"
-msgstr ""
-
-#: lib/Tables/Table301.php:70
+#: lib/Tables/Table301.php:72
 msgid "Added"
-msgstr ""
+msgstr "Toegevoegd"
 
-#: lib/Tables/Table301.php:90 lib/Tables/Table301.php:98
-#: lib/Tables/Table404.php:92 lib/Tables/Table404.php:102
+#: lib/Tables/Table404.php:92 lib/Tables/Table301.php:101
+#: lib/Tables/Table404.php:102
 msgid "Delete"
-msgstr ""
+msgstr "Verwijder"
 
 #: lib/Tables/Table301.php:37
 msgid ""
 "No 301 redirects registered. A website where they are not needed? Wow, "
 "awesome!"
 msgstr ""
+"Geen 301 verwijzingen ingesteld. Een website die geen 301 verwijzingen nodig "
+"heeft? Wow, fantastisch!"
 
 #: lib/Tables/Table404.php:17 lib/Tables/Table404.php:18
 msgid "Not Found (404)"
-msgstr ""
+msgstr "Niet gevonden (404)"
 
 #: lib/Tables/Table404.php:69
 msgid "Last request"
-msgstr ""
+msgstr "Laatste verzoek"
 
 #: lib/Tables/Table404.php:70
 msgid "Count"
-msgstr ""
+msgstr "Aantal"
 
 #: lib/Tables/Table404.php:90 lib/Tables/Table404.php:101
 msgid "Convert to 301"
-msgstr ""
+msgstr "Converteren naar 301"
 
 #: lib/Tables/Table404.php:37
 msgid "No 404 errors registered. Good job!"
-msgstr ""
+msgstr "Geen 404 pagina's geregistreerd. Goed gedaan!"
+
+#~ msgid ""
+#~ "Here you can manage 301 redirects. Note: existing pages override the "
+#~ "existing redirects. This prevents newly created pages not being "
+#~ "accessible if a redirect for that URL already exists. If you leave the "
+#~ "`Redirect to` empty, the URL will redirect to the homepage."
+#~ msgstr ""
+#~ "Hier kan je de 301 verwijzingen beheren. Let op: als een pagina bestaat "
+#~ "met de gebruikte redirect, wordt die pagina getoond in plaats van de "
+#~ "redirect. Dit voorkomt dat nieuwe pagina's niet toegankelijk zijn omdat "
+#~ "een (oude) verwijzing nog in de database staat. Als je de verwijzing leeg "
+#~ "laat wordt er verwezen naar de homepage."
+
+#~ msgid "URI that needs redirection. Field cannot be empty"
+#~ msgstr "URI welke verwezen moet worden. Veld kan niet leeggelaten worden."
 
 #~ msgid "Check for updates"
 #~ msgstr "Controleren op updates"
