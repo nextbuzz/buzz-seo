@@ -24,5 +24,13 @@
         "psr-4": {
             "NextBuzz\\SEO\\": "lib"
         }
-    }
+    },
+    "scripts": {
+    "post-install-cmd": [
+      "php composer-cleanup.php"
+    ],
+    "post-update-cmd": [
+      "php composer-cleanup.php"
+    ]
+  }
 }

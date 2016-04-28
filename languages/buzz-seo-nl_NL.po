@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-03-25 20:36+0100\n"
-"PO-Revision-Date: 2016-03-25 20:36+0100\n"
+"POT-Creation-Date: 2016-04-28 17:29+0200\n"
+"PO-Revision-Date: 2016-04-28 17:34+0200\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: buzz-seo.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -255,7 +255,7 @@ msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:115
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:120
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -276,7 +276,9 @@ msgstr ""
 
 #: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:84
 #: tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228
-#: tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
+#: tal/SettingsStatusCodes.xml:48 tal/SettingsStatusCodes.xml:97
+#: tal/SettingsStatusCodes.xml:129 tal/SettingsStructuredData.xml:194
+#: tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr "Opslaan"
 
@@ -296,7 +298,7 @@ msgstr ""
 "andere plugins, want als hij vaker dan 1 keer wordt geladen krijg je "
 "verkeerde resultaten."
 
-#: tal/SettingsAnalytics.xml:19
+#: tal/SettingsStatusCodes.xml:19
 msgid "Options"
 msgstr "Opties"
 
@@ -331,6 +333,7 @@ msgstr "Anonimizeer IP adressen"
 #: tal/SettingsAnalytics.xml:48 tal/SettingsAnalytics.xml:58
 #: tal/SettingsAnalytics.xml:68 tal/SettingsGeneral.xml:40
 #: tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60
+#: tal/SettingsStatusCodes.xml:111 tal/SettingsStatusCodes.xml:121
 #: tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53
 #: tal/SettingsXML.xml:100
 msgid "Yes"
@@ -534,7 +537,7 @@ msgstr ""
 "Verwijder relationele links voor de berichten grenzend (vorige en volgende) "
 "aan je huidige bericht."
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:118
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:123
 msgid "General"
 msgstr "Algemeen"
 
@@ -638,6 +641,95 @@ msgstr "Links in dit archief niet volgen (nofollow)"
 msgid "Tell search engines how to index this archive"
 msgstr "Laat zoekmachines weten hoe ze dit archief mogen indexeren."
 
+#: tal/SettingsStatusCodes.xml:3 lib/Features/StatusCodes.php:17
+#: lib/Features/StatusCodes.php:55
+msgid "Status Codes"
+msgstr "Status Codes"
+
+#: tal/SettingsStatusCodes.xml:13
+msgid "Here you can manage your 404 errors and 301 redirects."
+msgstr "Hier kan je 301 redirects en 404 errors beheren."
+
+#: lib/Tables/Table301.php:17 tal/SettingsStatusCodes.xml:26
+#: lib/Tables/Table301.php:18
+msgid "Redirect (301)"
+msgstr "Verwijzing (301)"
+
+#: tal/SettingsStatusCodes.xml:18
+msgid "Not found (404)"
+msgstr "Niet gevonden (404)"
+
+#: tal/SettingsStatusCodes.xml:31
+msgid "Manage existing"
+msgstr "Beheer bestaande"
+
+#: tal/SettingsStatusCodes.xml:32
+msgid "Add new"
+msgstr "Voeg nieuwe toe"
+
+#: tal/SettingsStatusCodes.xml:40 tal/SettingsStatusCodes.xml:59
+#: tal/SettingsStructuredData.xml:41 tal/SettingsStructuredData.xml:70
+msgid "Remark"
+msgstr "Opmerking"
+
+#: tal/SettingsStatusCodes.xml:42
+msgid ""
+"Here you can manage 301 redirects. Note: redirects in this list are only "
+"executed if WordPress would generate a 404 page. This prevents newly created "
+"pages not being accessible if a redirect for that URL already exists. If you "
+"leave the `Redirect to` empty, the URL will redirect to the homepage."
+msgstr ""
+"Hier kan je 301 verwijzingen beheren. Let op: verwijzingen uit deze lijst "
+"worden alleen uitgevoerd als WordPress een 404 pagina zou tonen. Dit "
+"voorkomt dat nieuw aangemaakte pagina's niet toegankelijk zijn omdat er een "
+"(oude) redirect in de lijst staat.<br/>Als je het veld 'Verwijzing URI' leeg "
+"laat, wordt er verwezen naar de voorpagina."
+
+#: tal/SettingsStatusCodes.xml:61
+msgid "Here you can add new 301 redirects."
+msgstr "Hier kan je nieuwe 301 verwijzingen toevoegen."
+
+#: tal/SettingsStatusCodes.xml:65 lib/Tables/Table301.php:70
+#: lib/Tables/Table404.php:68
+msgid "Request URI"
+msgstr "Verzoek URI"
+
+#: tal/SettingsStatusCodes.xml:73 lib/Tables/Table301.php:71
+msgid "Redirect URI"
+msgstr "Verwijzing URI"
+
+#: tal/SettingsStatusCodes.xml:82
+msgid "Add"
+msgstr "Toevoegen"
+
+#: tal/SettingsStatusCodes.xml:94
+msgid ""
+"Whenever WordPress generates a 404 page, the URL responsible for the 404 "
+"will be added in the list below."
+msgstr "Als WordPress een 404 pagina toont, wordt deze url hier toegevoegd."
+
+#: tal/SettingsStatusCodes.xml:107
+msgid "Auto 301 slugchanges"
+msgstr "Automatisch slug-wijziging bijhouden"
+
+#: tal/SettingsStatusCodes.xml:113
+msgid ""
+"When changing the slug of existing posts, adds 301 redirects on the fly from "
+"the old slug to the new one."
+msgstr ""
+"Als de slug van een bestaande pagina of bericht wordt gewijzigd, automatisch "
+"een 301 verwijzing toevoegen van de oude naar de nieuwe locatie."
+
+#: tal/SettingsStatusCodes.xml:117
+msgid "Auto 404 non-existing URLs"
+msgstr "Automatisch 404 pagina's toevoegen aan de 404 lijst."
+
+#: tal/SettingsStatusCodes.xml:123
+msgid "Add URLs to the 404 list if URLs are requested that do not exist."
+msgstr ""
+"URL toevoegen aan de 404 lijst als er door WordPress een 404 pagina wordt "
+"gerendered."
+
 #: tal/SettingsStructuredData.xml:2
 msgid "Structured Data settings"
 msgstr "Gestructureerde Data instellingen"
@@ -674,10 +766,6 @@ msgstr "Website"
 #: lib/PHPTAL/Settings/StructuredData.php:78
 msgid "Organization"
 msgstr "Organisatie"
-
-#: tal/SettingsStructuredData.xml:41 tal/SettingsStructuredData.xml:70
-msgid "Remark"
-msgstr "Opmerking"
 
 #: tal/SettingsStructuredData.xml:43
 msgid ""
@@ -872,7 +960,7 @@ msgstr "Admin Core"
 msgid "Admin Core of Buzz SEO."
 msgstr "Admin Core van Buzz SEO."
 
-#: lib/Features/Admin.php:55
+#: lib/Features/Admin.php:60
 msgid ""
 "This is a WordPress SEO plugin. It covers the basics of SEO optimization. "
 "Requires PHP 5.3+ and WP 4.1+"
@@ -881,13 +969,13 @@ msgstr ""
 "optimaliseren voor zoekmachines (SEO). Deze plugin heeft minimaal PHP 5.3+ "
 "en WP 4.1+ nodig."
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:56
-#: lib/Features/Admin.php:77 lib/Features/Admin.php:231
-#: lib/Features/Admin.php:233
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:61
+#: lib/Features/Admin.php:82 lib/Features/Admin.php:236
+#: lib/Features/Admin.php:238
 msgid "Buzz SEO"
 msgstr "Buzz SEO"
 
-#: lib/Features/Admin.php:77
+#: lib/Features/Admin.php:82
 msgid ""
 "The theme you are using is using the deprecated wp_title() functions which "
 "prevents Buzz SEO from generating the correct titles. Please ask your theme "
@@ -898,27 +986,23 @@ msgstr ""
 "de document titels niet optimaliseren. Vraag de ontwikkelaar van het thema "
 "om het thema te updaten."
 
-#: lib/Features/Admin.php:95
+#: lib/Features/Admin.php:100
 msgid "Select an image"
 msgstr "Selecteer een afbeelding"
 
-#: lib/Features/Admin.php:95 lib/Features/Admin.php:96
+#: lib/Features/Admin.php:100 lib/Features/Admin.php:101
 msgid "Select"
 msgstr "Selecteren"
 
-#: lib/Features/Admin.php:226
-msgid "Check for updates"
-msgstr "Controleren op updates"
-
-#: lib/Features/Admin.php:231
+#: lib/Features/Admin.php:236
 msgid "Buzz SEO plugin is up to date."
 msgstr "Buzz SEO plugin is up-to-date."
 
-#: lib/Features/Admin.php:233
+#: lib/Features/Admin.php:238
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 
-#: lib/Features/Admin.php:235
+#: lib/Features/Admin.php:240
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
 
@@ -1206,6 +1290,10 @@ msgstr "Automatische generatie van XML sitemaps."
 msgid "XML Sitemaps"
 msgstr "XML sitemaps"
 
+#: lib/Features/StatusCodes.php:22
+msgid "Manage 404 errors and 301 redirects."
+msgstr "Beheer 301 verwijzingen en 404 errors."
+
 #: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:71
 msgid "Structured Data"
 msgstr "Gestructureerde data"
@@ -1218,11 +1306,11 @@ msgstr ""
 "Voeg gestructureerde data toe aan de content om zoekmachines de benodigde "
 "informatie te voorzien voor bijv. rich snippets te tonen."
 
-#: lib/PHPTAL/SettingsPage.php:72
+#: lib/PHPTAL/SettingsPage.php:72 lib/PHPTAL/Settings/StatusCodes.php:44
 msgid "Nonce value is invalid."
 msgstr "Nonce waarde is niet geldig."
 
-#: lib/PHPTAL/SettingsPage.php:76
+#: lib/PHPTAL/SettingsPage.php:76 lib/PHPTAL/Settings/Admin.php:25
 msgid "Settings saved."
 msgstr "Instellingen opgeslagen."
 
@@ -1230,7 +1318,7 @@ msgstr "Instellingen opgeslagen."
 msgid "File %s does not exist."
 msgstr "Bestand %s bestaat niet."
 
-#: lib/PHPTAL/Settings/Admin.php:29
+#: lib/PHPTAL/Settings/Admin.php:36
 msgid "No Features available"
 msgstr "Er zijn geen onderdelen beschikbaar"
 
@@ -1245,6 +1333,14 @@ msgstr "Datum"
 #: lib/PHPTAL/Settings/General.php:59
 msgid "archive"
 msgstr "archief"
+
+#: lib/PHPTAL/Settings/StatusCodes.php:64
+msgid "Redirect added."
+msgstr "Verwijzing toegevoegd."
+
+#: lib/PHPTAL/Settings/StatusCodes.php:68
+msgid "Could not save new redirect."
+msgstr "Kon de verwijzing niet opslaan."
 
 #: lib/PHPTAL/Settings/StructuredData.php:23
 msgid "Article"
@@ -1365,6 +1461,61 @@ msgstr ""
 #: lib/PHPTAL/Settings/StructuredData.php:99
 msgid "A person (alive, dead, undead, or fictional)."
 msgstr "Een persoon (levend, dood, ondood, of fictioneel)."
+
+#: lib/Tables/Table301.php:72
+msgid "Added"
+msgstr "Toegevoegd"
+
+#: lib/Tables/Table404.php:92 lib/Tables/Table301.php:101
+#: lib/Tables/Table404.php:102
+msgid "Delete"
+msgstr "Verwijder"
+
+#: lib/Tables/Table301.php:37
+msgid ""
+"No 301 redirects registered. A website where they are not needed? Wow, "
+"awesome!"
+msgstr ""
+"Geen 301 verwijzingen ingesteld. Een website die geen 301 verwijzingen nodig "
+"heeft? Wow, fantastisch!"
+
+#: lib/Tables/Table404.php:17 lib/Tables/Table404.php:18
+msgid "Not Found (404)"
+msgstr "Niet gevonden (404)"
+
+#: lib/Tables/Table404.php:69
+msgid "Last request"
+msgstr "Laatste verzoek"
+
+#: lib/Tables/Table404.php:70
+msgid "Count"
+msgstr "Aantal"
+
+#: lib/Tables/Table404.php:90 lib/Tables/Table404.php:101
+msgid "Convert to 301"
+msgstr "Converteren naar 301"
+
+#: lib/Tables/Table404.php:37
+msgid "No 404 errors registered. Good job!"
+msgstr "Geen 404 pagina's geregistreerd. Goed gedaan!"
+
+#~ msgid ""
+#~ "Here you can manage 301 redirects. Note: existing pages override the "
+#~ "existing redirects. This prevents newly created pages not being "
+#~ "accessible if a redirect for that URL already exists. If you leave the "
+#~ "`Redirect to` empty, the URL will redirect to the homepage."
+#~ msgstr ""
+#~ "Hier kan je de 301 verwijzingen beheren. Let op: als een pagina bestaat "
+#~ "met de gebruikte redirect, wordt die pagina getoond in plaats van de "
+#~ "redirect. Dit voorkomt dat nieuwe pagina's niet toegankelijk zijn omdat "
+#~ "een (oude) verwijzing nog in de database staat. Als je de verwijzing leeg "
+#~ "laat wordt er verwezen naar de homepage."
+
+#~ msgid "URI that needs redirection. Field cannot be empty"
+#~ msgstr "URI welke verwezen moet worden. Veld kan niet leeggelaten worden."
+
+#~ msgid "Check for updates"
+#~ msgstr "Controleren op updates"
 
 #~ msgid ""
 #~ "This post contains structured data. While not visible to the end-user, "
