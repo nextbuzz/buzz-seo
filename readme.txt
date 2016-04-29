@@ -70,16 +70,18 @@ add_filter('buzz-seo-menu-name', function($current_name) {
 == Changelog ==
 
 = 0.8.0 =
-* Add: warning if wordpress does not allow indexing in readingsettings
+* Add: warning if WordPress does not allow indexing in readingsettings
+* Add: warning if permalink settings are in default value
 * Add: 404 overview support to setup redirections manually
 * Add: auto redirection support
 * Update: enhanche POT generation and translations.
 * Update: add trailing slashes on redirects
-* Update: When refreshing admin page, make sure the currently active tab is reopened
-* Fix: Cannot change the request uri in 301 table
-* Fix: Redirects do not work if not managing 404 errors.
-* Fix: Structured data issue if no excerpt is available
-* Fix: Save posted content in admin before the loop
+* Update: when refreshing admin page, make sure the currently active tab is reopened
+* Fix: cannot change the request uri in 301 table
+* Fix: disable some features that do not work with permalink settings in default value
+* Fix: redirects do not work if not managing 404 errors.
+* Fix: structured data issue if no excerpt is available
+* Fix: save posted content in admin before the loop
 
 = 0.7.10 =
 * Add: filter to allow removing the interface for certain post types
