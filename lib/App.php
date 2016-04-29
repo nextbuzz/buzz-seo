@@ -23,6 +23,7 @@ class App
         $features = array(
             'Admin',
             'Analytics',
+            'StatusCodes',
             'CleanupHead',
             'PostSEOBox',
             'PostSEOBoxAnalysis',

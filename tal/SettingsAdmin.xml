@@ -26,7 +26,7 @@
                 <td>
                     <label>
                         <input type="checkbox" name="SettingsAdmin[features][${option/key}]" value="1" tal:attributes="checked option/check;"/>
-                        <tal:block tal:content="option/desc"/>
+                        <tal:block tal:content="structure option/desc"/>
                     </label>
                 </td>
             </tr>

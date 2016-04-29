@@ -1,13 +1,13 @@
-# Copyright (C) 2016 Next Buzz BV
+# Copyright (C) 2016 Next Buzz
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-03-25 19:34:07+0000\n"
+"POT-Creation-Date: 2016-04-29 06:03:20+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-03-25 19:34:07+0000\n"
-"Language-Team: Next Buzz <info@nextbuzz.nl>\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Language-Team: Next Buzz, Bas de Kort <bas@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3 tal/SettingsStructuredData.xml:18 tal/SettingsStructuredData.xml:28
 msgid "Basic"
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:115
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:161
 msgid "Settings"
 msgstr ""
 
@@ -217,7 +217,7 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:84 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:84 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228 tal/SettingsStatusCodes.xml:48 tal/SettingsStatusCodes.xml:97 tal/SettingsStatusCodes.xml:129 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr ""
 
@@ -229,7 +229,7 @@ msgstr ""
 msgid "This section is to setup Google Analytics on your website. Make sure you don't use other plugins that do the same, because adding the code multiple times might give issues in the results."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:19
+#: tal/SettingsStatusCodes.xml:19
 msgid "Options"
 msgstr ""
 
@@ -253,7 +253,7 @@ msgstr ""
 msgid "Anonymize IP addresses"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:48 tal/SettingsAnalytics.xml:58 tal/SettingsAnalytics.xml:68 tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
+#: tal/SettingsAnalytics.xml:48 tal/SettingsAnalytics.xml:58 tal/SettingsAnalytics.xml:68 tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStatusCodes.xml:111 tal/SettingsStatusCodes.xml:121 tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr ""
 
@@ -377,7 +377,7 @@ msgstr ""
 msgid "Remove relational links for the posts adjacent to the current post."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:118
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:164
 msgid "General"
 msgstr ""
 
@@ -465,6 +465,78 @@ msgstr ""
 msgid "Tell search engines how to index this archive"
 msgstr ""
 
+#: tal/SettingsStatusCodes.xml:3 lib/Features/StatusCodes.php:17 lib/Features/StatusCodes.php:65
+msgid "Status Codes"
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:13
+msgid "Here you can manage your 404 errors and 301 redirects."
+msgstr ""
+
+#: lib/Tables/Table301.php:17 tal/SettingsStatusCodes.xml:26 lib/Tables/Table301.php:18
+msgid "Redirect (301)"
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:18
+msgid "Not found (404)"
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:31
+msgid "Manage existing"
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:32
+msgid "Add new"
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:40 tal/SettingsStatusCodes.xml:59 tal/SettingsStructuredData.xml:41 tal/SettingsStructuredData.xml:70
+msgid "Remark"
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:42
+msgid "Here you can manage 301 redirects. Note: redirects in this list are only executed if WordPress would generate a 404 page. This prevents newly created pages not being accessible if a redirect for that URL already exists. If you leave the `Redirect to` empty, the URL will redirect to the homepage."
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:61
+msgid "Here you can add new 301 redirects."
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:65 lib/Tables/Table301.php:70 lib/Tables/Table404.php:68
+msgid "Request URI"
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:73 lib/Tables/Table301.php:71
+msgid "Redirect URI"
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:82
+msgid "Add"
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:94
+msgid "Whenever WordPress generates a 404 page, the URL responsible for the 404 will be added in the list below."
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:107
+msgid "Auto 301 slugchanges"
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:113
+msgid "When changing the slug of existing posts, adds 301 redirects on the fly from the old slug to the new one."
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:117
+msgid "Auto 404 non-existing URLs"
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:123
+msgid "Add URLs to the 404 list if URLs are requested that do not exist."
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:68
+msgid "URI that needs redirection. Field cannot be empty"
+msgstr ""
+
 #: tal/SettingsStructuredData.xml:2
 msgid "Structured Data settings"
 msgstr ""
@@ -491,10 +563,6 @@ msgstr ""
 
 #: tal/SettingsStructuredData.xml:34 lib/PHPTAL/Settings/StructuredData.php:75 lib/PHPTAL/Settings/StructuredData.php:78
 msgid "Organization"
-msgstr ""
-
-#: tal/SettingsStructuredData.xml:41 tal/SettingsStructuredData.xml:70
-msgid "Remark"
 msgstr ""
 
 #: tal/SettingsStructuredData.xml:43
@@ -657,39 +725,51 @@ msgstr ""
 msgid "Admin Core of Buzz SEO."
 msgstr ""
 
-#: lib/Features/Admin.php:55
+#: lib/Features/Admin.php:62
 msgid "This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+"
 msgstr ""
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:56 lib/Features/Admin.php:77 lib/Features/Admin.php:231 lib/Features/Admin.php:233
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:63 lib/Features/Admin.php:83 lib/Features/Admin.php:277 lib/Features/Admin.php:279
 msgid "Buzz SEO"
 msgstr ""
 
-#: lib/Features/Admin.php:77
+#: lib/Features/Admin.php:83
 msgid "The theme you are using is using the deprecated wp_title() functions which prevents Buzz SEO from generating the correct titles. Please ask your theme developer to update the theme."
 msgstr ""
 
-#: lib/Features/Admin.php:95
+#: lib/Features/Admin.php:100
+msgid "Search engines are not allowed to index the site. This is bad for SEO. Click <a href=\"%s\">here</a> to adjust this."
+msgstr ""
+
+#: lib/Features/Admin.php:102
+msgid "Search engines are not allowed to index the site. This is bad for SEO. Please ask a WordPress administrator to change this."
+msgstr ""
+
+#: lib/Features/Admin.php:120
+msgid "Permalinks are set to the \"default\" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Click <a href=\"%s\">here</a> to adjust this."
+msgstr ""
+
+#: lib/Features/Admin.php:122
+msgid "Permalinks are set to the \"default\" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Please ask a WordPress administrator to change this."
+msgstr ""
+
+#: lib/Features/Admin.php:141
 msgid "Select an image"
 msgstr ""
 
-#: lib/Features/Admin.php:95 lib/Features/Admin.php:96
+#: lib/Features/Admin.php:141 lib/Features/Admin.php:142
 msgid "Select"
 msgstr ""
 
-#: lib/Features/Admin.php:226
-msgid "Check for updates"
-msgstr ""
-
-#: lib/Features/Admin.php:231
+#: lib/Features/Admin.php:277
 msgid "Buzz SEO plugin is up to date."
 msgstr ""
 
-#: lib/Features/Admin.php:233
+#: lib/Features/Admin.php:279
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr ""
 
-#: lib/Features/Admin.php:235
+#: lib/Features/Admin.php:281
 msgid "Unknown update checker status `%s`."
 msgstr ""
 
@@ -881,16 +961,24 @@ msgstr ""
 msgid "The content is very easy to read. Splendid!"
 msgstr ""
 
-#: lib/Features/Sitemaps.php:15 lib/Features/Sitemaps.php:37
+#: lib/Features/Sitemaps.php:15 lib/Features/Sitemaps.php:47
 msgid "Sitemaps"
 msgstr ""
 
-#: lib/Features/Sitemaps.php:20
+#: lib/Features/Sitemaps.php:21 lib/Features/Sitemaps.php:25
 msgid "Automatic generation of XML sitemaps."
 msgstr ""
 
-#: lib/Features/Sitemaps.php:37
+#: lib/Features/Sitemaps.php:23 lib/Features/StatusCodes.php:25
+msgid "Note: this feature does not work with current permalink settings!"
+msgstr ""
+
+#: lib/Features/Sitemaps.php:47
 msgid "XML Sitemaps"
+msgstr ""
+
+#: lib/Features/StatusCodes.php:23 lib/Features/StatusCodes.php:28
+msgid "Manage 404 errors and 301 redirects."
 msgstr ""
 
 #: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:71
@@ -901,11 +989,11 @@ msgstr ""
 msgid "Add structured data to the content to allow search engines to show the content as rich snippets."
 msgstr ""
 
-#: lib/PHPTAL/SettingsPage.php:72
+#: lib/PHPTAL/SettingsPage.php:72 lib/PHPTAL/Settings/StatusCodes.php:44
 msgid "Nonce value is invalid."
 msgstr ""
 
-#: lib/PHPTAL/SettingsPage.php:76
+#: lib/PHPTAL/SettingsPage.php:76 lib/PHPTAL/Settings/Admin.php:25
 msgid "Settings saved."
 msgstr ""
 
@@ -913,7 +1001,7 @@ msgstr ""
 msgid "File %s does not exist."
 msgstr ""
 
-#: lib/PHPTAL/Settings/Admin.php:29
+#: lib/PHPTAL/Settings/Admin.php:36
 msgid "No Features available"
 msgstr ""
 
@@ -927,6 +1015,14 @@ msgstr ""
 
 #: lib/PHPTAL/Settings/General.php:59
 msgid "archive"
+msgstr ""
+
+#: lib/PHPTAL/Settings/StatusCodes.php:64
+msgid "Redirect added."
+msgstr ""
+
+#: lib/PHPTAL/Settings/StatusCodes.php:68
+msgid "Could not save new redirect."
 msgstr ""
 
 #: lib/PHPTAL/Settings/StructuredData.php:23
@@ -1031,5 +1127,37 @@ msgstr ""
 
 #: lib/PHPTAL/Settings/StructuredData.php:99
 msgid "A person (alive, dead, undead, or fictional)."
+msgstr ""
+
+#: lib/Tables/Table301.php:72
+msgid "Added"
+msgstr ""
+
+#: lib/Tables/Table404.php:92 lib/Tables/Table301.php:101 lib/Tables/Table404.php:102
+msgid "Delete"
+msgstr ""
+
+#: lib/Tables/Table301.php:37
+msgid "No 301 redirects registered. A website where they are not needed? Wow, awesome!"
+msgstr ""
+
+#: lib/Tables/Table404.php:17 lib/Tables/Table404.php:18
+msgid "Not Found (404)"
+msgstr ""
+
+#: lib/Tables/Table404.php:69
+msgid "Last request"
+msgstr ""
+
+#: lib/Tables/Table404.php:70
+msgid "Count"
+msgstr ""
+
+#: lib/Tables/Table404.php:90 lib/Tables/Table404.php:101
+msgid "Convert to 301"
+msgstr ""
+
+#: lib/Tables/Table404.php:37
+msgid "No 404 errors registered. Good job!"
 msgstr ""
 

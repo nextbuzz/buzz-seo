@@ -23,9 +23,6 @@ class Admin extends BaseFeature
 
     public function init()
     {
-        // Check for title-tag theme support
-        add_action('admin_init', array($this, 'checkTitleTagSupport'));
-
         // Front end actions
         add_filter('document_title_parts', array($this, 'filterTitleParts'), 15);
         add_filter('document_title_separator', array($this, 'filterTitleSeparator'), 15);
@@ -34,6 +31,16 @@ class Admin extends BaseFeature
         if (!is_admin()) {
             return;
         }
+
+        // Turn on output buffering in admin, so we can use wp_redirect in TAL
+        add_action('admin_init', function() {
+            ob_start();
+        });
+
+        // Check for title-tag theme support
+        add_action('admin_init', array($this, 'checkTitleTagSupport'));
+        add_action('admin_init', array($this, 'checkBlogPublic'));
+        add_action('admin_init', array($this, 'checkPermalinkStructure'));
 
         add_action('admin_enqueue_scripts', array($this, 'enqueueAdminScripts'));
 
@@ -67,7 +74,6 @@ class Admin extends BaseFeature
      * Check if the theme allows WordPress to manage the document title.
      * Which is required to properly display the document titles
      */
-
     public function checkTitleTagSupport()
     {
         if (!current_theme_supports('title-tag')) {
@@ -75,6 +81,46 @@ class Admin extends BaseFeature
             add_action('admin_notices', function()
             {
                 echo '<div class="error"><p>' . __('The theme you are using is using the deprecated wp_title() functions which prevents Buzz SEO from generating the correct titles. Please ask your theme developer to update the theme.', 'buzz-seo') . '</p></div>';
+            });
+        }
+    }
+
+    /*
+     * Check if the theme allows WordPress to manage the document title.
+     * Which is required to properly display the document titles
+     */
+    public function checkBlogPublic()
+    {
+        global $pagenow;
+        if ($pagenow === 'index.php' && !get_option('blog_public')) {
+            // Output a nag error on admin interface
+            add_action('admin_notices', function()
+            {
+                if (current_user_can('manage_options')) {
+                    echo '<div class="notice notice-error"><p>' . sprintf(__('Search engines are not allowed to index the site. This is bad for SEO. Click <a href="%s">here</a> to adjust this.', 'buzz-seo'), admin_url('options-reading.php')) . '</p></div>';
+                } else {
+                    echo '<div class="notice notice-error"><p>' . __('Search engines are not allowed to index the site. This is bad for SEO. Please ask a WordPress administrator to change this.', 'buzz-seo') . '</p></div>';
+                }
+            });
+        }
+    }
+
+    /*
+     * Check if the theme allows WordPress to manage the document title.
+     * Which is required to properly display the document titles
+     */
+    public function checkPermalinkStructure()
+    {
+        global $pagenow;
+        if ($pagenow === 'index.php' && get_option('permalink_structure') === '') {
+            // Output a nag error on admin interface
+            add_action('admin_notices', function()
+            {
+                if (current_user_can('manage_options')) {
+                    echo '<div class="notice notice-warning"><p>' . sprintf(__('Permalinks are set to the "default" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Click <a href="%s">here</a> to adjust this.', 'buzz-seo'), admin_url('options-permalink.php')) . '</p></div>';
+                } else {
+                    echo '<div class="notice notice-warning"><p>' . __('Permalinks are set to the "default" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Please ask a WordPress administrator to change this.', 'buzz-seo') . '</p></div>';
+                }
             });
         }
     }
