@@ -17,11 +17,21 @@ class Sitemaps extends BaseFeature
 
     public function desc()
     {
+        if (get_option('permalink_structure') === '') {
+            return __("Automatic generation of XML sitemaps.", "buzz-seo") .
+                '<br/><span class="description">' .
+                __("Note: this feature does not work with current permalink settings!", "buzz-seo") . '</span>';
+        }
         return __("Automatic generation of XML sitemaps.", "buzz-seo");
     }
 
     public function init()
     {
+        // Does not work in default permalink setting
+        if (get_option('permalink_structure') === '') {
+            return;
+        }
+
         add_action('init', array($this, 'setupRewriteRule'), 1);
         add_action('admin_menu', array($this, 'createAdminMenu'));
         add_action('pre_get_posts', array($this, 'checkRenderSitemap'), 1);
@@ -34,7 +44,8 @@ class Sitemaps extends BaseFeature
     public function createAdminMenu()
     {
         // Add Settings Sub Option Page
-        add_submenu_page('BuzzSEO', __('XML Sitemaps', 'buzz-seo'), __('XML Sitemaps', 'buzz-seo'), 'edit_posts', 'BuzzSEO_XMLSitemaps', array($this, "addAdminUI"));
+        add_submenu_page('BuzzSEO', __('XML Sitemaps', 'buzz-seo'), __('XML Sitemaps', 'buzz-seo'), 'edit_posts',
+            'BuzzSEO_XMLSitemaps', array($this, "addAdminUI"));
     }
 
     /**
@@ -56,7 +67,8 @@ class Sitemaps extends BaseFeature
         // method, because otherwise we cannot handle permalink saving correctly, because of the way the templates
         // are loaded. A disadvantage of using PHPTAL this way.
         add_rewrite_rule('sitemap\.xml$', 'index.php?buzz_sitemap=1', 'top');
-        add_rewrite_rule('sitemap-([^/]+?)-?([0-9]+)?\.xml$', 'index.php?buzz_sitemap=$matches[1]&buzz_sitemap_page=$matches[2]', 'top');
+        add_rewrite_rule('sitemap-([^/]+?)-?([0-9]+)?\.xml$',
+            'index.php?buzz_sitemap=$matches[1]&buzz_sitemap_page=$matches[2]', 'top');
     }
 
     /**
@@ -114,7 +126,8 @@ class Sitemaps extends BaseFeature
         $itemsperpage = $options['itemsperpage'];
 
         // Set xsl stylesheet
-        $options['xslstylesheet'] = '<?xml-stylesheet type="text/xsl" href="' . plugins_url('/css/sitemap.xsl.php', dirname(dirname(__FILE__))) . '"?>';
+        $options['xslstylesheet'] = '<?xml-stylesheet type="text/xsl" href="' . plugins_url('/css/sitemap.xsl.php',
+                dirname(dirname(__FILE__))) . '"?>';
 
         $talData = array();
         $baseurl = home_url('/');
@@ -267,7 +280,8 @@ class Sitemaps extends BaseFeature
      */
     private function getHTTPProtocol()
     {
-        return (isset($_SERVER['SERVER_PROTOCOL']) && $_SERVER['SERVER_PROTOCOL'] !== '') ? sanitize_text_field($_SERVER['SERVER_PROTOCOL']) : 'HTTP/1.1';
+        return (isset($_SERVER['SERVER_PROTOCOL']) && $_SERVER['SERVER_PROTOCOL'] !== '') ? sanitize_text_field($_SERVER['SERVER_PROTOCOL'])
+                : 'HTTP/1.1';
     }
 
     /**
@@ -304,7 +318,8 @@ class Sitemaps extends BaseFeature
                 "SELECT post_modified_gmt AS date FROM "
                 . "$wpdb->posts WHERE post_status IN ('publish','inherit') "
                 . "AND post_type=%s "
-                . "ORDER BY post_modified_gmt DESC LIMIT %d, %d", $posttype, ($itemsperpage * ($page - 1)), $itemsperpage
+                . "ORDER BY post_modified_gmt DESC LIMIT %d, %d", $posttype, ($itemsperpage * ($page - 1)),
+                $itemsperpage
             )
         );
         if (is_array($results) && isset($results[0])) {

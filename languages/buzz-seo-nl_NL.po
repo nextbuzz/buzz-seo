@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-04-29 07:12+0200\n"
-"PO-Revision-Date: 2016-04-29 07:14+0200\n"
+"POT-Creation-Date: 2016-04-29 08:03+0200\n"
+"PO-Revision-Date: 2016-04-29 08:03+0200\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -255,7 +255,7 @@ msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:141
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:161
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -537,7 +537,7 @@ msgstr ""
 "Verwijder relationele links voor de berichten grenzend (vorige en volgende) "
 "aan je huidige bericht."
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:144
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:164
 msgid "General"
 msgstr "Algemeen"
 
@@ -642,7 +642,7 @@ msgid "Tell search engines how to index this archive"
 msgstr "Laat zoekmachines weten hoe ze dit archief mogen indexeren."
 
 #: tal/SettingsStatusCodes.xml:3 lib/Features/StatusCodes.php:17
-#: lib/Features/StatusCodes.php:55
+#: lib/Features/StatusCodes.php:65
 msgid "Status Codes"
 msgstr "Status Codes"
 
@@ -964,7 +964,7 @@ msgstr "Admin Core"
 msgid "Admin Core of Buzz SEO."
 msgstr "Admin Core van Buzz SEO."
 
-#: lib/Features/Admin.php:61
+#: lib/Features/Admin.php:62
 msgid ""
 "This is a WordPress SEO plugin. It covers the basics of SEO optimization. "
 "Requires PHP 5.3+ and WP 4.1+"
@@ -973,13 +973,13 @@ msgstr ""
 "optimaliseren voor zoekmachines (SEO). Deze plugin heeft minimaal PHP 5.3+ "
 "en WP 4.1+ nodig."
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:62
-#: lib/Features/Admin.php:82 lib/Features/Admin.php:257
-#: lib/Features/Admin.php:259
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:63
+#: lib/Features/Admin.php:83 lib/Features/Admin.php:277
+#: lib/Features/Admin.php:279
 msgid "Buzz SEO"
 msgstr "Buzz SEO"
 
-#: lib/Features/Admin.php:82
+#: lib/Features/Admin.php:83
 msgid ""
 "The theme you are using is using the deprecated wp_title() functions which "
 "prevents Buzz SEO from generating the correct titles. Please ask your theme "
@@ -1006,23 +1006,44 @@ msgstr ""
 "Zoekmachines mogen deze site niet indexeren. Dit is slecht voor SEO. Vraag "
 "een WordPress administrator dit aan te passen."
 
-#: lib/Features/Admin.php:121
+#: lib/Features/Admin.php:120
+msgid ""
+"Permalinks are set to the \"default\" value. If you want to take SEO "
+"seriously, you should change this. Also some features do not work properly "
+"in this mode. Click <a href=\"%s\">here</a> to adjust this."
+msgstr ""
+"Permalinks zijn ingesteld op de \"standaard\" waarde. Als je SEO serieus "
+"neemt moet je dit aanpassen. In de standaard mode werken niet alle "
+"onderdelen van de plugin. Klik <a href=\"%s\">hier</a> om dit aan te passen."
+
+#: lib/Features/Admin.php:122
+msgid ""
+"Permalinks are set to the \"default\" value. If you want to take SEO "
+"seriously, you should change this. Also some features do not work properly "
+"in this mode. Please ask a WordPress administrator to change this."
+msgstr ""
+"Permalinks zijn ingesteld op de \"standaard\" waarde. Als je SEO serieus "
+"neemt moet je dit aanpassen. In de standaard mode werken niet alle "
+"onderdelen van de plugin. Vraag een WordPress administrator dit aan te "
+"passen."
+
+#: lib/Features/Admin.php:141
 msgid "Select an image"
 msgstr "Selecteer een afbeelding"
 
-#: lib/Features/Admin.php:121 lib/Features/Admin.php:122
+#: lib/Features/Admin.php:141 lib/Features/Admin.php:142
 msgid "Select"
 msgstr "Selecteren"
 
-#: lib/Features/Admin.php:257
+#: lib/Features/Admin.php:277
 msgid "Buzz SEO plugin is up to date."
 msgstr "Buzz SEO plugin is up-to-date."
 
-#: lib/Features/Admin.php:259
+#: lib/Features/Admin.php:279
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 
-#: lib/Features/Admin.php:261
+#: lib/Features/Admin.php:281
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
 
@@ -1298,19 +1319,24 @@ msgstr "De tekst is eenvoudig te lezen. Goed gedaan!"
 msgid "The content is very easy to read. Splendid!"
 msgstr "De tekst is erg eenvoudig te lezen. Super!"
 
-#: lib/Features/Sitemaps.php:15 lib/Features/Sitemaps.php:37
+#: lib/Features/Sitemaps.php:15 lib/Features/Sitemaps.php:47
 msgid "Sitemaps"
 msgstr "Sitemaps"
 
-#: lib/Features/Sitemaps.php:20
+#: lib/Features/Sitemaps.php:21 lib/Features/Sitemaps.php:25
 msgid "Automatic generation of XML sitemaps."
 msgstr "Automatische generatie van XML sitemaps."
 
-#: lib/Features/Sitemaps.php:37
+#: lib/Features/Sitemaps.php:23 lib/Features/StatusCodes.php:25
+msgid "Note: this feature does not work with current permalink settings!"
+msgstr ""
+"Opmerking: dit onderdeel werkt niet met de huidige permalink instelling!"
+
+#: lib/Features/Sitemaps.php:47
 msgid "XML Sitemaps"
 msgstr "XML sitemaps"
 
-#: lib/Features/StatusCodes.php:22
+#: lib/Features/StatusCodes.php:23 lib/Features/StatusCodes.php:28
 msgid "Manage 404 errors and 301 redirects."
 msgstr "Beheer 301 verwijzingen en 404 errors."
 
@@ -1518,6 +1544,16 @@ msgstr "Converteren naar 301"
 #: lib/Tables/Table404.php:37
 msgid "No 404 errors registered. Good job!"
 msgstr "Geen 404 pagina's geregistreerd. Goed gedaan!"
+
+#~ msgid ""
+#~ "Permalinks are set to the \\'default\\' value. If you want to take SEO "
+#~ "seriously, you should change this. Also some features do not work "
+#~ "properly in this mode. Click <a href=\"%s\">here</a> to adjust this."
+#~ msgstr ""
+#~ "Permalinks zijn ingesteld op de \\'standaard\\' waarde. Als je SEO "
+#~ "serieus wilt nemen zou je dit moeten aanpassen. In de standaard mode "
+#~ "werken niet alle onderdelen goed. Klik <a href=\"%s\">hier</a> om dit aan "
+#~ "te passen."
 
 #~ msgid ""
 #~ "Here you can manage 301 redirects. Note: existing pages override the "

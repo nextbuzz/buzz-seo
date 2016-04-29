@@ -19,11 +19,21 @@ class StatusCodes extends BaseFeature
 
     public function desc()
     {
+        if (get_option('permalink_structure') === '') {
+            return __("Manage 404 errors and 301 redirects.", "buzz-seo") .
+                '<br/><span class="description">' .
+                __("Note: this feature does not work with current permalink settings!", "buzz-seo") . '</span>';
+        }
+
         return __("Manage 404 errors and 301 redirects.", 'buzz-seo');
     }
 
     public function init()
     {
+        // Does not work in default permalink setting
+        if (get_option('permalink_structure') === '') {
+            return;
+        }
         add_action('admin_menu', array($this, 'createAdminMenu'));
 
         $options = get_option('_settingsSettingsStatusCodes', true);
@@ -79,7 +89,7 @@ class StatusCodes extends BaseFeature
             return;
         }
 
-        $uri = trailingslashit($_SERVER['REQUEST_URI']);
+        $uri        = trailingslashit($_SERVER['REQUEST_URI']);
         $uriNoTrail = untrailingslashit($_SERVER['REQUEST_URI']);
 
         // Check if we can redirect this item
@@ -121,7 +131,7 @@ class StatusCodes extends BaseFeature
             return;
         }
 
-        $uri = trailingslashit($_SERVER['REQUEST_URI']);
+        $uri        = trailingslashit($_SERVER['REQUEST_URI']);
         $uriNoTrail = untrailingslashit($_SERVER['REQUEST_URI']);
 
         // Check if this is not already a 301
@@ -170,15 +180,15 @@ class StatusCodes extends BaseFeature
 
         // Add 301 if it is an update and the slug has changed
         if ($update && $newSlug !== $this->oldSlug) {
-            $oldPath = parse_url($this->oldSlug, PHP_URL_PATH);
-            $oldPath = trailingslashit($oldPath);
-            $newPath = parse_url($newSlug, PHP_URL_PATH);
-            $newPath = trailingslashit($newPath);
+            $oldPath      = parse_url($this->oldSlug, PHP_URL_PATH);
+            $oldPath      = trailingslashit($oldPath);
+            $newPath      = parse_url($newSlug, PHP_URL_PATH);
+            $newPath      = trailingslashit($newPath);
             $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
 
             // Add (or overwrite) 301
             $redirects301[$oldPath] = array(
-                'redirect' => $newPath,
+                'redirect'  => $newPath,
                 'timestamp' => time(),
             );
 
