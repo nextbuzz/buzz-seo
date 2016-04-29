@@ -1,13 +1,13 @@
-# Copyright (C) 2016 Next Buzz BV
+# Copyright (C) 2016 Next Buzz
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-04-28 15:29:05+0000\n"
+"POT-Creation-Date: 2016-04-29 05:12:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-04-28 15:29:05+0000\n"
-"Language-Team: Next Buzz <info@nextbuzz.nl>\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Language-Team: Next Buzz, Bas de Kort <bas@nextbuzz.nl>\n"
 
 #: tal/PostSEOBox.xml:3 tal/SettingsStructuredData.xml:18 tal/SettingsStructuredData.xml:28
 msgid "Basic"
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:120
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:141
 msgid "Settings"
 msgstr ""
 
@@ -377,7 +377,7 @@ msgstr ""
 msgid "Remove relational links for the posts adjacent to the current post."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:123
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:144
 msgid "General"
 msgstr ""
 
@@ -531,6 +531,10 @@ msgstr ""
 
 #: tal/SettingsStatusCodes.xml:123
 msgid "Add URLs to the 404 list if URLs are requested that do not exist."
+msgstr ""
+
+#: tal/SettingsStatusCodes.xml:68
+msgid "URI that needs redirection. Field cannot be empty"
 msgstr ""
 
 #: tal/SettingsStructuredData.xml:2
@@ -721,11 +725,11 @@ msgstr ""
 msgid "Admin Core of Buzz SEO."
 msgstr ""
 
-#: lib/Features/Admin.php:60
+#: lib/Features/Admin.php:61
 msgid "This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+"
 msgstr ""
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:61 lib/Features/Admin.php:82 lib/Features/Admin.php:236 lib/Features/Admin.php:238
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:62 lib/Features/Admin.php:82 lib/Features/Admin.php:257 lib/Features/Admin.php:259
 msgid "Buzz SEO"
 msgstr ""
 
@@ -734,22 +738,30 @@ msgid "The theme you are using is using the deprecated wp_title() functions whic
 msgstr ""
 
 #: lib/Features/Admin.php:100
+msgid "Search engines are not allowed to index the site. This is bad for SEO. Click <a href=\"%s\">here</a> to adjust this."
+msgstr ""
+
+#: lib/Features/Admin.php:102
+msgid "Search engines are not allowed to index the site. This is bad for SEO. Please ask a WordPress administrator to change this."
+msgstr ""
+
+#: lib/Features/Admin.php:121
 msgid "Select an image"
 msgstr ""
 
-#: lib/Features/Admin.php:100 lib/Features/Admin.php:101
+#: lib/Features/Admin.php:121 lib/Features/Admin.php:122
 msgid "Select"
 msgstr ""
 
-#: lib/Features/Admin.php:236
+#: lib/Features/Admin.php:257
 msgid "Buzz SEO plugin is up to date."
 msgstr ""
 
-#: lib/Features/Admin.php:238
+#: lib/Features/Admin.php:259
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr ""
 
-#: lib/Features/Admin.php:240
+#: lib/Features/Admin.php:261
 msgid "Unknown update checker status `%s`."
 msgstr ""
 
