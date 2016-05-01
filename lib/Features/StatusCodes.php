@@ -89,8 +89,8 @@ class StatusCodes extends BaseFeature
             return;
         }
 
-        $uri        = trailingslashit($_SERVER['REQUEST_URI']);
-        $uriNoTrail = untrailingslashit($_SERVER['REQUEST_URI']);
+        $uri        = \NextBuzz\SEO\Tools\StringParser::factory($_SERVER['REQUEST_URI'])->trailingSlashIt()->get();
+        $uriNoTrail = \NextBuzz\SEO\Tools\StringParser::factory($_SERVER['REQUEST_URI'])->unTrailingSlashIt()->get();
 
         // Check if we can redirect this item
         $redirects301 = get_option('_settingsSettingsStatusCodes301', array());
@@ -131,8 +131,8 @@ class StatusCodes extends BaseFeature
             return;
         }
 
-        $uri        = trailingslashit($_SERVER['REQUEST_URI']);
-        $uriNoTrail = untrailingslashit($_SERVER['REQUEST_URI']);
+        $uri        = \NextBuzz\SEO\Tools\StringParser::factory($_SERVER['REQUEST_URI'])->trailingSlashIt()->get();
+        $uriNoTrail = \NextBuzz\SEO\Tools\StringParser::factory($_SERVER['REQUEST_URI'])->unTrailingSlashIt()->get();
 
         // Check if this is not already a 301
         $redirects301 = get_option('_settingsSettingsStatusCodes301', array());

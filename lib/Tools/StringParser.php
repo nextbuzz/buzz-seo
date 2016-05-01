@@ -157,6 +157,41 @@ class StringParser
     }
 
     /**
+     * Add a trailing slash if it does not end with a file.
+     *
+     * I.E. 'demo' becomes 'demo/'
+     *      'demo/demo.php' becomes 'demo/demo.php'
+     *
+     * This uses WordPress trailingslashit but adds additional file-check.
+     *
+     * @return \NextBuzz\SEO\Tools\StringParser
+     */
+    public function trailingSlashIt()
+    {
+        $parts = explode('/', $this->string);
+        $popped = array_pop($parts);
+        if (substr_count($popped, '.') === 0) {
+            $this->string = trailingslashit($this->string);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Remove trailing slash.
+     *
+     * Equivalent of WordPress untrailingslashit
+     *
+     * @return \NextBuzz\SEO\Tools\StringParser
+     */
+    public function unTrailingSlashIt()
+    {
+        $this->string = untrailingslashit($this->string);
+
+        return $this;
+    }
+
+    /**
      * Return the parsed string
      *
      * @return string
