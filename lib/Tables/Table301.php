@@ -145,7 +145,8 @@ class Table301 extends WPListTable
         $shouldRedirect  = $this->process_bulk_save();
         $shouldRedirect2 = $this->process_bulk_action();
         if ($shouldRedirect || $shouldRedirect2) {
-            wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
+            wp_redirect(remove_query_arg(array('action', 'ID')) . '&saved=1');
+            exit;
         }
     }
 
@@ -167,7 +168,7 @@ class Table301 extends WPListTable
             // Save new data
             update_option('_settingsSettingsStatusCodes301', $redirects301, false);
 
-            wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
+            wp_redirect(remove_query_arg(array('action', 'ID')) . '&saved=1');
             exit;
         }
     }
