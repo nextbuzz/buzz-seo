@@ -183,7 +183,7 @@ class Table404 extends WPListTable
         }
 
         if ('delete' === $_GET['action'] || 'convert' === $_GET['action']) {
-            wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
+            wp_redirect(remove_query_arg(array('action', 'ID')) . '&saved=1');
             exit;
         }
     }
@@ -227,7 +227,8 @@ class Table404 extends WPListTable
             update_option('_settingsSettingsStatusCodes301', $redirects301, false);
         }
 
-        wp_redirect($_SERVER['REQUEST_URI'] . '&saved=1');
+        wp_redirect(remove_query_arg(array('action', 'ID')) . '&saved=1');
+        exit;
     }
 
 }

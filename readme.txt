@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.5.1
-Stable tag: 0.8.0
+Stable tag: 0.8.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -68,6 +68,10 @@ add_filter('buzz-seo-menu-name', function($current_name) {
 `
 
 == Changelog ==
+
+= 0.8.1 =
+* Fix: redirection does not work if page has extension
+* Fix: if a 404 is converted to a 301 you cannot change the redirect URI
 
 = 0.8.0 =
 * Add: warning if WordPress does not allow indexing in readingsettings

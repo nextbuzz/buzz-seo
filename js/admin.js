@@ -25,8 +25,8 @@
                 tablist.push($(this));
                 $(this).on('click', function (evt) {
                     evt.preventDefault();
-                    
-                    var hash = location.hash.replace('#','');
+
+                    var hash = location.hash.replace('#', '');
                     if (hash === '') {
                         // Setup hash
                         location.hash = 'tab';
@@ -45,7 +45,7 @@
 
                     // Add current tab to new hash
                     location.hash += '-' + $(this).data("hashId");
-                    
+
                     // If this tab is not active...
                     if (!$(this).hasClass('nav-tab-active')) {
 
@@ -66,15 +66,25 @@
 
                         navTabs.removeClass("hidden");
                     }
+
+                    // Update all links in tab to have the current hash
+                    $(".buzz-seo-tabs .inner:not(.hidden) a").each(function () {
+                        var url = $(this).attr("href");
+                        var anchorIndex = url.indexOf('#');
+                        if (anchorIndex !== -1) {
+                            url = url.substring(0, anchorIndex);
+                        }
+                        $(this).attr("href", url + document.location.hash);
+                    });
                 });
             });
         });
-        
+
         // Open all existing hash tabs
-        var hash = location.hash.replace('#',''), hashes = hash.split('-'), tab, tabindex;
+        var hash = location.hash.replace('#', ''), hashes = hash.split('-'), tab, tabindex;
         hashes.shift();
-        
-        for(tabindex in tablist) {
+
+        for (tabindex in tablist) {
             tab = tablist[tabindex];
             if (hashes.indexOf(tab.data("hashId")) !== -1) {
                 tab.click();
@@ -288,10 +298,18 @@
                 scoreDouma = 206.835 - (0.93 * (numOfWords / numOfSentences)) - (77 * (numOfSyllables / numOfWords));
             }
 
-            if (scoreFlesh < 0) { scoreFlesh = 0; }
-            if (scoreFlesh > 100) { scoreFlesh = 100; }
-            if (scoreDouma < 0) { scoreDouma = 0; }
-            if (scoreDouma > 100) { scoreDouma = 100; }
+            if (scoreFlesh < 0) {
+                scoreFlesh = 0;
+            }
+            if (scoreFlesh > 100) {
+                scoreFlesh = 100;
+            }
+            if (scoreDouma < 0) {
+                scoreDouma = 0;
+            }
+            if (scoreDouma > 100) {
+                scoreDouma = 100;
+            }
 
             scoreFlesh = scoreFlesh.toFixed(2);
             scoreDouma = scoreDouma.toFixed(2);
