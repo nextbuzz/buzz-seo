@@ -27,6 +27,9 @@ class Admin extends BaseFeature
         add_filter('document_title_parts', array($this, 'filterTitleParts'), 15);
         add_filter('document_title_separator', array($this, 'filterTitleSeparator'), 15);
 
+        // Register strings for translation
+        add_action('plugins_loaded', array($this, 'registerTranslations'));
+
         // Everything below this is only used when in the admin interface
         if (!is_admin()) {
             return;
@@ -52,6 +55,47 @@ class Admin extends BaseFeature
     }
 
     /**
+     * If multilingual site, register some strings
+     */
+    public function registerTranslations()
+    {
+        $translate = \NextBuzz\SEO\Translate\Translate::factory();
+
+        if (!$translate->siteIsMultilingual()) {
+            // Bail early
+            return;
+        }
+
+        $options = get_option('_settingsSettingsGeneral', array());
+
+        if (isset($options['posttypes'])) {
+            $this->registerTranslationsOfType($translate, $options['posttypes'], __('Posttype', 'buzz-seo'));
+        }
+
+        if (isset($options['taxonomies'])) {
+            $this->registerTranslationsOfType($translate, $options['taxonomies'], __('Taxonomy', 'buzz-seo'));
+        }
+
+        if (isset($options['archives'])) {
+            $this->registerTranslationsOfType($translate, $options['archives'], __('Archive', 'buzz-seo'));
+        }
+    }
+
+    /**
+     * Register translations
+     * @param \NextBuzz\SEO\Translate\Translate $translate The translate object
+     * @param array $data An array with keys containing array with titleprefix, titlesuffix and meta
+     */
+    private function registerTranslationsOfType($translate, $data, $group)
+    {
+        foreach($data as $key => $translates) {
+            $translate->register($translates['titleprefix'], ucfirst($key) . ' ' . $group);
+            $translate->register($translates['titlesuffix'], ucfirst($key) . ' ' . $group);
+            $translate->register($translates['meta'], ucfirst($key) . ' ' . $group);
+        }
+    }
+
+    /**
      * Make sure wordpress can translate the plugin metadata as well
      * This method is never called, but here to allow it to be added to the pot file.
      *
@@ -59,11 +103,10 @@ class Admin extends BaseFeature
      */
     public static function setupPluginMetadataTranslations()
     {
-        $void = __('This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+', 'buzz-seo');
+        $void = __('This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+',
+            'buzz-seo');
         $void = __('Buzz SEO', 'buzz-seo');
     }
-
-
 
     public function allowDisable()
     {
@@ -74,13 +117,15 @@ class Admin extends BaseFeature
      * Check if the theme allows WordPress to manage the document title.
      * Which is required to properly display the document titles
      */
+
     public function checkTitleTagSupport()
     {
         if (!current_theme_supports('title-tag')) {
             // Output a nag error on admin interface
-            add_action('admin_notices', function()
-            {
-                echo '<div class="error"><p>' . __('The theme you are using is using the deprecated wp_title() functions which prevents Buzz SEO from generating the correct titles. Please ask your theme developer to update the theme.', 'buzz-seo') . '</p></div>';
+            add_action('admin_notices',
+                function() {
+                echo '<div class="error"><p>' . __('The theme you are using is using the deprecated wp_title() functions which prevents Buzz SEO from generating the correct titles. Please ask your theme developer to update the theme.',
+                    'buzz-seo') . '</p></div>';
             });
         }
     }
@@ -89,17 +134,20 @@ class Admin extends BaseFeature
      * Check if the theme allows WordPress to manage the document title.
      * Which is required to properly display the document titles
      */
+
     public function checkBlogPublic()
     {
         global $pagenow;
         if ($pagenow === 'index.php' && !get_option('blog_public')) {
             // Output a nag error on admin interface
-            add_action('admin_notices', function()
-            {
+            add_action('admin_notices',
+                function() {
                 if (current_user_can('manage_options')) {
-                    echo '<div class="notice notice-error"><p>' . sprintf(__('Search engines are not allowed to index the site. This is bad for SEO. Click <a href="%s">here</a> to adjust this.', 'buzz-seo'), admin_url('options-reading.php')) . '</p></div>';
+                    echo '<div class="notice notice-error"><p>' . sprintf(__('Search engines are not allowed to index the site. This is bad for SEO. Click <a href="%s">here</a> to adjust this.',
+                            'buzz-seo'), admin_url('options-reading.php')) . '</p></div>';
                 } else {
-                    echo '<div class="notice notice-error"><p>' . __('Search engines are not allowed to index the site. This is bad for SEO. Please ask a WordPress administrator to change this.', 'buzz-seo') . '</p></div>';
+                    echo '<div class="notice notice-error"><p>' . __('Search engines are not allowed to index the site. This is bad for SEO. Please ask a WordPress administrator to change this.',
+                        'buzz-seo') . '</p></div>';
                 }
             });
         }
@@ -109,17 +157,20 @@ class Admin extends BaseFeature
      * Check if the theme allows WordPress to manage the document title.
      * Which is required to properly display the document titles
      */
+
     public function checkPermalinkStructure()
     {
         global $pagenow;
         if ($pagenow === 'index.php' && get_option('permalink_structure') === '') {
             // Output a nag error on admin interface
-            add_action('admin_notices', function()
-            {
+            add_action('admin_notices',
+                function() {
                 if (current_user_can('manage_options')) {
-                    echo '<div class="notice notice-warning"><p>' . sprintf(__('Permalinks are set to the "default" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Click <a href="%s">here</a> to adjust this.', 'buzz-seo'), admin_url('options-permalink.php')) . '</p></div>';
+                    echo '<div class="notice notice-warning"><p>' . sprintf(__('Permalinks are set to the "default" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Click <a href="%s">here</a> to adjust this.',
+                            'buzz-seo'), admin_url('options-permalink.php')) . '</p></div>';
                 } else {
-                    echo '<div class="notice notice-warning"><p>' . __('Permalinks are set to the "default" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Please ask a WordPress administrator to change this.', 'buzz-seo') . '</p></div>';
+                    echo '<div class="notice notice-warning"><p>' . __('Permalinks are set to the "default" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Please ask a WordPress administrator to change this.',
+                        'buzz-seo') . '</p></div>';
                 }
             });
         }
@@ -135,8 +186,10 @@ class Admin extends BaseFeature
         // All required for media upload
         wp_enqueue_media();
 
-        wp_enqueue_script('buzz-seo-admin-js', plugins_url('buzz-seo/js/admin.js'), array('jquery', 'thickbox', 'media-upload'), BUZZSEO_VERSION, true);
-        wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAdmin', array(
+        wp_enqueue_script('buzz-seo-admin-js', plugins_url('buzz-seo/js/admin.js'),
+            array('jquery', 'thickbox', 'media-upload'), BUZZSEO_VERSION, true);
+        wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAdmin',
+            array(
             'MediaUploader' => array(
                 'title'  => __('Select an image', 'buzz-seo'),
                 'button' => __('Select', 'buzz-seo'),
@@ -158,7 +211,8 @@ class Admin extends BaseFeature
         // Make sure this submenu is only visiable for admin users.
         if (current_user_can('manage_options')) {
             // Add Settings Sub Option Page
-            add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_dashboard', 'BuzzSEO_Settings', array($this, "addAdminUI"));
+            add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_dashboard',
+                'BuzzSEO_Settings', array($this, "addAdminUI"));
 
             // Rename Submenu
             $submenu['BuzzSEO'][0][0] = __('General', 'buzz-seo');
@@ -272,14 +326,15 @@ class Admin extends BaseFeature
             return '';
         }, 10, 0);
 
-        add_filter('puc_manual_check_message-buzz-seo', function($message, $status) {
-            if ( $status == 'no_update' ) {
-				return __('Buzz SEO plugin is up to date.', 'buzz-seo');
-			} else if ( $status == 'update_available' ) {
+        add_filter('puc_manual_check_message-buzz-seo',
+            function($message, $status) {
+            if ($status == 'no_update') {
+                return __('Buzz SEO plugin is up to date.', 'buzz-seo');
+            } else if ($status == 'update_available') {
                 return __('A new version of the Buzz SEO plugin is available.', 'buzz-seo');
-			} else {
+            } else {
                 return sprintf(__('Unknown update checker status `%s`.', 'buzz-seo'), htmlentities($status));
-			}
+            }
         }, 10, 2);
 
 
