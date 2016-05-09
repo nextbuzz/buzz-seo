@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-04-29 08:03+0200\n"
-"PO-Revision-Date: 2016-04-29 08:03+0200\n"
+"POT-Creation-Date: 2016-05-09 11:56+0200\n"
+"PO-Revision-Date: 2016-05-09 11:58+0200\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: buzz-seo.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -45,8 +45,8 @@ msgstr ""
 "De titel zoals weergegeven in zoekmachines en in de browser titelbalk. Als "
 "deze wordt leeggelaten wordt de bericht titel gebruikt."
 
-#: tal/PostSEOBox.xml:18 tal/SettingsGeneral.xml:87 tal/SettingsGeneral.xml:140
-#: tal/SettingsGeneral.xml:193
+#: tal/PostSEOBox.xml:18 tal/SettingsGeneral.xml:88 tal/SettingsGeneral.xml:142
+#: tal/SettingsGeneral.xml:196
 msgid "Meta description"
 msgstr "Meta omschrijving"
 
@@ -54,8 +54,8 @@ msgstr "Meta omschrijving"
 msgid "The description which most search engines use."
 msgstr "De omschrijving die in de meeste zoekmachines wordt gebruikt."
 
-#: tal/PostSEOBox.xml:25 tal/SettingsGeneral.xml:94 tal/SettingsGeneral.xml:147
-#: tal/SettingsGeneral.xml:200
+#: tal/PostSEOBox.xml:25 tal/SettingsGeneral.xml:95 tal/SettingsGeneral.xml:149
+#: tal/SettingsGeneral.xml:203
 msgid "Index options"
 msgstr "Indexeer opties"
 
@@ -67,13 +67,13 @@ msgstr "Deze pagina niet indexeren (noindex)"
 msgid "Do not follow links (nofollow)"
 msgstr "Links op deze pagina niet volgen (nofollow)"
 
-#: tal/PostSEOBox.xml:42 tal/SettingsGeneral.xml:111
-#: tal/SettingsGeneral.xml:164 tal/SettingsGeneral.xml:217
+#: tal/PostSEOBox.xml:42 tal/SettingsGeneral.xml:112
+#: tal/SettingsGeneral.xml:166 tal/SettingsGeneral.xml:220
 msgid "Warning:"
 msgstr "Waarschuwing:"
 
-#: tal/PostSEOBox.xml:43 tal/SettingsGeneral.xml:112
-#: tal/SettingsGeneral.xml:165 tal/SettingsGeneral.xml:218
+#: tal/PostSEOBox.xml:43 tal/SettingsGeneral.xml:113
+#: tal/SettingsGeneral.xml:167 tal/SettingsGeneral.xml:221
 msgid ""
 "WordPress is set to no-indexing mode in global options. These page specific "
 "settings are ignored as long as the global setting is active."
@@ -255,7 +255,7 @@ msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:161
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:214
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -275,7 +275,7 @@ msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
 #: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:84
-#: tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228
+#: tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231
 #: tal/SettingsStatusCodes.xml:48 tal/SettingsStatusCodes.xml:97
 #: tal/SettingsStatusCodes.xml:129 tal/SettingsStructuredData.xml:194
 #: tal/SettingsXML.xml:111
@@ -537,7 +537,7 @@ msgstr ""
 "Verwijder relationele links voor de berichten grenzend (vorige en volgende) "
 "aan je huidige bericht."
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:164
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:218
 msgid "General"
 msgstr "Algemeen"
 
@@ -601,43 +601,53 @@ msgstr "Toon sitenaam"
 msgid "Show the site name on the document title."
 msgstr "Toon de sitenaam in de document titel."
 
-#: tal/SettingsGeneral.xml:73 tal/SettingsGeneral.xml:126
-#: tal/SettingsGeneral.xml:179
+#: tal/SettingsGeneral.xml:69 tal/SettingsGeneral.xml:123
+#: tal/SettingsGeneral.xml:177
+msgid ""
+"This site has a multilingual plugin installed. Translations for these items "
+"can be entered on the settings page of the multilingual plugin."
+msgstr ""
+"Er is op deze website een meertalen-plugin geïnstalleerd. Vertalingen voor "
+"onderstaande items kunnen worden ingevoerd bij de instellingen pagina van de "
+"betreffende plugin."
+
+#: tal/SettingsGeneral.xml:74 tal/SettingsGeneral.xml:128
+#: tal/SettingsGeneral.xml:182
 msgid "Document title prefix"
 msgstr "Document titel voorvoegsel"
 
-#: tal/SettingsGeneral.xml:76 tal/SettingsGeneral.xml:129
-#: tal/SettingsGeneral.xml:182
+#: tal/SettingsGeneral.xml:77 tal/SettingsGeneral.xml:131
+#: tal/SettingsGeneral.xml:185
 msgid "Add a prefix to the main document title on the archive."
 msgstr "Voeg een voorvoegsel toe aan de document titel van het archief."
 
-#: tal/SettingsGeneral.xml:80 tal/SettingsGeneral.xml:133
-#: tal/SettingsGeneral.xml:186
+#: tal/SettingsGeneral.xml:81 tal/SettingsGeneral.xml:135
+#: tal/SettingsGeneral.xml:189
 msgid "Document title suffix"
 msgstr "Document titel achtervoegsel"
 
-#: tal/SettingsGeneral.xml:83 tal/SettingsGeneral.xml:136
-#: tal/SettingsGeneral.xml:189
+#: tal/SettingsGeneral.xml:84 tal/SettingsGeneral.xml:138
+#: tal/SettingsGeneral.xml:192
 msgid "Add a suffix to the main document title on the archive."
 msgstr "Voeg een achtervoegsel toe aan de document titel van het archief."
 
-#: tal/SettingsGeneral.xml:90 tal/SettingsGeneral.xml:143
-#: tal/SettingsGeneral.xml:196
+#: tal/SettingsGeneral.xml:91 tal/SettingsGeneral.xml:145
+#: tal/SettingsGeneral.xml:199
 msgid "The meta description used on the archive page."
 msgstr "De meta omschrijving van het archief."
 
-#: tal/SettingsGeneral.xml:100 tal/SettingsGeneral.xml:153
-#: tal/SettingsGeneral.xml:206
+#: tal/SettingsGeneral.xml:101 tal/SettingsGeneral.xml:155
+#: tal/SettingsGeneral.xml:209
 msgid "Do not index archive (noindex)"
 msgstr "Dit archief niet indexeren (noindex)"
 
-#: tal/SettingsGeneral.xml:106 tal/SettingsGeneral.xml:159
-#: tal/SettingsGeneral.xml:212
+#: tal/SettingsGeneral.xml:107 tal/SettingsGeneral.xml:161
+#: tal/SettingsGeneral.xml:215
 msgid "Do not follow archive links (nofollow)"
 msgstr "Links in dit archief niet volgen (nofollow)"
 
-#: tal/SettingsGeneral.xml:114 tal/SettingsGeneral.xml:167
-#: tal/SettingsGeneral.xml:220
+#: tal/SettingsGeneral.xml:115 tal/SettingsGeneral.xml:169
+#: tal/SettingsGeneral.xml:223
 msgid "Tell search engines how to index this archive"
 msgstr "Laat zoekmachines weten hoe ze dit archief mogen indexeren."
 
@@ -964,86 +974,40 @@ msgstr "Admin Core"
 msgid "Admin Core of Buzz SEO."
 msgstr "Admin Core van Buzz SEO."
 
-#: lib/Features/Admin.php:62
-msgid ""
-"This is a WordPress SEO plugin. It covers the basics of SEO optimization. "
-"Requires PHP 5.3+ and WP 4.1+"
-msgstr ""
-"Dit is een WordPress SEO plugin. Het bevat de basis tools om uw site te "
-"optimaliseren voor zoekmachines (SEO). Deze plugin heeft minimaal PHP 5.3+ "
-"en WP 4.1+ nodig."
+#: lib/Features/Admin.php:72
+msgid "Posttype"
+msgstr "Berichttype"
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:63
-#: lib/Features/Admin.php:83 lib/Features/Admin.php:277
-#: lib/Features/Admin.php:279
+#: lib/Features/Admin.php:76
+msgid "Taxonomy"
+msgstr "Taxonomie"
+
+#: lib/Features/Admin.php:80
+msgid "Archive"
+msgstr "Archief"
+
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:108
+#: lib/Features/Admin.php:356 lib/Features/Admin.php:358
 msgid "Buzz SEO"
 msgstr "Buzz SEO"
 
-#: lib/Features/Admin.php:83
-msgid ""
-"The theme you are using is using the deprecated wp_title() functions which "
-"prevents Buzz SEO from generating the correct titles. Please ask your theme "
-"developer to update the theme."
-msgstr ""
-"Het actieve thema dat gebruikt wordt, maakt nog gebruik van de verouderde "
-"wp_title() functie om de document titel te genereren. Hierdoor kan Buzz SEO "
-"de document titels niet optimaliseren. Vraag de ontwikkelaar van het thema "
-"om het thema te updaten."
-
-#: lib/Features/Admin.php:100
-msgid ""
-"Search engines are not allowed to index the site. This is bad for SEO. Click "
-"<a href=\"%s\">here</a> to adjust this."
-msgstr ""
-"Zoekmachines mogen deze site niet indexeren. Dit is slecht voor SEO. Klik <a "
-"href=\"%s\">hier</a> om dit aan te passen."
-
-#: lib/Features/Admin.php:102
-msgid ""
-"Search engines are not allowed to index the site. This is bad for SEO. "
-"Please ask a WordPress administrator to change this."
-msgstr ""
-"Zoekmachines mogen deze site niet indexeren. Dit is slecht voor SEO. Vraag "
-"een WordPress administrator dit aan te passen."
-
-#: lib/Features/Admin.php:120
-msgid ""
-"Permalinks are set to the \"default\" value. If you want to take SEO "
-"seriously, you should change this. Also some features do not work properly "
-"in this mode. Click <a href=\"%s\">here</a> to adjust this."
-msgstr ""
-"Permalinks zijn ingesteld op de \"standaard\" waarde. Als je SEO serieus "
-"neemt moet je dit aanpassen. In de standaard mode werken niet alle "
-"onderdelen van de plugin. Klik <a href=\"%s\">hier</a> om dit aan te passen."
-
-#: lib/Features/Admin.php:122
-msgid ""
-"Permalinks are set to the \"default\" value. If you want to take SEO "
-"seriously, you should change this. Also some features do not work properly "
-"in this mode. Please ask a WordPress administrator to change this."
-msgstr ""
-"Permalinks zijn ingesteld op de \"standaard\" waarde. Als je SEO serieus "
-"neemt moet je dit aanpassen. In de standaard mode werken niet alle "
-"onderdelen van de plugin. Vraag een WordPress administrator dit aan te "
-"passen."
-
-#: lib/Features/Admin.php:141
+#: lib/Features/Admin.php:194
 msgid "Select an image"
 msgstr "Selecteer een afbeelding"
 
-#: lib/Features/Admin.php:141 lib/Features/Admin.php:142
+#: lib/Features/Admin.php:194 lib/Features/Admin.php:195
 msgid "Select"
 msgstr "Selecteren"
 
-#: lib/Features/Admin.php:277
+#: lib/Features/Admin.php:356
 msgid "Buzz SEO plugin is up to date."
 msgstr "Buzz SEO plugin is up-to-date."
 
-#: lib/Features/Admin.php:279
+#: lib/Features/Admin.php:358
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 
-#: lib/Features/Admin.php:281
+#: lib/Features/Admin.php:360
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
 
@@ -1368,23 +1332,23 @@ msgstr "Bestand %s bestaat niet."
 msgid "No Features available"
 msgstr "Er zijn geen onderdelen beschikbaar"
 
-#: lib/PHPTAL/Settings/General.php:56
+#: lib/PHPTAL/Settings/General.php:59
 msgid "Author"
 msgstr "Auteur"
 
-#: lib/PHPTAL/Settings/General.php:57
+#: lib/PHPTAL/Settings/General.php:60
 msgid "Date"
 msgstr "Datum"
 
-#: lib/PHPTAL/Settings/General.php:59
+#: lib/PHPTAL/Settings/General.php:62
 msgid "archive"
 msgstr "archief"
 
-#: lib/PHPTAL/Settings/StatusCodes.php:64
+#: lib/PHPTAL/Settings/StatusCodes.php:63
 msgid "Redirect added."
 msgstr "Verwijzing toegevoegd."
 
-#: lib/PHPTAL/Settings/StatusCodes.php:68
+#: lib/PHPTAL/Settings/StatusCodes.php:67
 msgid "Could not save new redirect."
 msgstr "Kon de verwijzing niet opslaan."
 
@@ -1544,6 +1508,59 @@ msgstr "Converteren naar 301"
 #: lib/Tables/Table404.php:37
 msgid "No 404 errors registered. Good job!"
 msgstr "Geen 404 pagina's geregistreerd. Goed gedaan!"
+
+#~ msgid ""
+#~ "This is a WordPress SEO plugin. It covers the basics of SEO optimization. "
+#~ "Requires PHP 5.3+ and WP 4.1+"
+#~ msgstr ""
+#~ "Dit is een WordPress SEO plugin. Het bevat de basis tools om uw site te "
+#~ "optimaliseren voor zoekmachines (SEO). Deze plugin heeft minimaal PHP "
+#~ "5.3+ en WP 4.1+ nodig."
+
+#~ msgid ""
+#~ "The theme you are using is using the deprecated wp_title() functions "
+#~ "which prevents Buzz SEO from generating the correct titles. Please ask "
+#~ "your theme developer to update the theme."
+#~ msgstr ""
+#~ "Het actieve thema dat gebruikt wordt, maakt nog gebruik van de verouderde "
+#~ "wp_title() functie om de document titel te genereren. Hierdoor kan Buzz "
+#~ "SEO de document titels niet optimaliseren. Vraag de ontwikkelaar van het "
+#~ "thema om het thema te updaten."
+
+#~ msgid ""
+#~ "Search engines are not allowed to index the site. This is bad for SEO. "
+#~ "Click <a href=\"%s\">here</a> to adjust this."
+#~ msgstr ""
+#~ "Zoekmachines mogen deze site niet indexeren. Dit is slecht voor SEO. Klik "
+#~ "<a href=\"%s\">hier</a> om dit aan te passen."
+
+#~ msgid ""
+#~ "Search engines are not allowed to index the site. This is bad for SEO. "
+#~ "Please ask a WordPress administrator to change this."
+#~ msgstr ""
+#~ "Zoekmachines mogen deze site niet indexeren. Dit is slecht voor SEO. "
+#~ "Vraag een WordPress administrator dit aan te passen."
+
+#~ msgid ""
+#~ "Permalinks are set to the \"default\" value. If you want to take SEO "
+#~ "seriously, you should change this. Also some features do not work "
+#~ "properly in this mode. Click <a href=\"%s\">here</a> to adjust this."
+#~ msgstr ""
+#~ "Permalinks zijn ingesteld op de \"standaard\" waarde. Als je SEO serieus "
+#~ "neemt moet je dit aanpassen. In de standaard mode werken niet alle "
+#~ "onderdelen van de plugin. Klik <a href=\"%s\">hier</a> om dit aan te "
+#~ "passen."
+
+#~ msgid ""
+#~ "Permalinks are set to the \"default\" value. If you want to take SEO "
+#~ "seriously, you should change this. Also some features do not work "
+#~ "properly in this mode. Please ask a WordPress administrator to change "
+#~ "this."
+#~ msgstr ""
+#~ "Permalinks zijn ingesteld op de \"standaard\" waarde. Als je SEO serieus "
+#~ "neemt moet je dit aanpassen. In de standaard mode werken niet alle "
+#~ "onderdelen van de plugin. Vraag een WordPress administrator dit aan te "
+#~ "passen."
 
 #~ msgid ""
 #~ "Permalinks are set to the \\'default\\' value. If you want to take SEO "

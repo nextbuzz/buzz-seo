@@ -88,7 +88,7 @@ class Admin extends BaseFeature
      */
     private function registerTranslationsOfType($translate, $data, $group)
     {
-        foreach($data as $key => $translates) {
+        foreach ($data as $key => $translates) {
             $translate->register($translates['titleprefix'], ucfirst($key) . ' ' . $group);
             $translate->register($translates['titlesuffix'], ucfirst($key) . ' ' . $group);
             $translate->register($translates['meta'], ucfirst($key) . ' ' . $group);
@@ -278,6 +278,30 @@ class Admin extends BaseFeature
 
         // Update archive title if archive
         if (!is_singular()) {
+            $translate = \NextBuzz\SEO\Translate\Translate::factory();
+            if ($translate->siteIsMultilingual()) {
+                foreach($options['taxonomies'] as $cat => $items) {
+                    foreach($items as $key => $value) {
+                        if (empty($value)) continue;
+                        $options['taxonomies'][$cat][$key] = $translate->translate($value);
+                        $options['taxonomies'][$cat][$key] = $translate->translate($value);
+                    }
+                }
+                foreach($options['archives'] as $cat => $items) {
+                    foreach($items as $key => $value) {
+                        if (empty($value)) continue;
+                        $options['archives'][$cat][$key] = $translate->translate($value);
+                        $options['archives'][$cat][$key] = $translate->translate($value);
+                    }
+                }
+                foreach($options['posttypes'] as $cat => $items) {
+                    foreach($items as $key => $value) {
+                        if (empty($value)) continue;
+                        $options['posttypes'][$cat][$key] = $translate->translate($value);
+                        $options['posttypes'][$cat][$key] = $translate->translate($value);
+                    }
+                }
+            }
             if (is_category()) {
                 $title['title'] = @trim($options['taxonomies']['category']['titleprefix'] . ' ' . $title['title'] . ' ' . $options['taxonomies']['category']['titlesuffix']);
             } else

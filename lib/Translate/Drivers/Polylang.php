@@ -45,7 +45,7 @@ class Polylang implements \NextBuzz\SEO\Translate\Interfaces\Translate
      */
     public function translate($text)
     {
-        return pll_translate_string($text);
+        return pll__($text);
     }
 
 }
