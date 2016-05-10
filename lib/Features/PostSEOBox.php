@@ -114,10 +114,14 @@ class PostSEOBox extends BaseFeature
             } else
             if (is_tax()) {
                 $tax     = get_queried_object();
-                $content = @trim($translate->translate($options['taxonomies'][$tax->taxonomy]['meta']));
+                if (isset($options['taxonomies'][$tax->taxonomy])) {
+                    $content = @trim($translate->translate($options['taxonomies'][$tax->taxonomy]['meta']));
+                }
             } else {
                 $posttype = get_post_type();
-                $content  = @trim($translate->translate($options['posttypes'][$posttype]['meta']));
+                if (isset($options['posttypes'][$posttype])) {
+                    $content  = @trim($translate->translate($options['posttypes'][$posttype]['meta']));
+                }
             }
 
             if (!empty($content)) {

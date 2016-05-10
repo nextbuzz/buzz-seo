@@ -316,10 +316,14 @@ class Admin extends BaseFeature
             } else
             if (is_tax()) {
                 $tax            = get_queried_object();
-                $title['title'] = @trim($options['taxonomies'][$tax->taxonomy]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['taxonomies'][$tax->taxonomy]['titlesuffix']);
+                if (isset($options['taxonomies'][$tax->taxonomy])) {
+                    $title['title'] = @trim($options['taxonomies'][$tax->taxonomy]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['taxonomies'][$tax->taxonomy]['titlesuffix']);
+                }
             } else {
                 $posttype       = get_post_type();
-                $title['title'] = @trim($options['posttypes'][$posttype]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['posttypes'][$posttype]['titlesuffix']);
+                if (isset($options['posttypes'][$posttype])) {
+                    $title['title'] = @trim($options['posttypes'][$posttype]['titleprefix'] . ' ' . $title['title'] . ' ' . $options['posttypes'][$posttype]['titlesuffix']);
+                }
             }
         }
 
