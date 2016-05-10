@@ -19,6 +19,9 @@ class App
         // Just an easy way to rewrite the POT file.
         //$this->rewritePOT();
 
+        // Check if we should upgrade
+        Upgrades\Upgrader::factory();
+
         // Load features
         $features = array(
             'Admin',
