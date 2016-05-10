@@ -34,6 +34,7 @@ class StatusCodes extends BaseFeature
         if (get_option('permalink_structure') === '') {
             return;
         }
+        add_action('init', array($this, 'registerCPT'));
         add_action('admin_menu', array($this, 'createAdminMenu'));
 
         $options = get_option('_settingsSettingsStatusCodes', true);
@@ -54,6 +55,27 @@ class StatusCodes extends BaseFeature
             add_filter('wp_insert_post_data', array($this, 'manage301SlugChangesGetOld'), 99, 2);
             add_action('save_post', array($this, 'manage301SlugChanges'), 10, 3);
         }
+    }
+
+    /**
+     * Register 301 and 404 post types.
+     *
+     * @since 0.8.2
+     * @access private
+     */
+    public function registerCPT()
+    {
+        \NextBuzz\SEO\Register\PostType::factory('statuscode-301')
+            ->setPublic(false)
+            //->setShowUI(true)
+            ->setSupports(array('custom-fields'))
+            ->setLabel('StatusCode 301');
+
+        \NextBuzz\SEO\Register\PostType::factory('statuscode-404')
+            ->setPublic(false)
+            //->setShowUI(true)
+            ->setSupports(array('custom-fields'))
+            ->setLabel('StatusCode 404');
     }
 
     /**
