@@ -68,6 +68,10 @@ class PostSEOBox extends BaseFeature
      */
     public function filterTitleParts($title)
     {
+        if (!is_singular()) {
+            return $title;
+        }
+        
         $postMeta = $this->getPostMeta();
 
         if (!empty($postMeta['pageTitle'])) {
