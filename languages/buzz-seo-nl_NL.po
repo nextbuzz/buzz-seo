@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-05-09 11:56+0200\n"
-"PO-Revision-Date: 2016-05-09 11:58+0200\n"
+"POT-Creation-Date: 2016-08-01 13:31+0200\n"
+"PO-Revision-Date: 2016-08-01 13:31+0200\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -987,7 +987,7 @@ msgid "Archive"
 msgstr "Archief"
 
 #: lib/Features/Admin.php:21 lib/Features/Admin.php:108
-#: lib/Features/Admin.php:356 lib/Features/Admin.php:358
+#: lib/Features/Admin.php:360 lib/Features/Admin.php:362
 msgid "Buzz SEO"
 msgstr "Buzz SEO"
 
@@ -999,15 +999,15 @@ msgstr "Selecteer een afbeelding"
 msgid "Select"
 msgstr "Selecteren"
 
-#: lib/Features/Admin.php:356
+#: lib/Features/Admin.php:360
 msgid "Buzz SEO plugin is up to date."
 msgstr "Buzz SEO plugin is up-to-date."
 
-#: lib/Features/Admin.php:358
+#: lib/Features/Admin.php:362
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 
-#: lib/Features/Admin.php:360
+#: lib/Features/Admin.php:364
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
 

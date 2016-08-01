@@ -3,8 +3,8 @@ Contributors: lengthofrope, nextbuzz
 Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
-Tested up to: 4.5.1
-Stable tag: 0.8.1
+Tested up to: 4.5.3
+Stable tag: 0.8.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -68,6 +68,11 @@ add_filter('buzz-seo-menu-name', function($current_name) {
 `
 
 == Changelog ==
+
+= 0.8.2 =
+* Add: updater scripts enhancement to allow database changes in the future
+* Update: make CPT meta's (title, description e.d) translatable
+* Fix: archive document title beïng overridden by the first single in the resultset.
 
 = 0.8.1 =
 * Fix: redirection does not work if page has extension
