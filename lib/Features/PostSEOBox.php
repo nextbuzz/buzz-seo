@@ -68,6 +68,10 @@ class PostSEOBox extends BaseFeature
      */
     public function filterTitleParts($title)
     {
+        if (!is_singular()) {
+            return $title;
+        }
+        
         $postMeta = $this->getPostMeta();
 
         if (!empty($postMeta['pageTitle'])) {
@@ -97,27 +101,31 @@ class PostSEOBox extends BaseFeature
             }
         } else {
             // Add archive descriptions
-
             $options = get_option('_settingsSettingsGeneral', true);
             $content = '';
+            $translate = \NextBuzz\SEO\Translate\Translate::factory();
             if (is_category()) {
-                $content = @trim($options['taxonomies']['category']['meta']);
+                $content = @trim($translate->translate($options['taxonomies']['category']['meta']));
             } else
             if (is_tag()) {
-                $content = @trim($options['taxonomies']['post_tag']['meta']);
+                $content = @trim($translate->translate($options['taxonomies']['post_tag']['meta']));
             } else
             if (is_date()) {
-                $content = @trim($options['archives']['date']['meta']);
+                $content = @trim($translate->translate($options['archives']['date']['meta']));
             } else
             if (is_author()) {
-                $content = @trim($options['archives']['author']['meta']);
+                $content = @trim($translate->translate($options['archives']['author']['meta']));
             } else
             if (is_tax()) {
                 $tax     = get_queried_object();
-                $content = @trim($options['taxonomies'][$tax->taxonomy]['meta']);
+                if (isset($options['taxonomies'][$tax->taxonomy])) {
+                    $content = @trim($translate->translate($options['taxonomies'][$tax->taxonomy]['meta']));
+                }
             } else {
                 $posttype = get_post_type();
-                $content  = @trim($options['posttypes'][$posttype]['meta']);
+                if (isset($options['posttypes'][$posttype])) {
+                    $content  = @trim($translate->translate($options['posttypes'][$posttype]['meta']));
+                }
             }
 
             if (!empty($content)) {

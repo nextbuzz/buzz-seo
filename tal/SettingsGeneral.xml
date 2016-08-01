@@ -66,6 +66,7 @@
             </div>
 
             <div class="inner hidden">
+                <p tal:condition="siteIsMultilingual" i18n:translate="">This site has a multilingual plugin installed. Translations for these items can be entered on the settings page of the multilingual plugin.</p>
                 <tal:block tal:repeat="item postTypes">
                     <h2 class="title" tal:content="structure item/label">Post type title</h2>
                     <table class="form-table">
@@ -119,6 +120,7 @@
             </div>
 
             <div class="inner hidden">
+                <p tal:condition="siteIsMultilingual" i18n:translate="">This site has a multilingual plugin installed. Translations for these items can be entered on the settings page of the multilingual plugin.</p>
                 <tal:block tal:repeat="item taxonomyTypes">
                     <h2 class="title" tal:content="structure item/label">Post type title</h2>
                     <table class="form-table">
@@ -172,6 +174,7 @@
             </div>
 
             <div class="inner hidden">
+                <p tal:condition="siteIsMultilingual" i18n:translate="">This site has a multilingual plugin installed. Translations for these items can be entered on the settings page of the multilingual plugin.</p>
                 <tal:block tal:repeat="item additionalArchives">
                     <h2 class="title" tal:content="structure item/label">Post type title</h2>
                     <table class="form-table">

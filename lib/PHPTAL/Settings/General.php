@@ -49,6 +49,9 @@ class General extends \NextBuzz\SEO\PHPTAL\SettingsPage
             $taxonomy->label = html_entity_decode($taxonomy->label, ENT_QUOTES, "UTF-8");
         }
 
+        $translate = \NextBuzz\SEO\Translate\Translate::factory();
+        $this->setTalData('siteIsMultilingual', $translate->siteIsMultilingual());
+        
         $this->setTalData(array(
             'postTypes' => $postTypes,
             'taxonomyTypes' => $taxonomyTypes,

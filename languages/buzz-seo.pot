@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-04-29 06:03:20+0000\n"
+"POT-Creation-Date: 2016-08-01 11:31:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,7 +29,7 @@ msgstr ""
 msgid "The title as displayed in search engines and in the browser title area. Defaults to the post title if empty."
 msgstr ""
 
-#: tal/PostSEOBox.xml:18 tal/SettingsGeneral.xml:87 tal/SettingsGeneral.xml:140 tal/SettingsGeneral.xml:193
+#: tal/PostSEOBox.xml:18 tal/SettingsGeneral.xml:88 tal/SettingsGeneral.xml:142 tal/SettingsGeneral.xml:196
 msgid "Meta description"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "The description which most search engines use."
 msgstr ""
 
-#: tal/PostSEOBox.xml:25 tal/SettingsGeneral.xml:94 tal/SettingsGeneral.xml:147 tal/SettingsGeneral.xml:200
+#: tal/PostSEOBox.xml:25 tal/SettingsGeneral.xml:95 tal/SettingsGeneral.xml:149 tal/SettingsGeneral.xml:203
 msgid "Index options"
 msgstr ""
 
@@ -49,11 +49,11 @@ msgstr ""
 msgid "Do not follow links (nofollow)"
 msgstr ""
 
-#: tal/PostSEOBox.xml:42 tal/SettingsGeneral.xml:111 tal/SettingsGeneral.xml:164 tal/SettingsGeneral.xml:217
+#: tal/PostSEOBox.xml:42 tal/SettingsGeneral.xml:112 tal/SettingsGeneral.xml:166 tal/SettingsGeneral.xml:220
 msgid "Warning:"
 msgstr ""
 
-#: tal/PostSEOBox.xml:43 tal/SettingsGeneral.xml:112 tal/SettingsGeneral.xml:165 tal/SettingsGeneral.xml:218
+#: tal/PostSEOBox.xml:43 tal/SettingsGeneral.xml:113 tal/SettingsGeneral.xml:167 tal/SettingsGeneral.xml:221
 msgid "WordPress is set to no-indexing mode in global options. These page specific settings are ignored as long as the global setting is active."
 msgstr ""
 
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:161
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:214
 msgid "Settings"
 msgstr ""
 
@@ -217,7 +217,7 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:84 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:228 tal/SettingsStatusCodes.xml:48 tal/SettingsStatusCodes.xml:97 tal/SettingsStatusCodes.xml:129 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:84 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231 tal/SettingsStatusCodes.xml:48 tal/SettingsStatusCodes.xml:97 tal/SettingsStatusCodes.xml:129 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr ""
 
@@ -377,7 +377,7 @@ msgstr ""
 msgid "Remove relational links for the posts adjacent to the current post."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:164
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:218
 msgid "General"
 msgstr ""
 
@@ -433,35 +433,39 @@ msgstr ""
 msgid "Show the site name on the document title."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:73 tal/SettingsGeneral.xml:126 tal/SettingsGeneral.xml:179
+#: tal/SettingsGeneral.xml:69 tal/SettingsGeneral.xml:123 tal/SettingsGeneral.xml:177
+msgid "This site has a multilingual plugin installed. Translations for these items can be entered on the settings page of the multilingual plugin."
+msgstr ""
+
+#: tal/SettingsGeneral.xml:74 tal/SettingsGeneral.xml:128 tal/SettingsGeneral.xml:182
 msgid "Document title prefix"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:76 tal/SettingsGeneral.xml:129 tal/SettingsGeneral.xml:182
+#: tal/SettingsGeneral.xml:77 tal/SettingsGeneral.xml:131 tal/SettingsGeneral.xml:185
 msgid "Add a prefix to the main document title on the archive."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:80 tal/SettingsGeneral.xml:133 tal/SettingsGeneral.xml:186
+#: tal/SettingsGeneral.xml:81 tal/SettingsGeneral.xml:135 tal/SettingsGeneral.xml:189
 msgid "Document title suffix"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:83 tal/SettingsGeneral.xml:136 tal/SettingsGeneral.xml:189
+#: tal/SettingsGeneral.xml:84 tal/SettingsGeneral.xml:138 tal/SettingsGeneral.xml:192
 msgid "Add a suffix to the main document title on the archive."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:90 tal/SettingsGeneral.xml:143 tal/SettingsGeneral.xml:196
+#: tal/SettingsGeneral.xml:91 tal/SettingsGeneral.xml:145 tal/SettingsGeneral.xml:199
 msgid "The meta description used on the archive page."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:100 tal/SettingsGeneral.xml:153 tal/SettingsGeneral.xml:206
+#: tal/SettingsGeneral.xml:101 tal/SettingsGeneral.xml:155 tal/SettingsGeneral.xml:209
 msgid "Do not index archive (noindex)"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:106 tal/SettingsGeneral.xml:159 tal/SettingsGeneral.xml:212
+#: tal/SettingsGeneral.xml:107 tal/SettingsGeneral.xml:161 tal/SettingsGeneral.xml:215
 msgid "Do not follow archive links (nofollow)"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:114 tal/SettingsGeneral.xml:167 tal/SettingsGeneral.xml:220
+#: tal/SettingsGeneral.xml:115 tal/SettingsGeneral.xml:169 tal/SettingsGeneral.xml:223
 msgid "Tell search engines how to index this archive"
 msgstr ""
 
@@ -725,51 +729,39 @@ msgstr ""
 msgid "Admin Core of Buzz SEO."
 msgstr ""
 
-#: lib/Features/Admin.php:62
-msgid "This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+"
+#: lib/Features/Admin.php:72
+msgid "Posttype"
 msgstr ""
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:63 lib/Features/Admin.php:83 lib/Features/Admin.php:277 lib/Features/Admin.php:279
+#: lib/Features/Admin.php:76
+msgid "Taxonomy"
+msgstr ""
+
+#: lib/Features/Admin.php:80
+msgid "Archive"
+msgstr ""
+
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:108 lib/Features/Admin.php:360 lib/Features/Admin.php:362
 msgid "Buzz SEO"
 msgstr ""
 
-#: lib/Features/Admin.php:83
-msgid "The theme you are using is using the deprecated wp_title() functions which prevents Buzz SEO from generating the correct titles. Please ask your theme developer to update the theme."
-msgstr ""
-
-#: lib/Features/Admin.php:100
-msgid "Search engines are not allowed to index the site. This is bad for SEO. Click <a href=\"%s\">here</a> to adjust this."
-msgstr ""
-
-#: lib/Features/Admin.php:102
-msgid "Search engines are not allowed to index the site. This is bad for SEO. Please ask a WordPress administrator to change this."
-msgstr ""
-
-#: lib/Features/Admin.php:120
-msgid "Permalinks are set to the \"default\" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Click <a href=\"%s\">here</a> to adjust this."
-msgstr ""
-
-#: lib/Features/Admin.php:122
-msgid "Permalinks are set to the \"default\" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Please ask a WordPress administrator to change this."
-msgstr ""
-
-#: lib/Features/Admin.php:141
+#: lib/Features/Admin.php:194
 msgid "Select an image"
 msgstr ""
 
-#: lib/Features/Admin.php:141 lib/Features/Admin.php:142
+#: lib/Features/Admin.php:194 lib/Features/Admin.php:195
 msgid "Select"
 msgstr ""
 
-#: lib/Features/Admin.php:277
+#: lib/Features/Admin.php:360
 msgid "Buzz SEO plugin is up to date."
 msgstr ""
 
-#: lib/Features/Admin.php:279
+#: lib/Features/Admin.php:362
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr ""
 
-#: lib/Features/Admin.php:281
+#: lib/Features/Admin.php:364
 msgid "Unknown update checker status `%s`."
 msgstr ""
 
@@ -1005,23 +997,23 @@ msgstr ""
 msgid "No Features available"
 msgstr ""
 
-#: lib/PHPTAL/Settings/General.php:56
+#: lib/PHPTAL/Settings/General.php:59
 msgid "Author"
 msgstr ""
 
-#: lib/PHPTAL/Settings/General.php:57
+#: lib/PHPTAL/Settings/General.php:60
 msgid "Date"
 msgstr ""
 
-#: lib/PHPTAL/Settings/General.php:59
+#: lib/PHPTAL/Settings/General.php:62
 msgid "archive"
 msgstr ""
 
-#: lib/PHPTAL/Settings/StatusCodes.php:64
+#: lib/PHPTAL/Settings/StatusCodes.php:63
 msgid "Redirect added."
 msgstr ""
 
-#: lib/PHPTAL/Settings/StatusCodes.php:68
+#: lib/PHPTAL/Settings/StatusCodes.php:67
 msgid "Could not save new redirect."
 msgstr ""
 
