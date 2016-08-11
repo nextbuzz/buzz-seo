@@ -83,6 +83,10 @@ class Translate
      */
     public function translate($text)
     {
+        // We only translate strings
+        if (!is_string($text)) {
+            return $text;
+        }
         return self::$driver->translate($text);
     }
 
