@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.5.3
-Stable tag: 0.8.2
+Stable tag: 0.8.3
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -68,6 +68,9 @@ add_filter('buzz-seo-menu-name', function($current_name) {
 `
 
 == Changelog ==
+
+= 0.8.3 =
+* Fix: issue with multilingual sites using Polylang/ WPML.
 
 = 0.8.2 =
 * Add: updater scripts enhancement to allow database changes in the future
