@@ -52,6 +52,20 @@ class Admin extends BaseFeature
         add_action('custom_menu_order', array($this, 'changeSubmenuOrder'));
 
         $this->initGithubUpdater();
+        add_action('admin_init', array($this, 'maybeAddCapability'));
+    }
+
+    /**
+     * Add the buzz_seo_settings capability
+     * @return type
+     */
+    public function maybeAddCapability() {
+        if (!current_user_can('administrator') || current_user_can('buzz_seo_settings') ) {
+            return;
+        }
+
+        $role = get_role('administrator');
+        $role->add_cap('buzz_seo_settings');
     }
 
     /**
@@ -203,6 +217,10 @@ class Admin extends BaseFeature
     public function createAdminMenu()
     {
         global $submenu;
+
+        if (!current_user_can('buzz_seo_settings')) {
+            return;
+        }
 
         // Add Menu Page and allow programmers to change its administrative name
         $name = apply_filters('buzz-seo-menu-name', 'Buzz SEO');
