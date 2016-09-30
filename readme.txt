@@ -3,8 +3,8 @@ Contributors: lengthofrope, nextbuzz
 Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
-Tested up to: 4.5.3
-Stable tag: 0.8.3
+Tested up to: 4.6.1
+Stable tag: 0.8.4
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -68,6 +68,9 @@ add_filter('buzz-seo-menu-name', function($current_name) {
 `
 
 == Changelog ==
+
+= 0.8.4 =
+* Update: Added custom capability 'buzz_seo_settings' to allow some users access to the Buzz SEO menu.
 
 = 0.8.3 =
 * Fix: issue with multilingual sites using Polylang/ WPML.
