@@ -13,6 +13,7 @@ use \LengthOfRope\JSONLD\Schema;
  */
 class StructuredData extends BaseFeature
 {
+    private $Org = null;
 
     public function name()
     {
@@ -80,17 +81,16 @@ class StructuredData extends BaseFeature
     }
 
     /**
-     * Output JSON-LD data in the head of the HTML page if required
+     * Get the organization entered in the Structed data admin if any
      */
-    public function addJSONLDToHead()
+    private function getOrganization()
     {
-        $options = get_option('_settingsSettingsStructuredData', true);
+        if (!is_null($this->Org)) {
+            return $this->Org;
+        }
 
-        $Create  = \LengthOfRope\JSONLD\Create::factory();
-        $hasData = false;
-        // Add Organization
-        if ((is_home() || is_front_page()) &&
-            isset($options['homepage']) &&
+        $options = get_option('_settingsSettingsStructuredData', true);
+        if (isset($options['homepage']) &&
             isset($options['homepage']['Organization']) &&
             isset($options['homepage']['Organization']['legalName']) &&
             isset($options['homepage']['Organization']['url']) &&
@@ -104,6 +104,11 @@ class StructuredData extends BaseFeature
                 if (!empty($options['homepage']['Organization'][$key])) {
                     $func = "set" . ucFirst($key);
                     $Org->$func($options['homepage']['Organization'][$key]);
+
+                    // Name is also required in some cases, so duplicate legalName
+                    if ($key === 'legalName') {
+                        $Org->setName($options['homepage']['Organization'][$key]);
+                    }
                 }
             }
 
@@ -112,6 +117,29 @@ class StructuredData extends BaseFeature
                 $Org->setLogo($logo[0]);
             }
 
+            // Make Organization available for singular items
+            $this->Org = $Org;
+        } else {
+            $this->Org = false;
+        }
+
+        return $this->Org;
+    }
+
+    /**
+     * Output JSON-LD data in the head of the HTML page if required
+     */
+    public function addJSONLDToHead()
+    {
+        $options = get_option('_settingsSettingsStructuredData', true);
+
+        $Create  = \LengthOfRope\JSONLD\Create::factory();
+        $hasData = false;
+        // Create Organization
+        $Org = $this->getOrganization();
+
+        // Add organization
+        if ($Org && (is_home() || is_front_page())) {
             $hasData = true;
             $Create->add($Org);
         }
@@ -151,12 +179,16 @@ class StructuredData extends BaseFeature
             return $content;
         }
 
+        // Get organization
+        $Org = $this->getOrganization();
+
         // Check if we don't want the boxes to show in code, we also don't want to output jsonld
         $pt = get_post_type();
         if (in_array($pt, apply_filters('buzz-seo-disable-posttype', array()))) {
             return $content;
         }
         $options = get_option('_settingsSettingsStructuredData', true);
+        $postAuthorID = get_post_field('post_author',  get_queried_object_id());
 
         $Create  = \LengthOfRope\JSONLD\Create::factory();
         $hasData = false;
@@ -201,16 +233,30 @@ class StructuredData extends BaseFeature
                     if ($Schema instanceof Schema\CreativeWorkSchema) {
                         $Schema->setDatePublished(get_the_date('c'));
                         $Schema->setDateModified(get_the_modified_date('c'));
+
+                        // Publisher is required
+                        if ($Org !== false) {
+                            // Set the organization if availble
+                            $Schema->setPublisher($Org);
+                        }
+
+                        // mainEntityOfPage is recommended
+                        $Schema->setMainEntityOfPage(get_permalink());
                     }
 
                     // Add author
+                    $Author = false;
                     if (isset($options['addauthor']) && is_array($options['addauthor']) && isset($options['addauthor'][$creativeWorkType])) {
-                        $authorF    = get_the_author_meta('first_name');
-                        $authorL    = get_the_author_meta('last_name');
-                        $authormail = get_the_author_meta('email');
-                        $authorurl  = get_the_author_meta('url');
+                        $authorF    = get_the_author_meta('first_name', $postAuthorID);
+                        $authorL    = get_the_author_meta('last_name', $postAuthorID);
+                        $author    = trim($authorF . " " . $authorL);
+                        $authormail = get_the_author_meta('email', $postAuthorID);
+                        $authorurl  = get_the_author_meta('url', $postAuthorID);
 
                         $Author = Schema\PersonSchema::factory();
+                        if (!empty($author)) {
+                            $Author->setName($author);
+                        }
                         if (!empty($authorF)) {
                             $Author->setGivenName($authorF);
                         }
@@ -226,6 +272,12 @@ class StructuredData extends BaseFeature
 
                         $Schema->setAuthor($Author);
                     }
+
+                    if ($Org === false && $Author !== false) {
+                        // Set the author as publisher if organization is not available
+                        $Schema->setPublisher($Author);
+                    }
+
 
                     $hasData = true;
                     $Create->add($Schema);
