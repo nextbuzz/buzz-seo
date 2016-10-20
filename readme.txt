@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.6.1
-Stable tag: 0.8.4
+Stable tag: 0.8.5
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -68,6 +68,9 @@ add_filter('buzz-seo-menu-name', function($current_name) {
 `
 
 == Changelog ==
+
+= 0.8.5 =
+* Update: Update the CreativeWork Structured Data to add some new required values.
 
 = 0.8.4 =
 * Update: Added custom capability 'buzz_seo_settings' to allow some users access to the Buzz SEO menu.
