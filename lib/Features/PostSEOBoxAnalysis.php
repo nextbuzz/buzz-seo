@@ -305,37 +305,37 @@ class PostSEOBoxAnalysis extends BaseFeature
                     'data' => array(
                         array(
                             'min' => 0,
-                            'max' => 29.9,
+                            'max' => 29.99,
                             'score' => 4,
                             'text' => __('The content is very difficult to read. Try to make shorter sentences and use less difficult words to improve readability.', 'buzz-seo')
                         ),
                         array(
                             'min' => 30,
-                            'max' => 49.9,
+                            'max' => 49.99,
                             'score' => 5,
                             'text' => __('The content is difficult to read. Try to make shorter sentences and use less difficult words to improve readability.', 'buzz-seo')
                         ),
                         array(
                             'min' => 50,
-                            'max' => 59.9,
+                            'max' => 59.99,
                             'score' => 6,
                             'text' => __('The content is fairly difficult to read. Try to make shorter sentences to improve readability.', 'buzz-seo')
                         ),
                         array(
                             'min' => 60,
-                            'max' => 69.9,
+                            'max' => 69.99,
                             'score' => 7,
                             'text' => __('The content is sufficiantly readable.', 'buzz-seo')
                         ),
                         array(
                             'min' => 70,
-                            'max' => 79.9,
+                            'max' => 79.99,
                             'score' => 8,
                             'text' => __('The content is fairly easy to read.', 'buzz-seo')
                         ),
                         array(
                             'min' => 80,
-                            'max' => 89.9,
+                            'max' => 89.99,
                             'score' => 9,
                             'text' => __('The content is easy to read. Good job!', 'buzz-seo')
                         ),

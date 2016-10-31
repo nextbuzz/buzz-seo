@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-08-11 10:23+0200\n"
-"PO-Revision-Date: 2016-08-11 10:23+0200\n"
+"POT-Creation-Date: 2016-10-31 15:33+0100\n"
+"PO-Revision-Date: 2016-10-31 15:33+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: buzz-seo.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -255,7 +255,7 @@ msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:214
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:232
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -537,7 +537,7 @@ msgstr ""
 "Verwijder relationele links voor de berichten grenzend (vorige en volgende) "
 "aan je huidige bericht."
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:218
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:236
 msgid "General"
 msgstr "Algemeen"
 
@@ -974,40 +974,40 @@ msgstr "Admin Core"
 msgid "Admin Core of Buzz SEO."
 msgstr "Admin Core van Buzz SEO."
 
-#: lib/Features/Admin.php:72
+#: lib/Features/Admin.php:86
 msgid "Posttype"
 msgstr "Berichttype"
 
-#: lib/Features/Admin.php:76
+#: lib/Features/Admin.php:90
 msgid "Taxonomy"
 msgstr "Taxonomie"
 
-#: lib/Features/Admin.php:80
+#: lib/Features/Admin.php:94
 msgid "Archive"
 msgstr "Archief"
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:108
-#: lib/Features/Admin.php:360 lib/Features/Admin.php:362
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:122
+#: lib/Features/Admin.php:378 lib/Features/Admin.php:380
 msgid "Buzz SEO"
 msgstr "Buzz SEO"
 
-#: lib/Features/Admin.php:194
+#: lib/Features/Admin.php:208
 msgid "Select an image"
 msgstr "Selecteer een afbeelding"
 
-#: lib/Features/Admin.php:194 lib/Features/Admin.php:195
+#: lib/Features/Admin.php:208 lib/Features/Admin.php:209
 msgid "Select"
 msgstr "Selecteren"
 
-#: lib/Features/Admin.php:360
+#: lib/Features/Admin.php:378
 msgid "Buzz SEO plugin is up to date."
 msgstr "Buzz SEO plugin is up-to-date."
 
-#: lib/Features/Admin.php:362
+#: lib/Features/Admin.php:380
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 
-#: lib/Features/Admin.php:364
+#: lib/Features/Admin.php:382
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
 
@@ -1283,7 +1283,7 @@ msgstr "De tekst is eenvoudig te lezen. Goed gedaan!"
 msgid "The content is very easy to read. Splendid!"
 msgstr "De tekst is erg eenvoudig te lezen. Super!"
 
-#: lib/Features/Sitemaps.php:15 lib/Features/Sitemaps.php:47
+#: lib/Features/Sitemaps.php:15 lib/Features/Sitemaps.php:66
 msgid "Sitemaps"
 msgstr "Sitemaps"
 
@@ -1296,7 +1296,7 @@ msgid "Note: this feature does not work with current permalink settings!"
 msgstr ""
 "Opmerking: dit onderdeel werkt niet met de huidige permalink instelling!"
 
-#: lib/Features/Sitemaps.php:47
+#: lib/Features/Sitemaps.php:66
 msgid "XML Sitemaps"
 msgstr "XML sitemaps"
 
@@ -1304,11 +1304,11 @@ msgstr "XML sitemaps"
 msgid "Manage 404 errors and 301 redirects."
 msgstr "Beheer 301 verwijzingen en 404 errors."
 
-#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:71
+#: lib/Features/StructuredData.php:20 lib/Features/StructuredData.php:72
 msgid "Structured Data"
 msgstr "Gestructureerde data"
 
-#: lib/Features/StructuredData.php:24
+#: lib/Features/StructuredData.php:25
 msgid ""
 "Add structured data to the content to allow search engines to show the "
 "content as rich snippets."
