@@ -36,6 +36,25 @@ class Sitemaps extends BaseFeature
         add_action('admin_menu', array($this, 'createAdminMenu'));
         add_action('pre_get_posts', array($this, 'checkRenderSitemap'), 1);
         add_filter('redirect_canonical', array($this, 'noXMLTrailingSlash'));
+        add_filter('robots_txt', array($this, 'addSitemapToRobots'), 10, 2);
+    }
+
+    /**
+     * Add our sitemap to the robots.txt file so search engines know where to find it.
+     *
+     * @param string $output The raw output of the robots.txt
+     * @param boolean $public True if the site is considered public, false otherwise.
+     * @return string
+     */
+    public function addSitemapToRobots($output, $public)
+    {
+        if (!$public) {
+            return $output;
+        }
+
+        $output .= "Sitemap: " . site_url() . "/sitemap.xml\n";
+
+        return $output;
     }
 
     /**
