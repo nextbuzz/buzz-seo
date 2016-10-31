@@ -333,6 +333,8 @@
                     };
                 }
             }
+
+            return false;
         }
 
         function analyseWordCount(data, info, text)

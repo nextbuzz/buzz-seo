@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-08-11 08:22:08+0000\n"
+"POT-Creation-Date: 2016-10-31 14:32:32+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:214
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:232
 msgid "Settings"
 msgstr ""
 
@@ -377,7 +377,7 @@ msgstr ""
 msgid "Remove relational links for the posts adjacent to the current post."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:218
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:236
 msgid "General"
 msgstr ""
 
@@ -729,39 +729,39 @@ msgstr ""
 msgid "Admin Core of Buzz SEO."
 msgstr ""
 
-#: lib/Features/Admin.php:72
+#: lib/Features/Admin.php:86
 msgid "Posttype"
 msgstr ""
 
-#: lib/Features/Admin.php:76
+#: lib/Features/Admin.php:90
 msgid "Taxonomy"
 msgstr ""
 
-#: lib/Features/Admin.php:80
+#: lib/Features/Admin.php:94
 msgid "Archive"
 msgstr ""
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:108 lib/Features/Admin.php:360 lib/Features/Admin.php:362
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:122 lib/Features/Admin.php:378 lib/Features/Admin.php:380
 msgid "Buzz SEO"
 msgstr ""
 
-#: lib/Features/Admin.php:194
+#: lib/Features/Admin.php:208
 msgid "Select an image"
 msgstr ""
 
-#: lib/Features/Admin.php:194 lib/Features/Admin.php:195
+#: lib/Features/Admin.php:208 lib/Features/Admin.php:209
 msgid "Select"
 msgstr ""
 
-#: lib/Features/Admin.php:360
+#: lib/Features/Admin.php:378
 msgid "Buzz SEO plugin is up to date."
 msgstr ""
 
-#: lib/Features/Admin.php:362
+#: lib/Features/Admin.php:380
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr ""
 
-#: lib/Features/Admin.php:364
+#: lib/Features/Admin.php:382
 msgid "Unknown update checker status `%s`."
 msgstr ""
 
@@ -953,7 +953,7 @@ msgstr ""
 msgid "The content is very easy to read. Splendid!"
 msgstr ""
 
-#: lib/Features/Sitemaps.php:15 lib/Features/Sitemaps.php:47
+#: lib/Features/Sitemaps.php:15 lib/Features/Sitemaps.php:66
 msgid "Sitemaps"
 msgstr ""
 
@@ -965,7 +965,7 @@ msgstr ""
 msgid "Note: this feature does not work with current permalink settings!"
 msgstr ""
 
-#: lib/Features/Sitemaps.php:47
+#: lib/Features/Sitemaps.php:66
 msgid "XML Sitemaps"
 msgstr ""
 
@@ -973,11 +973,11 @@ msgstr ""
 msgid "Manage 404 errors and 301 redirects."
 msgstr ""
 
-#: lib/Features/StructuredData.php:19 lib/Features/StructuredData.php:71
+#: lib/Features/StructuredData.php:20 lib/Features/StructuredData.php:72
 msgid "Structured Data"
 msgstr ""
 
-#: lib/Features/StructuredData.php:24
+#: lib/Features/StructuredData.php:25
 msgid "Add structured data to the content to allow search engines to show the content as rich snippets."
 msgstr ""
 

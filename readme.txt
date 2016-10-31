@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.6.1
-Stable tag: 0.8.5
+Stable tag: 0.8.6
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -68,6 +68,10 @@ add_filter('buzz-seo-menu-name', function($current_name) {
 `
 
 == Changelog ==
+
+= 0.8.6 =
+* Fix: Readability calculation sometimes generated a JS error.
+* Update: Sitemap is now also registered in robots.txt
 
 = 0.8.5 =
 * Update: Update the CreativeWork Structured Data to add some new required values.
