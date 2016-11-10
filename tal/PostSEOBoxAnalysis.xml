@@ -3,7 +3,7 @@
         <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Analysis</a>
         <a class="nav-tab" href="javascript:;" i18n:translate="">Focus keywords</a>
     </div>
-    
+
     <div class="inside">
         <table class="form-table">
             <tr>
@@ -24,7 +24,7 @@
                                 (<span id="buzz-seo-good-count">0</span>)
                             </a>
                         </div>
-                        
+
                         <div class="inside">
                             <ul id="buzz-seo-content-analysis-errors">
                                 <li i18n:translate="">Not yet available.</li>
@@ -51,9 +51,16 @@
                     <p class="description" i18n:translate="">The readability score is a methametical calculation based on the English literature.</p>
                 </td>
             </tr>
+            <tr id="buzz-seo-grade">
+                <th scope="row" i18n:translate="">Grade</th>
+                <td>
+                    <p id="buzz-seo-grade-score" i18n:translate="">Not yet available.</p>
+                    <p class="description" i18n:translate="">The grade is an overal indicator of the SEO score. It is not required nor advised to always strive for a perfect grade.</p>
+                </td>
+            </tr>
         </table>
     </div>
-    
+
     <div class="inside hidden">
         <table class="form-table">
             <tr>

@@ -126,7 +126,7 @@
             });
         }
 
-        var analysisTimeout, analysisDelay = 1000,
+        var analysisTimeout, analysisDelay = 1000, totalScore = 0, maxScore = 0, minScore = 0,
                 outputGood = [], outputWarning = [], outputError = [], calculatedHTML = false, calculatedText = false;
 
         // Trigger first analyses manually
@@ -149,14 +149,25 @@
             calculatedHTML = false;
             calculatedText = false;
 
-            var output, index, id, data, info;
+            var output, index, id, data, info, dataItem, itemMaxScore = 0;
             outputGood = [];
             outputWarning = [];
             outputError = [];
+            totalScore = 0;
+            maxScore = 0;
             for (index = 0; index < BuzzSEOAnalysis.data.length; ++index) {
                 id = BuzzSEOAnalysis.data[index].id;
                 data = BuzzSEOAnalysis.data[index].data;
                 info = BuzzSEOAnalysis.data[index].info;
+
+                itemMaxScore = 0;
+                for (dataItem in data) {
+                    if (data[dataItem].score >= itemMaxScore) {
+                        itemMaxScore = data[dataItem].score;
+                    }
+                }
+                maxScore += itemMaxScore;
+
                 switch (id) {
                     case 'wordCount':
                         handleScoreOutput(analyseWordCount(data, info, getEditorText()));
@@ -232,6 +243,10 @@
             outputWarning.sort(sortByScore);
             outputGood.sort(sortByScore);
 
+            // Update score
+            var grade = Math.round((10/maxScore) * totalScore);
+            $("#buzz-seo-grade-score").html(grade);
+
             // Create output
             output = "";
             if (outputError.length > 0) {
@@ -272,6 +287,8 @@
 
         function handleScoreOutput(scoreObject)
         {
+            totalScore += scoreObject.score;
+
             if (scoreObject.score < 5) {
                 outputError.push(scoreObject);
             } else if (scoreObject.score < 8) {

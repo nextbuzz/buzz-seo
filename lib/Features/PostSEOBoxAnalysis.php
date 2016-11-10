@@ -61,7 +61,7 @@ class PostSEOBoxAnalysis extends BaseFeature
                     'data' => array(
                         array(
                             'min' => 300,
-                            'score' => 10,
+                            'score' => 75,
                             'text' => __('The text contains {0} words, this is more than the {1} word recommended minimum.', 'buzz-seo')
                         ),
                         array(
