@@ -246,6 +246,7 @@
             // Update score
             var grade = Math.round((10/maxScore) * totalScore);
             $("#buzz-seo-grade-score").html(grade);
+            $("#buzz-seo-grade-score-input").val(grade);
 
             // Create output
             output = "";
