@@ -76,6 +76,26 @@ class Translate
     }
 
     /**
+     * Get the default language
+     * @return string
+     */
+    public function getDefaultLanguage()
+    {
+        return self::$driver->getDefaultLanguage();
+    }
+
+    /**
+     * Get an array with all available translations for a given post
+     *
+     * @param int $postID
+     * @return array Indexed array with as key the language code, and as value the post id
+     */
+    public function getTranslatedPosts($postID)
+    {
+        return self::$driver->getTranslatedPosts($postID);
+    }
+
+    /**
      * Retrieve a translated string from the translation plugin.
      *
      * @param string $text The string to get the translated content for from the multilingual plugin.
