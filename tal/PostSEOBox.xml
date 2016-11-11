@@ -10,14 +10,18 @@
             <tr>
                 <th scope="row" i18n:translate="">Page title</th>
                 <td>
-                    <input id="buzz-seo-pagetitle" type="text" name="PostSEOBox[pageTitle]" tal:attributes="value pageTitle | nothing" />
+                    <div class="input-buzz-counter">
+                        <input id="buzz-seo-pagetitle" data-buzz-counter="pageTitleLength" type="text" name="PostSEOBox[pageTitle]" tal:attributes="value pageTitle | nothing" />
+                    </div>
                     <p class="description" i18n:translate="">The title as displayed in search engines and in the browser title area. Defaults to the post title if empty.</p>
                 </td>
             </tr>
             <tr>
                 <th scope="row" i18n:translate="">Meta description</th>
                 <td>
-                    <input id="buzz-seo-metadescription" type="text" name="PostSEOBox[metaDescription]" tal:attributes="value metaDescription | nothing" />
+                    <div class="input-buzz-counter">
+                        <input id="buzz-seo-metadescription" data-buzz-counter="metaDescriptionLength" type="text" name="PostSEOBox[metaDescription]" tal:attributes="value metaDescription | nothing" />
+                    </div>
                     <p class="description" i18n:translate="">The description which most search engines use.</p>
                 </td>
             </tr>

@@ -85,3 +85,19 @@
     height: 1rem;
     font-size: 1rem;
 }
+
+.input-buzz-counter {
+    position: relative;
+
+    .buzz-counter-results {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        bottom: 2px;
+        line-height: 1.9;
+        color: green;
+        &.error {
+            color: red;
+        }
+    }
+}
