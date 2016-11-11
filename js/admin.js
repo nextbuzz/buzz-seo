@@ -182,7 +182,12 @@
                         break;
 
                     case 'pageTitleLength':
-                        handleScoreOutput(analyseCharCount(data, info, $("#title").val()));
+                        // Check if something is entered in the seo title, if so use that as a validator
+                        if ($("#buzz-seo-pagetitle").val().length === 0) {
+                            handleScoreOutput(analyseCharCount(data, info, $("#title").val()));
+                        } else {
+                            handleScoreOutput(analyseCharCount(data, info, $("#buzz-seo-pagetitle").val()));
+                        }
                         break;
 
                     case 'keywordDensity':
