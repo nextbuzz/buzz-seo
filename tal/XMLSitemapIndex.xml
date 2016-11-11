@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?><span tal:omit-tag="" tal:condition="styleoutput | nothing" tal:content="structure xslstylesheet | nothing"></span>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
    <sitemap tal:repeat="sitemap sitemaps">
       <loc tal:content="sitemap/loc"></loc>
       <lastmod tal:content="sitemap/lastmod"></lastmod>

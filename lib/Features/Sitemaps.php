@@ -148,6 +148,10 @@ class Sitemaps extends BaseFeature
         $options['xslstylesheet'] = '<?xml-stylesheet type="text/xsl" href="' . plugins_url('/css/sitemap.xsl.php',
                 dirname(dirname(__FILE__))) . '"?>';
 
+        // Get default language
+        $Translate = \NextBuzz\SEO\Translate\Translate::factory();
+        $defaultLanguage = $Translate->getDefaultLanguage();
+
         $talData = array();
         $baseurl = home_url('/');
         if ($type === "1") {
@@ -160,7 +164,8 @@ class Sitemaps extends BaseFeature
                         'post_type'      => $posttype,
                         'posts_per_page' => -1,
                         'cache_results'  => false,
-                        'fields'         => 'ids'
+                        'fields'         => 'ids',
+                        'lang'           => $defaultLanguage,
                     )));
                     $pages    = ceil($numposts / $itemsperpage);
                     for ($p = 1; $p <= $pages; $p++) {
@@ -216,7 +221,8 @@ class Sitemaps extends BaseFeature
                     'posts_per_page' => '1',
                     'author'         => $user->ID,
                     'orderby'        => 'modified',
-                    'order'          => 'DESC'
+                    'order'          => 'DESC',
+                    'lang'           => $defaultLanguage,
                 ));
 
                 $modified  = is_array($latestPost) && isset($latestPost[0]) ? $latestPost[0]->post_modified_gmt : $user->user_registered;
@@ -244,18 +250,26 @@ class Sitemaps extends BaseFeature
                     'posts_per_page' => $itemsperpage,
                     'paged'          => $page,
                     'orderby'        => 'modified',
-                    'order'          => 'DESC'
+                    'order'          => 'DESC',
+                    'lang'           => function_exists('pll_default_language') ? pll_default_language() : '',
                 ));
 
                 $frontId = intval(get_option('page_on_front', -1));
                 $blogId  = intval(get_option('page_for_posts', -1));
 
                 foreach ($posts as $post) {
+                    // If polylang, get alternative languages if polylang
+                    $alternatives = $Translate->getTranslatedPosts($post->ID);
+                    foreach($alternatives as &$alternative) {
+                        $alternative = get_permalink($alternative);
+                    }
+
                     $talData[] = array(
                         'loc'        => get_permalink($post->ID),
                         'lastmod'    => \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($post->post_modified_gmt),
                         'changefreq' => ($post->ID === $frontId || $post->ID === $blogId) ? 'daily' : 'monthly',
                         'priority'   => ($post->ID === $frontId || $post->ID === $blogId) ? 1.0 : 0.8,
+                        'alternative'=> $alternatives,
                     );
                 }
             } else {

@@ -63,3 +63,41 @@
         width: auto;
     }
 }
+
+.column-buzz_seo_grade {
+    width: 15%;
+    .dashicons {
+        width: 1rem;
+        height: 1rem;
+        font-size: 1rem;
+    }
+}
+
+.misc-pub-buzz-seo {
+    padding-bottom: 10px;
+    .icon {
+        color: #82878c;
+    }
+}
+
+#buzz-seo-grade-score-publish .dashicons {
+    width: 1rem;
+    height: 1rem;
+    font-size: 1rem;
+}
+
+.input-buzz-counter {
+    position: relative;
+
+    .buzz-counter-results {
+        position: absolute;
+        right: 1px;
+        top: 1px;
+        bottom: 2px;
+        line-height: 1.9;
+        color: green;
+        &.error {
+            color: red;
+        }
+    }
+}

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><span tal:omit-tag="" tal:condition="styleoutput | nothing" tal:content="structure xslstylesheet | nothing"></span>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
    <url tal:repeat="url urls">
       <loc tal:content="url/loc"></loc>
       <lastmod tal:content="url/lastmod"></lastmod>
       <changefreq tal:content="url/changefreq"></changefreq>
       <priority tal:content="url/priority"></priority>
+      <xhtml:link tal:repeat="alt url/alternative" rel="alternate" hreflang="en" href="" tal:attributes="hreflang repeat/alt/key; href alt" />
    </url>
-</urlset> 
+</urlset>

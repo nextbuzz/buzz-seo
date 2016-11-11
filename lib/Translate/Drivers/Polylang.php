@@ -48,4 +48,37 @@ class Polylang implements \NextBuzz\SEO\Translate\Interfaces\Translate
         return pll__($text);
     }
 
+    /**
+     * Get the default language
+     *
+     * @return string
+     */
+    public function getDefaultLanguage()
+    {
+        return pll_default_language();
+    }
+
+    /**
+     * Get an array with all available translations for a given post
+     *
+     * @param int $postID
+     * @return array Indexed array with as key the language code, and as value the post id
+     */
+    public function getTranslatedPosts($postID)
+    {
+        $languages = pll_the_languages(array('raw'=>1));
+
+        $result = array();
+        foreach($languages as $lang) {
+            $lang = $lang['slug'];
+
+            $transPostID = pll_get_post($postID, $lang);
+            if (is_int($transPostID) && $transPostID !== $postID) {
+                $result[$lang] = $transPostID;
+            }
+        }
+
+        return $result;
+    }
+
 }

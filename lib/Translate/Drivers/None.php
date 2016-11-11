@@ -50,4 +50,25 @@ class None implements \NextBuzz\SEO\Translate\Interfaces\Translate
         return $text;
     }
 
+    /**
+     * Get the default language
+     *
+     * @return string
+     */
+    public function getDefaultLanguage()
+    {
+        return '';
+    }
+
+    /**
+     * Get an array with all available translations for a given post
+     *
+     * @param int $postID
+     * @return array Indexed array with as key the language code, and as value the post id
+     */
+    public function getTranslatedPosts($postID)
+    {
+        return array();
+    }
+
 }

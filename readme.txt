@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.6.1
-Stable tag: 0.8.6
+Stable tag: 0.9.0
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -67,7 +67,25 @@ add_filter('buzz-seo-menu-name', function($current_name) {
 ?>
 `
 
+= Can I hide the SEO Grade output in the admin screens? =
+
+Yes, this is possible by using the following filter:
+
+`
+<?php
+add_filter('buzz-seo-show-grade-output', '__return_false');
+?>
+`
+
 == Changelog ==
+
+= 0.9.0 =
+* Add: Counter for SEO title and meta description.
+* Add: Visual SEO grade.
+* Add: filter to disable SEO grade visibility (see FAQ).
+* Fix: Sitemap did not show alternative language when using polylang.
+* Fix: Content analysis only checked the main title instead of SEO title if used.
+* Remove: redirection support since it was not working properly and is not a core SEO
 
 = 0.8.6 =
 * Fix: Readability calculation sometimes generated a JS error.
@@ -201,6 +219,10 @@ add_filter('buzz-seo-menu-name', function($current_name) {
 * Initial setup of the project
 
 == Upgrade Notice ==
+
+= 0.9.0 =
+Redirection support is removed in this version. Please use an alternative plugin for redirection purposes before
+updating to this version of the Buzz SEO plugin.
 
 = 0.0.2 =
 Added basic templating for this plugin

@@ -3,7 +3,7 @@
         <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Analysis</a>
         <a class="nav-tab" href="javascript:;" i18n:translate="">Focus keywords</a>
     </div>
-    
+
     <div class="inside">
         <table class="form-table">
             <tr>
@@ -24,7 +24,7 @@
                                 (<span id="buzz-seo-good-count">0</span>)
                             </a>
                         </div>
-                        
+
                         <div class="inside">
                             <ul id="buzz-seo-content-analysis-errors">
                                 <li i18n:translate="">Not yet available.</li>
@@ -52,8 +52,9 @@
                 </td>
             </tr>
         </table>
+        <input id="buzz-seo-grade-score-input" type="hidden" name="PostSEOBoxAnalysis[grade]" value="0" />
     </div>
-    
+
     <div class="inside hidden">
         <table class="form-table">
             <tr>

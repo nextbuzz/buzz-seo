@@ -56,4 +56,26 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
         return apply_filters('wpml_translate_string', $text, $text, $this->package);
     }
 
+    /**
+     * Get the default language
+     *
+     * @return string
+     */
+    public function getDefaultLanguage()
+    {
+        return wpml_get_default_language();
+    }
+
+    /**
+     * Get an array with all available translations for a given post
+     *
+     * @param int $postID
+     * @return array Indexed array with as key the language code, and as value the post id
+     */
+    public function getTranslatedPosts($postID)
+    {
+        // TODO: implement this function for WPML
+        return array();
+    }
+
 }

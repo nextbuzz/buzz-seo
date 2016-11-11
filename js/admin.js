@@ -126,7 +126,7 @@
             });
         }
 
-        var analysisTimeout, analysisDelay = 1000,
+        var analysisTimeout, analysisDelay = 1000, totalScore = 0, maxScore = 0, minScore = 0,
                 outputGood = [], outputWarning = [], outputError = [], calculatedHTML = false, calculatedText = false;
 
         // Trigger first analyses manually
@@ -149,14 +149,25 @@
             calculatedHTML = false;
             calculatedText = false;
 
-            var output, index, id, data, info;
+            var output, index, id, data, info, dataItem, itemMaxScore = 0;
             outputGood = [];
             outputWarning = [];
             outputError = [];
+            totalScore = 0;
+            maxScore = 0;
             for (index = 0; index < BuzzSEOAnalysis.data.length; ++index) {
                 id = BuzzSEOAnalysis.data[index].id;
                 data = BuzzSEOAnalysis.data[index].data;
                 info = BuzzSEOAnalysis.data[index].info;
+
+                itemMaxScore = 0;
+                for (dataItem in data) {
+                    if (data[dataItem].score >= itemMaxScore) {
+                        itemMaxScore = data[dataItem].score;
+                    }
+                }
+                maxScore += itemMaxScore;
+
                 switch (id) {
                     case 'wordCount':
                         handleScoreOutput(analyseWordCount(data, info, getEditorText()));
@@ -171,7 +182,12 @@
                         break;
 
                     case 'pageTitleLength':
-                        handleScoreOutput(analyseCharCount(data, info, $("#title").val()));
+                        // Check if something is entered in the seo title, if so use that as a validator
+                        if ($("#buzz-seo-pagetitle").val() && $("#buzz-seo-pagetitle").val().length === 0) {
+                            handleScoreOutput(analyseCharCount(data, info, $("#title").val()));
+                        } else {
+                            handleScoreOutput(analyseCharCount(data, info, $("#buzz-seo-pagetitle").val()));
+                        }
                         break;
 
                     case 'keywordDensity':
@@ -232,6 +248,21 @@
             outputWarning.sort(sortByScore);
             outputGood.sort(sortByScore);
 
+            // Update score
+            var grade = Math.round((10/maxScore) * totalScore), gradeHTML = '', number, cls;
+            for (number = 1; number <= 5; number++) {
+                cls = 'dashicons-star-empty';
+                if ((grade/2) >= number) {
+                    cls = 'dashicons-star-filled';
+                } else if (Math.ceil((grade/2)) >= number) {
+                    cls = 'dashicons-star-half';
+                }
+                gradeHTML += '<span class="dashicons ' + cls + '"></span>';
+            }
+            $("#buzz-seo-grade-score").html(gradeHTML);
+            $("#buzz-seo-grade-score-publish").html(gradeHTML);
+            $("#buzz-seo-grade-score-input").val(grade);
+
             // Create output
             output = "";
             if (outputError.length > 0) {
@@ -263,6 +294,9 @@
             }
             $("#buzz-seo-content-analysis-good").html(output);
             $("#buzz-seo-good-count").html(outputGood.length);
+
+            // Inline count analysis
+            $("input[data-buzz-counter]").each(updateInlineCount);
         }
 
         function sortByScore(a, b)
@@ -272,6 +306,8 @@
 
         function handleScoreOutput(scoreObject)
         {
+            totalScore += scoreObject.score;
+
             if (scoreObject.score < 5) {
                 outputError.push(scoreObject);
             } else if (scoreObject.score < 8) {
@@ -513,6 +549,44 @@
             }
 
             return sentenceCount;
+        }
+
+        function updateInlineCount()
+        {
+            var that = $(this), length = that.val().length, counterID = that.attr("data-buzz-counter"),
+                index, id, min, max, result;
+            for (index = 0; index < BuzzSEOAnalysis.data.length; ++index) {
+                id = BuzzSEOAnalysis.data[index].id;
+
+                if (id !== counterID) {
+                    continue;
+                }
+
+                // Get recommendations for this item
+                min = BuzzSEOAnalysis.data[index].info.recommendedMin;
+                max = BuzzSEOAnalysis.data[index].info.recommendedMax;
+
+                // Add calculation attributes to element
+                that.attr("data-buzz-counter-min", min);
+                that.attr("data-buzz-counter-max", max);
+                that.attr("data-buzz-counter-length", length);
+                result = $("#"+that.attr('id')+'_results');
+                if (result.length !== 1) {
+                    that.parent().append('<span id="'+that.attr('id')+'_results" class="buzz-counter-results">');
+                    result = $("#"+that.attr('id')+'_results');
+                }
+                if (length < min) {
+                    result.addClass("error");
+                    result.html(length + " / " + max + " <span class='dashicons dashicons-warning' />");
+                } else if(length <= max) {
+                    result.removeClass("error");
+                    result.html(length + " / " + max + " <span class='dashicons dashicons-awards' />");
+                } else {
+                    result.addClass("error");
+                    result.html(length + " / " + max + " <span class='dashicons dashicons-warning' />");
+                }
+                that.css('width', 'calc(100% - 6rem)');
+            }
         }
     });
 
