@@ -577,7 +577,7 @@
                 }
                 if (length < min) {
                     result.addClass("error");
-                    result.html(length + " / " + min + " <span class='dashicons dashicons-warning' />");
+                    result.html(length + " / " + max + " <span class='dashicons dashicons-warning' />");
                 } else if(length <= max) {
                     result.removeClass("error");
                     result.html(length + " / " + max + " <span class='dashicons dashicons-awards' />");
