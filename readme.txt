@@ -67,6 +67,16 @@ add_filter('buzz-seo-menu-name', function($current_name) {
 ?>
 `
 
+= Can I hide the SEO Grade output in the admin screens? =
+
+Yes, this is possible by using the following filter:
+
+`
+<?php
+add_filter('buzz-seo-show-grade-output', '__return_false');
+?>
+`
+
 == Changelog ==
 
 = 0.8.6 =
