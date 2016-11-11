@@ -9,11 +9,11 @@ namespace NextBuzz\SEO\Features;
  */
 class PostSEOBoxAnalysis extends BaseFeature
 {
+
     public function name()
     {
         return __("SEO Analysis Box", "buzz-seo");
     }
-
 
     public function desc()
     {
@@ -28,6 +28,48 @@ class PostSEOBoxAnalysis extends BaseFeature
 
         add_action('admin_init', array($this, 'initBack'));
         add_action('admin_enqueue_scripts', array($this, 'enqueueAdminScripts'));
+
+        // Add grade as column to all posts and custom post types
+        add_filter('manage_posts_columns', array($this, 'managePostColumnsHead'));
+        add_action('manage_posts_custom_column', array($this, 'managePostColumns'), 10, 2);
+
+        add_filter('manage_page_posts_columns', array($this, 'managePostColumnsHead'));
+        add_action('manage_page_posts_custom_column', array($this, 'managePostColumns'), 10, 2);
+    }
+
+    public function managePostColumnsHead($defaults)
+    {
+        $new   = array();
+        $added = false;
+        foreach ($defaults as $key => $title) {
+            if ($key === 'date') {
+                $added                 = true;
+                $new['buzz_seo_grade'] = __('SEO Grade', 'buzz-seo');
+            }
+            $new[$key] = $title;
+        }
+        // If date was missing by some filter, just add it at the end
+        if (!$added) {
+            $new['buzz_seo_grade'] = __('SEO Grade', 'buzz-seo');
+        }
+        return $new;
+    }
+
+    // SHOW THE FEATURED IMAGE
+    function managePostColumns($column_name, $postID)
+    {
+        if ($column_name == 'buzz_seo_grade') {
+            $data  = get_post_meta($postID, '_metaboxPostSEOBoxAnalysis', true);
+            $grade = false;
+            if (is_array($data) && isset($data['grade'])) {
+                $grade = $data['grade'];
+            }
+            if ($grade === false) {
+                echo __('Not available', 'buzz-seo');
+            } else {
+                echo $grade;
+            }
+        }
     }
 
     /**
@@ -46,303 +88,326 @@ class PostSEOBoxAnalysis extends BaseFeature
      */
     public function enqueueAdminScripts()
     {
-        wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAnalysis', array(
-            'locale' => get_locale(),
-            'noErrors' => __('There are currently no errors found in the analysis.', 'buzz-seo'),
+        wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAnalysis',
+            array(
+            'locale'     => get_locale(),
+            'noErrors'   => __('There are currently no errors found in the analysis.', 'buzz-seo'),
             'noWarnings' => __('There are currently no warnings found in the analysis.', 'buzz-seo'),
-            'noGood' => __('There is probably a lot wrong with your content SEO wise.', 'buzz-seo'),
-            'data' => array(
+            'noGood'     => __('There is probably a lot wrong with your content SEO wise.', 'buzz-seo'),
+            'data'       => array(
                 array(
-                    'id' => 'wordCount',
+                    'id'   => 'wordCount',
                     'info' => array(
                         'recommendedMin' => 300,
                         'recommendedMax' => -1,
                     ),
                     'data' => array(
                         array(
-                            'min' => 300,
+                            'min'   => 300,
                             'score' => 75,
-                            'text' => __('The text contains {0} words, this is more than the {1} word recommended minimum.', 'buzz-seo')
+                            'text'  => __('The text contains {0} words, this is more than the {1} word recommended minimum.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 250,
-                            'max' => 299,
+                            'min'   => 250,
+                            'max'   => 299,
                             'score' => 7,
-                            'text' => __('The text contains {0} words, this is slightly below the {1} word recommended minimum. Add a bit more copy.', 'buzz-seo')
+                            'text'  => __('The text contains {0} words, this is slightly below the {1} word recommended minimum. Add a bit more copy.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 200,
-                            'max' => 249,
+                            'min'   => 200,
+                            'max'   => 249,
                             'score' => 5,
-                            'text' => __('The text contains {0} words, this is below the {1} word recommended minimum. Add a little more useful content on this topic for readers.', 'buzz-seo')
+                            'text'  => __('The text contains {0} words, this is below the {1} word recommended minimum. Add a little more useful content on this topic for readers.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 100,
-                            'max' => 199,
+                            'min'   => 100,
+                            'max'   => 199,
                             'score' => 3,
-                            'text' => __('The text contains {0} words, this is below the {1} word recommended minimum. Add more useful content on this topic for readers.', 'buzz-seo')
+                            'text'  => __('The text contains {0} words, this is below the {1} word recommended minimum. Add more useful content on this topic for readers.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 0,
-                            'max' => 99,
+                            'min'   => 0,
+                            'max'   => 99,
                             'score' => 1,
-                            'text' => __('The text contains {0} word(s). This is far too low and should be increased.', 'buzz-seo')
+                            'text'  => __('The text contains {0} word(s). This is far too low and should be increased.',
+                                'buzz-seo')
                         )
                     )
                 ),
                 array(
-                    'id' => 'metaDescriptionLength',
+                    'id'   => 'metaDescriptionLength',
                     'info' => array(
                         'recommendedMin' => 121,
                         'recommendedMax' => 157,
                     ),
                     'data' => array(
                         array(
-                            'min' => 158,
+                            'min'   => 158,
                             'score' => 5,
-                            'text' => __('The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire description is visible.', 'buzz-seo')
+                            'text'  => __('The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire description is visible.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 0,
-                            'max' => 0,
+                            'min'   => 0,
+                            'max'   => 0,
                             'score' => 1,
-                            'text' => __('No meta description has been specified, search engines will display copy from the page instead.', 'buzz-seo')
+                            'text'  => __('No meta description has been specified, search engines will display copy from the page instead.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 1,
-                            'max' => 120,
+                            'min'   => 1,
+                            'max'   => 120,
                             'score' => 6,
-                            'text' => __('The meta description is {0} character(s), however up to {1} characters are available.', 'buzz-seo')
+                            'text'  => __('The meta description is {0} character(s), however up to {1} characters are available.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 121,
-                            'max' => 157,
+                            'min'   => 121,
+                            'max'   => 157,
                             'score' => 10,
-                            'text' => __('The meta description has an optimal length of {0} out of max {1} characters.', 'buzz-seo')
+                            'text'  => __('The meta description has an optimal length of {0} out of max {1} characters.',
+                                'buzz-seo')
                         )
                     )
                 ),
                 array(
-                    'id' => 'subHeadings',
+                    'id'   => 'subHeadings',
                     'info' => array(),
                     'data' => array(
                         array(
-                            'min' => 0,
-                            'max' => 0,
+                            'min'   => 0,
+                            'max'   => 0,
                             'score' => 5,
-                            'text' => __('No subheading tags (like an H2) appear in the copy.', 'buzz-seo')
+                            'text'  => __('No subheading tags (like an H2) appear in the copy.', 'buzz-seo')
                         ),
                         array(
-                            'min' => 1,
+                            'min'   => 1,
                             'score' => 8,
-                            'text' => __('Subheadings appear in the copy.', 'buzz-seo')
+                            'text'  => __('Subheadings appear in the copy.', 'buzz-seo')
                         )
                     )
                 ),
                 array(
-                    'id' => 'pageTitleLength',
+                    'id'   => 'pageTitleLength',
                     'info' => array(
                         'recommendedMin' => 40,
                         'recommendedMax' => 70,
                     ),
                     'data' => array(
                         array(
-                            'min' => 0,
-                            'max' => 0,
+                            'min'   => 0,
+                            'max'   => 0,
                             'score' => 1,
-                            'text' => __('Please create a page title.', 'buzz-seo')
+                            'text'  => __('Please create a page title.', 'buzz-seo')
                         ),
                         array(
-                            'min' => 1,
-                            'max' => 29,
+                            'min'   => 1,
+                            'max'   => 29,
                             'score' => 4,
-                            'text' => __('The page title contains {0} characters, which is less than the recommended minimum of {3} characters.', 'buzz-seo')
+                            'text'  => __('The page title contains {0} characters, which is less than the recommended minimum of {3} characters.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 30,
-                            'max' => 39,
+                            'min'   => 30,
+                            'max'   => 39,
                             'score' => 6,
-                            'text' => __('The page title contains {0} characters, which is slightly less than the recommended minimum of {3} characters.', 'buzz-seo')
+                            'text'  => __('The page title contains {0} characters, which is slightly less than the recommended minimum of {3} characters.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 40,
-                            'max' => 70,
+                            'min'   => 40,
+                            'max'   => 70,
                             'score' => 9,
-                            'text' => __('The page title is between the {3} character minimum and the recommended {1} character maximum.', 'buzz-seo')
+                            'text'  => __('The page title is between the {3} character minimum and the recommended {1} character maximum.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 71,
+                            'min'   => 71,
                             'score' => 6,
-                            'text' => __('The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire title is visible.', 'buzz-seo')
+                            'text'  => __('The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire title is visible.',
+                                'buzz-seo')
                         ),
                     )
                 ),
                 array(
-                    'id' => 'keyphraseSizeCheck',
+                    'id'   => 'keyphraseSizeCheck',
                     'info' => array(
                         'recommendedMin' => 1,
                         'recommendedMax' => 10,
                     ),
                     'data' => array(
                         array(
-                            'min' => 0,
-                            'max' => 0,
+                            'min'   => 0,
+                            'max'   => 0,
                             'score' => 1,
-                            'text' => __('No main focus keyword was set for this page.', 'buzz-seo')
+                            'text'  => __('No main focus keyword was set for this page.', 'buzz-seo')
                         ),
                         array(
-                            'min' => 1,
-                            'max' => 10,
+                            'min'   => 1,
+                            'max'   => 10,
                             'score' => 8,
-                            'text' => __('Your main focus keyword has a valid length.', 'buzz-seo')
+                            'text'  => __('Your main focus keyword has a valid length.', 'buzz-seo')
                         ),
                         array(
-                            'min' => 11,
+                            'min'   => 11,
                             'score' => 4,
-                            'text' => __('Your main focus keyphrase is over {2} words, a keyphrase should be shorter.', 'buzz-seo')
+                            'text'  => __('Your main focus keyphrase is over {2} words, a keyphrase should be shorter.',
+                                'buzz-seo')
                         )
                     )
                 ),
                 array(
-                    'id' => 'keywordDensity',
+                    'id'   => 'keywordDensity',
                     'info' => array(
                         'recommendedMin' => 0.5,
                         'recommendedMax' => 2.5,
                     ),
                     'data' => array(
                         array(
-                            'min' => 3.5,
-                            'max' => 100,
+                            'min'   => 3.5,
+                            'max'   => 100,
                             'score' => 1,
-                            'text' => __('The keyword density for `{1}` is {0}%, which is way over the advised {2}% maximum. The focus keyword was found {3} time(s).', 'buzz-seo')
+                            'text'  => __('The keyword density for `{1}` is {0}%, which is way over the advised {2}% maximum. The focus keyword was found {3} time(s).',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 2.51,
-                            'max' => 3.49,
+                            'min'   => 2.51,
+                            'max'   => 3.49,
                             'score' => 4,
-                            'text' => __('The keyword density for `{1}` is {0}%, which over the advised {2}% maximum. The focus keyword was found {3} time(s).', 'buzz-seo')
+                            'text'  => __('The keyword density for `{1}` is {0}%, which over the advised {2}% maximum. The focus keyword was found {3} time(s).',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 0.5,
-                            'max' => 2.50,
+                            'min'   => 0.5,
+                            'max'   => 2.50,
                             'score' => 8,
-                            'text' => __('The keyword density for `{1}` is {0}%, which is great. The focus keyword was found {3} time(s).', 'buzz-seo')
+                            'text'  => __('The keyword density for `{1}` is {0}%, which is great. The focus keyword was found {3} time(s).',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 0,
-                            'max' => 0.49,
+                            'min'   => 0,
+                            'max'   => 0.49,
                             'score' => 4,
-                            'text' => __('The keyword density for `{1}` is {0}%, which is low. The focus keyword was found {3} time(s).', 'buzz-seo')
+                            'text'  => __('The keyword density for `{1}` is {0}%, which is low. The focus keyword was found {3} time(s).',
+                                'buzz-seo')
                         ),
                     )
                 ),
                 array(
-                    'id' => 'metaDescriptionKeyword',
+                    'id'   => 'metaDescriptionKeyword',
                     'info' => array(
                         'recommendedMin' => 1,
                         'recommendedMax' => -1,
                     ),
                     'data' => array(
                         array(
-                            'min' => 0,
-                            'max' => 0,
+                            'min'   => 0,
+                            'max'   => 0,
                             'score' => 3,
-                            'text' => __('The meta description does not contain the main focus keyword.', 'buzz-seo')
+                            'text'  => __('The meta description does not contain the main focus keyword.', 'buzz-seo')
                         ),
                         array(
-                            'min' => 1,
+                            'min'   => 1,
                             'score' => 8,
-                            'text' => __('The meta description contains the focus keyword.', 'buzz-seo')
+                            'text'  => __('The meta description contains the focus keyword.', 'buzz-seo')
                         )
                     )
                 ),
                 array(
-                    'id' => 'firstParagraph',
+                    'id'   => 'firstParagraph',
                     'info' => array(
                         'recommendedMin' => 1,
                         'recommendedMax' => -1,
                     ),
                     'data' => array(
                         array(
-                            'min' => 0,
-                            'max' => 0,
+                            'min'   => 0,
+                            'max'   => 0,
                             'score' => 3,
-                            'text' => __('The main focus keyword does not appear in the first paragraph of the copy.', 'buzz-seo')
+                            'text'  => __('The main focus keyword does not appear in the first paragraph of the copy.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 1,
+                            'min'   => 1,
                             'score' => 9,
-                            'text' => __('The main focus keyword appears in the first paragraph.', 'buzz-seo')
+                            'text'  => __('The main focus keyword appears in the first paragraph.', 'buzz-seo')
                         )
                     )
                 ),
                 array(
-                    'id' => 'pageTitleKeyword',
+                    'id'   => 'pageTitleKeyword',
                     'info' => array(
                         'recommendedMin' => 1,
                         'recommendedMax' => -1,
                     ),
                     'data' => array(
                         array(
-                            'min' => 0,
-                            'max' => 0,
+                            'min'   => 0,
+                            'max'   => 0,
                             'score' => 3,
-                            'text' => __('The main focus keyword does not appear in the page title.', 'buzz-seo')
+                            'text'  => __('The main focus keyword does not appear in the page title.', 'buzz-seo')
                         ),
                         array(
-                            'min' => 1,
+                            'min'   => 1,
                             'score' => 9,
-                            'text' => __('The main focus keyword appears in the page title.', 'buzz-seo')
+                            'text'  => __('The main focus keyword appears in the page title.', 'buzz-seo')
                         )
                     )
                 ),
                 array(
-                    'id' => 'readabilityScore',
+                    'id'   => 'readabilityScore',
                     'info' => array(
                         'recommendedMin' => 80,
                         'recommendedMax' => 100,
                     ),
                     'data' => array(
                         array(
-                            'min' => 0,
-                            'max' => 29.99,
+                            'min'   => 0,
+                            'max'   => 29.99,
                             'score' => 4,
-                            'text' => __('The content is very difficult to read. Try to make shorter sentences and use less difficult words to improve readability.', 'buzz-seo')
+                            'text'  => __('The content is very difficult to read. Try to make shorter sentences and use less difficult words to improve readability.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 30,
-                            'max' => 49.99,
+                            'min'   => 30,
+                            'max'   => 49.99,
                             'score' => 5,
-                            'text' => __('The content is difficult to read. Try to make shorter sentences and use less difficult words to improve readability.', 'buzz-seo')
+                            'text'  => __('The content is difficult to read. Try to make shorter sentences and use less difficult words to improve readability.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 50,
-                            'max' => 59.99,
+                            'min'   => 50,
+                            'max'   => 59.99,
                             'score' => 6,
-                            'text' => __('The content is fairly difficult to read. Try to make shorter sentences to improve readability.', 'buzz-seo')
+                            'text'  => __('The content is fairly difficult to read. Try to make shorter sentences to improve readability.',
+                                'buzz-seo')
                         ),
                         array(
-                            'min' => 60,
-                            'max' => 69.99,
+                            'min'   => 60,
+                            'max'   => 69.99,
                             'score' => 7,
-                            'text' => __('The content is sufficiantly readable.', 'buzz-seo')
+                            'text'  => __('The content is sufficiantly readable.', 'buzz-seo')
                         ),
                         array(
-                            'min' => 70,
-                            'max' => 79.99,
+                            'min'   => 70,
+                            'max'   => 79.99,
                             'score' => 8,
-                            'text' => __('The content is fairly easy to read.', 'buzz-seo')
+                            'text'  => __('The content is fairly easy to read.', 'buzz-seo')
                         ),
                         array(
-                            'min' => 80,
-                            'max' => 89.99,
+                            'min'   => 80,
+                            'max'   => 89.99,
                             'score' => 9,
-                            'text' => __('The content is easy to read. Good job!', 'buzz-seo')
+                            'text'  => __('The content is easy to read. Good job!', 'buzz-seo')
                         ),
                         array(
-                            'min' => 90,
+                            'min'   => 90,
                             'score' => 10,
-                            'text' => __('The content is very easy to read. Splendid!', 'buzz-seo')
+                            'text'  => __('The content is very easy to read. Splendid!', 'buzz-seo')
                         ),
                     )
                 )
