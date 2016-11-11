@@ -127,36 +127,31 @@ class PostSEOBoxAnalysis extends BaseFeature
                         array(
                             'min'   => 300,
                             'score' => 75,
-                            'text'  => __('The text contains {0} words, this is more than the {1} word recommended minimum.',
-                                'buzz-seo')
+                            'text'  => __('The text contains {0} words, this is more than the {1} word recommended minimum.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 250,
                             'max'   => 299,
                             'score' => 7,
-                            'text'  => __('The text contains {0} words, this is slightly below the {1} word recommended minimum. Add a bit more copy.',
-                                'buzz-seo')
+                            'text'  => __('The text contains {0} words, this is slightly below the {1} word recommended minimum. Add a bit more copy.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 200,
                             'max'   => 249,
                             'score' => 5,
-                            'text'  => __('The text contains {0} words, this is below the {1} word recommended minimum. Add a little more useful content on this topic for readers.',
-                                'buzz-seo')
+                            'text'  => __('The text contains {0} words, this is below the {1} word recommended minimum. Add a little more useful content on this topic for readers.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 100,
                             'max'   => 199,
                             'score' => 3,
-                            'text'  => __('The text contains {0} words, this is below the {1} word recommended minimum. Add more useful content on this topic for readers.',
-                                'buzz-seo')
+                            'text'  => __('The text contains {0} words, this is below the {1} word recommended minimum. Add more useful content on this topic for readers.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 0,
                             'max'   => 99,
                             'score' => 1,
-                            'text'  => __('The text contains {0} word(s). This is far too low and should be increased.',
-                                'buzz-seo')
+                            'text'  => __('The text contains {0} word(s). This is far too low and should be increased.', 'buzz-seo')
                         )
                     )
                 ),
@@ -170,29 +165,25 @@ class PostSEOBoxAnalysis extends BaseFeature
                         array(
                             'min'   => 158,
                             'score' => 5,
-                            'text'  => __('The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire description is visible.',
-                                'buzz-seo')
+                            'text'  => __('The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire description is visible.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 0,
                             'max'   => 0,
                             'score' => 1,
-                            'text'  => __('No meta description has been specified, search engines will display copy from the page instead.',
-                                'buzz-seo')
+                            'text'  => __('No meta description has been specified, search engines will display copy from the page instead.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 1,
                             'max'   => 120,
                             'score' => 6,
-                            'text'  => __('The meta description is {0} character(s), however up to {1} characters are available.',
-                                'buzz-seo')
+                            'text'  => __('The meta description is {0} character(s), however up to {1} characters are available.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 121,
                             'max'   => 157,
                             'score' => 10,
-                            'text'  => __('The meta description has an optimal length of {0} out of max {1} characters.',
-                                'buzz-seo')
+                            'text'  => __('The meta description has an optimal length of {0} out of max {1} characters.', 'buzz-seo')
                         )
                     )
                 ),
@@ -230,28 +221,24 @@ class PostSEOBoxAnalysis extends BaseFeature
                             'min'   => 1,
                             'max'   => 29,
                             'score' => 4,
-                            'text'  => __('The page title contains {0} characters, which is less than the recommended minimum of {3} characters.',
-                                'buzz-seo')
+                            'text'  => __('The page title contains {0} characters, which is less than the recommended minimum of {3} characters.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 30,
                             'max'   => 39,
                             'score' => 6,
-                            'text'  => __('The page title contains {0} characters, which is slightly less than the recommended minimum of {3} characters.',
-                                'buzz-seo')
+                            'text'  => __('The page title contains {0} characters, which is slightly less than the recommended minimum of {3} characters.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 40,
                             'max'   => 70,
                             'score' => 9,
-                            'text'  => __('The page title is between the {3} character minimum and the recommended {1} character maximum.',
-                                'buzz-seo')
+                            'text'  => __('The page title is between the {3} character minimum and the recommended {1} character maximum.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 71,
                             'score' => 6,
-                            'text'  => __('The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire title is visible.',
-                                'buzz-seo')
+                            'text'  => __('The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire title is visible.', 'buzz-seo')
                         ),
                     )
                 ),
@@ -277,8 +264,7 @@ class PostSEOBoxAnalysis extends BaseFeature
                         array(
                             'min'   => 11,
                             'score' => 4,
-                            'text'  => __('Your main focus keyphrase is over {2} words, a keyphrase should be shorter.',
-                                'buzz-seo')
+                            'text'  => __('Your main focus keyphrase is over {2} words, a keyphrase should be shorter.', 'buzz-seo')
                         )
                     )
                 ),
@@ -293,29 +279,25 @@ class PostSEOBoxAnalysis extends BaseFeature
                             'min'   => 3.5,
                             'max'   => 100,
                             'score' => 1,
-                            'text'  => __('The keyword density for `{1}` is {0}%, which is way over the advised {2}% maximum. The focus keyword was found {3} time(s).',
-                                'buzz-seo')
+                            'text'  => __('The keyword density for `{1}` is {0}%, which is way over the advised {2}% maximum. The focus keyword was found {3} time(s).', 'buzz-seo')
                         ),
                         array(
                             'min'   => 2.51,
                             'max'   => 3.49,
                             'score' => 4,
-                            'text'  => __('The keyword density for `{1}` is {0}%, which over the advised {2}% maximum. The focus keyword was found {3} time(s).',
-                                'buzz-seo')
+                            'text'  => __('The keyword density for `{1}` is {0}%, which over the advised {2}% maximum. The focus keyword was found {3} time(s).', 'buzz-seo')
                         ),
                         array(
                             'min'   => 0.5,
                             'max'   => 2.50,
                             'score' => 8,
-                            'text'  => __('The keyword density for `{1}` is {0}%, which is great. The focus keyword was found {3} time(s).',
-                                'buzz-seo')
+                            'text'  => __('The keyword density for `{1}` is {0}%, which is great. The focus keyword was found {3} time(s).', 'buzz-seo')
                         ),
                         array(
                             'min'   => 0,
                             'max'   => 0.49,
                             'score' => 4,
-                            'text'  => __('The keyword density for `{1}` is {0}%, which is low. The focus keyword was found {3} time(s).',
-                                'buzz-seo')
+                            'text'  => __('The keyword density for `{1}` is {0}%, which is low. The focus keyword was found {3} time(s).', 'buzz-seo')
                         ),
                     )
                 ),
@@ -350,8 +332,7 @@ class PostSEOBoxAnalysis extends BaseFeature
                             'min'   => 0,
                             'max'   => 0,
                             'score' => 3,
-                            'text'  => __('The main focus keyword does not appear in the first paragraph of the copy.',
-                                'buzz-seo')
+                            'text'  => __('The main focus keyword does not appear in the first paragraph of the copy.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 1,
@@ -391,22 +372,19 @@ class PostSEOBoxAnalysis extends BaseFeature
                             'min'   => 0,
                             'max'   => 29.99,
                             'score' => 4,
-                            'text'  => __('The content is very difficult to read. Try to make shorter sentences and use less difficult words to improve readability.',
-                                'buzz-seo')
+                            'text'  => __('The content is very difficult to read. Try to make shorter sentences and use less difficult words to improve readability.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 30,
                             'max'   => 49.99,
                             'score' => 5,
-                            'text'  => __('The content is difficult to read. Try to make shorter sentences and use less difficult words to improve readability.',
-                                'buzz-seo')
+                            'text'  => __('The content is difficult to read. Try to make shorter sentences and use less difficult words to improve readability.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 50,
                             'max'   => 59.99,
                             'score' => 6,
-                            'text'  => __('The content is fairly difficult to read. Try to make shorter sentences to improve readability.',
-                                'buzz-seo')
+                            'text'  => __('The content is fairly difficult to read. Try to make shorter sentences to improve readability.', 'buzz-seo')
                         ),
                         array(
                             'min'   => 60,
