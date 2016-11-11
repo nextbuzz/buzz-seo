@@ -33,8 +33,29 @@ class PostSEOBoxAnalysis extends BaseFeature
         add_filter('manage_posts_columns', array($this, 'managePostColumnsHead'));
         add_action('manage_posts_custom_column', array($this, 'managePostColumns'), 10, 2);
 
+        // And to pages
         add_filter('manage_page_posts_columns', array($this, 'managePostColumnsHead'));
         add_action('manage_page_posts_custom_column', array($this, 'managePostColumns'), 10, 2);
+
+        // Add grade output to publish box
+        add_action('post_submitbox_start', array($this, 'submitboxGradeOutput'));
+    }
+
+    public function submitboxGradeOutput()
+    {
+        $data  = get_post_meta(get_the_ID(), '_metaboxPostSEOBoxAnalysis', true);
+        $grade = false;
+        if (is_array($data) && isset($data['grade'])) {
+            $grade = $data['grade'];
+        }
+        echo '<div class="misc-pub-buzz-seo">';
+        echo '<span class="icon dashicons dashicons-performance"></span> ' . __('SEO Grade', 'buzz-seo') . ' <span id="buzz-seo-grade-score-publish">';
+            if ($grade === false) {
+                \NextBuzz\SEO\Tools\GradeDisplay::factory(0)->output();
+            } else {
+                \NextBuzz\SEO\Tools\GradeDisplay::factory($grade)->output();
+            }
+        echo '</span></div>';
     }
 
     public function managePostColumnsHead($defaults)
@@ -55,8 +76,7 @@ class PostSEOBoxAnalysis extends BaseFeature
         return $new;
     }
 
-    // SHOW THE FEATURED IMAGE
-    function managePostColumns($column_name, $postID)
+    public function managePostColumns($column_name, $postID)
     {
         if ($column_name == 'buzz_seo_grade') {
             $data  = get_post_meta($postID, '_metaboxPostSEOBoxAnalysis', true);
@@ -67,7 +87,7 @@ class PostSEOBoxAnalysis extends BaseFeature
             if ($grade === false) {
                 echo __('Not available', 'buzz-seo');
             } else {
-                echo $grade;
+                \NextBuzz\SEO\Tools\GradeDisplay::factory($grade)->output();
             }
         }
     }

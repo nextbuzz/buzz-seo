@@ -51,16 +51,8 @@
                     <p class="description" i18n:translate="">The readability score is a methametical calculation based on the English literature.</p>
                 </td>
             </tr>
-            <tr id="buzz-seo-grade">
-                <th scope="row" i18n:translate="">SEO Grade</th>
-                <td>
-                    <p id="buzz-seo-grade-score" i18n:translate="">Not yet available.</p>
-                    <input id="buzz-seo-grade-score-input" type="hidden" name="PostSEOBoxAnalysis[grade]" value="1" />
-
-                    <p class="description" i18n:translate="">The grade is an overal indicator of the SEO score. It is not required nor advised to always strive for a perfect grade.</p>
-                </td>
-            </tr>
         </table>
+        <input id="buzz-seo-grade-score-input" type="hidden" name="PostSEOBoxAnalysis[grade]" value="0" />
     </div>
 
     <div class="inside hidden">

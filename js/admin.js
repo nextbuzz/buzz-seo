@@ -244,8 +244,18 @@
             outputGood.sort(sortByScore);
 
             // Update score
-            var grade = Math.round((10/maxScore) * totalScore);
-            $("#buzz-seo-grade-score").html(grade);
+            var grade = Math.round((10/maxScore) * totalScore), gradeHTML = '', number, cls;
+            for (number = 1; number <= 5; number++) {
+                cls = 'dashicons-star-empty';
+                if ((grade/2) >= number) {
+                    cls = 'dashicons-star-filled';
+                } else if (Math.ceil((grade/2)) >= number) {
+                    cls = 'dashicons-star-half';
+                }
+                gradeHTML += '<span class="dashicons ' + cls + '"></span>';
+            }
+            $("#buzz-seo-grade-score").html(gradeHTML);
+            $("#buzz-seo-grade-score-publish").html(gradeHTML);
             $("#buzz-seo-grade-score-input").val(grade);
 
             // Create output
