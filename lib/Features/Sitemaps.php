@@ -172,6 +172,7 @@ class Sitemaps extends BaseFeature
                         $talData[] = array(
                             'loc'     => $baseurl . 'sitemap-' . $posttype . '-' . $p . '.xml',
                             'lastmod' => $this->getLastModifiedDate($posttype, $p, $itemsperpage),
+                            'alternative' => false,
                         );
                     }
                 }
@@ -185,6 +186,7 @@ class Sitemaps extends BaseFeature
                         $talData[] = array(
                             'loc'     => $baseurl . 'sitemap-' . $taxonomy . '-' . $p . '.xml',
                             'lastmod' => $this->getLastModifiedDateTax($taxonomy, $p, $itemsperpage),
+                            'alternative' => false,
                         );
                     }
                 }
@@ -202,6 +204,7 @@ class Sitemaps extends BaseFeature
                     $talData[] = array(
                         'loc'     => $baseurl . 'sitemap-author-' . $p . '.xml',
                         'lastmod' => \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($latestUserStamp),
+                        'alternative' => false,
                     );
                 }
             }
@@ -231,6 +234,7 @@ class Sitemaps extends BaseFeature
                     'lastmod'    => \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($modified),
                     'changefreq' => 'weekly',
                     'priority'   => 0.8,
+                    'alternative' => false,
                 );
             }
 
@@ -277,6 +281,12 @@ class Sitemaps extends BaseFeature
                 $terms = get_terms($type);
                 $terms = array_splice($terms, (($page - 1) * $itemsperpage), $itemsperpage);
                 foreach ($terms as $term) {
+                    // If polylang, get alternative languages if polylang
+                    $alternatives = $Translate->getTranslatedTerms($term->term_id);
+                    foreach($alternatives as &$alternative) {
+                        $alternative = get_term_link($alternative);
+                    }
+
                     $priority = 0.2;
                     if ($term->count >= 3) {
                         $priority = 0.4;
@@ -289,6 +299,7 @@ class Sitemaps extends BaseFeature
                         'lastmod'    => $this->getLastModifiedDateTerm($type, $term->term_id),
                         'changefreq' => 'weekly',
                         'priority'   => $priority,
+                        'alternative' => $alternatives,
                     );
                 }
             }

@@ -96,6 +96,16 @@ class Translate
     }
 
     /**
+     * Get an array with all available translations for a given post
+     *
+     * @param int $termID
+     * @return array Indexed array with as key the language code, and as value the post id
+     */
+    public function getTranslatedTerms($termID)
+    {
+        return self::$driver->getTranslatedTerms($termID);
+    }
+    /**
      * Retrieve a translated string from the translation plugin.
      *
      * @param string $text The string to get the translated content for from the multilingual plugin.

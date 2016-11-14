@@ -48,4 +48,13 @@ interface Translate
      * @return array Indexed array with as key the language code, and as value the post id
      */
     public function getTranslatedPosts($postID);
+
+    /**
+     * Get an array with all available translations for a given term
+     *
+     * @param int $termID
+     * @return array Indexed array with as key the language code, and as value the post id
+     */
+    public function getTranslatedTerms($termID);
+
 }

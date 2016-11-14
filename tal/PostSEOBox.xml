@@ -20,7 +20,7 @@
                 <th scope="row" i18n:translate="">Meta description</th>
                 <td>
                     <div class="input-buzz-counter">
-                        <input id="buzz-seo-metadescription" data-buzz-counter="metaDescriptionLength" type="text" name="PostSEOBox[metaDescription]" tal:attributes="value metaDescription | nothing" />
+                        <textarea id="buzz-seo-metadescription" data-buzz-counter="metaDescriptionLength" type="text" name="PostSEOBox[metaDescription]" tal:content="metaDescription | nothing" />
                     </div>
                     <p class="description" i18n:translate="">The description which most search engines use.</p>
                 </td>

@@ -71,4 +71,14 @@ class None implements \NextBuzz\SEO\Translate\Interfaces\Translate
         return array();
     }
 
+    /**
+     * Get an array with all available translations for a given term
+     *
+     * @param int $postID
+     * @return array Indexed array with as key the language code, and as value the post id
+     */
+    public function getTranslatedTerms($postID)
+    {
+        return array();
+    }
 }

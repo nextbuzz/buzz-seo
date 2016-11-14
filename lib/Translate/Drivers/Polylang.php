@@ -81,4 +81,26 @@ class Polylang implements \NextBuzz\SEO\Translate\Interfaces\Translate
         return $result;
     }
 
+    /**
+     * Get an array with all available translations for a given term
+     *
+     * @param int $termID
+     * @return array Indexed array with as key the language code, and as value the post id
+     */
+    public function getTranslatedTerms($termID)
+    {
+        $languages = pll_the_languages(array('raw'=>1));
+
+        $result = array();
+        foreach($languages as $lang) {
+            $lang = $lang['slug'];
+
+            $transTermID = pll_get_term($termID, $lang);
+            if (is_int($transTermID) && $transTermID !== $termID) {
+                $result[$lang] = $transTermID;
+            }
+        }
+
+        return $result;
+    }
 }

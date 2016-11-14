@@ -5,6 +5,6 @@
       <lastmod tal:content="url/lastmod"></lastmod>
       <changefreq tal:content="url/changefreq"></changefreq>
       <priority tal:content="url/priority"></priority>
-      <xhtml:link tal:repeat="alt url/alternative" rel="alternate" hreflang="en" href="" tal:attributes="hreflang repeat/alt/key; href alt" />
+      <xhtml:link tal:condition="url/alternative" tal:repeat="alt url/alternative" rel="alternate" hreflang="en" href="" tal:attributes="hreflang repeat/alt/key; href alt" />
    </url>
 </urlset>
