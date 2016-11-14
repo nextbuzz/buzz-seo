@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.6.1
-Stable tag: 0.9.0
+Stable tag: 0.9.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -79,13 +79,18 @@ add_filter('buzz-seo-show-grade-output', '__return_false');
 
 == Changelog ==
 
+= 0.9.1 =
+* Fix: Issue with multilingual sitemap terms.
+* Update: Counter for SEO title now takes the length of the sitename into considation.
+* Update: Meta description changed to textfield to allow viewing three lines instead of one.
+
 = 0.9.0 =
 * Add: Counter for SEO title and meta description.
 * Add: Visual SEO grade.
 * Add: filter to disable SEO grade visibility (see FAQ).
 * Fix: Sitemap did not show alternative language when using polylang.
 * Fix: Content analysis only checked the main title instead of SEO title if used.
-* Remove: redirection support since it was not working properly and is not a core SEO
+* Remove: redirection support since it was not working properly and is not a core SEO.
 
 = 0.8.6 =
 * Fix: Readability calculation sometimes generated a JS error.
