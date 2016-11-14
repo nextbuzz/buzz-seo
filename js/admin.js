@@ -126,6 +126,12 @@
             });
         }
 
+        $("#buzz-seo-metadescription").keypress(function(event) {
+            if(event.which == '13') {
+                return false;
+            }
+        });
+
         var analysisTimeout, analysisDelay = 1000, totalScore = 0, maxScore = 0, minScore = 0,
                 outputGood = [], outputWarning = [], outputError = [], calculatedHTML = false, calculatedText = false;
 
@@ -296,7 +302,7 @@
             $("#buzz-seo-good-count").html(outputGood.length);
 
             // Inline count analysis
-            $("input[data-buzz-counter]").each(updateInlineCount);
+            $("input[data-buzz-counter], textarea[data-buzz-counter]").each(updateInlineCount);
         }
 
         function sortByScore(a, b)
@@ -306,6 +312,9 @@
 
         function handleScoreOutput(scoreObject)
         {
+            if (typeof scoreObject !== 'object') {
+                return;
+            }
             totalScore += scoreObject.score;
 
             if (scoreObject.score < 5) {
