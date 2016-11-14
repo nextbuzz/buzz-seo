@@ -110,12 +110,23 @@ class PostSEOBoxAnalysis extends BaseFeature
      */
     public function enqueueAdminScripts()
     {
+        $siteTitleLength = 0;
+        $options = get_option('_settingsSettingsGeneral', array());
+        if (intval($options['showtitlesitename']) === 1) {
+            // Add 3 to take into account the special char displayed in the title including the spaces
+            $siteTitleLength = 3 + strlen(get_bloginfo('name'));
+
+            if (intval($options['showtitletagline']) === 1 && intval(get_the_ID()) === intval(get_option('page_on_front'))) {
+                $siteTitleLength += 3 + strlen(get_bloginfo('description'));
+            }
+        }
         wp_localize_script('buzz-seo-admin-js', 'BuzzSEOAnalysis',
             array(
             'locale'     => get_locale(),
             'noErrors'   => __('There are currently no errors found in the analysis.', 'buzz-seo'),
             'noWarnings' => __('There are currently no warnings found in the analysis.', 'buzz-seo'),
             'noGood'     => __('There is probably a lot wrong with your content SEO wise.', 'buzz-seo'),
+            'lengthSiteTitle' => $siteTitleLength,
             'data'       => array(
                 array(
                     'id'   => 'wordCount',
@@ -207,8 +218,8 @@ class PostSEOBoxAnalysis extends BaseFeature
                 array(
                     'id'   => 'pageTitleLength',
                     'info' => array(
-                        'recommendedMin' => 40,
-                        'recommendedMax' => 70,
+                        'recommendedMin' => 40 - $siteTitleLength,
+                        'recommendedMax' => 70 - $siteTitleLength,
                     ),
                     'data' => array(
                         array(
@@ -218,27 +229,27 @@ class PostSEOBoxAnalysis extends BaseFeature
                             'text'  => __('Please create a page title.', 'buzz-seo')
                         ),
                         array(
-                            'min'   => 1,
-                            'max'   => 29,
+                            'min'   => 1 - $siteTitleLength,
+                            'max'   => 29 - $siteTitleLength,
                             'score' => 4,
-                            'text'  => __('The page title contains {0} characters, which is less than the recommended minimum of {3} characters.', 'buzz-seo')
+                            'text'  => __('The page title (including site name) contains {0} characters, which is less than the recommended minimum of {3} characters.', 'buzz-seo')
                         ),
                         array(
-                            'min'   => 30,
-                            'max'   => 39,
+                            'min'   => 30 - $siteTitleLength,
+                            'max'   => 39 - $siteTitleLength,
                             'score' => 6,
-                            'text'  => __('The page title contains {0} characters, which is slightly less than the recommended minimum of {3} characters.', 'buzz-seo')
+                            'text'  => __('The page title (including site name) contains {0} characters, which is slightly less than the recommended minimum of {3} characters.', 'buzz-seo')
                         ),
                         array(
-                            'min'   => 40,
-                            'max'   => 70,
+                            'min'   => 40 - $siteTitleLength,
+                            'max'   => 70 - $siteTitleLength,
                             'score' => 9,
-                            'text'  => __('The page title is between the {3} character minimum and the recommended {1} character maximum.', 'buzz-seo')
+                            'text'  => __('The page title (including site name) is between the {3} character minimum and the recommended {1} character maximum.', 'buzz-seo')
                         ),
                         array(
-                            'min'   => 71,
+                            'min'   => 71 - $siteTitleLength,
                             'score' => 6,
-                            'text'  => __('The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire title is visible.', 'buzz-seo')
+                            'text'  => __('The specified page title (including site name) is {2} character(s) over the {1} available. Reducing it will ensure the entire title is visible.', 'buzz-seo')
                         ),
                     )
                 ),
