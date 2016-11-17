@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-11-17 13:13:13+0000\n"
+"POT-Creation-Date: 2016-11-17 15:07:05+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -217,11 +217,11 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:135 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:134 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:15 lib/Features/Analytics.php:40
+#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:15 lib/Features/Analytics.php:61
 msgid "Google Analytics"
 msgstr ""
 
@@ -306,14 +306,14 @@ msgid "Track External Links"
 msgstr ""
 
 #: tal/SettingsAnalytics.xml:114
-msgid "Automagicly track all outgoing links. I.E. links that open in a new window or have an external link type."
+msgid "Automagicly track all outgoing links. I.E. absolute links that do not have the same hostname as the current site."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:120
+#: tal/SettingsAnalytics.xml:119
 msgid "Track clicks"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:126
+#: tal/SettingsAnalytics.xml:125
 msgid "Track clicks on custom selectors. All JavaScript querySelectors are allowed."
 msgstr ""
 

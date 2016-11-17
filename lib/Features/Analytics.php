@@ -29,6 +29,27 @@ class Analytics extends BaseFeature
 
         // Make sure Google Analytics code is late in the head
         add_action('wp_head', array($this, 'addUACode'), 99);
+
+        // Track events
+        $options = get_option('_settingsSettingsAnalytics', true);
+        if (isset($options['eventtracking'])) {
+            add_action('wp_enqueue_scripts', array($this, 'enqueueEventsScript'));
+        }
+    }
+
+    public function enqueueEventsScript()
+    {
+        $options = get_option('_settingsSettingsAnalytics', true);
+        wp_enqueue_script('buzz-seo-ae', plugins_url('buzz-seo/js/analytics-events.js'),
+            array('jquery'), BUZZSEO_VERSION, true);
+        wp_localize_script('buzz-seo-ae', 'BuzzSEOAnalyticsEvents',
+            array(
+                'Tracker' => $this->trackerVar(),
+                'FormSubmissions' => isset($options['eventsforms']),
+                'ExternalLinks' => isset($options['eventsexternal']),
+                'CustomClicks' => isset($options['eventsclicks']) ? esc_js($options['eventsclicks']) : false,
+            )
+        );
     }
 
     /**

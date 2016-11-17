@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-11-17 14:13+0100\n"
-"PO-Revision-Date: 2016-11-17 14:23+0100\n"
+"POT-Creation-Date: 2016-11-17 16:07+0100\n"
+"PO-Revision-Date: 2016-11-17 16:08+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -274,14 +274,14 @@ msgid ""
 msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:135
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:134
 #: tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231
 #: tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr "Opslaan"
 
 #: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:15
-#: lib/Features/Analytics.php:40
+#: lib/Features/Analytics.php:61
 msgid "Google Analytics"
 msgstr "Google Analytics"
 
@@ -418,17 +418,17 @@ msgstr "Externe links bijhouden"
 
 #: tal/SettingsAnalytics.xml:114
 msgid ""
-"Automagicly track all outgoing links. I.E. links that open in a new window "
-"or have an external link type."
+"Automagicly track all outgoing links. I.E. absolute links that do not have "
+"the same hostname as the current site."
 msgstr ""
-"Automatisch alle kliks op externe links bijhouden. Dit zijn links die openen "
-"in een nieuw venster of met het link-type external."
+"Houd automatisch clicks naar externe sites bij. Alle absolute links met een "
+"andere hostname worden geregistreerd."
 
-#: tal/SettingsAnalytics.xml:120
+#: tal/SettingsAnalytics.xml:119
 msgid "Track clicks"
 msgstr "Kliks bijhouden"
 
-#: tal/SettingsAnalytics.xml:126
+#: tal/SettingsAnalytics.xml:125
 msgid ""
 "Track clicks on custom selectors. All JavaScript querySelectors are allowed."
 msgstr ""
@@ -1471,6 +1471,13 @@ msgstr "Converteren naar 301"
 #: lib/Tables/Table404.php:37
 msgid "No 404 errors registered. Good job!"
 msgstr "Geen 404 pagina's geregistreerd. Goed gedaan!"
+
+#~ msgid ""
+#~ "Automagicly track all outgoing links. I.E. links that open in a new "
+#~ "window or have an external link type."
+#~ msgstr ""
+#~ "Automatisch alle kliks op externe links bijhouden. Dit zijn links die "
+#~ "openen in een nieuw venster of met het link-type external."
 
 #~ msgid ""
 #~ "The page title contains {0} characters, which is less than the "
