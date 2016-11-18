@@ -47,7 +47,7 @@ class Analytics extends BaseFeature
                 'Tracker' => $this->trackerVar(),
                 'FormSubmissions' => isset($options['eventsforms']),
                 'ExternalLinks' => isset($options['eventsexternal']),
-                'CustomClicks' => isset($options['eventsclicks']) ? $options['eventsclicks'] : false,
+                'CustomClicks' => is_array($options['eventsclicks']) && count($options['eventsclicks']) > 0 ? $options['eventsclicks'] : false,
             )
         );
     }

@@ -108,6 +108,10 @@
                     <tr>
                         <th scope="row" i18n:translate="">Track clicks</th>
                         <td>
+                            <p class="description">
+                                <tal:block i18n:translate="">Track clicks on custom selectors. All JavaScript querySelectors are allowed.</tal:block><br/>
+                                <code>CTA / click / a.cta</code>
+                            </p>
                             <label>
                                 <table>
                                     <tr>
@@ -127,10 +131,6 @@
                                     </tr>
                                 </table>
                             </label>
-                            <p class="description">
-                                <tal:block i18n:translate="">Track clicks on custom selectors. All JavaScript querySelectors are allowed.</tal:block><br/>
-                                <code>CTA / click / a.cta</code>
-                            </p>
                         </td>
                     </tr>
                 </table>

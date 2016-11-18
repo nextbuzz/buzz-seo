@@ -52,15 +52,16 @@
 
         function setupCustomClicks()
         {
-            // Get all links starting with http (this includes https)
-            $(BuzzSEOAnalyticsEvents.CustomClicks).click(function() {
-                var that = $(this), href = that.attr("href");
-
-                // If href does not contain current hostName, it is an external link
-                if (href.indexOf(hostName) === -1) {
-                    trackEvent("Custom Click", that.attr("class"), document.location.href);
+            if (BuzzSEOAnalyticsEvents.CustomClicks.length > 0) {
+                for(var index in BuzzSEOAnalyticsEvents.CustomClicks) {
+                    // Get all links starting with http (this includes https)
+                    var CustomClick = BuzzSEOAnalyticsEvents.CustomClicks[index];
+                    $(CustomClick.query).on('click', {CustomClick: CustomClick}, function(event) {
+                        var CustomClick = event.data.CustomClick;
+                        trackEvent(CustomClick.category, CustomClick.action, document.location.href);
+                    });
                 }
-            });
+            }
         }
 
         if (BuzzSEOAnalyticsEvents.CustomClicks !== false) {

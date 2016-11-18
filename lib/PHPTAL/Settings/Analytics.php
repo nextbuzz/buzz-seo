@@ -27,6 +27,14 @@ class Analytics extends \NextBuzz\SEO\PHPTAL\SettingsPage
             update_option('_settingsSettingsAnalytics', $options);
         }
 
+        if (isset($_POST) && isset($_POST['SettingsAnalytics']['eventsclicks'])) {
+            foreach($_POST['SettingsAnalytics']['eventsclicks'] as $k => $v) {
+                if (empty($v['category']) || empty($v['action']) || empty($v['query'])) {
+                    unset($_POST['SettingsAnalytics']['eventsclicks'][$k]);
+                }
+            }
+        }
+
         parent::__construct('SettingsAnalytics');
     }
 }
