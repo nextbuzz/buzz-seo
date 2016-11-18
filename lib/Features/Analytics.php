@@ -32,7 +32,7 @@ class Analytics extends BaseFeature
 
         // Track events
         $options = get_option('_settingsSettingsAnalytics', true);
-        if (isset($options['eventtracking'])) {
+        if (isset($options['eventsforms']) || isset($options['eventsexternal']) || (isset($options['eventsclicks']) && !empty($options['eventsclicks'][0]['query']))) {
             add_action('wp_enqueue_scripts', array($this, 'enqueueEventsScript'));
         }
     }
@@ -47,7 +47,7 @@ class Analytics extends BaseFeature
                 'Tracker' => $this->trackerVar(),
                 'FormSubmissions' => isset($options['eventsforms']),
                 'ExternalLinks' => isset($options['eventsexternal']),
-                'CustomClicks' => isset($options['eventsclicks']) ? esc_js($options['eventsclicks']) : false,
+                'CustomClicks' => isset($options['eventsclicks']) ? $options['eventsclicks'] : false,
             )
         );
     }
