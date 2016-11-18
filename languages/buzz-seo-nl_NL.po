@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-11-17 16:07+0100\n"
-"PO-Revision-Date: 2016-11-17 16:08+0100\n"
+"POT-Creation-Date: 2016-11-18 10:02+0100\n"
+"PO-Revision-Date: 2016-11-18 10:03+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -274,7 +274,7 @@ msgid ""
 msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:134
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:141
 #: tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231
 #: tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
@@ -300,7 +300,7 @@ msgstr ""
 msgid "Options"
 msgstr "Opties"
 
-#: tal/SettingsAnalytics.xml:20 tal/SettingsAnalytics.xml:75
+#: tal/SettingsAnalytics.xml:20
 msgid "Event Tracking"
 msgstr "Gebeurtenissen bijhouden"
 
@@ -333,11 +333,11 @@ msgid "Anonymize IP addresses"
 msgstr "Anonimizeer IP adressen"
 
 #: tal/SettingsAnalytics.xml:49 tal/SettingsAnalytics.xml:59
-#: tal/SettingsAnalytics.xml:69 tal/SettingsAnalytics.xml:79
-#: tal/SettingsAnalytics.xml:101 tal/SettingsAnalytics.xml:111
-#: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50
-#: tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:179
-#: tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
+#: tal/SettingsAnalytics.xml:69 tal/SettingsAnalytics.xml:91
+#: tal/SettingsAnalytics.xml:101 tal/SettingsGeneral.xml:40
+#: tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60
+#: tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53
+#: tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr "Ja"
 
@@ -384,39 +384,33 @@ msgstr ""
 "U bent wettelijk verplicht in bepaalde landen om uw gebruikers te "
 "waarschuwen wanneer u deze optie inschakelt."
 
-#: tal/SettingsAnalytics.xml:81
-msgid "Set the Google Analytics code to support the Event Tracking Features."
-msgstr ""
-"Stel de Google Analytics code in om gebeurtenissen bij te houden (Event "
-"Tracking)."
-
-#: tal/SettingsAnalytics.xml:85
+#: tal/SettingsAnalytics.xml:75
 msgid "Set Domain Name"
 msgstr "Domein Naam"
 
-#: tal/SettingsAnalytics.xml:88
+#: tal/SettingsAnalytics.xml:78
 msgid ""
 "(Optional) Set a custom domain name. Needed when tracking multiple domains."
 msgstr ""
 "(Optioneel) Stel een eigen domeinnaam in. Nodig wanneer u meerdere domeinen "
 "gebruikt met uw Analytics code."
 
-#: tal/SettingsAnalytics.xml:97
+#: tal/SettingsAnalytics.xml:87
 msgid "Track Form Submissions"
 msgstr "Formulieren bijhouden"
 
-#: tal/SettingsAnalytics.xml:103
+#: tal/SettingsAnalytics.xml:93
 msgid ""
 "Track all form submission. Currently supports Gravity Forms and Formidable."
 msgstr ""
 "Houd de verzendingen van formulieren bij. Ondersteund Gravity Forms en "
 "Formidable."
 
-#: tal/SettingsAnalytics.xml:107
+#: tal/SettingsAnalytics.xml:97
 msgid "Track External Links"
 msgstr "Externe links bijhouden"
 
-#: tal/SettingsAnalytics.xml:114
+#: tal/SettingsAnalytics.xml:104
 msgid ""
 "Automagicly track all outgoing links. I.E. absolute links that do not have "
 "the same hostname as the current site."
@@ -424,16 +418,44 @@ msgstr ""
 "Houd automatisch clicks naar externe sites bij. Alle absolute links met een "
 "andere hostname worden geregistreerd."
 
-#: tal/SettingsAnalytics.xml:119
+#: tal/SettingsAnalytics.xml:109
 msgid "Track clicks"
 msgstr "Kliks bijhouden"
 
-#: tal/SettingsAnalytics.xml:125
+#: tal/SettingsAnalytics.xml:114
+msgid "Category"
+msgstr "Categorie"
+
+#: tal/SettingsAnalytics.xml:115
+msgid "Action"
+msgstr "Actie"
+
+#: tal/SettingsAnalytics.xml:116
+msgid "Query Selector"
+msgstr "Query"
+
+#: tal/SettingsAnalytics.xml:131
 msgid ""
 "Track clicks on custom selectors. All JavaScript querySelectors are allowed."
 msgstr ""
 "Houd de kliks op bepaalde elementen bij. Alle Javascript querySelectors zijn "
 "toegestaan."
+
+#: tal/SettingsAnalytics.xml:132
+msgid "Each line should contain one GA Category|GA Action|querySelector"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:124
+msgid "Add Category"
+msgstr "Voeg categorie toe"
+
+#: tal/SettingsAnalytics.xml:125
+msgid "Add Action"
+msgstr "Voeg actie toe"
+
+#: tal/SettingsAnalytics.xml:126
+msgid "Add Query"
+msgstr "Voeg query toe"
 
 #: tal/SettingsCleanup.xml:2 lib/Features/CleanupHead.php:15
 #: lib/Features/CleanupHead.php:81
@@ -1471,6 +1493,12 @@ msgstr "Converteren naar 301"
 #: lib/Tables/Table404.php:37
 msgid "No 404 errors registered. Good job!"
 msgstr "Geen 404 pagina's geregistreerd. Goed gedaan!"
+
+#~ msgid ""
+#~ "Set the Google Analytics code to support the Event Tracking Features."
+#~ msgstr ""
+#~ "Stel de Google Analytics code in om gebeurtenissen bij te houden (Event "
+#~ "Tracking)."
 
 #~ msgid ""
 #~ "Automagicly track all outgoing links. I.E. links that open in a new "
