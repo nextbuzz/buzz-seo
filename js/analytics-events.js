@@ -67,5 +67,18 @@
         if (BuzzSEOAnalyticsEvents.CustomClicks !== false) {
             setupCustomClicks();
         }
+
+        function setupGravityFormsAjaxHandler()
+        {
+            $(function(){
+                $(document).bind('gform_confirmation_loaded', function(event, formId) {
+                    trackEvent("Gravity Forms", "Submit Form ID " + formId, document.location.href);
+                });
+            });
+        }
+
+        if (BuzzSEOAnalyticsEvents.FormSubmissions !== false) {
+            setupGravityFormsAjaxHandler();
+        }
     });
 })(jQuery);
