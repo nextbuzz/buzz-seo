@@ -71,9 +71,15 @@
         function setupGravityFormsAjaxHandler()
         {
             $(function(){
+                // Ajax form handler
                 $(document).bind('gform_confirmation_loaded', function(event, formId) {
                     trackEvent("Gravity Forms", "Submit Form ID " + formId, document.location.href);
                 });
+
+                // Non ajax form handler
+                if(BuzzSEOAnalyticsEvents.GravityFormConfirmation !== "") {
+                    trackEvent("Gravity Forms", "Submit Form ID " + BuzzSEOAnalyticsEvents.GravityFormConfirmation.id, document.location.href);
+                }
             });
         }
 

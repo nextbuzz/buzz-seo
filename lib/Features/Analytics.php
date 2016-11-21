@@ -9,6 +9,7 @@ namespace NextBuzz\SEO\Features;
  */
 class Analytics extends BaseFeature
 {
+    private $gravityFormConfirmed = false;
 
     public function name()
     {
@@ -35,6 +36,10 @@ class Analytics extends BaseFeature
         if (isset($options['eventsforms']) || isset($options['eventsexternal']) || (isset($options['eventsclicks']) && !empty($options['eventsclicks'][0]['query']))) {
             add_action('wp_enqueue_scripts', array($this, 'enqueueEventsScript'));
         }
+
+        if (isset($options['eventsforms'])) {
+            add_action("gform_after_submission", array($this, "gravityFormsSubmission"), 10, 2);
+        }
     }
 
     public function enqueueEventsScript()
@@ -48,8 +53,23 @@ class Analytics extends BaseFeature
                 'FormSubmissions' => isset($options['eventsforms']),
                 'ExternalLinks' => isset($options['eventsexternal']),
                 'CustomClicks' => is_array($options['eventsclicks']) && count($options['eventsclicks']) > 0 ? $options['eventsclicks'] : false,
+                'GravityFormConfirmation' => $this->gravityFormConfirmed,
             )
         );
+    }
+
+    /**
+     * Gravity Forms after submission
+     * @param array $entry
+     * @param array $form
+     */
+    public function gravityFormsSubmission($entry, $form)
+    {
+        $title = $form['title'];
+        $id = $form['id'];
+
+        // Save entry so we can add it to the localize script handler
+        $this->gravityFormConfirmed = array('title' => $title, 'id' => $id);
     }
 
     /**
