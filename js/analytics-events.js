@@ -68,7 +68,7 @@
             setupCustomClicks();
         }
 
-        function setupGravityFormsAjaxHandler()
+        function setupGravityFormsHandlers()
         {
             $(function(){
                 // Ajax form handler
@@ -83,8 +83,30 @@
             });
         }
 
+        var existingFormidableCallback = false;
+        function setupFormidableHandlers()
+        {
+            // Ajax form handler
+            if (typeof window.frmThemeOverride_frmAfterSubmit === 'function') {
+                // If another callback function already exists, copy it to another, so we can execute it later on
+                existingFormidableCallback = window.frmThemeOverride_frmAfterSubmit;
+            }
+            window.frmThemeOverride_frmAfterSubmit = function(fin, p, errObj, object)
+            {
+                if(typeof(fin) === 'undefined') {
+                    var formId = jQuery(object).find('input[name="form_id"]').val();
+                    trackEvent("Formidable Forms", "Submit Form ID " + formId, document.location.href);
+                }
+
+                if (existingFormidableCallback !== false) {
+                    return existingFormidableCallback.apply(this, arguments);
+                }
+            };
+        }
+
         if (BuzzSEOAnalyticsEvents.FormSubmissions !== false) {
-            setupGravityFormsAjaxHandler();
+            setupGravityFormsHandlers();
+            setupFormidableHandlers();
         }
     });
 })(jQuery);
