@@ -9,6 +9,8 @@ namespace NextBuzz\SEO\Features;
  */
 class Analytics extends BaseFeature
 {
+    private $gravityFormConfirmed = false;
+    private $formidableConfirmed = false;
 
     public function name()
     {
@@ -29,6 +31,59 @@ class Analytics extends BaseFeature
 
         // Make sure Google Analytics code is late in the head
         add_action('wp_head', array($this, 'addUACode'), 99);
+
+        // Track events
+        $options = get_option('_settingsSettingsAnalytics', true);
+        if (isset($options['eventsforms']) || isset($options['eventsexternal']) || (isset($options['eventsclicks']) && !empty($options['eventsclicks'][0]['query']))) {
+            add_action('wp_enqueue_scripts', array($this, 'enqueueEventsScript'));
+        }
+
+        if (isset($options['eventsforms'])) {
+            add_action("gform_after_submission", array($this, "gravityFormsSubmission"), 10, 2);
+            add_action("frm_after_create_entry", array($this, "formidableSubmission"), 30, 2);
+        }
+    }
+
+    public function enqueueEventsScript()
+    {
+        $options = get_option('_settingsSettingsAnalytics', true);
+        wp_enqueue_script('buzz-seo-ae', plugins_url('buzz-seo/js/analytics-events.js'),
+            array('jquery'), BUZZSEO_VERSION, true);
+        wp_localize_script('buzz-seo-ae', 'BuzzSEOAnalyticsEvents',
+            array(
+                'Tracker' => $this->trackerVar(),
+                'FormSubmissions' => isset($options['eventsforms']),
+                'ExternalLinks' => isset($options['eventsexternal']),
+                'CustomClicks' => is_array($options['eventsclicks']) && count($options['eventsclicks']) > 0 ? $options['eventsclicks'] : false,
+                'GravityFormConfirmation' => $this->gravityFormConfirmed,
+                'FormidableConfirmation' => $this->formidableConfirmed,
+            )
+        );
+    }
+
+    /**
+     * Gravity Forms after submission
+     * @param array $entry
+     * @param array $form
+     */
+    public function gravityFormsSubmission($entry, $form)
+    {
+        $id = $form['id'];
+
+        // Save entry so we can add it to the localize script handler
+        $this->gravityFormConfirmed = array('id' => $id);
+    }
+
+
+    /**
+     * Formidable after submission
+     * @param int $entryId
+     * @param int $formId
+     */
+    public function formidableSubmission($entryId, $formId)
+    {
+        // Save entry so we can add it to the localize script handler
+        $this->formidableConfirmed = array('id' => $formId);
     }
 
     /**

@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-11-14 13:49:51+0000\n"
+"POT-Creation-Date: 2016-11-18 09:01:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -217,11 +217,11 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:84 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:141 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:15 lib/Features/Analytics.php:40
+#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:15 lib/Features/Analytics.php:61
 msgid "Google Analytics"
 msgstr ""
 
@@ -233,56 +233,112 @@ msgstr ""
 msgid "Options"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:25
+#: tal/SettingsAnalytics.xml:20
+msgid "Event Tracking"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:26
 msgid "Universal Tracking ID"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:28
+#: tal/SettingsAnalytics.xml:29
 msgid "Add the Universal Analytics tracking ID from Google Analytics. This is an ID like UA-xxxxxxxx-x."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:32
+#: tal/SettingsAnalytics.xml:33
 msgid "Site Verification"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:35
+#: tal/SettingsAnalytics.xml:36
 msgid "Add the Google Site verification code from Google Webmaster Tools to let Google know you are the owner of this site."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:44
+#: tal/SettingsAnalytics.xml:45
 msgid "Anonymize IP addresses"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:48 tal/SettingsAnalytics.xml:58 tal/SettingsAnalytics.xml:68 tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
+#: tal/SettingsAnalytics.xml:49 tal/SettingsAnalytics.xml:59 tal/SettingsAnalytics.xml:69 tal/SettingsAnalytics.xml:91 tal/SettingsAnalytics.xml:101 tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:50
+#: tal/SettingsAnalytics.xml:51
 msgid "Enabling this option is mandatory in certain countries due to national privacy laws."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:54
+#: tal/SettingsAnalytics.xml:55
 msgid "Track User ID"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:60
+#: tal/SettingsAnalytics.xml:61
 msgid "Lets you associate engagement data from multiple devices and multiple sessions using the User ID, so you can see how logged in users interact over a longer period with your content. You are required by law in certain countries to notify your users when enabling this option."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:64
+#: tal/SettingsAnalytics.xml:65
 msgid "Advertising Features"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:70
+#: tal/SettingsAnalytics.xml:71
 msgid "Set the Google Analytics code to support Advertising Features. Advertising features include: Remarketing with Google Analytics, Google Display Network Impression Reporting, Google Analytics Demographics and Interest Reporting. You are required by law in certain countries to notify your users when enabling this option."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:74
+#: tal/SettingsAnalytics.xml:75
 msgid "Set Domain Name"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:77
+#: tal/SettingsAnalytics.xml:78
 msgid "(Optional) Set a custom domain name. Needed when tracking multiple domains."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:87
+msgid "Track Form Submissions"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:93
+msgid "Track all form submission. Currently supports Gravity Forms and Formidable."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:97
+msgid "Track External Links"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:104
+msgid "Automagicly track all outgoing links. I.E. absolute links that do not have the same hostname as the current site."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:109
+msgid "Track clicks"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:114
+msgid "Category"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:115
+msgid "Action"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:116
+msgid "Query Selector"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:131
+msgid "Track clicks on custom selectors. All JavaScript querySelectors are allowed."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:132
+msgid "Each line should contain one GA Category|GA Action|querySelector"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:124
+msgid "Add Category"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:125
+msgid "Add Action"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:126
+msgid "Add Query"
 msgstr ""
 
 #: tal/SettingsCleanup.xml:2 lib/Features/CleanupHead.php:15 lib/Features/CleanupHead.php:81
