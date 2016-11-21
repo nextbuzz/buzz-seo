@@ -10,6 +10,7 @@ namespace NextBuzz\SEO\Features;
 class Analytics extends BaseFeature
 {
     private $gravityFormConfirmed = false;
+    private $formidableConfirmed = false;
 
     public function name()
     {
@@ -39,6 +40,7 @@ class Analytics extends BaseFeature
 
         if (isset($options['eventsforms'])) {
             add_action("gform_after_submission", array($this, "gravityFormsSubmission"), 10, 2);
+            add_action("frm_after_create_entry", array($this, "formidableSubmission"), 30, 2);
         }
     }
 
@@ -54,6 +56,7 @@ class Analytics extends BaseFeature
                 'ExternalLinks' => isset($options['eventsexternal']),
                 'CustomClicks' => is_array($options['eventsclicks']) && count($options['eventsclicks']) > 0 ? $options['eventsclicks'] : false,
                 'GravityFormConfirmation' => $this->gravityFormConfirmed,
+                'FormidableConfirmation' => $this->formidableConfirmed,
             )
         );
     }
@@ -65,11 +68,22 @@ class Analytics extends BaseFeature
      */
     public function gravityFormsSubmission($entry, $form)
     {
-        $title = $form['title'];
         $id = $form['id'];
 
         // Save entry so we can add it to the localize script handler
-        $this->gravityFormConfirmed = array('title' => $title, 'id' => $id);
+        $this->gravityFormConfirmed = array('id' => $id);
+    }
+
+
+    /**
+     * Formidable after submission
+     * @param int $entryId
+     * @param int $formId
+     */
+    public function formidableSubmission($entryId, $formId)
+    {
+        // Save entry so we can add it to the localize script handler
+        $this->formidableConfirmed = array('id' => $formId);
     }
 
     /**

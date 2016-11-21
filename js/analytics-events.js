@@ -95,13 +95,20 @@
             {
                 if(typeof(fin) === 'undefined') {
                     var formId = jQuery(object).find('input[name="form_id"]').val();
-                    trackEvent("Formidable Forms", "Submit Form ID " + formId, document.location.href);
+                    trackEvent("Formidable", "Submit Form ID " + formId, document.location.href);
                 }
 
                 if (existingFormidableCallback !== false) {
                     return existingFormidableCallback.apply(this, arguments);
                 }
             };
+
+            // Non ajax form handler
+            $(function(){
+                if(BuzzSEOAnalyticsEvents.FormidableConfirmation !== "") {
+                    trackEvent("Formidable", "Submit Form ID " + BuzzSEOAnalyticsEvents.FormidableConfirmation.id, document.location.href);
+                }
+            });
         }
 
         if (BuzzSEOAnalyticsEvents.FormSubmissions !== false) {
