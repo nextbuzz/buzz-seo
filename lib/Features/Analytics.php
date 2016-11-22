@@ -9,9 +9,6 @@ namespace NextBuzz\SEO\Features;
  */
 class Analytics extends BaseFeature
 {
-    private $gravityFormConfirmed = false;
-    private $formidableConfirmed = false;
-
     public function name()
     {
         return __("Google Analytics", "buzz-seo");
@@ -55,8 +52,6 @@ class Analytics extends BaseFeature
                 'FormSubmissions' => isset($options['eventsforms']),
                 'ExternalLinks' => isset($options['eventsexternal']),
                 'CustomClicks' => is_array($options['eventsclicks']) && count($options['eventsclicks']) > 0 ? $options['eventsclicks'] : false,
-                'GravityFormConfirmation' => $this->gravityFormConfirmed,
-                'FormidableConfirmation' => $this->formidableConfirmed,
             )
         );
     }
@@ -68,12 +63,13 @@ class Analytics extends BaseFeature
      */
     public function gravityFormsSubmission($entry, $form)
     {
-        $id = $form['id'];
-
-        // Save entry so we can add it to the localize script handler
-        $this->gravityFormConfirmed = array('id' => $id);
+        // Since a lot of form types do not reload the page, we handle the form event server side.
+        $tracker = $this->getGATracker();
+        if ($tracker) {
+            $id = $form['id'];
+            $tracker->event("Gravity Forms", "Submit Form ID " . $id, $entry['source_url']);
+        }
     }
-
 
     /**
      * Formidable after submission
@@ -82,8 +78,34 @@ class Analytics extends BaseFeature
      */
     public function formidableSubmission($entryId, $formId)
     {
-        // Save entry so we can add it to the localize script handler
-        $this->formidableConfirmed = array('id' => $formId);
+        // Since a lot of form types do not reload the page, we handle the form event server side.
+        $tracker = $this->getGATracker();
+        if ($tracker) {
+            $entry = \FrmEntry::getOne($entryId);
+            $description = unserialize($entry->description);
+            $referrer = $description['referrer'];
+            $tracker->event("Formidable", "Submit Form ID " . $formId, $referrer);
+        }
+    }
+
+    /**
+     * Get the serverside tracker
+     * @return \NextBuzz\SEO\Tracking\GoogleAnalytics | false
+     */
+    private function getGATracker()
+    {
+        $options = get_option('_settingsSettingsAnalytics', true);
+        $ua = isset($options['uacode']) && !empty($options['uacode']) ? $options['uacode'] : false;
+        $hostname = isset($options['setdomainname']) && !empty($options['setdomainname']) ? $options['setdomainname'] : gethostname();
+
+        if ($ua !== false && $hostname !== false) {
+            $userId = intval(get_current_user_id());
+            return \NextBuzz\SEO\Tracking\GoogleAnalytics::factory($ua, $hostname)
+                ->anonimizeIP(isset($options['anonymize']))
+                ->userID(isset($options['userid']) && $userId > 0 ? $userId : false);
+        }
+
+        return false;
     }
 
     /**
