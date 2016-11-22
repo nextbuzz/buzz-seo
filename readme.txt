@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.6.1
-Stable tag: 0.10.0
+Stable tag: 0.10.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -79,11 +79,14 @@ add_filter('buzz-seo-show-grade-output', '__return_false');
 
 == Changelog ==
 
+= 0.10.1 =
+* Fix: Formidable and Gravity Forms submissions are also tracked by events when using alternative succes pages.
+
 = 0.10.0 =
-* Add: Google Analytics Event Tracking for Outbound links
-* Add: Google Analytics Event Tracking for Formidable form Submissions
-* Add: Google Analytics Event Tracking for Gravity Forms form submissions
-* Add: Google Analytics Event Tracking for custom clicks which can be targeted by a querySelector
+* Add: Google Analytics Event Tracking for Outbound links.
+* Add: Google Analytics Event Tracking for Formidable form Submissions.
+* Add: Google Analytics Event Tracking for Gravity Forms form submissions.
+* Add: Google Analytics Event Tracking for custom clicks which can be targeted by a querySelector.
 
 
 = 0.9.1 =
