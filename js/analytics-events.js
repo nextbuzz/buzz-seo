@@ -67,53 +67,5 @@
         if (BuzzSEOAnalyticsEvents.CustomClicks !== false) {
             setupCustomClicks();
         }
-
-        function setupGravityFormsHandlers()
-        {
-            $(function(){
-                // Ajax form handler
-                $(document).bind('gform_confirmation_loaded', function(event, formId) {
-                    trackEvent("Gravity Forms", "Submit Form ID " + formId, document.location.href);
-                });
-
-                // Non ajax form handler
-                if(BuzzSEOAnalyticsEvents.GravityFormConfirmation !== "") {
-                    trackEvent("Gravity Forms", "Submit Form ID " + BuzzSEOAnalyticsEvents.GravityFormConfirmation.id, document.location.href);
-                }
-            });
-        }
-
-        var existingFormidableCallback = false;
-        function setupFormidableHandlers()
-        {
-            // Ajax form handler
-            if (typeof window.frmThemeOverride_frmAfterSubmit === 'function') {
-                // If another callback function already exists, copy it to another, so we can execute it later on
-                existingFormidableCallback = window.frmThemeOverride_frmAfterSubmit;
-            }
-            window.frmThemeOverride_frmAfterSubmit = function(fin, p, errObj, object)
-            {
-                if(typeof(fin) === 'undefined') {
-                    var formId = jQuery(object).find('input[name="form_id"]').val();
-                    trackEvent("Formidable", "Submit Form ID " + formId, document.location.href);
-                }
-
-                if (existingFormidableCallback !== false) {
-                    return existingFormidableCallback.apply(this, arguments);
-                }
-            };
-
-            // Non ajax form handler
-            $(function(){
-                if(BuzzSEOAnalyticsEvents.FormidableConfirmation !== "") {
-                    trackEvent("Formidable", "Submit Form ID " + BuzzSEOAnalyticsEvents.FormidableConfirmation.id, document.location.href);
-                }
-            });
-        }
-
-        if (BuzzSEOAnalyticsEvents.FormSubmissions !== false) {
-            setupGravityFormsHandlers();
-            setupFormidableHandlers();
-        }
     });
 })(jQuery);
