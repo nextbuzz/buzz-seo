@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-11-18 10:02+0100\n"
-"PO-Revision-Date: 2016-11-21 10:07+0100\n"
+"POT-Creation-Date: 2016-11-23 16:22+0100\n"
+"PO-Revision-Date: 2016-11-23 16:24+0100\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 1.8.7\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: buzz-seo.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -280,8 +280,8 @@ msgstr ""
 msgid "Save Changes"
 msgstr "Opslaan"
 
-#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:15
-#: lib/Features/Analytics.php:61
+#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:14
+#: lib/Features/Analytics.php:117
 msgid "Google Analytics"
 msgstr "Google Analytics"
 
@@ -334,7 +334,7 @@ msgstr "Anonimizeer IP adressen"
 
 #: tal/SettingsAnalytics.xml:49 tal/SettingsAnalytics.xml:59
 #: tal/SettingsAnalytics.xml:69 tal/SettingsAnalytics.xml:91
-#: tal/SettingsAnalytics.xml:101 tal/SettingsGeneral.xml:40
+#: tal/SettingsAnalytics.xml:102 tal/SettingsGeneral.xml:40
 #: tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60
 #: tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53
 #: tal/SettingsXML.xml:100
@@ -406,11 +406,23 @@ msgstr ""
 "Houd de verzendingen van formulieren bij. Ondersteunt Gravity Forms en "
 "Formidable."
 
-#: tal/SettingsAnalytics.xml:97
+#: tal/SettingsAnalytics.xml:94
+msgid ""
+"Not available! Forms submissions are sent to Google server-side. For this to "
+"work it is required to setup Google Analytics UA code from this plugin. "
+"Other parts of this plugin work even if the Google Analytics script is "
+"loaded from another theme or script."
+msgstr ""
+"Niet beschikbaar! Formulier gebeurtenissen worden server-side naar Google "
+"verzonden. Hiervoor is het nodig dat de UA code in deze plugin is ingesteld. "
+"Andere onderdelen van deze plugin werken ook als het Analytics script via "
+"een andere plugin is geladen."
+
+#: tal/SettingsAnalytics.xml:98
 msgid "Track External Links"
 msgstr "Externe links bijhouden"
 
-#: tal/SettingsAnalytics.xml:104
+#: tal/SettingsAnalytics.xml:105
 msgid ""
 "Automagicly track all outgoing links. I.E. absolute links that do not have "
 "the same hostname as the current site."
@@ -418,42 +430,38 @@ msgstr ""
 "Houd automatisch clicks naar externe sites bij. Alle absolute links met een "
 "andere hostname worden geregistreerd."
 
-#: tal/SettingsAnalytics.xml:109
+#: tal/SettingsAnalytics.xml:110
 msgid "Track clicks"
 msgstr "Kliks bijhouden"
 
-#: tal/SettingsAnalytics.xml:114
-msgid "Category"
-msgstr "Categorie"
-
-#: tal/SettingsAnalytics.xml:115
-msgid "Action"
-msgstr "Actie"
-
-#: tal/SettingsAnalytics.xml:116
-msgid "Query Selector"
-msgstr "Query"
-
-#: tal/SettingsAnalytics.xml:131
+#: tal/SettingsAnalytics.xml:113
 msgid ""
 "Track clicks on custom selectors. All JavaScript querySelectors are allowed."
 msgstr ""
 "Houd de kliks op bepaalde elementen bij. Alle Javascript querySelectors zijn "
 "toegestaan."
 
-#: tal/SettingsAnalytics.xml:132
-msgid "Each line should contain one GA Category|GA Action|querySelector"
-msgstr ""
+#: tal/SettingsAnalytics.xml:119
+msgid "Category"
+msgstr "Categorie"
 
-#: tal/SettingsAnalytics.xml:124
+#: tal/SettingsAnalytics.xml:120
+msgid "Action"
+msgstr "Actie"
+
+#: tal/SettingsAnalytics.xml:121
+msgid "Query Selector"
+msgstr "Query"
+
+#: tal/SettingsAnalytics.xml:129
 msgid "Add Category"
 msgstr "Voeg categorie toe"
 
-#: tal/SettingsAnalytics.xml:125
+#: tal/SettingsAnalytics.xml:130
 msgid "Add Action"
 msgstr "Voeg actie toe"
 
-#: tal/SettingsAnalytics.xml:126
+#: tal/SettingsAnalytics.xml:131
 msgid "Add Query"
 msgstr "Voeg query toe"
 
@@ -986,7 +994,7 @@ msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
 
-#: lib/Features/Analytics.php:20
+#: lib/Features/Analytics.php:19
 msgid "Support for analytics."
 msgstr ""
 "Voeg ondersteuning toe voor Google Analytics en Google Webmaster Tools."
