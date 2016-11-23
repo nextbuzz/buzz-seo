@@ -86,11 +86,12 @@
                     <tr>
                         <th scope="row" i18n:translate="">Track Form Submissions</th>
                         <td>
-                            <label>
+                            <label tal:condition="true:uacode">
                                 <input type="checkbox" name="SettingsAnalytics[eventsforms]" value="1" tal:attributes="checked exists:eventsforms" />
                                 <tal:block i18n:translate="">Yes</tal:block>
                             </label>
                             <p class="description" i18n:translate="">Track all form submission. Currently supports Gravity Forms and Formidable.</p>
+                            <p tal:condition="not:true:uacode" class="description" i18n:translate="">Not available! Forms submissions are sent to Google server-side. For this to work it is required to setup Google Analytics UA code from this plugin. Other parts of this plugin work even if the Google Analytics script is loaded from another theme or script.</p>
                         </td>
                     </tr>
                     <tr>

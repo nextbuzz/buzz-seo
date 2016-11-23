@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-11-18 09:01:34+0000\n"
+"POT-Creation-Date: 2016-11-23 15:22:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -221,7 +221,7 @@ msgstr ""
 msgid "Save Changes"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:15 lib/Features/Analytics.php:61
+#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:14 lib/Features/Analytics.php:117
 msgid "Google Analytics"
 msgstr ""
 
@@ -257,7 +257,7 @@ msgstr ""
 msgid "Anonymize IP addresses"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:49 tal/SettingsAnalytics.xml:59 tal/SettingsAnalytics.xml:69 tal/SettingsAnalytics.xml:91 tal/SettingsAnalytics.xml:101 tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
+#: tal/SettingsAnalytics.xml:49 tal/SettingsAnalytics.xml:59 tal/SettingsAnalytics.xml:69 tal/SettingsAnalytics.xml:91 tal/SettingsAnalytics.xml:102 tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr ""
 
@@ -297,47 +297,47 @@ msgstr ""
 msgid "Track all form submission. Currently supports Gravity Forms and Formidable."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:97
+#: tal/SettingsAnalytics.xml:94
+msgid "Not available! Forms submissions are sent to Google server-side. For this to work it is required to setup Google Analytics UA code from this plugin. Other parts of this plugin work even if the Google Analytics script is loaded from another theme or script."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:98
 msgid "Track External Links"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:104
+#: tal/SettingsAnalytics.xml:105
 msgid "Automagicly track all outgoing links. I.E. absolute links that do not have the same hostname as the current site."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:109
+#: tal/SettingsAnalytics.xml:110
 msgid "Track clicks"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:114
-msgid "Category"
-msgstr ""
-
-#: tal/SettingsAnalytics.xml:115
-msgid "Action"
-msgstr ""
-
-#: tal/SettingsAnalytics.xml:116
-msgid "Query Selector"
-msgstr ""
-
-#: tal/SettingsAnalytics.xml:131
+#: tal/SettingsAnalytics.xml:113
 msgid "Track clicks on custom selectors. All JavaScript querySelectors are allowed."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:132
-msgid "Each line should contain one GA Category|GA Action|querySelector"
+#: tal/SettingsAnalytics.xml:119
+msgid "Category"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:124
+#: tal/SettingsAnalytics.xml:120
+msgid "Action"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:121
+msgid "Query Selector"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:129
 msgid "Add Category"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:125
+#: tal/SettingsAnalytics.xml:130
 msgid "Add Action"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:126
+#: tal/SettingsAnalytics.xml:131
 msgid "Add Query"
 msgstr ""
 
@@ -753,7 +753,7 @@ msgstr ""
 msgid "Unknown update checker status `%s`."
 msgstr ""
 
-#: lib/Features/Analytics.php:20
+#: lib/Features/Analytics.php:19
 msgid "Support for analytics."
 msgstr ""
 
