@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.6.1
-Stable tag: 0.10.1
+Stable tag: 0.10.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -78,6 +78,9 @@ add_filter('buzz-seo-show-grade-output', '__return_false');
 `
 
 == Changelog ==
+
+= 0.10.2 =
+* Fix: Make form submission tracking only available if uacode is set in this plugin.
 
 = 0.10.1 =
 * Fix: Formidable and Gravity Forms submissions are also tracked by events when using alternative succes pages.
