@@ -122,12 +122,13 @@
             tinyMCE.on('addEditor', function (e) {
                 for (var i = 0; i < events.length; i++) {
                     e.editor.on(events[i], doAnalysis);
+                    $("textarea#" + e.editor.id).on(events[i], doAnalysis);
                 }
             });
         }
 
         $("#buzz-seo-metadescription").keypress(function(event) {
-            if(event.which == '13') {
+            if(parseInt(event.which) === 13) {
                 return false;
             }
         });
@@ -486,10 +487,15 @@
                 return calculatedHTML;
             }
 
-            var val = document.getElementById('content') && document.getElementById('content').value || '';
-            if (jQuery("#wp-content-wrap").hasClass("tmce-active") && typeof tinyMCE !== 'undefined' && typeof tinyMCE.editors !== 'undefined' && tinyMCE.editors.length !== 0) {
-                var tinyMceContent = tinyMCE.get('content');
-                val = tinyMceContent && tinyMceContent.hidden === false && tinyMceContent.getContent() || '';
+            var val = '', i, skipMainContent = $("#postdivrich").css("display") === "none";
+            if (typeof tinyMCE !== 'undefined' && typeof tinyMCE.editors !== 'undefined' && tinyMCE.editors.length !== 0) {
+                for (i = 0; i < tinyMCE.editors.length; i++){
+                    if (tinyMCE.editors[i].id === "content" && skipMainContent) {
+                        continue;
+                    }
+                    var textArea = $('textarea#' + tinyMCE.editors[i].id);
+                    val += textArea.length>0 ? textArea.val() : '';
+                }
             }
 
             calculatedHTML = val;
@@ -508,7 +514,6 @@
 
                 // deal with html entities
                 text = text.replace(/(\w+)(&#?[a-z0-9]+;)+(\w+)/i, "$1$3").replace(/&.+?;/g, ' ');
-
 
                 if (keepPunctuation !== true) {
                     text = text.replace(/[0-9.(),;:!?%#$?\x27\x22_+=\\\/\-]*/g, ''); // remove numbers and punctuation
