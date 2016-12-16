@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2016-11-23 15:22:43+0000\n"
+"POT-Creation-Date: 2016-12-16 17:59:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:232
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:226
 msgid "Settings"
 msgstr ""
 
@@ -433,7 +433,7 @@ msgstr ""
 msgid "Remove relational links for the posts adjacent to the current post."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:236
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:230
 msgid "General"
 msgstr ""
 
@@ -729,27 +729,51 @@ msgstr ""
 msgid "Archive"
 msgstr ""
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:122 lib/Features/Admin.php:378 lib/Features/Admin.php:380
+#: lib/Features/Admin.php:120
+msgid "This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+"
+msgstr ""
+
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:121 lib/Features/Admin.php:140 lib/Features/Admin.php:372 lib/Features/Admin.php:374
 msgid "Buzz SEO"
 msgstr ""
 
-#: lib/Features/Admin.php:208
+#: lib/Features/Admin.php:140
+msgid "The theme you are using is using the deprecated wp_title() functions which prevents Buzz SEO from generating the correct titles. Please ask your theme developer to update the theme."
+msgstr ""
+
+#: lib/Features/Admin.php:158
+msgid "Search engines are not allowed to index the site. This is bad for SEO. Click <a href=\"%s\">here</a> to adjust this."
+msgstr ""
+
+#: lib/Features/Admin.php:160
+msgid "Search engines are not allowed to index the site. This is bad for SEO. Please ask a WordPress administrator to change this."
+msgstr ""
+
+#: lib/Features/Admin.php:179
+msgid "Permalinks are set to the \"default\" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Click <a href=\"%s\">here</a> to adjust this."
+msgstr ""
+
+#: lib/Features/Admin.php:181
+msgid "Permalinks are set to the \"default\" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Please ask a WordPress administrator to change this."
+msgstr ""
+
+#: lib/Features/Admin.php:202
 msgid "Select an image"
 msgstr ""
 
-#: lib/Features/Admin.php:208 lib/Features/Admin.php:209
+#: lib/Features/Admin.php:202 lib/Features/Admin.php:203
 msgid "Select"
 msgstr ""
 
-#: lib/Features/Admin.php:378
+#: lib/Features/Admin.php:372
 msgid "Buzz SEO plugin is up to date."
 msgstr ""
 
-#: lib/Features/Admin.php:380
+#: lib/Features/Admin.php:374
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr ""
 
-#: lib/Features/Admin.php:382
+#: lib/Features/Admin.php:376
 msgid "Unknown update checker status `%s`."
 msgstr ""
 
@@ -1103,49 +1127,5 @@ msgstr ""
 
 #: lib/PHPTAL/Settings/StructuredData.php:99
 msgid "A person (alive, dead, undead, or fictional)."
-msgstr ""
-
-#: lib/Tables/Table301.php:17 lib/Tables/Table301.php:18
-msgid "Redirect (301)"
-msgstr ""
-
-#: lib/Tables/Table301.php:70 lib/Tables/Table404.php:68
-msgid "Request URI"
-msgstr ""
-
-#: lib/Tables/Table301.php:71
-msgid "Redirect URI"
-msgstr ""
-
-#: lib/Tables/Table301.php:72
-msgid "Added"
-msgstr ""
-
-#: lib/Tables/Table404.php:92 lib/Tables/Table301.php:101 lib/Tables/Table404.php:102
-msgid "Delete"
-msgstr ""
-
-#: lib/Tables/Table301.php:37
-msgid "No 301 redirects registered. A website where they are not needed? Wow, awesome!"
-msgstr ""
-
-#: lib/Tables/Table404.php:17 lib/Tables/Table404.php:18
-msgid "Not Found (404)"
-msgstr ""
-
-#: lib/Tables/Table404.php:69
-msgid "Last request"
-msgstr ""
-
-#: lib/Tables/Table404.php:70
-msgid "Count"
-msgstr ""
-
-#: lib/Tables/Table404.php:90 lib/Tables/Table404.php:101
-msgid "Convert to 301"
-msgstr ""
-
-#: lib/Tables/Table404.php:37
-msgid "No 404 errors registered. Good job!"
 msgstr ""
 

@@ -117,8 +117,7 @@ class Admin extends BaseFeature
      */
     public static function setupPluginMetadataTranslations()
     {
-        $void = __('This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+',
-            'buzz-seo');
+        $void = __('This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+', 'buzz-seo');
         $void = __('Buzz SEO', 'buzz-seo');
     }
 
@@ -138,8 +137,7 @@ class Admin extends BaseFeature
             // Output a nag error on admin interface
             add_action('admin_notices',
                 function() {
-                echo '<div class="error"><p>' . __('The theme you are using is using the deprecated wp_title() functions which prevents Buzz SEO from generating the correct titles. Please ask your theme developer to update the theme.',
-                    'buzz-seo') . '</p></div>';
+                echo '<div class="error"><p>' . __('The theme you are using is using the deprecated wp_title() functions which prevents Buzz SEO from generating the correct titles. Please ask your theme developer to update the theme.', 'buzz-seo') . '</p></div>';
             });
         }
     }
@@ -157,11 +155,9 @@ class Admin extends BaseFeature
             add_action('admin_notices',
                 function() {
                 if (current_user_can('manage_options')) {
-                    echo '<div class="notice notice-error"><p>' . sprintf(__('Search engines are not allowed to index the site. This is bad for SEO. Click <a href="%s">here</a> to adjust this.',
-                            'buzz-seo'), admin_url('options-reading.php')) . '</p></div>';
+                    echo '<div class="notice notice-error"><p>' . sprintf(__('Search engines are not allowed to index the site. This is bad for SEO. Click <a href="%s">here</a> to adjust this.', 'buzz-seo'), admin_url('options-reading.php')) . '</p></div>';
                 } else {
-                    echo '<div class="notice notice-error"><p>' . __('Search engines are not allowed to index the site. This is bad for SEO. Please ask a WordPress administrator to change this.',
-                        'buzz-seo') . '</p></div>';
+                    echo '<div class="notice notice-error"><p>' . __('Search engines are not allowed to index the site. This is bad for SEO. Please ask a WordPress administrator to change this.', 'buzz-seo') . '</p></div>';
                 }
             });
         }
@@ -180,11 +176,9 @@ class Admin extends BaseFeature
             add_action('admin_notices',
                 function() {
                 if (current_user_can('manage_options')) {
-                    echo '<div class="notice notice-warning"><p>' . sprintf(__('Permalinks are set to the "default" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Click <a href="%s">here</a> to adjust this.',
-                            'buzz-seo'), admin_url('options-permalink.php')) . '</p></div>';
+                    echo '<div class="notice notice-warning"><p>' . sprintf(__('Permalinks are set to the "default" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Click <a href="%s">here</a> to adjust this.', 'buzz-seo'), admin_url('options-permalink.php')) . '</p></div>';
                 } else {
-                    echo '<div class="notice notice-warning"><p>' . __('Permalinks are set to the "default" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Please ask a WordPress administrator to change this.',
-                        'buzz-seo') . '</p></div>';
+                    echo '<div class="notice notice-warning"><p>' . __('Permalinks are set to the "default" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Please ask a WordPress administrator to change this.', 'buzz-seo') . '</p></div>';
                 }
             });
         }
