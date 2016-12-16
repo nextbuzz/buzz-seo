@@ -74,8 +74,18 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
      */
     public function getTranslatedPosts($postID)
     {
-        // TODO: implement this function for WPML
-        return array();
+        $postType = get_post_type($postID);
+        $languages = icl_get_languages('skip_missing=1');
+
+        $result = array();
+        foreach($languages as $lang) {
+            $transPostID = apply_filters('wpml_object_id', $postID, $postType, false, $lang['language_code']);
+            if (is_int($transPostID) && $transPostID !== $postID) {
+                $result[$lang['language_code']] = $transPostID;
+            }
+        }
+
+        return $result;
     }
 
     /**
@@ -88,5 +98,26 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
     {
         // TODO: implement this function for WPML
         return array();
+    }
+
+
+    /**
+     * Get posts in a specific language.
+     *
+     * @param string $lang The language code
+     * @param array $args Array with get_posts arguments
+     */
+    public function getPostsByLanguage($lang, $args)
+    {
+        global $sitepress;
+        $current_lang = $sitepress->get_current_language();
+        $sitepress->switch_lang($lang);
+
+        $args['suppress_filters'] = false;
+        $results = get_posts($args);
+
+        $sitepress->switch_lang($current_lang);
+
+        return $results;
     }
 }

@@ -81,4 +81,15 @@ class None implements \NextBuzz\SEO\Translate\Interfaces\Translate
     {
         return array();
     }
+
+    /**
+     * Get posts in a specific language.
+     *
+     * @param string $lang The language code
+     * @param array $args Array with get_posts arguments
+     */
+    public function getPostsByLanguage($lang, $args)
+    {
+        return get_posts($args);
+    }
 }

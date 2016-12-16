@@ -120,4 +120,16 @@ class Translate
         return self::$driver->translate($text);
     }
 
+
+    /**
+     * Get posts in a specific language.
+     *
+     * @param string $lang The language code
+     * @param array $args Array with get_posts arguments
+     */
+    public function getPostsByLanguage($lang, $args)
+    {
+        return self::$driver->getPostsByLanguage($lang, $args);
+    }
+
 }

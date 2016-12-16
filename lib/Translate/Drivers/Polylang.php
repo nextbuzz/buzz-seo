@@ -103,4 +103,17 @@ class Polylang implements \NextBuzz\SEO\Translate\Interfaces\Translate
 
         return $result;
     }
+
+    /**
+     * Get posts in a specific language.
+     *
+     * @param string $lang The language code
+     * @param array $args Array with get_posts arguments
+     */
+    public function getPostsByLanguage($lang, $args)
+    {
+        $args['lang'] = $lang;
+
+        return get_posts($args);
+    }
 }

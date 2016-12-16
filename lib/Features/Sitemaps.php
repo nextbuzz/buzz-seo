@@ -160,12 +160,11 @@ class Sitemaps extends BaseFeature
             if (isset($options['posttypes']) && is_array($options['posttypes'])) {
                 foreach ($options['posttypes'] as $posttype => $value) {
                     // Get pagination count for post type (and just return ids, since we just want a count)
-                    $numposts = count(get_posts(array(
+                    $numposts = count($Translate->getPostsByLanguage($defaultLanguage, array(
                         'post_type'      => $posttype,
                         'posts_per_page' => -1,
                         'cache_results'  => false,
                         'fields'         => 'ids',
-                        'lang'           => $defaultLanguage,
                     )));
                     $pages    = ceil($numposts / $itemsperpage);
                     for ($p = 1; $p <= $pages; $p++) {
@@ -220,12 +219,11 @@ class Sitemaps extends BaseFeature
             $users = get_users(array('who' => 'authors'));
             $users = array_splice($users, (($page - 1) * $itemsperpage), $itemsperpage);
             foreach ($users as $user) {
-                $latestPost = get_posts(array(
+                $latestPost = $Translate->getPostsByLanguage($defaultLanguage, array(
                     'posts_per_page' => '1',
                     'author'         => $user->ID,
                     'orderby'        => 'modified',
                     'order'          => 'DESC',
-                    'lang'           => $defaultLanguage,
                 ));
 
                 $modified  = is_array($latestPost) && isset($latestPost[0]) ? $latestPost[0]->post_modified_gmt : $user->user_registered;
@@ -249,13 +247,12 @@ class Sitemaps extends BaseFeature
             $postTypes = get_post_types();
             if (in_array($type, $postTypes)) {
                 // Get post type posts
-                $posts = get_posts(array(
+                $posts = $Translate->getPostsByLanguage($defaultLanguage, array(
                     'post_type'      => $type,
                     'posts_per_page' => $itemsperpage,
                     'paged'          => $page,
                     'orderby'        => 'modified',
                     'order'          => 'DESC',
-                    'lang'           => function_exists('pll_default_language') ? pll_default_language() : '',
                 ));
 
                 $frontId = intval(get_option('page_on_front', -1));
@@ -264,7 +261,8 @@ class Sitemaps extends BaseFeature
                 foreach ($posts as $post) {
                     // If polylang, get alternative languages if polylang
                     $alternatives = $Translate->getTranslatedPosts($post->ID);
-                    foreach($alternatives as &$alternative) {
+                    foreach($alternatives as $key => &$alternative) {
+                        // FIX: This is not working in WPML!!!
                         $alternative = get_permalink($alternative);
                     }
 
@@ -283,6 +281,7 @@ class Sitemaps extends BaseFeature
                 foreach ($terms as $term) {
                     // If polylang, get alternative languages if polylang
                     $alternatives = $Translate->getTranslatedTerms($term->term_id);
+                    
                     foreach($alternatives as &$alternative) {
                         $alternative = get_term_link($alternative);
                     }
