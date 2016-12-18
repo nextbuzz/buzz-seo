@@ -132,4 +132,15 @@ class Translate
         return self::$driver->getPostsByLanguage($lang, $args);
     }
 
+    /**
+     * Force language plugin to return the permalink of the given ID.
+     * This might be required in some situation using WPML.
+     *
+     * @param int $postID
+     * @param string|bool $lang
+     * @return string
+     */
+    public function getPermalink($postID, $lang = false) {
+        return self::$driver->getPermalink($postID, $lang);
+    }
 }

@@ -120,4 +120,36 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
 
         return $results;
     }
+
+    /**
+     * Force language plugin to return the permalink of the given ID.
+     * This might be required in some situation using WPML.
+     *
+     * @global object $sitepress
+     * @param int $postID
+     * @param string|bool $lang
+     * @return string
+     */
+    public function getPermalink($postID, $lang = false)
+    {
+        if (!$lang) {
+            return get_permalink($postID);
+        }
+
+        global $sitepress;
+        // Get the current site language
+        $currentLanguage = $sitepress->get_current_language();
+
+        // Switch to the language we want to get the permalink for
+        $sitepress->switch_lang($lang, true);
+
+        // Get permalink
+        $permalink = get_permalink($postID);
+
+        // Restore site language
+        $sitepress->switch_lang($currentLanguage, true);
+
+        // Return permalink
+        return $permalink;
+    }
 }

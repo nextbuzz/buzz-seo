@@ -92,4 +92,17 @@ class None implements \NextBuzz\SEO\Translate\Interfaces\Translate
     {
         return get_posts($args);
     }
+
+
+    /**
+     * Force language plugin to return the permalink of the given ID.
+     * This might be required in some situation using WPML.
+     *
+     * @param int $postID
+     * @param string|bool $lang
+     * @return string
+     */
+    public function getPermalink($postID, $lang = false) {
+        return get_permalink($postID);
+    }
 }

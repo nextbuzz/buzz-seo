@@ -259,11 +259,10 @@ class Sitemaps extends BaseFeature
                 $blogId  = intval(get_option('page_for_posts', -1));
 
                 foreach ($posts as $post) {
-                    // If polylang, get alternative languages if polylang
+                    // If Polylang or WPML, get alternative languages if polylang
                     $alternatives = $Translate->getTranslatedPosts($post->ID);
                     foreach($alternatives as $key => &$alternative) {
-                        // FIX: This is not working in WPML!!!
-                        $alternative = get_permalink($alternative);
+                        $alternative = $Translate->getPermalink($alternative, $key);
                     }
 
                     $talData[] = array(
@@ -281,7 +280,7 @@ class Sitemaps extends BaseFeature
                 foreach ($terms as $term) {
                     // If polylang, get alternative languages if polylang
                     $alternatives = $Translate->getTranslatedTerms($term->term_id);
-                    
+
                     foreach($alternatives as &$alternative) {
                         $alternative = get_term_link($alternative);
                     }
