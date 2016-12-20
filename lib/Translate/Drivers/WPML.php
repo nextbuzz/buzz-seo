@@ -15,9 +15,10 @@ namespace NextBuzz\SEO\Translate\Drivers;
  */
 class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
 {
+
     private $package = array(
-        'kind' => 'Buzz SEO',
-        'name' => 'Buzz SEO',
+        'kind'  => 'Buzz SEO',
+        'name'  => 'Buzz SEO',
         'title' => 'Buzz SEO',
     );
 
@@ -43,7 +44,6 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
     {
         do_action('wpml_register_string', $text, $text, $this->package, $context, $multiline ? 'AREA' : 'LINE');
     }
-
 
     /**
      * Retrieve a translated string from the translation plugin.
@@ -74,11 +74,11 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
      */
     public function getTranslatedPosts($postID)
     {
-        $postType = get_post_type($postID);
+        $postType  = get_post_type($postID);
         $languages = icl_get_languages('skip_missing=1');
 
         $result = array();
-        foreach($languages as $lang) {
+        foreach ($languages as $lang) {
             $transPostID = apply_filters('wpml_object_id', $postID, $postType, false, $lang['language_code']);
             if (is_int($transPostID) && $transPostID !== $postID) {
                 $result[$lang['language_code']] = $transPostID;
@@ -91,15 +91,23 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
     /**
      * Get an array with all available translations for a given term
      *
-     * @param int $postID
+     * @param int $termID
      * @return array Indexed array with as key the language code, and as value the post id
      */
-    public function getTranslatedTerms($postID)
+    public function getTranslatedTerms($termID)
     {
-        // TODO: implement this function for WPML
-        return array();
-    }
+        $term      = get_term_by('term_taxonomy_id', $termID);
+        $languages = icl_get_languages('skip_missing=1');
 
+        $result = array();
+        foreach ($languages as $lang) {
+            $transTermID = apply_filters('wpml_object_id', $termID, $term->taxonomy, false, $lang['language_code']);
+            if (is_int($transTermID) && $transTermID !== $termID) {
+                $result[$lang['language_code']] = $transTermID;
+            }
+        }
+        return $result;
+    }
 
     /**
      * Get posts in a specific language.
@@ -114,7 +122,7 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
         $sitepress->switch_lang($lang);
 
         $args['suppress_filters'] = false;
-        $results = get_posts($args);
+        $results                  = get_posts($args);
 
         $sitepress->switch_lang($current_lang);
 
@@ -151,5 +159,36 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
 
         // Return permalink
         return $permalink;
+    }
+
+    /**
+     * Force language plugin to return the link of the given term ID.
+     * This might be required in some situation using WPML.
+     *
+     * @param int $termID
+     * @param string|bool $lang
+     * @return string
+     */
+    public function getTermlink($termID, $lang = false)
+    {
+        if (!$lang) {
+            return get_term_link($termID);
+        }
+
+        global $sitepress;
+        // Get the current site language
+        $currentLanguage = $sitepress->get_current_language();
+
+        // Switch to the language we want to get the permalink for
+        $sitepress->switch_lang($lang, true);
+
+        // Get permalink
+        $termlink = get_term_link($termID);
+
+        // Restore site language
+        $sitepress->switch_lang($currentLanguage, true);
+
+        // Return termlink
+        return $termlink;
     }
 }

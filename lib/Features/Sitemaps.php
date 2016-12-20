@@ -281,8 +281,8 @@ class Sitemaps extends BaseFeature
                     // If polylang, get alternative languages if polylang
                     $alternatives = $Translate->getTranslatedTerms($term->term_id);
 
-                    foreach($alternatives as &$alternative) {
-                        $alternative = get_term_link($alternative);
+                    foreach($alternatives as $lang => &$alternative) {
+                        $alternative = $Translate->getTermlink($alternative, $lang);
                     }
 
                     $priority = 0.2;

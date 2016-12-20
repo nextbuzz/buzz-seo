@@ -129,4 +129,17 @@ class Polylang implements \NextBuzz\SEO\Translate\Interfaces\Translate
         // Not required for Polylang
         return get_permalink($postID);
     }
+    
+    /**
+     * Force language plugin to return the link of the given term ID.
+     * This might be required in some situation using WPML.
+     *
+     * @param int $termID
+     * @param string|bool $lang
+     * @return string
+     */
+    public function getTermlink($termID, $lang = false)
+    {
+        return get_term_link($termID);
+    }
 }

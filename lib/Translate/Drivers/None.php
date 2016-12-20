@@ -93,7 +93,6 @@ class None implements \NextBuzz\SEO\Translate\Interfaces\Translate
         return get_posts($args);
     }
 
-
     /**
      * Force language plugin to return the permalink of the given ID.
      * This might be required in some situation using WPML.
@@ -102,7 +101,21 @@ class None implements \NextBuzz\SEO\Translate\Interfaces\Translate
      * @param string|bool $lang
      * @return string
      */
-    public function getPermalink($postID, $lang = false) {
+    public function getPermalink($postID, $lang = false)
+    {
         return get_permalink($postID);
+    }
+
+    /**
+     * Force language plugin to return the link of the given term ID.
+     * This might be required in some situation using WPML.
+     *
+     * @param int $termID
+     * @param string|bool $lang
+     * @return string
+     */
+    public function getTermlink($termID, $lang = false)
+    {
+        return get_term_link($termID);
     }
 }

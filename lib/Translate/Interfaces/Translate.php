@@ -9,6 +9,7 @@ namespace NextBuzz\SEO\Translate\Interfaces;
  */
 interface Translate
 {
+
     /**
      * Check if the driver is available.
      *
@@ -74,4 +75,14 @@ interface Translate
      * @return string
      */
     public function getPermalink($postID, $lang = false);
+
+    /**
+     * Force language plugin to return the link of the given term ID.
+     * This might be required in some situation using WPML.
+     *
+     * @param int $termID
+     * @param string|bool $lang
+     * @return string
+     */
+    public function getTermlink($termID, $lang = false);
 }
