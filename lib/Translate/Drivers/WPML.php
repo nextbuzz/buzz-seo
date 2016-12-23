@@ -1,17 +1,12 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace NextBuzz\SEO\Translate\Drivers;
 
 /**
  * Use WPML for custom translations
  *
  * @author LengthOfRope, Bas de Kort <bdekort@gmail.com>
+ * @author srdjan <srdjan@icanlocalize.com>
  */
 class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
 {
@@ -29,7 +24,7 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
      */
     public function isAvailable()
     {
-        return defined('ICL_LANGUAGE_CODE');
+        return did_action('wpml_loaded');
     }
 
     /**
@@ -75,7 +70,7 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
     public function getTranslatedPosts($postID)
     {
         $postType  = get_post_type($postID);
-        $languages = icl_get_languages('skip_missing=1');
+        $languages = apply_filters('wpml_active_languages', array(), array('skip_missing' => 1));
 
         $result = array();
         foreach ($languages as $lang) {
@@ -97,7 +92,7 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
     public function getTranslatedTerms($termID)
     {
         $term      = get_term_by('term_taxonomy_id', $termID);
-        $languages = icl_get_languages('skip_missing=1');
+        $languages = apply_filters('wpml_active_languages', array(), array('skip_missing' => 1));
 
         $result = array();
         foreach ($languages as $lang) {
@@ -117,14 +112,32 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
      */
     public function getPostsByLanguage($lang, $args)
     {
-        global $sitepress;
-        $current_lang = $sitepress->get_current_language();
-        $sitepress->switch_lang($lang);
+        $current_lang = apply_filters('wpml_current_language', null);
+        do_action('wpml_switch_language', $lang);
 
         $args['suppress_filters'] = false;
         $results                  = get_posts($args);
 
-        $sitepress->switch_lang($current_lang);
+        do_action('wpml_switch_language', $current_lang);
+
+        return $results;
+    }
+
+    /**
+     * Get terms in a specific language.
+     *
+     * @param string $lang The language code
+     * @param array $args Array with get_terms arguments
+     */
+    public function getTermsByLanguage($lang, $type)
+    {
+        $current_lang = apply_filters('wpml_current_language', null);
+        do_action('wpml_switch_language', $lang);
+
+        $args['suppress_filters'] = false;
+        $results                  = get_terms($type);
+
+        do_action('wpml_switch_language', $current_lang);
 
         return $results;
     }
@@ -144,18 +157,17 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
             return get_permalink($postID);
         }
 
-        global $sitepress;
         // Get the current site language
-        $currentLanguage = $sitepress->get_current_language();
+        $currentLanguage = apply_filters('wpml_current_language', null);
 
         // Switch to the language we want to get the permalink for
-        $sitepress->switch_lang($lang, true);
+        do_action('wpml_switch_language', $lang);
 
         // Get permalink
         $permalink = get_permalink($postID);
 
         // Restore site language
-        $sitepress->switch_lang($currentLanguage, true);
+        do_action('wpml_switch_language', $currentLanguage);
 
         // Return permalink
         return $permalink;
@@ -175,20 +187,20 @@ class WPML implements \NextBuzz\SEO\Translate\Interfaces\Translate
             return get_term_link($termID);
         }
 
-        global $sitepress;
         // Get the current site language
-        $currentLanguage = $sitepress->get_current_language();
+        $currentLanguage = apply_filters('wpml_current_language', null);
 
         // Switch to the language we want to get the permalink for
-        $sitepress->switch_lang($lang, true);
+        do_action('wpml_switch_language', $lang);
 
         // Get permalink
         $termlink = get_term_link($termID);
 
         // Restore site language
-        $sitepress->switch_lang($currentLanguage, true);
+        do_action('wpml_switch_language', $currentLanguage);
 
         // Return termlink
         return $termlink;
     }
+
 }

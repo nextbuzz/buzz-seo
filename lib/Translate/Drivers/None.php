@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace NextBuzz\SEO\Translate\Drivers;
 
 /**
@@ -92,6 +86,17 @@ class None implements \NextBuzz\SEO\Translate\Interfaces\Translate
     {
         return get_posts($args);
     }
+
+	/**
+	 * Get terms in a specific language.
+	 *
+	 * @param string $lang The language code
+	 * @param array $args Array with get_terms arguments
+	 */
+	public function getTermsByLanguage($lang, $args)
+	{
+		return get_terms($args);
+	}
 
     /**
      * Force language plugin to return the permalink of the given ID.

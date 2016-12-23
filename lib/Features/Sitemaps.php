@@ -6,6 +6,7 @@ namespace NextBuzz\SEO\Features;
  * Option page administration feature
  *
  * @author Bas de Kort <bas@nextbuzz.nl>
+ * @author srdjan <srdjan@icanlocalize.com>
  */
 class Sitemaps extends BaseFeature
 {
@@ -266,7 +267,7 @@ class Sitemaps extends BaseFeature
                     }
 
                     $talData[] = array(
-                        'loc'        => get_permalink($post->ID),
+                        'loc'        => $Translate->getPermalink($post->ID, $defaultLanguage),
                         'lastmod'    => \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($post->post_modified_gmt),
                         'changefreq' => ($post->ID === $frontId || $post->ID === $blogId) ? 'daily' : 'monthly',
                         'priority'   => ($post->ID === $frontId || $post->ID === $blogId) ? 1.0 : 0.8,
@@ -275,7 +276,7 @@ class Sitemaps extends BaseFeature
                 }
             } else {
                 // Get taxonomy posts
-                $terms = get_terms($type);
+                $terms = $Translate->getTermsByLanguage($defaultLanguage, array('taxonomy' => $type));
                 $terms = array_splice($terms, (($page - 1) * $itemsperpage), $itemsperpage);
                 foreach ($terms as $term) {
                     // If polylang, get alternative languages if polylang
@@ -293,7 +294,7 @@ class Sitemaps extends BaseFeature
                         $priority = 0.6;
                     }
                     $talData[] = array(
-                        'loc'        => get_term_link($term->term_id),
+                        'loc'        => $Translate->getTermlink($term->term_id, $defaultLanguage),
                         'lastmod'    => $this->getLastModifiedDateTerm($type, $term->term_id),
                         'changefreq' => 'weekly',
                         'priority'   => $priority,

@@ -1,17 +1,12 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace NextBuzz\SEO\Translate\Drivers;
 
 /**
  * Use PolyLang for custom translations
  *
  * @author LengthOfRope, Bas de Kort <bdekort@gmail.com>
+ * @author srdjan <srdjan@icanlocalize.com>
  */
 class Polylang implements \NextBuzz\SEO\Translate\Interfaces\Translate
 {
@@ -117,6 +112,19 @@ class Polylang implements \NextBuzz\SEO\Translate\Interfaces\Translate
         return get_posts($args);
     }
 
+	/**
+	 * Get terms in a specific language.
+	 *
+	 * @param string $lang The language code
+	 * @param array $args Array with get_terms arguments
+	 */
+	public function getTermsByLanguage($lang, $args)
+	{
+		$args['lang'] = $lang;
+
+		return get_terms($args);
+	}
+
     /**
      * Force language plugin to return the permalink of the given ID.
      * This might be required in some situation using WPML.
@@ -129,7 +137,7 @@ class Polylang implements \NextBuzz\SEO\Translate\Interfaces\Translate
         // Not required for Polylang
         return get_permalink($postID);
     }
-    
+
     /**
      * Force language plugin to return the link of the given term ID.
      * This might be required in some situation using WPML.

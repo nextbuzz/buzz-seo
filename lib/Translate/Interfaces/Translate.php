@@ -66,6 +66,14 @@ interface Translate
      */
     public function getPostsByLanguage($lang, $args);
 
+	/**
+	 * Get terms in a specific language.
+	 *
+	 * @param string $lang The language code
+	 * @param array $args Array with get_terms arguments
+	 */
+	public function getTermsByLanguage($lang, $args);
+
     /**
      * Force language plugin to return the permalink of the given ID.
      * This might be required in some situation using WPML.

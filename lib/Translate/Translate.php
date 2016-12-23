@@ -6,6 +6,7 @@ namespace NextBuzz\SEO\Translate;
  * Description of Driver
  *
  * @author LengthOfRope, Bas de Kort <bdekort@gmail.com>
+ * @author srdjan <srdjan@icanlocalize.com>
  */
 class Translate
 {
@@ -131,6 +132,17 @@ class Translate
     {
         return self::$driver->getPostsByLanguage($lang, $args);
     }
+
+	/**
+	 * Get terms in a specific language.
+	 *
+	 * @param string $lang The language code
+	 * @param array $args Array with get_terms arguments
+	 */
+	public function getTermsByLanguage($lang, $args)
+	{
+		return self::$driver->getTermsByLanguage($lang, $args);
+	}
 
     /**
      * Force language plugin to return the permalink of the given ID.
