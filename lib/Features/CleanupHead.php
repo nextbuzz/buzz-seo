@@ -78,7 +78,7 @@ class CleanupHead extends BaseFeature
     public function createAdminMenu()
     {
         // Add Settings Sub Option Page
-        add_submenu_page('BuzzSEO', __('Cleanup HTML', 'buzz-seo'), __('Cleanup HTML', 'buzz-seo'), 'edit_posts', 'BuzzSEO_CleanupHead', array($this, "addAdminUI"));
+        add_submenu_page('BuzzSEO', __('Cleanup HTML', 'buzz-seo'), __('Cleanup HTML', 'buzz-seo'), 'buzz_seo_settings_cleanup', 'BuzzSEO_CleanupHead', array($this, "addAdminUI"));
     }
 
     /**

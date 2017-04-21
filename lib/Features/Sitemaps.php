@@ -64,7 +64,7 @@ class Sitemaps extends BaseFeature
     public function createAdminMenu()
     {
         // Add Settings Sub Option Page
-        add_submenu_page('BuzzSEO', __('XML Sitemaps', 'buzz-seo'), __('XML Sitemaps', 'buzz-seo'), 'edit_posts',
+        add_submenu_page('BuzzSEO', __('XML Sitemaps', 'buzz-seo'), __('XML Sitemaps', 'buzz-seo'), 'buzz_seo_settings_sitemaps',
             'BuzzSEO_XMLSitemaps', array($this, "addAdminUI"));
     }
 

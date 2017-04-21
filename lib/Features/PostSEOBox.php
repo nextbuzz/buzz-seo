@@ -55,6 +55,9 @@ class PostSEOBox extends BaseFeature
      */
     public function initBack()
     {
+        if (!current_user_can('buzz_seo_optimize')) {
+            return;
+        }
         // Load SEO box for all Single pages
         new \NextBuzz\SEO\PHPTAL\MetaBox('PostSEOBox', __('Search Engine Optimization (SEO)', 'buzz-seo'));
     }
@@ -71,7 +74,7 @@ class PostSEOBox extends BaseFeature
         if (!is_singular()) {
             return $title;
         }
-        
+
         $postMeta = $this->getPostMeta();
 
         if (!empty($postMeta['pageTitle'])) {

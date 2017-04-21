@@ -114,7 +114,7 @@ class Analytics extends BaseFeature
     public function createAdminMenu()
     {
         // Add Settings Sub Option Page
-        add_submenu_page('BuzzSEO', __('Google Analytics', 'buzz-seo'), __('Google Analytics', 'buzz-seo'), 'edit_posts', 'BuzzSEO_Analytics', array($this, "addAdminUI"));
+        add_submenu_page('BuzzSEO', __('Google Analytics', 'buzz-seo'), __('Google Analytics', 'buzz-seo'), 'buzz_seo_settings_ga', 'BuzzSEO_Analytics', array($this, "addAdminUI"));
     }
 
     /**

@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.7.4
-Stable tag: 0.11.0
+Stable tag: 0.11.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -78,6 +78,9 @@ add_filter('buzz-seo-show-grade-output', '__return_false');
 `
 
 == Changelog ==
+
+= 0.11.1 =
+* Add: Custom capabilities to allow disabling some features to some users.
 
 = 0.11.0 =
 * Update: Use all wywiwyg content fields when analyzing content

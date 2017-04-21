@@ -69,7 +69,7 @@ class StructuredData extends BaseFeature
     public function createAdminMenu()
     {
         // Add Settings Sub Option Page
-        add_submenu_page('BuzzSEO', __('Structured Data', 'buzz-seo'), __('Structured Data', 'buzz-seo'), 'edit_posts', 'BuzzSEO_JSONLD', array($this, "addAdminUI"));
+        add_submenu_page('BuzzSEO', __('Structured Data', 'buzz-seo'), __('Structured Data', 'buzz-seo'), 'buzz_seo_settings_structured', 'BuzzSEO_JSONLD', array($this, "addAdminUI"));
     }
 
     /**
