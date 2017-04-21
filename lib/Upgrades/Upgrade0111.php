@@ -30,31 +30,36 @@ class Upgrade0111 implements Interfaces\Upgrade
 
     public function addCapability() {
         $role = get_role('author');
-        // Add author seo analysis
-        $role->add_cap('buzz_seo_analysis');
-        $role->add_cap('buzz_seo_optimize');
+        if ($role) {
+            // Add author seo analysis
+            $role->add_cap('buzz_seo_analysis');
+            $role->add_cap('buzz_seo_optimize');
+        }
 
         $role = get_role('editor');
-        // Add editor settings rights
-        $role->add_cap('buzz_seo_settings');
-        $role->add_cap('buzz_seo_settings_ga');
-        $role->add_cap('buzz_seo_settings_cleanup');
-        $role->add_cap('buzz_seo_settings_structured');
-        $role->add_cap('buzz_seo_settings_sitemaps');
-        // Add editor seo analysis
-        $role->add_cap('buzz_seo_analysis');
-        $role->add_cap('buzz_seo_optimize');
-
+        if ($role) {
+            // Add editor settings rights
+            $role->add_cap('buzz_seo_settings');
+            $role->add_cap('buzz_seo_settings_ga');
+            $role->add_cap('buzz_seo_settings_cleanup');
+            $role->add_cap('buzz_seo_settings_structured');
+            $role->add_cap('buzz_seo_settings_sitemaps');
+            // Add editor seo analysis
+            $role->add_cap('buzz_seo_analysis');
+            $role->add_cap('buzz_seo_optimize');
+        }
         $role = get_role('administrator');
-        // Add administrator settings rights
-        $role->add_cap('buzz_seo_settings');
-        $role->add_cap('buzz_seo_settings_ga');
-        $role->add_cap('buzz_seo_settings_cleanup');
-        $role->add_cap('buzz_seo_settings_structured');
-        $role->add_cap('buzz_seo_settings_sitemaps');
-        $role->add_cap('buzz_seo_settings_setup');
-        // Add administrator seo analysis
-        $role->add_cap('buzz_seo_analysis');
-        $role->add_cap('buzz_seo_optimize');
+        if ($role) {
+            // Add administrator settings rights
+            $role->add_cap('buzz_seo_settings');
+            $role->add_cap('buzz_seo_settings_ga');
+            $role->add_cap('buzz_seo_settings_cleanup');
+            $role->add_cap('buzz_seo_settings_structured');
+            $role->add_cap('buzz_seo_settings_sitemaps');
+            $role->add_cap('buzz_seo_settings_setup');
+            // Add administrator seo analysis
+            $role->add_cap('buzz_seo_analysis');
+            $role->add_cap('buzz_seo_optimize');
+        }
     }
 }
