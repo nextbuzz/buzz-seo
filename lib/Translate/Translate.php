@@ -6,6 +6,7 @@ namespace NextBuzz\SEO\Translate;
  * Description of Driver
  *
  * @author LengthOfRope, Bas de Kort <bdekort@gmail.com>
+ * @author srdjan <srdjan@icanlocalize.com>
  */
 class Translate
 {
@@ -120,4 +121,51 @@ class Translate
         return self::$driver->translate($text);
     }
 
+
+    /**
+     * Get posts in a specific language.
+     *
+     * @param string $lang The language code
+     * @param array $args Array with get_posts arguments
+     */
+    public function getPostsByLanguage($lang, $args)
+    {
+        return self::$driver->getPostsByLanguage($lang, $args);
+    }
+
+	/**
+	 * Get terms in a specific language.
+	 *
+	 * @param string $lang The language code
+	 * @param array $args Array with get_terms arguments
+	 */
+	public function getTermsByLanguage($lang, $args)
+	{
+		return self::$driver->getTermsByLanguage($lang, $args);
+	}
+
+    /**
+     * Force language plugin to return the permalink of the given ID.
+     * This might be required in some situation using WPML.
+     *
+     * @param int $postID
+     * @param string|bool $lang
+     * @return string
+     */
+    public function getPermalink($postID, $lang = false) {
+        return self::$driver->getPermalink($postID, $lang);
+    }
+
+    /**
+     * Force language plugin to return the link of the given term ID.
+     * This might be required in some situation using WPML.
+     *
+     * @param int $termID
+     * @param string|bool $lang
+     * @return string
+     */
+    public function getTermlink($termID, $lang = false)
+    {
+        return self::$driver->getTermlink($termID, $lang);
+    }
 }

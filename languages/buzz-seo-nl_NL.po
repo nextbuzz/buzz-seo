@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2016-11-23 16:22+0100\n"
-"PO-Revision-Date: 2016-11-23 16:24+0100\n"
+"POT-Creation-Date: 2017-04-21 13:35+0200\n"
+"PO-Revision-Date: 2017-04-21 13:36+0200\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 2.0.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: buzz-seo.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -255,7 +255,7 @@ msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:232
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:226
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -609,7 +609,7 @@ msgstr ""
 "Verwijder relationele links voor de berichten grenzend (vorige en volgende) "
 "aan je huidige bericht."
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:236
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:230
 msgid "General"
 msgstr "Algemeen"
 
@@ -969,28 +969,86 @@ msgstr "Taxonomie"
 msgid "Archive"
 msgstr "Archief"
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:122
-#: lib/Features/Admin.php:378 lib/Features/Admin.php:380
+#: lib/Features/Admin.php:120
+msgid ""
+"This is a WordPress SEO plugin. It covers the basics of SEO optimization. "
+"Requires PHP 5.3+ and WP 4.1+"
+msgstr ""
+"Dit is een WordPress SEO plugin. Het bevat de basis tools om uw site te "
+"optimaliseren voor zoekmachines (SEO). Deze plugin heeft minimaal PHP 5.3+ "
+"en WP 4.1+ nodig."
+
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:121
+#: lib/Features/Admin.php:140 lib/Features/Admin.php:372
+#: lib/Features/Admin.php:374
 msgid "Buzz SEO"
 msgstr "Buzz SEO"
 
-#: lib/Features/Admin.php:208
+#: lib/Features/Admin.php:140
+msgid ""
+"The theme you are using is using the deprecated wp_title() functions which "
+"prevents Buzz SEO from generating the correct titles. Please ask your theme "
+"developer to update the theme."
+msgstr ""
+"Het actieve thema dat gebruikt wordt, maakt nog gebruik van de verouderde "
+"wp_title() functie om de document titel te genereren. Hierdoor kan Buzz SEO "
+"de document titels niet optimaliseren. Vraag de ontwikkelaar van het thema "
+"om het thema te updaten."
+
+#: lib/Features/Admin.php:158
+msgid ""
+"Search engines are not allowed to index the site. This is bad for SEO. Click "
+"<a href=\"%s\">here</a> to adjust this."
+msgstr ""
+"Zoekmachines mogen deze site niet indexeren. Dit is slecht voor SEO. Klik <a "
+"href=\"%s\">hier</a> om dit aan te passen."
+
+#: lib/Features/Admin.php:160
+msgid ""
+"Search engines are not allowed to index the site. This is bad for SEO. "
+"Please ask a WordPress administrator to change this."
+msgstr ""
+"Zoekmachines mogen deze site niet indexeren. Dit is slecht voor SEO. Vraag "
+"een WordPress administrator dit aan te passen."
+
+#: lib/Features/Admin.php:179
+msgid ""
+"Permalinks are set to the \"default\" value. If you want to take SEO "
+"seriously, you should change this. Also some features do not work properly "
+"in this mode. Click <a href=\"%s\">here</a> to adjust this."
+msgstr ""
+"Permalinks zijn ingesteld op de \"standaard\" waarde. Als je SEO serieus "
+"neemt moet je dit aanpassen. In de standaard mode werken niet alle "
+"onderdelen van de plugin. Klik <a href=\"%s\">hier</a> om dit aan te passen."
+
+#: lib/Features/Admin.php:181
+msgid ""
+"Permalinks are set to the \"default\" value. If you want to take SEO "
+"seriously, you should change this. Also some features do not work properly "
+"in this mode. Please ask a WordPress administrator to change this."
+msgstr ""
+"Permalinks zijn ingesteld op de \"standaard\" waarde. Als je SEO serieus "
+"neemt moet je dit aanpassen. In de standaard mode werken niet alle "
+"onderdelen van de plugin. Vraag een WordPress administrator dit aan te "
+"passen."
+
+#: lib/Features/Admin.php:202
 msgid "Select an image"
 msgstr "Selecteer een afbeelding"
 
-#: lib/Features/Admin.php:208 lib/Features/Admin.php:209
+#: lib/Features/Admin.php:202 lib/Features/Admin.php:203
 msgid "Select"
 msgstr "Selecteren"
 
-#: lib/Features/Admin.php:378
+#: lib/Features/Admin.php:372
 msgid "Buzz SEO plugin is up to date."
 msgstr "Buzz SEO plugin is up-to-date."
 
-#: lib/Features/Admin.php:380
+#: lib/Features/Admin.php:374
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 
-#: lib/Features/Admin.php:382
+#: lib/Features/Admin.php:376
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
 
@@ -1024,33 +1082,33 @@ msgstr "SEO Content Analyse"
 msgid "Add an optimization SEO Analysis box for each post."
 msgstr "Voeg content analyse toe bij iedere post."
 
-#: lib/Features/PostSEOBoxAnalysis.php:54
-#: lib/Features/PostSEOBoxAnalysis.php:70
-#: lib/Features/PostSEOBoxAnalysis.php:76
+#: lib/Features/PostSEOBoxAnalysis.php:62
+#: lib/Features/PostSEOBoxAnalysis.php:78
+#: lib/Features/PostSEOBoxAnalysis.php:84
 msgid "SEO Grade"
 msgstr "SEO Score"
 
-#: lib/Features/PostSEOBoxAnalysis.php:90
+#: lib/Features/PostSEOBoxAnalysis.php:98
 msgid "Not available"
 msgstr "Niet beschikbaar"
 
-#: lib/Features/PostSEOBoxAnalysis.php:105
+#: lib/Features/PostSEOBoxAnalysis.php:113
 msgid "SEO Content Analysis"
 msgstr "Content Analyse (SEO)"
 
-#: lib/Features/PostSEOBoxAnalysis.php:126
+#: lib/Features/PostSEOBoxAnalysis.php:134
 msgid "There are currently no errors found in the analysis."
 msgstr "Er zijn geen fouten gevonden tijdens de analyse."
 
-#: lib/Features/PostSEOBoxAnalysis.php:127
+#: lib/Features/PostSEOBoxAnalysis.php:135
 msgid "There are currently no warnings found in the analysis."
 msgstr "Er zijn geen waarschuwingen gevonden tijdens de analyse."
 
-#: lib/Features/PostSEOBoxAnalysis.php:128
+#: lib/Features/PostSEOBoxAnalysis.php:136
 msgid "There is probably a lot wrong with your content SEO wise."
 msgstr "Er is waarschijnlijk een boel mis met de content op SEO gebied."
 
-#: lib/Features/PostSEOBoxAnalysis.php:141
+#: lib/Features/PostSEOBoxAnalysis.php:149
 msgid ""
 "The text contains {0} words, this is more than the {1} word recommended "
 "minimum."
@@ -1058,7 +1116,7 @@ msgstr ""
 "De tekst bevat {0} woorden, dit is meer dan het aanbevolen minimum van {1} "
 "woorden."
 
-#: lib/Features/PostSEOBoxAnalysis.php:147
+#: lib/Features/PostSEOBoxAnalysis.php:155
 msgid ""
 "The text contains {0} words, this is slightly below the {1} word recommended "
 "minimum. Add a bit more copy."
@@ -1066,7 +1124,7 @@ msgstr ""
 "De tekst bevat {0} woorden, dit is iets minder dan het aanbevolen minimum "
 "van {1} woorden. Voeg iets meer content toe."
 
-#: lib/Features/PostSEOBoxAnalysis.php:153
+#: lib/Features/PostSEOBoxAnalysis.php:161
 msgid ""
 "The text contains {0} words, this is below the {1} word recommended minimum. "
 "Add a little more useful content on this topic for readers."
@@ -1074,7 +1132,7 @@ msgstr ""
 "De tekst bevat {0} woorden, dit is minder dan het aanbevolen minimum van {1} "
 "woorden. Voeg iets meer nuttige content toe."
 
-#: lib/Features/PostSEOBoxAnalysis.php:159
+#: lib/Features/PostSEOBoxAnalysis.php:167
 msgid ""
 "The text contains {0} words, this is below the {1} word recommended minimum. "
 "Add more useful content on this topic for readers."
@@ -1082,14 +1140,14 @@ msgstr ""
 "De tekst bevat {0} woorden, dit is minder dan het aanbevolen minimum van {1} "
 "woorden. Voeg meer nuttige content toe."
 
-#: lib/Features/PostSEOBoxAnalysis.php:165
+#: lib/Features/PostSEOBoxAnalysis.php:173
 msgid ""
 "The text contains {0} word(s). This is far too low and should be increased."
 msgstr ""
 "De tekst bevat {0} woorden, dit is veel te weinig en zou moeten worden "
 "gecorrigeerd."
 
-#: lib/Features/PostSEOBoxAnalysis.php:179
+#: lib/Features/PostSEOBoxAnalysis.php:187
 msgid ""
 "The specified meta description is {2} character(s) over the {1} available. "
 "Reducing it will ensure the entire description is visible."
@@ -1097,7 +1155,7 @@ msgstr ""
 "De meta omschrijving is {2} karakter(s) langer dan de {1} beschikbare "
 "karakters. Het inkorten zorgt ervoor dat de hele omschrijving zichtbaar is."
 
-#: lib/Features/PostSEOBoxAnalysis.php:185
+#: lib/Features/PostSEOBoxAnalysis.php:193
 msgid ""
 "No meta description has been specified, search engines will display copy "
 "from the page instead."
@@ -1105,7 +1163,7 @@ msgstr ""
 "Er is geen meta omschrijving toegevoegd. Zoekmachines zullen willekeurige "
 "content tonen die op de pagina gevonden wordt."
 
-#: lib/Features/PostSEOBoxAnalysis.php:191
+#: lib/Features/PostSEOBoxAnalysis.php:199
 msgid ""
 "The meta description is {0} character(s), however up to {1} characters are "
 "available."
@@ -1113,26 +1171,26 @@ msgstr ""
 "De meta omschrijving is {0} karakter(s) lang, er zijn echter {1} karakters "
 "beschikbaar."
 
-#: lib/Features/PostSEOBoxAnalysis.php:197
+#: lib/Features/PostSEOBoxAnalysis.php:205
 msgid ""
 "The meta description has an optimal length of {0} out of max {1} characters."
 msgstr ""
 "De meta omschrijving heeft een optimale lengte van {0} van de {1} "
 "beschikbare karakters."
 
-#: lib/Features/PostSEOBoxAnalysis.php:209
+#: lib/Features/PostSEOBoxAnalysis.php:217
 msgid "No subheading tags (like an H2) appear in the copy."
 msgstr "Er zijn geen sub-kopteksten (zoals een H2) aanwezig in de content."
 
-#: lib/Features/PostSEOBoxAnalysis.php:214
+#: lib/Features/PostSEOBoxAnalysis.php:222
 msgid "Subheadings appear in the copy."
 msgstr "Sub-kopteksten zijn aanwezig in de content."
 
-#: lib/Features/PostSEOBoxAnalysis.php:229
+#: lib/Features/PostSEOBoxAnalysis.php:237
 msgid "Please create a page title."
 msgstr "Voeg aub. een pagina titel toe."
 
-#: lib/Features/PostSEOBoxAnalysis.php:235
+#: lib/Features/PostSEOBoxAnalysis.php:243
 msgid ""
 "The page title (including site name) contains {0} characters, which is less "
 "than the recommended minimum of {3} characters."
@@ -1140,7 +1198,7 @@ msgstr ""
 "De paginatitel (inclusief sitenaam) bevat {0} karakters; dit is minder dan "
 "de aanbevolen {3} karakters."
 
-#: lib/Features/PostSEOBoxAnalysis.php:241
+#: lib/Features/PostSEOBoxAnalysis.php:249
 msgid ""
 "The page title (including site name) contains {0} characters, which is "
 "slightly less than the recommended minimum of {3} characters."
@@ -1148,14 +1206,14 @@ msgstr ""
 "De paginatitel (inclusief sitenaam) bevat {0} karakters; dit is iets minder "
 "dan de aanbevolen {3} karakters."
 
-#: lib/Features/PostSEOBoxAnalysis.php:247
+#: lib/Features/PostSEOBoxAnalysis.php:255
 msgid ""
 "The page title (including site name) is between the {3} character minimum "
 "and the recommended {1} character maximum."
 msgstr ""
 "De paginatitel (inclusief sitenaam) ligt tussen de {3} en {1} karakters. "
 
-#: lib/Features/PostSEOBoxAnalysis.php:252
+#: lib/Features/PostSEOBoxAnalysis.php:260
 msgid ""
 "The specified page title (including site name) is {2} character(s) over the "
 "{1} available. Reducing it will ensure the entire title is visible."
@@ -1164,21 +1222,21 @@ msgstr ""
 "beschikbare {1}. Het verminderen van de lengte zorgt ervoor dat de hele "
 "titel zichtbaar is in zoekmachines."
 
-#: lib/Features/PostSEOBoxAnalysis.php:267
+#: lib/Features/PostSEOBoxAnalysis.php:275
 msgid "No main focus keyword was set for this page."
 msgstr "Er is geen hoofd sleutelwoord ingevuld voor deze pagina."
 
-#: lib/Features/PostSEOBoxAnalysis.php:273
+#: lib/Features/PostSEOBoxAnalysis.php:281
 msgid "Your main focus keyword has a valid length."
 msgstr "Het hoofd sleutelwoord heeft een goede lengte."
 
-#: lib/Features/PostSEOBoxAnalysis.php:278
+#: lib/Features/PostSEOBoxAnalysis.php:286
 msgid ""
 "Your main focus keyphrase is over {2} words, a keyphrase should be shorter."
 msgstr ""
 "De hoofd sleutelzin is langer dan {2} woorden, deze zou korter moeten zijn."
 
-#: lib/Features/PostSEOBoxAnalysis.php:293
+#: lib/Features/PostSEOBoxAnalysis.php:301
 msgid ""
 "The keyword density for `{1}` is {0}%, which is way over the advised {2}% "
 "maximum. The focus keyword was found {3} time(s)."
@@ -1186,7 +1244,7 @@ msgstr ""
 "De dichtheid voor sleutelwoord `{1}` is {0}% wat veel meer is dan het "
 "geadviseerde {2}%. Het sleutelwoord is {3} keer gevonden."
 
-#: lib/Features/PostSEOBoxAnalysis.php:299
+#: lib/Features/PostSEOBoxAnalysis.php:307
 msgid ""
 "The keyword density for `{1}` is {0}%, which over the advised {2}% maximum. "
 "The focus keyword was found {3} time(s)."
@@ -1194,7 +1252,7 @@ msgstr ""
 "De dichtheid voor sleutelwoord `{1}` is {0}% wat meer is dan het "
 "geadviseerde {2}%. Het sleutelwoord is {3} keer gevonden."
 
-#: lib/Features/PostSEOBoxAnalysis.php:305
+#: lib/Features/PostSEOBoxAnalysis.php:313
 msgid ""
 "The keyword density for `{1}` is {0}%, which is great. The focus keyword was "
 "found {3} time(s)."
@@ -1202,7 +1260,7 @@ msgstr ""
 "De dichtheid voor sleutelwoord `{1}` is {0}% wat perfect is. Het "
 "sleutelwoord is {3} keer gevonden."
 
-#: lib/Features/PostSEOBoxAnalysis.php:311
+#: lib/Features/PostSEOBoxAnalysis.php:319
 msgid ""
 "The keyword density for `{1}` is {0}%, which is low. The focus keyword was "
 "found {3} time(s)."
@@ -1210,33 +1268,33 @@ msgstr ""
 "De dichtheid voor sleutelwoord `{1}` is {0}% wat te weinig is. Het "
 "sleutelwoord is {3} keer gevonden."
 
-#: lib/Features/PostSEOBoxAnalysis.php:326
+#: lib/Features/PostSEOBoxAnalysis.php:334
 msgid "The meta description does not contain the main focus keyword."
 msgstr "Het hoofd sleutelwoord is niet gevonden in de meta omschrijving."
 
-#: lib/Features/PostSEOBoxAnalysis.php:331
+#: lib/Features/PostSEOBoxAnalysis.php:339
 msgid "The meta description contains the focus keyword."
 msgstr "Het hoofd sleutelwoord is gevonden in de meta omschrijving."
 
-#: lib/Features/PostSEOBoxAnalysis.php:346
+#: lib/Features/PostSEOBoxAnalysis.php:354
 msgid ""
 "The main focus keyword does not appear in the first paragraph of the copy."
 msgstr ""
 "Het hoofd sleutelwoord staat niet in de eerste paragraaf van de content."
 
-#: lib/Features/PostSEOBoxAnalysis.php:351
+#: lib/Features/PostSEOBoxAnalysis.php:359
 msgid "The main focus keyword appears in the first paragraph."
 msgstr "Het hoofd sleutelwoord staat in de eerste paragraaf."
 
-#: lib/Features/PostSEOBoxAnalysis.php:366
+#: lib/Features/PostSEOBoxAnalysis.php:374
 msgid "The main focus keyword does not appear in the page title."
 msgstr "Het hoofd sleutelwoord staat niet in de pagina titel."
 
-#: lib/Features/PostSEOBoxAnalysis.php:371
+#: lib/Features/PostSEOBoxAnalysis.php:379
 msgid "The main focus keyword appears in the page title."
 msgstr "Het hoofd sleutelwoord staat in de pagina titel."
 
-#: lib/Features/PostSEOBoxAnalysis.php:386
+#: lib/Features/PostSEOBoxAnalysis.php:394
 msgid ""
 "The content is very difficult to read. Try to make shorter sentences and use "
 "less difficult words to improve readability."
@@ -1244,7 +1302,7 @@ msgstr ""
 "De tekst is erg moeilijk te lezen. Probeer kortere zinnen te maken en minder "
 "moeilijke woorden te gebruiken om de leesbaarheid te verbeteren."
 
-#: lib/Features/PostSEOBoxAnalysis.php:392
+#: lib/Features/PostSEOBoxAnalysis.php:400
 msgid ""
 "The content is difficult to read. Try to make shorter sentences and use less "
 "difficult words to improve readability."
@@ -1252,7 +1310,7 @@ msgstr ""
 "De tekst is moeilijk te lezen. Probeer kortere zinnen te maken en minder "
 "moeilijke woorden te gebruiken om de leesbaarheid te verbeteren."
 
-#: lib/Features/PostSEOBoxAnalysis.php:398
+#: lib/Features/PostSEOBoxAnalysis.php:406
 msgid ""
 "The content is fairly difficult to read. Try to make shorter sentences to "
 "improve readability."
@@ -1260,36 +1318,36 @@ msgstr ""
 "De tekst is vrij moeilijk te lezen. Probeer kortere zinnen te maken om de "
 "leesbaarheid te verbeteren."
 
-#: lib/Features/PostSEOBoxAnalysis.php:404
+#: lib/Features/PostSEOBoxAnalysis.php:412
 msgid "The content is sufficiantly readable."
 msgstr "De tekst is voldoende leesbaar."
 
-#: lib/Features/PostSEOBoxAnalysis.php:410
+#: lib/Features/PostSEOBoxAnalysis.php:418
 msgid "The content is fairly easy to read."
 msgstr "De tekst is vrij eenvoudig te lezen."
 
-#: lib/Features/PostSEOBoxAnalysis.php:416
+#: lib/Features/PostSEOBoxAnalysis.php:424
 msgid "The content is easy to read. Good job!"
 msgstr "De tekst is eenvoudig te lezen. Goed gedaan!"
 
-#: lib/Features/PostSEOBoxAnalysis.php:421
+#: lib/Features/PostSEOBoxAnalysis.php:429
 msgid "The content is very easy to read. Splendid!"
 msgstr "De tekst is erg eenvoudig te lezen. Super!"
 
-#: lib/Features/Sitemaps.php:15 lib/Features/Sitemaps.php:66
+#: lib/Features/Sitemaps.php:16 lib/Features/Sitemaps.php:67
 msgid "Sitemaps"
 msgstr "Sitemaps"
 
-#: lib/Features/Sitemaps.php:21 lib/Features/Sitemaps.php:25
+#: lib/Features/Sitemaps.php:22 lib/Features/Sitemaps.php:26
 msgid "Automatic generation of XML sitemaps."
 msgstr "Automatische generatie van XML sitemaps."
 
-#: lib/Features/Sitemaps.php:23
+#: lib/Features/Sitemaps.php:24
 msgid "Note: this feature does not work with current permalink settings!"
 msgstr ""
 "Opmerking: dit onderdeel werkt niet met de huidige permalink instelling!"
 
-#: lib/Features/Sitemaps.php:66
+#: lib/Features/Sitemaps.php:67
 msgid "XML Sitemaps"
 msgstr "XML sitemaps"
 
@@ -1453,54 +1511,42 @@ msgstr ""
 msgid "A person (alive, dead, undead, or fictional)."
 msgstr "Een persoon (levend, dood, ondood, of fictioneel)."
 
-#: lib/Tables/Table301.php:17 lib/Tables/Table301.php:18
-msgid "Redirect (301)"
-msgstr "Verwijzing (301)"
+#~ msgid "Redirect (301)"
+#~ msgstr "Verwijzing (301)"
 
-#: lib/Tables/Table301.php:70 lib/Tables/Table404.php:68
-msgid "Request URI"
-msgstr "Verzoek URI"
+#~ msgid "Request URI"
+#~ msgstr "Verzoek URI"
 
-#: lib/Tables/Table301.php:71
-msgid "Redirect URI"
-msgstr "Verwijzing URI"
+#~ msgid "Redirect URI"
+#~ msgstr "Verwijzing URI"
 
-#: lib/Tables/Table301.php:72
-msgid "Added"
-msgstr "Toegevoegd"
+#~ msgid "Added"
+#~ msgstr "Toegevoegd"
 
-#: lib/Tables/Table404.php:92 lib/Tables/Table301.php:101
-#: lib/Tables/Table404.php:102
-msgid "Delete"
-msgstr "Verwijder"
+#~ msgid "Delete"
+#~ msgstr "Verwijder"
 
-#: lib/Tables/Table301.php:37
-msgid ""
-"No 301 redirects registered. A website where they are not needed? Wow, "
-"awesome!"
-msgstr ""
-"Geen 301 verwijzingen ingesteld. Een website die geen 301 verwijzingen nodig "
-"heeft? Wow, fantastisch!"
+#~ msgid ""
+#~ "No 301 redirects registered. A website where they are not needed? Wow, "
+#~ "awesome!"
+#~ msgstr ""
+#~ "Geen 301 verwijzingen ingesteld. Een website die geen 301 verwijzingen "
+#~ "nodig heeft? Wow, fantastisch!"
 
-#: lib/Tables/Table404.php:17 lib/Tables/Table404.php:18
-msgid "Not Found (404)"
-msgstr "Niet gevonden (404)"
+#~ msgid "Not Found (404)"
+#~ msgstr "Niet gevonden (404)"
 
-#: lib/Tables/Table404.php:69
-msgid "Last request"
-msgstr "Laatste verzoek"
+#~ msgid "Last request"
+#~ msgstr "Laatste verzoek"
 
-#: lib/Tables/Table404.php:70
-msgid "Count"
-msgstr "Aantal"
+#~ msgid "Count"
+#~ msgstr "Aantal"
 
-#: lib/Tables/Table404.php:90 lib/Tables/Table404.php:101
-msgid "Convert to 301"
-msgstr "Converteren naar 301"
+#~ msgid "Convert to 301"
+#~ msgstr "Converteren naar 301"
 
-#: lib/Tables/Table404.php:37
-msgid "No 404 errors registered. Good job!"
-msgstr "Geen 404 pagina's geregistreerd. Goed gedaan!"
+#~ msgid "No 404 errors registered. Good job!"
+#~ msgstr "Geen 404 pagina's geregistreerd. Goed gedaan!"
 
 #~ msgid ""
 #~ "Set the Google Analytics code to support the Event Tracking Features."
@@ -1612,59 +1658,6 @@ msgstr "Geen 404 pagina's geregistreerd. Goed gedaan!"
 
 #~ msgid "Could not save new redirect."
 #~ msgstr "Kon de verwijzing niet opslaan."
-
-#~ msgid ""
-#~ "This is a WordPress SEO plugin. It covers the basics of SEO optimization. "
-#~ "Requires PHP 5.3+ and WP 4.1+"
-#~ msgstr ""
-#~ "Dit is een WordPress SEO plugin. Het bevat de basis tools om uw site te "
-#~ "optimaliseren voor zoekmachines (SEO). Deze plugin heeft minimaal PHP "
-#~ "5.3+ en WP 4.1+ nodig."
-
-#~ msgid ""
-#~ "The theme you are using is using the deprecated wp_title() functions "
-#~ "which prevents Buzz SEO from generating the correct titles. Please ask "
-#~ "your theme developer to update the theme."
-#~ msgstr ""
-#~ "Het actieve thema dat gebruikt wordt, maakt nog gebruik van de verouderde "
-#~ "wp_title() functie om de document titel te genereren. Hierdoor kan Buzz "
-#~ "SEO de document titels niet optimaliseren. Vraag de ontwikkelaar van het "
-#~ "thema om het thema te updaten."
-
-#~ msgid ""
-#~ "Search engines are not allowed to index the site. This is bad for SEO. "
-#~ "Click <a href=\"%s\">here</a> to adjust this."
-#~ msgstr ""
-#~ "Zoekmachines mogen deze site niet indexeren. Dit is slecht voor SEO. Klik "
-#~ "<a href=\"%s\">hier</a> om dit aan te passen."
-
-#~ msgid ""
-#~ "Search engines are not allowed to index the site. This is bad for SEO. "
-#~ "Please ask a WordPress administrator to change this."
-#~ msgstr ""
-#~ "Zoekmachines mogen deze site niet indexeren. Dit is slecht voor SEO. "
-#~ "Vraag een WordPress administrator dit aan te passen."
-
-#~ msgid ""
-#~ "Permalinks are set to the \"default\" value. If you want to take SEO "
-#~ "seriously, you should change this. Also some features do not work "
-#~ "properly in this mode. Click <a href=\"%s\">here</a> to adjust this."
-#~ msgstr ""
-#~ "Permalinks zijn ingesteld op de \"standaard\" waarde. Als je SEO serieus "
-#~ "neemt moet je dit aanpassen. In de standaard mode werken niet alle "
-#~ "onderdelen van de plugin. Klik <a href=\"%s\">hier</a> om dit aan te "
-#~ "passen."
-
-#~ msgid ""
-#~ "Permalinks are set to the \"default\" value. If you want to take SEO "
-#~ "seriously, you should change this. Also some features do not work "
-#~ "properly in this mode. Please ask a WordPress administrator to change "
-#~ "this."
-#~ msgstr ""
-#~ "Permalinks zijn ingesteld op de \"standaard\" waarde. Als je SEO serieus "
-#~ "neemt moet je dit aanpassen. In de standaard mode werken niet alle "
-#~ "onderdelen van de plugin. Vraag een WordPress administrator dit aan te "
-#~ "passen."
 
 #~ msgid ""
 #~ "Permalinks are set to the \\'default\\' value. If you want to take SEO "

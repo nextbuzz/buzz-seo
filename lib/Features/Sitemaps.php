@@ -6,6 +6,7 @@ namespace NextBuzz\SEO\Features;
  * Option page administration feature
  *
  * @author Bas de Kort <bas@nextbuzz.nl>
+ * @author srdjan <srdjan@icanlocalize.com>
  */
 class Sitemaps extends BaseFeature
 {
@@ -160,12 +161,11 @@ class Sitemaps extends BaseFeature
             if (isset($options['posttypes']) && is_array($options['posttypes'])) {
                 foreach ($options['posttypes'] as $posttype => $value) {
                     // Get pagination count for post type (and just return ids, since we just want a count)
-                    $numposts = count(get_posts(array(
+                    $numposts = count($Translate->getPostsByLanguage($defaultLanguage, array(
                         'post_type'      => $posttype,
                         'posts_per_page' => -1,
                         'cache_results'  => false,
                         'fields'         => 'ids',
-                        'lang'           => $defaultLanguage,
                     )));
                     $pages    = ceil($numposts / $itemsperpage);
                     for ($p = 1; $p <= $pages; $p++) {
@@ -220,12 +220,11 @@ class Sitemaps extends BaseFeature
             $users = get_users(array('who' => 'authors'));
             $users = array_splice($users, (($page - 1) * $itemsperpage), $itemsperpage);
             foreach ($users as $user) {
-                $latestPost = get_posts(array(
+                $latestPost = $Translate->getPostsByLanguage($defaultLanguage, array(
                     'posts_per_page' => '1',
                     'author'         => $user->ID,
                     'orderby'        => 'modified',
                     'order'          => 'DESC',
-                    'lang'           => $defaultLanguage,
                 ));
 
                 $modified  = is_array($latestPost) && isset($latestPost[0]) ? $latestPost[0]->post_modified_gmt : $user->user_registered;
@@ -249,27 +248,26 @@ class Sitemaps extends BaseFeature
             $postTypes = get_post_types();
             if (in_array($type, $postTypes)) {
                 // Get post type posts
-                $posts = get_posts(array(
+                $posts = $Translate->getPostsByLanguage($defaultLanguage, array(
                     'post_type'      => $type,
                     'posts_per_page' => $itemsperpage,
                     'paged'          => $page,
                     'orderby'        => 'modified',
                     'order'          => 'DESC',
-                    'lang'           => function_exists('pll_default_language') ? pll_default_language() : '',
                 ));
 
                 $frontId = intval(get_option('page_on_front', -1));
                 $blogId  = intval(get_option('page_for_posts', -1));
 
                 foreach ($posts as $post) {
-                    // If polylang, get alternative languages if polylang
+                    // If Polylang or WPML, get alternative languages if polylang
                     $alternatives = $Translate->getTranslatedPosts($post->ID);
-                    foreach($alternatives as &$alternative) {
-                        $alternative = get_permalink($alternative);
+                    foreach($alternatives as $key => &$alternative) {
+                        $alternative = $Translate->getPermalink($alternative, $key);
                     }
 
                     $talData[] = array(
-                        'loc'        => get_permalink($post->ID),
+                        'loc'        => $Translate->getPermalink($post->ID, $defaultLanguage),
                         'lastmod'    => \NextBuzz\SEO\Date\Timezone::dateFromTimestamp($post->post_modified_gmt),
                         'changefreq' => ($post->ID === $frontId || $post->ID === $blogId) ? 'daily' : 'monthly',
                         'priority'   => ($post->ID === $frontId || $post->ID === $blogId) ? 1.0 : 0.8,
@@ -278,13 +276,14 @@ class Sitemaps extends BaseFeature
                 }
             } else {
                 // Get taxonomy posts
-                $terms = get_terms($type);
+                $terms = $Translate->getTermsByLanguage($defaultLanguage, array('taxonomy' => $type));
                 $terms = array_splice($terms, (($page - 1) * $itemsperpage), $itemsperpage);
                 foreach ($terms as $term) {
                     // If polylang, get alternative languages if polylang
                     $alternatives = $Translate->getTranslatedTerms($term->term_id);
-                    foreach($alternatives as &$alternative) {
-                        $alternative = get_term_link($alternative);
+
+                    foreach($alternatives as $lang => &$alternative) {
+                        $alternative = $Translate->getTermlink($alternative, $lang);
                     }
 
                     $priority = 0.2;
@@ -295,7 +294,7 @@ class Sitemaps extends BaseFeature
                         $priority = 0.6;
                     }
                     $talData[] = array(
-                        'loc'        => get_term_link($term->term_id),
+                        'loc'        => $Translate->getTermlink($term->term_id, $defaultLanguage),
                         'lastmod'    => $this->getLastModifiedDateTerm($type, $term->term_id),
                         'changefreq' => 'weekly',
                         'priority'   => $priority,

@@ -31,12 +31,20 @@ class PostSEOBoxAnalysis extends BaseFeature
 
         // Add grade as column to all posts and custom post types
         if (apply_filters('buzz-seo-show-grade-output', true)) {
-            add_filter('manage_posts_columns', array($this, 'managePostColumnsHead'));
-            add_action('manage_posts_custom_column', array($this, 'managePostColumns'), 10, 2);
+            // Only show grade output on post types without disable filter
+            add_action('current_screen', function() {
+                $post_type = get_current_screen()->post_type;
+                $publicPostTypes = get_post_types(['public' => true]);
+                if (in_array($post_type, $publicPostTypes) &&
+                    !in_array($post_type, apply_filters('buzz-seo-disable-posttype', array()))) {
+                    add_filter('manage_posts_columns', array($this, 'managePostColumnsHead'));
+                    add_action('manage_posts_custom_column', array($this, 'managePostColumns'), 10, 2);
 
-            // And to pages
-            add_filter('manage_page_posts_columns', array($this, 'managePostColumnsHead'));
-            add_action('manage_page_posts_custom_column', array($this, 'managePostColumns'), 10, 2);
+                    // And to pages
+                    add_filter('manage_page_posts_columns', array($this, 'managePostColumnsHead'));
+                    add_action('manage_page_posts_custom_column', array($this, 'managePostColumns'), 10, 2);
+                }
+            });
 
             // Add grade output to publish box
             add_action('post_submitbox_start', array($this, 'submitboxGradeOutput'));

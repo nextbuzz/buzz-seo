@@ -1,11 +1,5 @@
 <?php
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 namespace NextBuzz\SEO\Translate\Drivers;
 
 /**
@@ -80,5 +74,53 @@ class None implements \NextBuzz\SEO\Translate\Interfaces\Translate
     public function getTranslatedTerms($postID)
     {
         return array();
+    }
+
+    /**
+     * Get posts in a specific language.
+     *
+     * @param string $lang The language code
+     * @param array $args Array with get_posts arguments
+     */
+    public function getPostsByLanguage($lang, $args)
+    {
+        return get_posts($args);
+    }
+
+	/**
+	 * Get terms in a specific language.
+	 *
+	 * @param string $lang The language code
+	 * @param array $args Array with get_terms arguments
+	 */
+	public function getTermsByLanguage($lang, $args)
+	{
+		return get_terms($args);
+	}
+
+    /**
+     * Force language plugin to return the permalink of the given ID.
+     * This might be required in some situation using WPML.
+     *
+     * @param int $postID
+     * @param string|bool $lang
+     * @return string
+     */
+    public function getPermalink($postID, $lang = false)
+    {
+        return get_permalink($postID);
+    }
+
+    /**
+     * Force language plugin to return the link of the given term ID.
+     * This might be required in some situation using WPML.
+     *
+     * @param int $termID
+     * @param string|bool $lang
+     * @return string
+     */
+    public function getTermlink($termID, $lang = false)
+    {
+        return get_term_link($termID);
     }
 }
