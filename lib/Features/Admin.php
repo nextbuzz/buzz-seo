@@ -52,20 +52,6 @@ class Admin extends BaseFeature
         add_action('custom_menu_order', array($this, 'changeSubmenuOrder'));
 
         $this->initGithubUpdater();
-        add_action('admin_init', array($this, 'maybeAddCapability'));
-    }
-
-    /**
-     * Add the buzz_seo_settings capability
-     * @return type
-     */
-    public function maybeAddCapability() {
-        if (!current_user_can('administrator') || current_user_can('buzz_seo_settings') ) {
-            return;
-        }
-
-        $role = get_role('administrator');
-        $role->add_cap('buzz_seo_settings');
     }
 
     /**
@@ -218,12 +204,12 @@ class Admin extends BaseFeature
 
         // Add Menu Page and allow programmers to change its administrative name
         $name = apply_filters('buzz-seo-menu-name', 'Buzz SEO');
-        add_menu_page($name, $name, 'edit_posts', 'BuzzSEO', array($this, "addAdminUI"), 'dashicons-analytics');
+        add_menu_page($name, $name, 'buzz_seo_settings', 'BuzzSEO', array($this, "addAdminUI"), 'dashicons-analytics');
 
         // Make sure this submenu is only visiable for admin users.
-        if (current_user_can('manage_options')) {
+        if (current_user_can('buzz_seo_settings_setup')) {
             // Add Settings Sub Option Page
-            add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'edit_dashboard',
+            add_submenu_page('BuzzSEO', __('Settings', 'buzz-seo'), __('Settings', 'buzz-seo'), 'buzz_seo_settings_setup',
                 'BuzzSEO_Settings', array($this, "addAdminUI"));
 
             // Rename Submenu

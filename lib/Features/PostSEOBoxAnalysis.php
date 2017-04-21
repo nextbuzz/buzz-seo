@@ -33,6 +33,10 @@ class PostSEOBoxAnalysis extends BaseFeature
         if (apply_filters('buzz-seo-show-grade-output', true)) {
             // Only show grade output on post types without disable filter
             add_action('current_screen', function() {
+                if (!current_user_can('buzz_seo_analysis')) {
+                    return;
+                }
+
                 $post_type = get_current_screen()->post_type;
                 $publicPostTypes = get_post_types(['public' => true]);
                 if (in_array($post_type, $publicPostTypes) &&
@@ -109,6 +113,10 @@ class PostSEOBoxAnalysis extends BaseFeature
      */
     public function initBack()
     {
+        if (!current_user_can('buzz_seo_analysis')) {
+            return;
+        }
+
         // Load SEO box for all Single pages
         new \NextBuzz\SEO\PHPTAL\MetaBox('PostSEOBoxAnalysis', __('SEO Content Analysis', 'buzz-seo'));
     }
