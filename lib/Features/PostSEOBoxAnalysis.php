@@ -34,7 +34,9 @@ class PostSEOBoxAnalysis extends BaseFeature
             // Only show grade output on post types without disable filter
             add_action('current_screen', function() {
                 $post_type = get_current_screen()->post_type;
-                if (!in_array($post_type, apply_filters('buzz-seo-disable-posttype', array()))) {
+                $publicPostTypes = get_post_types(['public' => true]);
+                if (in_array($post_type, $publicPostTypes) &&
+                    !in_array($post_type, apply_filters('buzz-seo-disable-posttype', array()))) {
                     add_filter('manage_posts_columns', array($this, 'managePostColumnsHead'));
                     add_action('manage_posts_custom_column', array($this, 'managePostColumns'), 10, 2);
 
