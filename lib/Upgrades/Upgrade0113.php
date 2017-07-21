@@ -9,16 +9,19 @@
 namespace NextBuzz\SEO\Upgrades;
 
 /**
- * Upgrade class for version 0.8.2
+ * Upgrade class for version 1.11.3
+ *
+ * There was an error in the upgrade class of 1.11.1 which crashed if certain roles were not available, so
+ * we make sure we re-set the same values (with the added if statements) again.
  *
  * @author LengthOfRope, Bas de Kort <bdekort@gmail.com>
  */
-class Upgrade0111 implements Interfaces\Upgrade
+class Upgrade0113 implements Interfaces\Upgrade
 {
 
     public function getVersion()
     {
-        return '0.11.1';
+        return '0.11.3';
     }
 
     public function runUpgrade()
