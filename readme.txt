@@ -3,8 +3,8 @@ Contributors: lengthofrope, nextbuzz
 Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
-Tested up to: 4.7.4
-Stable tag: 0.11.2
+Tested up to: 4.8
+Stable tag: 0.11.3.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -78,6 +78,9 @@ add_filter('buzz-seo-show-grade-output', '__return_false');
 `
 
 == Changelog ==
+
+= 0.11.3.1 =
+* Fix: fix error while upgrading from 0.11.1 if certain roles are not available.
 
 = 0.11.2 =
 * Fix: no longer show grade seo output above submit button of edit screen if no analysis capability
