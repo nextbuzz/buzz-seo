@@ -265,23 +265,23 @@ class PostSEOBox extends BaseFeature
 
         if (isset($postMeta['twTitle']) && $postMeta['twTitle'] !== "") {
             $hasTwitter = true;
-            echo '<meta property="tw:title" content="' . esc_attr($postMeta['twTitle']) . '" />' . "\n";
+            echo '<meta property="twitter:title" content="' . esc_attr($postMeta['twTitle']) . '" />' . "\n";
         }
         if (isset($postMeta['twDescription']) && $postMeta['twDescription'] !== "") {
             $hasTwitter = true;
-            echo '<meta property="tw:description" content="' . esc_attr($postMeta['twDescription']) . '" />' . "\n";
+            echo '<meta property="twitter:description" content="' . esc_attr($postMeta['twDescription']) . '" />' . "\n";
         }
 
         if (isset($postMeta['twMediaId']) && intval($postMeta['twMediaId']) !== 0) {
             $hasTwitter = true;
             $image      = wp_get_attachment_url(intval($postMeta['twMediaId']));
             if ($image) {
-                echo '<meta property="tw:image" content="' . esc_url($image) . '" />' . "\n";
+                echo '<meta property="twitter:image" content="' . esc_url($image) . '" />' . "\n";
             }
         }
 
         if ($hasTwitter) {
-            echo '<meta property="tw:card" content="summary" />' . "\n";
+            echo '<meta property="twitter:card" content="summary" />' . "\n";
         }
     }
 
