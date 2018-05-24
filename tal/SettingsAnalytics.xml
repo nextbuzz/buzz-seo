@@ -162,7 +162,30 @@
                             <tal:block i18n:translate="">Google Tag Manager</tal:block>
                         </th>
                         <td>
-                            GTM
+                            <div class="buzz-seo-tabs">
+                                <div class="nav-tab-wrapper">
+                                    <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Basic</a>
+                                    <a class="nav-tab" href="javascript:;" i18n:translate="">Data Layers</a>
+                                </div>
+
+                                <div class="inner">
+                                    <table class="form-table">
+                                        <tr>
+                                            <th scope="row" i18n:translate="">GTM Container ID</th>
+                                            <td>
+                                                <input type="text" name="SettingsAnalytics[gtmcode]"
+                                                       tal:attributes="value gtmcode | nothing"
+                                                       placeholder="GTM-xxxxxx" />
+                                                <p class="description" i18n:translate="">Add the GTM container ID from Google. This is an ID like GTM-xxxxxx.</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="inner hidden">
+                                    Data layers
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 </table>
