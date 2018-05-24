@@ -11,12 +11,12 @@ class Analytics extends BaseFeature
 {
     public function name()
     {
-        return __("Google Analytics", "buzz-seo");
+        return __("Analytics / GTM", "buzz-seo");
     }
 
     public function desc()
     {
-        return __("Support for analytics.", "buzz-seo");
+        return __("Support for Google Analytics or for setting up a Google Tag Manager container.", "buzz-seo");
     }
 
     public function init()
@@ -114,7 +114,7 @@ class Analytics extends BaseFeature
     public function createAdminMenu()
     {
         // Add Settings Sub Option Page
-        add_submenu_page('BuzzSEO', __('Google Analytics', 'buzz-seo'), __('Google Analytics', 'buzz-seo'), 'buzz_seo_settings_ga', 'BuzzSEO_Analytics', array($this, "addAdminUI"));
+        add_submenu_page('BuzzSEO', __('Analytics / GTM', 'buzz-seo'), __('Analytics / GTM', 'buzz-seo'), 'buzz_seo_settings_ga', 'BuzzSEO_Analytics', array($this, "addAdminUI"));
     }
 
     /**

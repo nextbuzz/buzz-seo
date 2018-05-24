@@ -1,8 +1,8 @@
-# Copyright (C) 2017 Next Buzz
+# Copyright (C) 2018 Next Buzz
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2017-04-21 11:35:19+0000\n"
+"POT-Creation-Date: 2018-05-24 09:29:24+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:226
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:212
 msgid "Settings"
 msgstr ""
 
@@ -221,7 +221,7 @@ msgstr ""
 msgid "Save Changes"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:14 lib/Features/Analytics.php:117
+#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:19 lib/Features/Analytics.php:117
 msgid "Google Analytics"
 msgstr ""
 
@@ -433,7 +433,7 @@ msgstr ""
 msgid "Remove relational links for the posts adjacent to the current post."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:230
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:216
 msgid "General"
 msgstr ""
 
@@ -717,68 +717,72 @@ msgstr ""
 msgid "Admin Core of Buzz SEO."
 msgstr ""
 
-#: lib/Features/Admin.php:86
+#: lib/Features/Admin.php:72
 msgid "Posttype"
 msgstr ""
 
-#: lib/Features/Admin.php:90
+#: lib/Features/Admin.php:76
 msgid "Taxonomy"
 msgstr ""
 
-#: lib/Features/Admin.php:94
+#: lib/Features/Admin.php:80
 msgid "Archive"
 msgstr ""
 
-#: lib/Features/Admin.php:120
+#: lib/Features/Admin.php:106
 msgid "This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+"
 msgstr ""
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:121 lib/Features/Admin.php:140 lib/Features/Admin.php:372 lib/Features/Admin.php:374
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:107 lib/Features/Admin.php:126 lib/Features/Admin.php:358 lib/Features/Admin.php:360
 msgid "Buzz SEO"
 msgstr ""
 
-#: lib/Features/Admin.php:140
+#: lib/Features/Admin.php:126
 msgid "The theme you are using is using the deprecated wp_title() functions which prevents Buzz SEO from generating the correct titles. Please ask your theme developer to update the theme."
 msgstr ""
 
-#: lib/Features/Admin.php:158
+#: lib/Features/Admin.php:144
 msgid "Search engines are not allowed to index the site. This is bad for SEO. Click <a href=\"%s\">here</a> to adjust this."
 msgstr ""
 
-#: lib/Features/Admin.php:160
+#: lib/Features/Admin.php:146
 msgid "Search engines are not allowed to index the site. This is bad for SEO. Please ask a WordPress administrator to change this."
 msgstr ""
 
-#: lib/Features/Admin.php:179
+#: lib/Features/Admin.php:165
 msgid "Permalinks are set to the \"default\" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Click <a href=\"%s\">here</a> to adjust this."
 msgstr ""
 
-#: lib/Features/Admin.php:181
+#: lib/Features/Admin.php:167
 msgid "Permalinks are set to the \"default\" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Please ask a WordPress administrator to change this."
 msgstr ""
 
-#: lib/Features/Admin.php:202
+#: lib/Features/Admin.php:188
 msgid "Select an image"
 msgstr ""
 
-#: lib/Features/Admin.php:202 lib/Features/Admin.php:203
+#: lib/Features/Admin.php:188 lib/Features/Admin.php:189
 msgid "Select"
 msgstr ""
 
-#: lib/Features/Admin.php:372
+#: lib/Features/Admin.php:358
 msgid "Buzz SEO plugin is up to date."
 msgstr ""
 
-#: lib/Features/Admin.php:374
+#: lib/Features/Admin.php:360
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr ""
 
-#: lib/Features/Admin.php:376
+#: lib/Features/Admin.php:362
 msgid "Unknown update checker status `%s`."
 msgstr ""
 
+#: lib/Features/Analytics.php:14
+msgid "Analytics / GTM"
+msgstr ""
+
 #: lib/Features/Analytics.php:19
-msgid "Support for analytics."
+msgid "Support for Google Analytics or for setting up a Google Tag Manager container."
 msgstr ""
 
 #: lib/Features/CleanupHead.php:20
@@ -793,7 +797,7 @@ msgstr ""
 msgid "Add an optimization SEO box for each post."
 msgstr ""
 
-#: lib/Features/PostSEOBox.php:59
+#: lib/Features/PostSEOBox.php:62
 msgid "Search Engine Optimization (SEO)"
 msgstr ""
 
@@ -805,171 +809,171 @@ msgstr ""
 msgid "Add an optimization SEO Analysis box for each post."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:62 lib/Features/PostSEOBoxAnalysis.php:78 lib/Features/PostSEOBoxAnalysis.php:84
+#: lib/Features/PostSEOBoxAnalysis.php:66 lib/Features/PostSEOBoxAnalysis.php:82 lib/Features/PostSEOBoxAnalysis.php:88
 msgid "SEO Grade"
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:98
+#: lib/Features/PostSEOBoxAnalysis.php:102
 msgid "Not available"
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:113
+#: lib/Features/PostSEOBoxAnalysis.php:121
 msgid "SEO Content Analysis"
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:134
+#: lib/Features/PostSEOBoxAnalysis.php:145
 msgid "There are currently no errors found in the analysis."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:135
+#: lib/Features/PostSEOBoxAnalysis.php:146
 msgid "There are currently no warnings found in the analysis."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:136
+#: lib/Features/PostSEOBoxAnalysis.php:147
 msgid "There is probably a lot wrong with your content SEO wise."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:149
+#: lib/Features/PostSEOBoxAnalysis.php:160
 msgid "The text contains {0} words, this is more than the {1} word recommended minimum."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:155
+#: lib/Features/PostSEOBoxAnalysis.php:166
 msgid "The text contains {0} words, this is slightly below the {1} word recommended minimum. Add a bit more copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:161
+#: lib/Features/PostSEOBoxAnalysis.php:172
 msgid "The text contains {0} words, this is below the {1} word recommended minimum. Add a little more useful content on this topic for readers."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:167
+#: lib/Features/PostSEOBoxAnalysis.php:178
 msgid "The text contains {0} words, this is below the {1} word recommended minimum. Add more useful content on this topic for readers."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:173
+#: lib/Features/PostSEOBoxAnalysis.php:184
 msgid "The text contains {0} word(s). This is far too low and should be increased."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:187
+#: lib/Features/PostSEOBoxAnalysis.php:198
 msgid "The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire description is visible."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:193
+#: lib/Features/PostSEOBoxAnalysis.php:204
 msgid "No meta description has been specified, search engines will display copy from the page instead."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:199
+#: lib/Features/PostSEOBoxAnalysis.php:210
 msgid "The meta description is {0} character(s), however up to {1} characters are available."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:205
+#: lib/Features/PostSEOBoxAnalysis.php:216
 msgid "The meta description has an optimal length of {0} out of max {1} characters."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:217
+#: lib/Features/PostSEOBoxAnalysis.php:228
 msgid "No subheading tags (like an H2) appear in the copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:222
+#: lib/Features/PostSEOBoxAnalysis.php:233
 msgid "Subheadings appear in the copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:237
+#: lib/Features/PostSEOBoxAnalysis.php:248
 msgid "Please create a page title."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:243
+#: lib/Features/PostSEOBoxAnalysis.php:254
 msgid "The page title (including site name) contains {0} characters, which is less than the recommended minimum of {3} characters."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:249
+#: lib/Features/PostSEOBoxAnalysis.php:260
 msgid "The page title (including site name) contains {0} characters, which is slightly less than the recommended minimum of {3} characters."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:255
+#: lib/Features/PostSEOBoxAnalysis.php:266
 msgid "The page title (including site name) is between the {3} character minimum and the recommended {1} character maximum."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:260
+#: lib/Features/PostSEOBoxAnalysis.php:271
 msgid "The specified page title (including site name) is {2} character(s) over the {1} available. Reducing it will ensure the entire title is visible."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:275
+#: lib/Features/PostSEOBoxAnalysis.php:286
 msgid "No main focus keyword was set for this page."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:281
+#: lib/Features/PostSEOBoxAnalysis.php:292
 msgid "Your main focus keyword has a valid length."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:286
+#: lib/Features/PostSEOBoxAnalysis.php:297
 msgid "Your main focus keyphrase is over {2} words, a keyphrase should be shorter."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:301
+#: lib/Features/PostSEOBoxAnalysis.php:312
 msgid "The keyword density for `{1}` is {0}%, which is way over the advised {2}% maximum. The focus keyword was found {3} time(s)."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:307
+#: lib/Features/PostSEOBoxAnalysis.php:318
 msgid "The keyword density for `{1}` is {0}%, which over the advised {2}% maximum. The focus keyword was found {3} time(s)."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:313
+#: lib/Features/PostSEOBoxAnalysis.php:324
 msgid "The keyword density for `{1}` is {0}%, which is great. The focus keyword was found {3} time(s)."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:319
+#: lib/Features/PostSEOBoxAnalysis.php:330
 msgid "The keyword density for `{1}` is {0}%, which is low. The focus keyword was found {3} time(s)."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:334
+#: lib/Features/PostSEOBoxAnalysis.php:345
 msgid "The meta description does not contain the main focus keyword."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:339
+#: lib/Features/PostSEOBoxAnalysis.php:350
 msgid "The meta description contains the focus keyword."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:354
+#: lib/Features/PostSEOBoxAnalysis.php:365
 msgid "The main focus keyword does not appear in the first paragraph of the copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:359
+#: lib/Features/PostSEOBoxAnalysis.php:370
 msgid "The main focus keyword appears in the first paragraph."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:374
+#: lib/Features/PostSEOBoxAnalysis.php:385
 msgid "The main focus keyword does not appear in the page title."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:379
+#: lib/Features/PostSEOBoxAnalysis.php:390
 msgid "The main focus keyword appears in the page title."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:394
+#: lib/Features/PostSEOBoxAnalysis.php:405
 msgid "The content is very difficult to read. Try to make shorter sentences and use less difficult words to improve readability."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:400
+#: lib/Features/PostSEOBoxAnalysis.php:411
 msgid "The content is difficult to read. Try to make shorter sentences and use less difficult words to improve readability."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:406
+#: lib/Features/PostSEOBoxAnalysis.php:417
 msgid "The content is fairly difficult to read. Try to make shorter sentences to improve readability."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:412
+#: lib/Features/PostSEOBoxAnalysis.php:423
 msgid "The content is sufficiantly readable."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:418
+#: lib/Features/PostSEOBoxAnalysis.php:429
 msgid "The content is fairly easy to read."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:424
+#: lib/Features/PostSEOBoxAnalysis.php:435
 msgid "The content is easy to read. Good job!"
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:429
+#: lib/Features/PostSEOBoxAnalysis.php:440
 msgid "The content is very easy to read. Splendid!"
 msgstr ""
 
