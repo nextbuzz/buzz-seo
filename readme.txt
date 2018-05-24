@@ -3,7 +3,7 @@ Contributors: lengthofrope, nextbuzz
 Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
-Tested up to: 4.8
+Tested up to: 4.9
 Stable tag: 0.11.3.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
