@@ -1,5 +1,5 @@
 <div class="wrap">
-    <h1 i18n:translate="">Google Analytics</h1>
+    <h1 i18n:translate="">Google Analytics / Google Tag Manager</h1>
 
     <div tal:condition="exists:message" class="updated">
         <p tal:content="message">Bericht</p>
@@ -15,123 +15,184 @@
         <tal:block tal:content="structure settingsNonce" />
         <div class="buzz-seo-tabs">
             <div class="nav-tab-wrapper">
-                <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Basic</a>
-                <a class="nav-tab" href="javascript:;" i18n:translate="">Options</a>
-                <a class="nav-tab" href="javascript:;" i18n:translate="">Event Tracking</a>
+                <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Google Analytics</a>
+                <a class="nav-tab" href="javascript:;" i18n:translate="">Google Tag Manager</a>
             </div>
 
             <div class="inner">
                 <table class="form-table">
                     <tr>
-                        <th scope="row" i18n:translate="">Universal Tracking ID</th>
+                        <th scope="row">
+                            <tal:block i18n:translate="">Google Analytics</tal:block>
+                        </th>
                         <td>
-                            <input type="text" name="SettingsAnalytics[uacode]" tal:attributes="value uacode | nothing" placeholder="UA-xxxxxxxx-x" />
-                            <p class="description" i18n:translate="">Add the Universal Analytics tracking ID from Google Analytics. This is an ID like UA-xxxxxxxx-x.</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" i18n:translate="">Site Verification</th>
-                        <td>
-                            <input type="text" name="SettingsAnalytics[siteverification]" tal:attributes="value siteverification | nothing" placeholder="xxxx_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx_xxxxxxxx" />
-                            <p class="description" i18n:translate="">Add the Google Site verification code from Google Webmaster Tools to let Google know you are the owner of this site.</p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
+                        <div class="buzz-seo-tabs">
+                            <div class="nav-tab-wrapper">
+                                <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Basic</a>
+                                <a class="nav-tab" href="javascript:;" i18n:translate="">Options</a>
+                                <a class="nav-tab" href="javascript:;" i18n:translate="">Event Tracking</a>
+                            </div>
 
-            <div class="inner hidden">
-                <table class="form-table">
-                    <tr>
-                        <th scope="row" i18n:translate="">Anonymize IP addresses</th>
-                        <td>
-                            <label>
-                                <input type="checkbox" name="SettingsAnalytics[anonymize]" value="1" tal:attributes="checked exists:anonymize" />
-                                <tal:block i18n:translate="">Yes</tal:block>
-                            </label>
-                            <p class="description" i18n:translate="">Enabling this option is mandatory in certain countries due to national privacy laws.</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" i18n:translate="">Track User ID</th>
-                        <td>
-                            <label>
-                                <input type="checkbox" name="SettingsAnalytics[userid]" value="1" tal:attributes="checked exists:userid" />
-                                <tal:block i18n:translate="">Yes</tal:block>
-                            </label>
-                            <p class="description" i18n:translate="">Lets you associate engagement data from multiple devices and multiple sessions using the User ID, so you can see how logged in users interact over a longer period with your content. You are required by law in certain countries to notify your users when enabling this option.</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" i18n:translate="">Advertising Features</th>
-                        <td>
-                            <label>
-                                <input type="checkbox" name="SettingsAnalytics[displayadvertising]" value="1" tal:attributes="checked exists:displayadvertising" />
-                                <tal:block i18n:translate="">Yes</tal:block>
-                            </label>
-                            <p class="description" i18n:translate="">Set the Google Analytics code to support Advertising Features. Advertising features include: Remarketing with Google Analytics, Google Display Network Impression Reporting, Google Analytics Demographics and Interest Reporting. You are required by law in certain countries to notify your users when enabling this option.</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" i18n:translate="">Set Domain Name</th>
-                        <td>
-                            <input type="text" name="SettingsAnalytics[setdomainname]" tal:attributes="value setdomainname | nothing" placeholder="auto" />
-                            <p class="description" i18n:translate="">(Optional) Set a custom domain name. Needed when tracking multiple domains.</p>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-
-            <div class="inner hidden">
-                <table class="form-table">
-                    <tr>
-                        <th scope="row" i18n:translate="">Track Form Submissions</th>
-                        <td>
-                            <label tal:condition="true:uacode">
-                                <input type="checkbox" name="SettingsAnalytics[eventsforms]" value="1" tal:attributes="checked exists:eventsforms" />
-                                <tal:block i18n:translate="">Yes</tal:block>
-                            </label>
-                            <p class="description" i18n:translate="">Track all form submission. Currently supports Gravity Forms and Formidable.</p>
-                            <p tal:condition="not:true:uacode" class="description" i18n:translate="">Not available! Forms submissions are sent to Google server-side. For this to work it is required to setup Google Analytics UA code from this plugin. Other parts of this plugin work even if the Google Analytics script is loaded from another theme or script.</p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" i18n:translate="">Track External Links</th>
-                        <td>
-                            <label>
-                                <input type="checkbox" name="SettingsAnalytics[eventsexternal]" value="1" tal:attributes="checked exists:eventsexternal" />
-                                <tal:block i18n:translate="">Yes</tal:block>
-                            </label>
-                            <p class="description">
-                                <tal:block i18n:translate="">Automagicly track all outgoing links. I.E. absolute links that do not have the same hostname as the current site.</tal:block>
-                            </p>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th scope="row" i18n:translate="">Track clicks</th>
-                        <td>
-                            <p class="description">
-                                <tal:block i18n:translate="">Track clicks on custom selectors. All JavaScript querySelectors are allowed.</tal:block><br/>
-                                <code>CTA / click / a.cta</code>
-                            </p>
-                            <label>
-                                <table>
+                            <div class="inner">
+                                <table class="form-table">
                                     <tr>
-                                        <th i18n:translate="">Category</th>
-                                        <th i18n:translate="">Action</th>
-                                        <th i18n:translate="">Query Selector</th>
-                                    </tr>
-                                    <tr tal:repeat="event eventsclicks">
-                                        <td><input type="text" name="SettingsAnalytics[eventsclicks][${repeat/event/index}][category]" tal:attributes="value event/category | nothing" /></td>
-                                        <td><input type="text" name="SettingsAnalytics[eventsclicks][${repeat/event/index}][action]" tal:attributes="value event/action | nothing"  /></td>
-                                        <td><input type="text" name="SettingsAnalytics[eventsclicks][${repeat/event/index}][query]" tal:attributes="value event/query | nothing"  /></td>
+                                        <th scope="row" i18n:translate="">Universal Tracking ID</th>
+                                        <td>
+                                            <input type="text" name="SettingsAnalytics[uacode]" tal:attributes="value uacode | nothing" placeholder="UA-xxxxxxxx-x" />
+                                            <p class="description" i18n:translate="">Add the Universal Analytics tracking ID from Google Analytics. This is an ID like UA-xxxxxxxx-x.</p>
+                                        </td>
                                     </tr>
                                     <tr>
-                                        <td><input type="text" name="SettingsAnalytics[eventsclicks][${repeat/event/index}][category]" tal:attributes="value event/category | nothing" placeholder="Add Category" i18n:attributes="placeholder" /></td>
-                                        <td><input type="text" name="SettingsAnalytics[eventsclicks][${repeat/event/index}][action]" tal:attributes="value event/action | nothing" placeholder="Add Action" i18n:attributes="placeholder"   /></td>
-                                        <td><input type="text" name="SettingsAnalytics[eventsclicks][${repeat/event/index}][query]" tal:attributes="value event/query | nothing" placeholder="Add Query" i18n:attributes="placeholder"   /></td>
+                                        <th scope="row" i18n:translate="">Site Verification</th>
+                                        <td>
+                                            <input type="text" name="SettingsAnalytics[siteverification]" tal:attributes="value siteverification | nothing" placeholder="xxxx_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx_xxxxxxxx" />
+                                            <p class="description" i18n:translate="">Add the Google Site verification code from Google Webmaster Tools to let Google know you are the owner of this site.</p>
+                                        </td>
                                     </tr>
                                 </table>
-                            </label>
+                            </div>
+
+                            <div class="inner hidden">
+                                <table class="form-table">
+                                    <tr>
+                                        <th scope="row" i18n:translate="">Anonymize IP addresses</th>
+                                        <td>
+                                            <label>
+                                                <input type="checkbox" name="SettingsAnalytics[anonymize]" value="1" tal:attributes="checked exists:anonymize" />
+                                                <tal:block i18n:translate="">Yes</tal:block>
+                                            </label>
+                                            <p class="description" i18n:translate="">Enabling this option is mandatory in certain countries due to national privacy laws.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" i18n:translate="">Track User ID</th>
+                                        <td>
+                                            <label>
+                                                <input type="checkbox" name="SettingsAnalytics[userid]" value="1" tal:attributes="checked exists:userid" />
+                                                <tal:block i18n:translate="">Yes</tal:block>
+                                            </label>
+                                            <p class="description" i18n:translate="">Lets you associate engagement data from multiple devices and multiple sessions using the User ID, so you can see how logged in users interact over a longer period with your content. You are required by law in certain countries to notify your users when enabling this option.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" i18n:translate="">Advertising Features</th>
+                                        <td>
+                                            <label>
+                                                <input type="checkbox" name="SettingsAnalytics[displayadvertising]" value="1" tal:attributes="checked exists:displayadvertising" />
+                                                <tal:block i18n:translate="">Yes</tal:block>
+                                            </label>
+                                            <p class="description" i18n:translate="">Set the Google Analytics code to support Advertising Features. Advertising features include: Remarketing with Google Analytics, Google Display Network Impression Reporting, Google Analytics Demographics and Interest Reporting. You are required by law in certain countries to notify your users when enabling this option.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" i18n:translate="">Set Domain Name</th>
+                                        <td>
+                                            <input type="text" name="SettingsAnalytics[setdomainname]" tal:attributes="value setdomainname | nothing" placeholder="auto" />
+                                            <p class="description" i18n:translate="">(Optional) Set a custom domain name. Needed when tracking multiple domains.</p>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div class="inner hidden">
+                                <table class="form-table">
+                                    <tr>
+                                        <th scope="row" i18n:translate="">Track Form Submissions</th>
+                                        <td>
+                                            <label tal:condition="true:uacode">
+                                                <input type="checkbox" name="SettingsAnalytics[eventsforms]" value="1" tal:attributes="checked exists:eventsforms" />
+                                                <tal:block i18n:translate="">Yes</tal:block>
+                                            </label>
+                                            <p class="description" i18n:translate="">Track all form submission. Currently supports Gravity Forms and Formidable.</p>
+                                            <p tal:condition="not:true:uacode" class="description" i18n:translate="">Not available! Forms submissions are sent to Google server-side. For this to work it is required to setup Google Analytics UA code from this plugin. Other parts of this plugin work even if the Google Analytics script is loaded from another theme or script.</p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" i18n:translate="">Track External Links</th>
+                                        <td>
+                                            <label>
+                                                <input type="checkbox" name="SettingsAnalytics[eventsexternal]" value="1" tal:attributes="checked exists:eventsexternal" />
+                                                <tal:block i18n:translate="">Yes</tal:block>
+                                            </label>
+                                            <p class="description">
+                                                <tal:block i18n:translate="">Automagicly track all outgoing links. I.E. absolute links that do not have the same hostname as the current site.</tal:block>
+                                            </p>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" i18n:translate="">Track clicks</th>
+                                        <td>
+                                            <p class="description">
+                                                <tal:block i18n:translate="">Track clicks on custom selectors. All JavaScript querySelectors are allowed.</tal:block><br/>
+                                                <code>CTA / click / a.cta</code>
+                                            </p>
+                                            <label>
+                                                <table>
+                                                    <tr>
+                                                        <th i18n:translate="">Category</th>
+                                                        <th i18n:translate="">Action</th>
+                                                        <th i18n:translate="">Query Selector</th>
+                                                    </tr>
+                                                    <tr tal:repeat="event eventsclicks">
+                                                        <td><input type="text" name="SettingsAnalytics[eventsclicks][${repeat/event/index}][category]" tal:attributes="value event/category | nothing" /></td>
+                                                        <td><input type="text" name="SettingsAnalytics[eventsclicks][${repeat/event/index}][action]" tal:attributes="value event/action | nothing"  /></td>
+                                                        <td><input type="text" name="SettingsAnalytics[eventsclicks][${repeat/event/index}][query]" tal:attributes="value event/query | nothing"  /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><input type="text" name="SettingsAnalytics[eventsclicks][${repeat/event/index}][category]" tal:attributes="value event/category | nothing" placeholder="Add Category" i18n:attributes="placeholder" /></td>
+                                                        <td><input type="text" name="SettingsAnalytics[eventsclicks][${repeat/event/index}][action]" tal:attributes="value event/action | nothing" placeholder="Add Action" i18n:attributes="placeholder"   /></td>
+                                                        <td><input type="text" name="SettingsAnalytics[eventsclicks][${repeat/event/index}][query]" tal:attributes="value event/query | nothing" placeholder="Add Query" i18n:attributes="placeholder"   /></td>
+                                                    </tr>
+                                                </table>
+                                            </label>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="inner hidden">
+                <table class="form-table">
+                    <tr>
+                        <th scope="row">
+                            <tal:block i18n:translate="">Google Tag Manager</tal:block>
+                        </th>
+                        <td>
+                            <div class="buzz-seo-tabs">
+                                <div class="nav-tab-wrapper">
+                                    <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Basic</a>
+                                    <a class="nav-tab" href="javascript:;" i18n:translate="">Data Layers</a>
+                                </div>
+
+                                <div class="inner">
+                                    <table class="form-table">
+                                        <tr>
+                                            <th scope="row" i18n:translate="">GTM Container ID</th>
+                                            <td>
+                                                <input type="text" name="SettingsAnalytics[gtmcode]"
+                                                       tal:attributes="value gtmcode | nothing"
+                                                       placeholder="GTM-xxxxxx" />
+                                                <p class="description" i18n:translate="">Add the GTM container ID from Google. This is an ID like GTM-xxxxxx.</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+
+                                <div class="inner hidden">
+                                    <table class="form-table">
+                                        <tr>
+                                            <th scope="row" i18n:translate="">Data Layers</th>
+                                            <td>
+                                                <p class="description" i18n:translate="">Support for datalayers and e-commerce will follow.</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
                         </td>
                     </tr>
                 </table>

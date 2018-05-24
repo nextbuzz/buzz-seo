@@ -3,8 +3,8 @@ Contributors: lengthofrope, nextbuzz
 Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
-Tested up to: 4.8
-Stable tag: 0.11.3.1
+Tested up to: 4.9
+Stable tag: 0.11.3.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -78,6 +78,11 @@ add_filter('buzz-seo-show-grade-output', '__return_false');
 `
 
 == Changelog ==
+
+= 0.11.3.2 =
+* Fix: twitter card meta tags
+* Add: Basic GTM support, e-commerce and datalayers will follow later
+* Add: A custom hook directly after the opening body tag
 
 = 0.11.3.1 =
 * Fix: fix error while upgrading from 0.11.1 if certain roles are not available.

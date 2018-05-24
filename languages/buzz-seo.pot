@@ -1,15 +1,15 @@
-# Copyright (C) 2017 Next Buzz
+# Copyright (C) 2018 Next Buzz
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2017-04-21 11:35:19+0000\n"
+"POT-Creation-Date: 2018-05-24 12:10:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Language-Team: Next Buzz, Bas de Kort <bas@nextbuzz.nl>\n"
 
-#: tal/PostSEOBox.xml:3 tal/SettingsStructuredData.xml:18 tal/SettingsStructuredData.xml:28
+#: tal/PostSEOBox.xml:3 tal/SettingsAnalytics.xml:31 tal/SettingsAnalytics.xml:167 tal/SettingsStructuredData.xml:18 tal/SettingsStructuredData.xml:28
 msgid "Basic"
 msgstr ""
 
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:226
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:214
 msgid "Settings"
 msgstr ""
 
@@ -217,127 +217,151 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:141 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:202 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:14 lib/Features/Analytics.php:117
-msgid "Google Analytics"
+#: tal/SettingsAnalytics.xml:2
+msgid "Google Analytics / Google Tag Manager"
 msgstr ""
 
 #: tal/SettingsAnalytics.xml:12
 msgid "This section is to setup Google Analytics on your website. Make sure you don't use other plugins that do the same, because adding the code multiple times might give issues in the results."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:19
+#: tal/SettingsAnalytics.xml:18 tal/SettingsAnalytics.xml:26
+msgid "Google Analytics"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:19 tal/SettingsAnalytics.xml:162
+msgid "Google Tag Manager"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:32
 msgid "Options"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:20
+#: tal/SettingsAnalytics.xml:33
 msgid "Event Tracking"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:26
+#: tal/SettingsAnalytics.xml:39
 msgid "Universal Tracking ID"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:29
+#: tal/SettingsAnalytics.xml:42
 msgid "Add the Universal Analytics tracking ID from Google Analytics. This is an ID like UA-xxxxxxxx-x."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:33
+#: tal/SettingsAnalytics.xml:46
 msgid "Site Verification"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:36
+#: tal/SettingsAnalytics.xml:49
 msgid "Add the Google Site verification code from Google Webmaster Tools to let Google know you are the owner of this site."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:45
+#: tal/SettingsAnalytics.xml:58
 msgid "Anonymize IP addresses"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:49 tal/SettingsAnalytics.xml:59 tal/SettingsAnalytics.xml:69 tal/SettingsAnalytics.xml:91 tal/SettingsAnalytics.xml:102 tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
+#: tal/SettingsAnalytics.xml:62 tal/SettingsAnalytics.xml:72 tal/SettingsAnalytics.xml:82 tal/SettingsAnalytics.xml:104 tal/SettingsAnalytics.xml:115 tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:51
+#: tal/SettingsAnalytics.xml:64
 msgid "Enabling this option is mandatory in certain countries due to national privacy laws."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:55
+#: tal/SettingsAnalytics.xml:68
 msgid "Track User ID"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:61
+#: tal/SettingsAnalytics.xml:74
 msgid "Lets you associate engagement data from multiple devices and multiple sessions using the User ID, so you can see how logged in users interact over a longer period with your content. You are required by law in certain countries to notify your users when enabling this option."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:65
+#: tal/SettingsAnalytics.xml:78
 msgid "Advertising Features"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:71
+#: tal/SettingsAnalytics.xml:84
 msgid "Set the Google Analytics code to support Advertising Features. Advertising features include: Remarketing with Google Analytics, Google Display Network Impression Reporting, Google Analytics Demographics and Interest Reporting. You are required by law in certain countries to notify your users when enabling this option."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:75
+#: tal/SettingsAnalytics.xml:88
 msgid "Set Domain Name"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:78
+#: tal/SettingsAnalytics.xml:91
 msgid "(Optional) Set a custom domain name. Needed when tracking multiple domains."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:87
+#: tal/SettingsAnalytics.xml:100
 msgid "Track Form Submissions"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:93
+#: tal/SettingsAnalytics.xml:106
 msgid "Track all form submission. Currently supports Gravity Forms and Formidable."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:94
+#: tal/SettingsAnalytics.xml:107
 msgid "Not available! Forms submissions are sent to Google server-side. For this to work it is required to setup Google Analytics UA code from this plugin. Other parts of this plugin work even if the Google Analytics script is loaded from another theme or script."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:98
+#: tal/SettingsAnalytics.xml:111
 msgid "Track External Links"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:105
+#: tal/SettingsAnalytics.xml:118
 msgid "Automagicly track all outgoing links. I.E. absolute links that do not have the same hostname as the current site."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:110
+#: tal/SettingsAnalytics.xml:123
 msgid "Track clicks"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:113
+#: tal/SettingsAnalytics.xml:126
 msgid "Track clicks on custom selectors. All JavaScript querySelectors are allowed."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:119
+#: tal/SettingsAnalytics.xml:132
 msgid "Category"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:120
+#: tal/SettingsAnalytics.xml:133
 msgid "Action"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:121
+#: tal/SettingsAnalytics.xml:134
 msgid "Query Selector"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:129
+#: tal/SettingsAnalytics.xml:168 tal/SettingsAnalytics.xml:188
+msgid "Data Layers"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:174
+msgid "GTM Container ID"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:179
+msgid "Add the GTM container ID from Google. This is an ID like GTM-xxxxxx."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:190
+msgid "Support for datalayers and e-commerce will follow."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:142
 msgid "Add Category"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:130
+#: tal/SettingsAnalytics.xml:143
 msgid "Add Action"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:131
+#: tal/SettingsAnalytics.xml:144
 msgid "Add Query"
 msgstr ""
 
@@ -433,7 +457,7 @@ msgstr ""
 msgid "Remove relational links for the posts adjacent to the current post."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:230
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:218
 msgid "General"
 msgstr ""
 
@@ -717,68 +741,72 @@ msgstr ""
 msgid "Admin Core of Buzz SEO."
 msgstr ""
 
-#: lib/Features/Admin.php:86
+#: lib/Features/Admin.php:74
 msgid "Posttype"
 msgstr ""
 
-#: lib/Features/Admin.php:90
+#: lib/Features/Admin.php:78
 msgid "Taxonomy"
 msgstr ""
 
-#: lib/Features/Admin.php:94
+#: lib/Features/Admin.php:82
 msgid "Archive"
 msgstr ""
 
-#: lib/Features/Admin.php:120
+#: lib/Features/Admin.php:108
 msgid "This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+"
 msgstr ""
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:121 lib/Features/Admin.php:140 lib/Features/Admin.php:372 lib/Features/Admin.php:374
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:109 lib/Features/Admin.php:128 lib/Features/Admin.php:360 lib/Features/Admin.php:362
 msgid "Buzz SEO"
 msgstr ""
 
-#: lib/Features/Admin.php:140
+#: lib/Features/Admin.php:128
 msgid "The theme you are using is using the deprecated wp_title() functions which prevents Buzz SEO from generating the correct titles. Please ask your theme developer to update the theme."
 msgstr ""
 
-#: lib/Features/Admin.php:158
+#: lib/Features/Admin.php:146
 msgid "Search engines are not allowed to index the site. This is bad for SEO. Click <a href=\"%s\">here</a> to adjust this."
 msgstr ""
 
-#: lib/Features/Admin.php:160
+#: lib/Features/Admin.php:148
 msgid "Search engines are not allowed to index the site. This is bad for SEO. Please ask a WordPress administrator to change this."
 msgstr ""
 
-#: lib/Features/Admin.php:179
+#: lib/Features/Admin.php:167
 msgid "Permalinks are set to the \"default\" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Click <a href=\"%s\">here</a> to adjust this."
 msgstr ""
 
-#: lib/Features/Admin.php:181
+#: lib/Features/Admin.php:169
 msgid "Permalinks are set to the \"default\" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Please ask a WordPress administrator to change this."
 msgstr ""
 
-#: lib/Features/Admin.php:202
+#: lib/Features/Admin.php:190
 msgid "Select an image"
 msgstr ""
 
-#: lib/Features/Admin.php:202 lib/Features/Admin.php:203
+#: lib/Features/Admin.php:190 lib/Features/Admin.php:191
 msgid "Select"
 msgstr ""
 
-#: lib/Features/Admin.php:372
+#: lib/Features/Admin.php:360
 msgid "Buzz SEO plugin is up to date."
 msgstr ""
 
-#: lib/Features/Admin.php:374
+#: lib/Features/Admin.php:362
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr ""
 
-#: lib/Features/Admin.php:376
+#: lib/Features/Admin.php:364
 msgid "Unknown update checker status `%s`."
 msgstr ""
 
+#: lib/Features/Analytics.php:14 lib/Features/Analytics.php:121
+msgid "Analytics / GTM"
+msgstr ""
+
 #: lib/Features/Analytics.php:19
-msgid "Support for analytics."
+msgid "Support for Google Analytics or for setting up a Google Tag Manager container."
 msgstr ""
 
 #: lib/Features/CleanupHead.php:20
@@ -793,7 +821,7 @@ msgstr ""
 msgid "Add an optimization SEO box for each post."
 msgstr ""
 
-#: lib/Features/PostSEOBox.php:59
+#: lib/Features/PostSEOBox.php:62
 msgid "Search Engine Optimization (SEO)"
 msgstr ""
 
@@ -805,171 +833,171 @@ msgstr ""
 msgid "Add an optimization SEO Analysis box for each post."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:62 lib/Features/PostSEOBoxAnalysis.php:78 lib/Features/PostSEOBoxAnalysis.php:84
+#: lib/Features/PostSEOBoxAnalysis.php:66 lib/Features/PostSEOBoxAnalysis.php:82 lib/Features/PostSEOBoxAnalysis.php:88
 msgid "SEO Grade"
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:98
+#: lib/Features/PostSEOBoxAnalysis.php:102
 msgid "Not available"
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:113
+#: lib/Features/PostSEOBoxAnalysis.php:121
 msgid "SEO Content Analysis"
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:134
+#: lib/Features/PostSEOBoxAnalysis.php:145
 msgid "There are currently no errors found in the analysis."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:135
+#: lib/Features/PostSEOBoxAnalysis.php:146
 msgid "There are currently no warnings found in the analysis."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:136
+#: lib/Features/PostSEOBoxAnalysis.php:147
 msgid "There is probably a lot wrong with your content SEO wise."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:149
+#: lib/Features/PostSEOBoxAnalysis.php:160
 msgid "The text contains {0} words, this is more than the {1} word recommended minimum."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:155
+#: lib/Features/PostSEOBoxAnalysis.php:166
 msgid "The text contains {0} words, this is slightly below the {1} word recommended minimum. Add a bit more copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:161
+#: lib/Features/PostSEOBoxAnalysis.php:172
 msgid "The text contains {0} words, this is below the {1} word recommended minimum. Add a little more useful content on this topic for readers."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:167
+#: lib/Features/PostSEOBoxAnalysis.php:178
 msgid "The text contains {0} words, this is below the {1} word recommended minimum. Add more useful content on this topic for readers."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:173
+#: lib/Features/PostSEOBoxAnalysis.php:184
 msgid "The text contains {0} word(s). This is far too low and should be increased."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:187
+#: lib/Features/PostSEOBoxAnalysis.php:198
 msgid "The specified meta description is {2} character(s) over the {1} available. Reducing it will ensure the entire description is visible."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:193
+#: lib/Features/PostSEOBoxAnalysis.php:204
 msgid "No meta description has been specified, search engines will display copy from the page instead."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:199
+#: lib/Features/PostSEOBoxAnalysis.php:210
 msgid "The meta description is {0} character(s), however up to {1} characters are available."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:205
+#: lib/Features/PostSEOBoxAnalysis.php:216
 msgid "The meta description has an optimal length of {0} out of max {1} characters."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:217
+#: lib/Features/PostSEOBoxAnalysis.php:228
 msgid "No subheading tags (like an H2) appear in the copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:222
+#: lib/Features/PostSEOBoxAnalysis.php:233
 msgid "Subheadings appear in the copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:237
+#: lib/Features/PostSEOBoxAnalysis.php:248
 msgid "Please create a page title."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:243
+#: lib/Features/PostSEOBoxAnalysis.php:254
 msgid "The page title (including site name) contains {0} characters, which is less than the recommended minimum of {3} characters."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:249
+#: lib/Features/PostSEOBoxAnalysis.php:260
 msgid "The page title (including site name) contains {0} characters, which is slightly less than the recommended minimum of {3} characters."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:255
+#: lib/Features/PostSEOBoxAnalysis.php:266
 msgid "The page title (including site name) is between the {3} character minimum and the recommended {1} character maximum."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:260
+#: lib/Features/PostSEOBoxAnalysis.php:271
 msgid "The specified page title (including site name) is {2} character(s) over the {1} available. Reducing it will ensure the entire title is visible."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:275
+#: lib/Features/PostSEOBoxAnalysis.php:286
 msgid "No main focus keyword was set for this page."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:281
+#: lib/Features/PostSEOBoxAnalysis.php:292
 msgid "Your main focus keyword has a valid length."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:286
+#: lib/Features/PostSEOBoxAnalysis.php:297
 msgid "Your main focus keyphrase is over {2} words, a keyphrase should be shorter."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:301
+#: lib/Features/PostSEOBoxAnalysis.php:312
 msgid "The keyword density for `{1}` is {0}%, which is way over the advised {2}% maximum. The focus keyword was found {3} time(s)."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:307
+#: lib/Features/PostSEOBoxAnalysis.php:318
 msgid "The keyword density for `{1}` is {0}%, which over the advised {2}% maximum. The focus keyword was found {3} time(s)."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:313
+#: lib/Features/PostSEOBoxAnalysis.php:324
 msgid "The keyword density for `{1}` is {0}%, which is great. The focus keyword was found {3} time(s)."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:319
+#: lib/Features/PostSEOBoxAnalysis.php:330
 msgid "The keyword density for `{1}` is {0}%, which is low. The focus keyword was found {3} time(s)."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:334
+#: lib/Features/PostSEOBoxAnalysis.php:345
 msgid "The meta description does not contain the main focus keyword."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:339
+#: lib/Features/PostSEOBoxAnalysis.php:350
 msgid "The meta description contains the focus keyword."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:354
+#: lib/Features/PostSEOBoxAnalysis.php:365
 msgid "The main focus keyword does not appear in the first paragraph of the copy."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:359
+#: lib/Features/PostSEOBoxAnalysis.php:370
 msgid "The main focus keyword appears in the first paragraph."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:374
+#: lib/Features/PostSEOBoxAnalysis.php:385
 msgid "The main focus keyword does not appear in the page title."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:379
+#: lib/Features/PostSEOBoxAnalysis.php:390
 msgid "The main focus keyword appears in the page title."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:394
+#: lib/Features/PostSEOBoxAnalysis.php:405
 msgid "The content is very difficult to read. Try to make shorter sentences and use less difficult words to improve readability."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:400
+#: lib/Features/PostSEOBoxAnalysis.php:411
 msgid "The content is difficult to read. Try to make shorter sentences and use less difficult words to improve readability."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:406
+#: lib/Features/PostSEOBoxAnalysis.php:417
 msgid "The content is fairly difficult to read. Try to make shorter sentences to improve readability."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:412
+#: lib/Features/PostSEOBoxAnalysis.php:423
 msgid "The content is sufficiantly readable."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:418
+#: lib/Features/PostSEOBoxAnalysis.php:429
 msgid "The content is fairly easy to read."
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:424
+#: lib/Features/PostSEOBoxAnalysis.php:435
 msgid "The content is easy to read. Good job!"
 msgstr ""
 
-#: lib/Features/PostSEOBoxAnalysis.php:429
+#: lib/Features/PostSEOBoxAnalysis.php:440
 msgid "The content is very easy to read. Splendid!"
 msgstr ""
 
