@@ -29,6 +29,10 @@ class Analytics extends BaseFeature
         // Make sure Google Analytics code is late in the head
         add_action('wp_head', array($this, 'addUACode'), 99);
 
+        // Make sure Google Analytics code is late in the head
+        add_action('wp_head', array($this, 'addGTMCode'), 1);
+        add_action('buzz_seo_after_body', array($this, 'addGTMCodeBody'), 1);
+
         // Track events
         $options = get_option('_settingsSettingsAnalytics', true);
         if (isset($options['eventsforms']) || isset($options['eventsexternal']) || (isset($options['eventsclicks']) && !empty($options['eventsclicks'][0]['query']))) {
@@ -134,6 +138,9 @@ class Analytics extends BaseFeature
         return esc_js(apply_filters('buzz_seo_ga_tracker_var', 'ga'));
     }
 
+    /**
+     * Add the UA code if available in the head
+     */
     public function addUACode()
     {
         $options = get_option('_settingsSettingsAnalytics', true);
@@ -195,4 +202,45 @@ class Analytics extends BaseFeature
         }
     }
 
+    /**
+     * Add the GTM code if available in the head
+     */
+    public function addGTMCode()
+    {
+        $options = get_option('_settingsSettingsAnalytics', true);
+
+        // Nothing checked, so do nothing
+        if (!is_array($options) || !isset($options['gtmcode'])) {
+            return;
+        }
+
+        $gtmcode = $options['gtmcode'];
+        if (!empty($gtmcode) && preg_match("/\bgtm-[a-z0-9]+\b/i", $gtmcode)) {
+            echo "<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','".$gtmcode."');</script>
+<!-- End Google Tag Manager -->";
+        }
+    }
+
+    public function addGTMCodeBody($after_body)
+    {
+        $options = get_option('_settingsSettingsAnalytics', true);
+
+        // Nothing checked, so do nothing
+        if (!is_array($options) || !isset($options['gtmcode'])) {
+            return;
+        }
+
+        $gtmcode = $options['gtmcode'];
+        if (!empty($gtmcode) && preg_match("/\bgtm-[a-z0-9]+\b/i", $gtmcode)) {
+            return  '<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id='.$gtmcode.'"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->' . $after_body;
+        }
+    }
 }
