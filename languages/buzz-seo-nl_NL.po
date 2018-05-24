@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2018-05-24 09:29:24+0000\n"
-"PO-Revision-Date: 2018-05-24 11:31+0200\n"
+"POT-Creation-Date: 2018-05-24 12:10:37+0000\n"
+"PO-Revision-Date: 2018-05-24 14:12+0200\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -20,7 +20,8 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: *.js\n"
 
-#: tal/PostSEOBox.xml:3 tal/SettingsStructuredData.xml:18
+#: tal/PostSEOBox.xml:3 tal/SettingsAnalytics.xml:31
+#: tal/SettingsAnalytics.xml:167 tal/SettingsStructuredData.xml:18
 #: tal/SettingsStructuredData.xml:28
 msgid "Basic"
 msgstr "Basis"
@@ -255,7 +256,7 @@ msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:212
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:214
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -274,16 +275,15 @@ msgid ""
 msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:141
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:202
 #: tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231
 #: tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr "Opslaan"
 
-#: tal/SettingsAnalytics.xml:2 lib/Features/Analytics.php:19
-#: lib/Features/Analytics.php:117
-msgid "Google Analytics"
-msgstr "Google Analytics"
+#: tal/SettingsAnalytics.xml:2
+msgid "Google Analytics / Google Tag Manager"
+msgstr "Google Analytics / Google Tag Manager"
 
 #: tal/SettingsAnalytics.xml:12
 msgid ""
@@ -296,19 +296,27 @@ msgstr ""
 "andere plugins, want als hij vaker dan 1 keer wordt geladen krijg je "
 "verkeerde resultaten."
 
-#: tal/SettingsAnalytics.xml:19
+#: tal/SettingsAnalytics.xml:18 tal/SettingsAnalytics.xml:26
+msgid "Google Analytics"
+msgstr "Google Analytics"
+
+#: tal/SettingsAnalytics.xml:19 tal/SettingsAnalytics.xml:162
+msgid "Google Tag Manager"
+msgstr "Google Tag Manager"
+
+#: tal/SettingsAnalytics.xml:32
 msgid "Options"
 msgstr "Opties"
 
-#: tal/SettingsAnalytics.xml:20
+#: tal/SettingsAnalytics.xml:33
 msgid "Event Tracking"
 msgstr "Gebeurtenissen bijhouden"
 
-#: tal/SettingsAnalytics.xml:26
+#: tal/SettingsAnalytics.xml:39
 msgid "Universal Tracking ID"
 msgstr "Universele Tracking ID"
 
-#: tal/SettingsAnalytics.xml:29
+#: tal/SettingsAnalytics.xml:42
 msgid ""
 "Add the Universal Analytics tracking ID from Google Analytics. This is an ID "
 "like UA-xxxxxxxx-x."
@@ -316,11 +324,11 @@ msgstr ""
 "Voeg de `Universal Analytics Tracking ID` van Google Analytics hier toe. "
 "Deze code heeft het volgende formaat: UA-xxxxxxxx-x."
 
-#: tal/SettingsAnalytics.xml:33
+#: tal/SettingsAnalytics.xml:46
 msgid "Site Verification"
 msgstr "Site verificatie"
 
-#: tal/SettingsAnalytics.xml:36
+#: tal/SettingsAnalytics.xml:49
 msgid ""
 "Add the Google Site verification code from Google Webmaster Tools to let "
 "Google know you are the owner of this site."
@@ -328,20 +336,20 @@ msgstr ""
 "Voeg de `Google Site Verification` code van Google Webmaster Tools hier in "
 "zodat Google weet dat jij de eigenaar bent van de site."
 
-#: tal/SettingsAnalytics.xml:45
+#: tal/SettingsAnalytics.xml:58
 msgid "Anonymize IP addresses"
 msgstr "Anonimizeer IP adressen"
 
-#: tal/SettingsAnalytics.xml:49 tal/SettingsAnalytics.xml:59
-#: tal/SettingsAnalytics.xml:69 tal/SettingsAnalytics.xml:91
-#: tal/SettingsAnalytics.xml:102 tal/SettingsGeneral.xml:40
+#: tal/SettingsAnalytics.xml:62 tal/SettingsAnalytics.xml:72
+#: tal/SettingsAnalytics.xml:82 tal/SettingsAnalytics.xml:104
+#: tal/SettingsAnalytics.xml:115 tal/SettingsGeneral.xml:40
 #: tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60
 #: tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53
 #: tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr "Ja"
 
-#: tal/SettingsAnalytics.xml:51
+#: tal/SettingsAnalytics.xml:64
 msgid ""
 "Enabling this option is mandatory in certain countries due to national "
 "privacy laws."
@@ -349,11 +357,11 @@ msgstr ""
 "Het inschakelen van deze optie is verplicht in bepaalde landen als gevolg "
 "van de nationale privacywetgeving."
 
-#: tal/SettingsAnalytics.xml:55
+#: tal/SettingsAnalytics.xml:68
 msgid "Track User ID"
 msgstr "Volg Gebruiker ID"
 
-#: tal/SettingsAnalytics.xml:61
+#: tal/SettingsAnalytics.xml:74
 msgid ""
 "Lets you associate engagement data from multiple devices and multiple "
 "sessions using the User ID, so you can see how logged in users interact over "
@@ -366,11 +374,11 @@ msgstr ""
 "wettelijk verplicht in bepaalde landen om uw gebruikers te waarschuwen "
 "wanneer u deze optie inschakelt."
 
-#: tal/SettingsAnalytics.xml:65
+#: tal/SettingsAnalytics.xml:78
 msgid "Advertising Features"
 msgstr "Advertentiefuncties"
 
-#: tal/SettingsAnalytics.xml:71
+#: tal/SettingsAnalytics.xml:84
 msgid ""
 "Set the Google Analytics code to support Advertising Features. Advertising "
 "features include: Remarketing with Google Analytics, Google Display Network "
@@ -384,29 +392,29 @@ msgstr ""
 "U bent wettelijk verplicht in bepaalde landen om uw gebruikers te "
 "waarschuwen wanneer u deze optie inschakelt."
 
-#: tal/SettingsAnalytics.xml:75
+#: tal/SettingsAnalytics.xml:88
 msgid "Set Domain Name"
 msgstr "Domein Naam"
 
-#: tal/SettingsAnalytics.xml:78
+#: tal/SettingsAnalytics.xml:91
 msgid ""
 "(Optional) Set a custom domain name. Needed when tracking multiple domains."
 msgstr ""
 "(Optioneel) Stel een eigen domeinnaam in. Nodig wanneer u meerdere domeinen "
 "gebruikt met uw Analytics code."
 
-#: tal/SettingsAnalytics.xml:87
+#: tal/SettingsAnalytics.xml:100
 msgid "Track Form Submissions"
 msgstr "Formulieren bijhouden"
 
-#: tal/SettingsAnalytics.xml:93
+#: tal/SettingsAnalytics.xml:106
 msgid ""
 "Track all form submission. Currently supports Gravity Forms and Formidable."
 msgstr ""
 "Houd de verzendingen van formulieren bij. Ondersteunt Gravity Forms en "
 "Formidable."
 
-#: tal/SettingsAnalytics.xml:94
+#: tal/SettingsAnalytics.xml:107
 msgid ""
 "Not available! Forms submissions are sent to Google server-side. For this to "
 "work it is required to setup Google Analytics UA code from this plugin. "
@@ -418,11 +426,11 @@ msgstr ""
 "Andere onderdelen van deze plugin werken ook als het Analytics script via "
 "een andere plugin is geladen."
 
-#: tal/SettingsAnalytics.xml:98
+#: tal/SettingsAnalytics.xml:111
 msgid "Track External Links"
 msgstr "Externe links bijhouden"
 
-#: tal/SettingsAnalytics.xml:105
+#: tal/SettingsAnalytics.xml:118
 msgid ""
 "Automagicly track all outgoing links. I.E. absolute links that do not have "
 "the same hostname as the current site."
@@ -430,38 +438,56 @@ msgstr ""
 "Houd automatisch clicks naar externe sites bij. Alle absolute links met een "
 "andere hostname worden geregistreerd."
 
-#: tal/SettingsAnalytics.xml:110
+#: tal/SettingsAnalytics.xml:123
 msgid "Track clicks"
 msgstr "Kliks bijhouden"
 
-#: tal/SettingsAnalytics.xml:113
+#: tal/SettingsAnalytics.xml:126
 msgid ""
 "Track clicks on custom selectors. All JavaScript querySelectors are allowed."
 msgstr ""
 "Houd de kliks op bepaalde elementen bij. Alle Javascript querySelectors zijn "
 "toegestaan."
 
-#: tal/SettingsAnalytics.xml:119
+#: tal/SettingsAnalytics.xml:132
 msgid "Category"
 msgstr "Categorie"
 
-#: tal/SettingsAnalytics.xml:120
+#: tal/SettingsAnalytics.xml:133
 msgid "Action"
 msgstr "Actie"
 
-#: tal/SettingsAnalytics.xml:121
+#: tal/SettingsAnalytics.xml:134
 msgid "Query Selector"
 msgstr "Query"
 
-#: tal/SettingsAnalytics.xml:129
+#: tal/SettingsAnalytics.xml:168 tal/SettingsAnalytics.xml:188
+msgid "Data Layers"
+msgstr "Data Lagen"
+
+#: tal/SettingsAnalytics.xml:174
+msgid "GTM Container ID"
+msgstr "GTM Container ID"
+
+#: tal/SettingsAnalytics.xml:179
+msgid "Add the GTM container ID from Google. This is an ID like GTM-xxxxxx."
+msgstr ""
+"Voeg de `GTM container ID` van Google hier toe. Deze code heeft het volgende "
+"formaat: GTM-xxxxxx."
+
+#: tal/SettingsAnalytics.xml:190
+msgid "Support for datalayers and e-commerce will follow."
+msgstr "Ondersteuning voor data lagen en e-commerce volgt."
+
+#: tal/SettingsAnalytics.xml:142
 msgid "Add Category"
 msgstr "Voeg categorie toe"
 
-#: tal/SettingsAnalytics.xml:130
+#: tal/SettingsAnalytics.xml:143
 msgid "Add Action"
 msgstr "Voeg actie toe"
 
-#: tal/SettingsAnalytics.xml:131
+#: tal/SettingsAnalytics.xml:144
 msgid "Add Query"
 msgstr "Voeg query toe"
 
@@ -609,7 +635,7 @@ msgstr ""
 "Verwijder relationele links voor de berichten grenzend (vorige en volgende) "
 "aan je huidige bericht."
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:216
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:218
 msgid "General"
 msgstr "Algemeen"
 
@@ -957,19 +983,19 @@ msgstr "Admin Core"
 msgid "Admin Core of Buzz SEO."
 msgstr "Admin Core van Buzz SEO."
 
-#: lib/Features/Admin.php:72
+#: lib/Features/Admin.php:74
 msgid "Posttype"
 msgstr "Berichttype"
 
-#: lib/Features/Admin.php:76
+#: lib/Features/Admin.php:78
 msgid "Taxonomy"
 msgstr "Taxonomie"
 
-#: lib/Features/Admin.php:80
+#: lib/Features/Admin.php:82
 msgid "Archive"
 msgstr "Archief"
 
-#: lib/Features/Admin.php:106
+#: lib/Features/Admin.php:108
 msgid ""
 "This is a WordPress SEO plugin. It covers the basics of SEO optimization. "
 "Requires PHP 5.3+ and WP 4.1+"
@@ -978,13 +1004,13 @@ msgstr ""
 "optimaliseren voor zoekmachines (SEO). Deze plugin heeft minimaal PHP 5.3+ "
 "en WP 4.1+ nodig."
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:107
-#: lib/Features/Admin.php:126 lib/Features/Admin.php:358
-#: lib/Features/Admin.php:360
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:109
+#: lib/Features/Admin.php:128 lib/Features/Admin.php:360
+#: lib/Features/Admin.php:362
 msgid "Buzz SEO"
 msgstr "Buzz SEO"
 
-#: lib/Features/Admin.php:126
+#: lib/Features/Admin.php:128
 msgid ""
 "The theme you are using is using the deprecated wp_title() functions which "
 "prevents Buzz SEO from generating the correct titles. Please ask your theme "
@@ -995,7 +1021,7 @@ msgstr ""
 "de document titels niet optimaliseren. Vraag de ontwikkelaar van het thema "
 "om het thema te updaten."
 
-#: lib/Features/Admin.php:144
+#: lib/Features/Admin.php:146
 msgid ""
 "Search engines are not allowed to index the site. This is bad for SEO. Click "
 "<a href=\"%s\">here</a> to adjust this."
@@ -1003,7 +1029,7 @@ msgstr ""
 "Zoekmachines mogen deze site niet indexeren. Dit is slecht voor SEO. Klik <a "
 "href=\"%s\">hier</a> om dit aan te passen."
 
-#: lib/Features/Admin.php:146
+#: lib/Features/Admin.php:148
 msgid ""
 "Search engines are not allowed to index the site. This is bad for SEO. "
 "Please ask a WordPress administrator to change this."
@@ -1011,7 +1037,7 @@ msgstr ""
 "Zoekmachines mogen deze site niet indexeren. Dit is slecht voor SEO. Vraag "
 "een WordPress administrator dit aan te passen."
 
-#: lib/Features/Admin.php:165
+#: lib/Features/Admin.php:167
 msgid ""
 "Permalinks are set to the \"default\" value. If you want to take SEO "
 "seriously, you should change this. Also some features do not work properly "
@@ -1021,7 +1047,7 @@ msgstr ""
 "neemt moet je dit aanpassen. In de standaard mode werken niet alle "
 "onderdelen van de plugin. Klik <a href=\"%s\">hier</a> om dit aan te passen."
 
-#: lib/Features/Admin.php:167
+#: lib/Features/Admin.php:169
 msgid ""
 "Permalinks are set to the \"default\" value. If you want to take SEO "
 "seriously, you should change this. Also some features do not work properly "
@@ -1032,27 +1058,27 @@ msgstr ""
 "onderdelen van de plugin. Vraag een WordPress administrator dit aan te "
 "passen."
 
-#: lib/Features/Admin.php:188
+#: lib/Features/Admin.php:190
 msgid "Select an image"
 msgstr "Selecteer een afbeelding"
 
-#: lib/Features/Admin.php:188 lib/Features/Admin.php:189
+#: lib/Features/Admin.php:190 lib/Features/Admin.php:191
 msgid "Select"
 msgstr "Selecteren"
 
-#: lib/Features/Admin.php:358
+#: lib/Features/Admin.php:360
 msgid "Buzz SEO plugin is up to date."
 msgstr "Buzz SEO plugin is up-to-date."
 
-#: lib/Features/Admin.php:360
+#: lib/Features/Admin.php:362
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 
-#: lib/Features/Admin.php:362
+#: lib/Features/Admin.php:364
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
 
-#: lib/Features/Analytics.php:14
+#: lib/Features/Analytics.php:14 lib/Features/Analytics.php:121
 msgid "Analytics / GTM"
 msgstr "Analytics / GTM"
 
