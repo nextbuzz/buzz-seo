@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.9
-Stable tag: 0.11.3.2
+Stable tag: 0.11.3.3
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -78,6 +78,10 @@ add_filter('buzz-seo-show-grade-output', '__return_false');
 `
 
 == Changelog ==
+
+= 0.11.3.3 =
+* Fix: issue when using multiple GTM plugins
+* Remove: custom hook after body tag
 
 = 0.11.3.2 =
 * Fix: twitter card meta tags

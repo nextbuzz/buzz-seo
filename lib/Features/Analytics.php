@@ -31,7 +31,7 @@ class Analytics extends BaseFeature
 
         // Make sure Google Analytics code is late in the head
         add_action('wp_head', array($this, 'addGTMCode'), 1);
-        add_action('buzz_seo_after_body', array($this, 'addGTMCodeBody'), 1);
+        add_action('wp_footer', array($this, 'addGTMCodeBody'), 1);
 
         // Track events
         $options = get_option('_settingsSettingsAnalytics', true);
