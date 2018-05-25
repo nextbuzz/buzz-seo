@@ -30,8 +30,6 @@ class Admin extends BaseFeature
         // Register strings for translation
         add_action('plugins_loaded', array($this, 'registerTranslations'));
 
-        $this->createAfterBodyHook();
-
         // Everything below this is only used when in the admin interface
         if (!is_admin()) {
             return;
@@ -375,31 +373,6 @@ class Admin extends BaseFeature
         $updateChecker = new $className(
             'https://github.com/nextbuzz/buzz-seo/', BUZZSEO_FILE, 'master'
         );
-    }
-
-    /**
-     * Create a hook which is run directly after the body tag
-     */
-    private function createAfterBodyHook()
-    {
-        add_action('wp_head', function() {
-            ob_start();
-        });
-        add_action('wp_footer', function() {
-            $get_me_buffers  = ob_get_clean();
-
-            $pattern ='/<body\s[A-Za-z]{2,5}[A-Za-z0-9 "_=\-\.]+>|<body>/i';
-            ob_start();
-            if(preg_match($pattern, $get_me_buffers, $get_me_buffers_return)){
-
-
-                $d_new_body_plus = $get_me_buffers_return[0] . apply_filters('buzz_seo_after_body', '');
-
-                echo preg_replace($pattern, $d_new_body_plus, $get_me_buffers);
-
-            }
-            ob_flush();
-        });
     }
 
 }
