@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2018-05-24 12:10:37+0000\n"
+"POT-Creation-Date: 2018-05-26 15:58:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -201,7 +201,7 @@ msgstr ""
 msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:214
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:212
 msgid "Settings"
 msgstr ""
 
@@ -217,7 +217,7 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:202 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:286 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr ""
 
@@ -265,7 +265,7 @@ msgstr ""
 msgid "Anonymize IP addresses"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:62 tal/SettingsAnalytics.xml:72 tal/SettingsAnalytics.xml:82 tal/SettingsAnalytics.xml:104 tal/SettingsAnalytics.xml:115 tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
+#: tal/SettingsAnalytics.xml:62 tal/SettingsAnalytics.xml:72 tal/SettingsAnalytics.xml:82 tal/SettingsAnalytics.xml:104 tal/SettingsAnalytics.xml:115 tal/SettingsAnalytics.xml:194 tal/SettingsAnalytics.xml:205 tal/SettingsAnalytics.xml:217 tal/SettingsAnalytics.xml:229 tal/SettingsAnalytics.xml:242 tal/SettingsAnalytics.xml:259 tal/SettingsAnalytics.xml:272 tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr ""
 
@@ -337,20 +337,76 @@ msgstr ""
 msgid "Query Selector"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:168 tal/SettingsAnalytics.xml:188
-msgid "Data Layers"
+#: tal/SettingsAnalytics.xml:168
+msgid "Basic data"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:174
+#: tal/SettingsAnalytics.xml:169
+msgid "WooCommerce"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:175
 msgid "GTM Container ID"
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:179
+#: tal/SettingsAnalytics.xml:180
 msgid "Add the GTM container ID from Google. This is an ID like GTM-xxxxxx."
 msgstr ""
 
-#: tal/SettingsAnalytics.xml:190
-msgid "Support for datalayers and e-commerce will follow."
+#: tal/SettingsAnalytics.xml:189
+msgid "Type of post"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:196
+msgid "Check this option to include the type of the current post or archive page (post, page or any custom post type)."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:200
+msgid "Category list"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:207
+msgid "Check this option to include the category names of the current post or archive page."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:211
+msgid "Tag list"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:219
+msgid "Check this option to include the tags of the current post."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:223
+msgid "Post author ID"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:231
+msgid "Check this option to include the ID of the author on the current post or author page."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:235
+msgid "Post author name"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:244
+msgid "Check this option to include the name of the author on the current post or author page."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:252
+msgid "Track enhanced e-commerce"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:261
+msgid "Choose this option if you would like to track e-commerce data using enhanced ecommerce tracking."
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:265
+msgid "Use SKU instead of ID"
+msgstr ""
+
+#: tal/SettingsAnalytics.xml:274
+msgid "Check this to use product SKU instead of the ID of the products for remarketing and ecommerce tracking. Will fallback to ID if no SKU is set."
 msgstr ""
 
 #: tal/SettingsAnalytics.xml:142
@@ -457,7 +513,7 @@ msgstr ""
 msgid "Remove relational links for the posts adjacent to the current post."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:218
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:216
 msgid "General"
 msgstr ""
 
@@ -741,63 +797,63 @@ msgstr ""
 msgid "Admin Core of Buzz SEO."
 msgstr ""
 
-#: lib/Features/Admin.php:74
+#: lib/Features/Admin.php:72
 msgid "Posttype"
 msgstr ""
 
-#: lib/Features/Admin.php:78
+#: lib/Features/Admin.php:76
 msgid "Taxonomy"
 msgstr ""
 
-#: lib/Features/Admin.php:82
+#: lib/Features/Admin.php:80
 msgid "Archive"
 msgstr ""
 
-#: lib/Features/Admin.php:108
+#: lib/Features/Admin.php:106
 msgid "This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+"
 msgstr ""
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:109 lib/Features/Admin.php:128 lib/Features/Admin.php:360 lib/Features/Admin.php:362
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:107 lib/Features/Admin.php:126 lib/Features/Admin.php:358 lib/Features/Admin.php:360
 msgid "Buzz SEO"
 msgstr ""
 
-#: lib/Features/Admin.php:128
+#: lib/Features/Admin.php:126
 msgid "The theme you are using is using the deprecated wp_title() functions which prevents Buzz SEO from generating the correct titles. Please ask your theme developer to update the theme."
 msgstr ""
 
-#: lib/Features/Admin.php:146
+#: lib/Features/Admin.php:144
 msgid "Search engines are not allowed to index the site. This is bad for SEO. Click <a href=\"%s\">here</a> to adjust this."
 msgstr ""
 
-#: lib/Features/Admin.php:148
+#: lib/Features/Admin.php:146
 msgid "Search engines are not allowed to index the site. This is bad for SEO. Please ask a WordPress administrator to change this."
 msgstr ""
 
-#: lib/Features/Admin.php:167
+#: lib/Features/Admin.php:165
 msgid "Permalinks are set to the \"default\" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Click <a href=\"%s\">here</a> to adjust this."
 msgstr ""
 
-#: lib/Features/Admin.php:169
+#: lib/Features/Admin.php:167
 msgid "Permalinks are set to the \"default\" value. If you want to take SEO seriously, you should change this. Also some features do not work properly in this mode. Please ask a WordPress administrator to change this."
 msgstr ""
 
-#: lib/Features/Admin.php:190
+#: lib/Features/Admin.php:188
 msgid "Select an image"
 msgstr ""
 
-#: lib/Features/Admin.php:190 lib/Features/Admin.php:191
+#: lib/Features/Admin.php:188 lib/Features/Admin.php:189
 msgid "Select"
 msgstr ""
 
-#: lib/Features/Admin.php:360
+#: lib/Features/Admin.php:358
 msgid "Buzz SEO plugin is up to date."
 msgstr ""
 
-#: lib/Features/Admin.php:362
+#: lib/Features/Admin.php:360
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr ""
 
-#: lib/Features/Admin.php:364
+#: lib/Features/Admin.php:362
 msgid "Unknown update checker status `%s`."
 msgstr ""
 
