@@ -33,6 +33,9 @@ class Analytics extends BaseFeature
         add_action('wp_head', array($this, 'addGTMCode'), 1);
         add_action('wp_footer', array($this, 'addGTMCodeBody'), 1);
 
+        // Add GTM Basic datalayer filter
+        add_filter('buzz-seo-gtm-datalayer', array($this, 'addBasicGTMDataLayer'), 10, 1);
+
         // Track events
         $options = get_option('_settingsSettingsAnalytics', true);
         if (isset($options['eventsforms']) || isset($options['eventsexternal']) || (isset($options['eventsclicks']) && !empty($options['eventsclicks'][0]['query']))) {
@@ -216,16 +219,27 @@ class Analytics extends BaseFeature
 
         $gtmcode = $options['gtmcode'];
         if (!empty($gtmcode) && preg_match("/\bgtm-[a-z0-9]+\b/i", $gtmcode)) {
+            echo "<!-- Google Tag Manager Datalayer -->".PHP_EOL."<script>var dataLayerBuzzSEO = dataLayerBuzzSEO || [];" . PHP_EOL;
+            $data = apply_filters('buzz-seo-gtm-datalayer', array());
+            if (!empty($data)) {
+                foreach($data as $object) {
+                    echo 'dataLayerBuzzSEO.push(' . json_encode($object) . ');' . PHP_EOL;
+                }
+            }
+            echo "</script>".PHP_EOL."<!-- End Google Tag Manager Datalayer -->" . PHP_EOL;
             echo "<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','".$gtmcode."');</script>
+})(window,document,'script','dataLayerBuzzSEO','".$gtmcode."');</script>
 <!-- End Google Tag Manager -->";
         }
     }
 
+    /**
+     * Add the no-script part of the GTM code inside the body
+     */
     public function addGTMCodeBody()
     {
         $options = get_option('_settingsSettingsAnalytics', true);
@@ -242,5 +256,25 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->';
         }
+    }
+
+    /**
+     * Add the basic datalayer according to the given options.
+     *
+     * @param array $data
+     * @return array mixed
+     */
+    public function addBasicGTMDataLayer($data)
+    {
+        $options = get_option('_settingsSettingsAnalytics', true);
+
+        $basic = array();
+        if (isset($options['gtm_layer_posttype'])) {
+            $basic['postType'] = is_front_page() ? 'frontpage' : get_post_type();
+        }
+
+        $data[] = $basic;
+
+        return $data;
     }
 }
