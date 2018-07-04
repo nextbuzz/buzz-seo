@@ -165,7 +165,8 @@
                             <div class="buzz-seo-tabs">
                                 <div class="nav-tab-wrapper">
                                     <a class="nav-tab nav-tab-active" href="javascript:;" i18n:translate="">Basic</a>
-                                    <a class="nav-tab" href="javascript:;" i18n:translate="">Data Layers</a>
+                                    <a class="nav-tab" href="javascript:;" i18n:translate="">Basic data</a>
+                                    <a class="nav-tab" href="javascript:;" i18n:translate="">WooCommerce</a>
                                 </div>
 
                                 <div class="inner">
@@ -185,9 +186,93 @@
                                 <div class="inner hidden">
                                     <table class="form-table">
                                         <tr>
-                                            <th scope="row" i18n:translate="">Data Layers</th>
+                                            <th scope="row" i18n:translate="">Type of post</th>
                                             <td>
-                                                <p class="description" i18n:translate="">Support for datalayers and e-commerce will follow.</p>
+                                                <label>
+                                                    <input type="checkbox" name="SettingsAnalytics[gtm_layer_posttype]"
+                                                           value="1" tal:attributes="checked exists:gtm_layer_posttype" />
+                                                    <tal:block i18n:translate="">Yes</tal:block>
+                                                </label>
+                                                <p class="description" i18n:translate="">Check this option to include the type of the current post or archive page (post, page or any custom post type).</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" i18n:translate="">Category list</th>
+                                            <td>
+                                                <label>
+                                                    <input disabled="disabled" type="checkbox"
+                                                           name="SettingsAnalytics[gtm_layer_catlist]"
+                                                           value="1" tal:attributes="checked exists:gtm_layer_catlist" />
+                                                    <tal:block i18n:translate="">Yes</tal:block>
+                                                </label>
+                                                <p class="description" i18n:translate="">Check this option to include the category names of the current post or archive page.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" i18n:translate="">Tag list</th>
+                                            <td>
+                                                <label>
+                                                    <input disabled="disabled" type="checkbox" name="SettingsAnalytics[gtm_layer_taglist]"
+                                                           value="1"
+                                                           tal:attributes="checked exists:gtm_layer_taglist" />
+                                                    <tal:block i18n:translate="">Yes</tal:block>
+                                                </label>
+                                                <p class="description" i18n:translate="">Check this option to include the tags of the current post.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" i18n:translate="">Post author ID</th>
+                                            <td>
+                                                <label>
+                                                    <input disabled="disabled" type="checkbox" name="SettingsAnalytics[gtm_layer_authorid]"
+                                                           value="1"
+                                                           tal:attributes="checked exists:gtm_layer_authorid" />
+                                                    <tal:block i18n:translate="">Yes</tal:block>
+                                                </label>
+                                                <p class="description" i18n:translate="">Check this option to include the ID of the author on the current post or author page.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" i18n:translate="">Post author name</th>
+                                            <td>
+                                                <label>
+                                                    <input disabled="disabled" type="checkbox"
+                                                           name="SettingsAnalytics[gtm_layer_authorname]"
+                                                           value="1"
+                                                           tal:attributes="checked exists:gtm_layer_authorname" />
+                                                    <tal:block i18n:translate="">Yes</tal:block>
+                                                </label>
+                                                <p class="description" i18n:translate="">Check this option to include the name of the author on the current post or author page.</p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="inner hidden">
+                                    <table class="form-table">
+                                        <tr>
+                                            <th scope="row" i18n:translate="">Track enhanced e-commerce</th>
+                                            <td>
+                                                <label>
+                                                    <input disabled="disabled" type="checkbox"
+                                                           name="SettingsAnalytics[gtm_layer_woo_enhanced]"
+                                                           value="1"
+                                                           tal:attributes="checked exists:gtm_layer_woo_enhanced" />
+                                                    <tal:block i18n:translate="">Yes</tal:block>
+                                                </label>
+                                                <p class="description" i18n:translate="">Choose this option if you would like to track e-commerce data using enhanced ecommerce tracking.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row" i18n:translate="">Use SKU instead of ID</th>
+                                            <td>
+                                                <label>
+                                                    <input disabled="disabled" type="checkbox"
+                                                           name="SettingsAnalytics[gtm_layer_woo_sku]"
+                                                           value="1"
+                                                           tal:attributes="checked exists:gtm_layer_woo_sku" />
+                                                    <tal:block i18n:translate="">Yes</tal:block>
+                                                </label>
+                                                <p class="description" i18n:translate="">Check this to use product SKU instead of the ID of the products for remarketing and ecommerce tracking. Will fallback to ID if no SKU is set.</p>
                                             </td>
                                         </tr>
                                     </table>

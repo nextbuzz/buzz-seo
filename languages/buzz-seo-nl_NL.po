@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2018-05-24 12:10:37+0000\n"
-"PO-Revision-Date: 2018-05-24 14:12+0200\n"
+"POT-Creation-Date: 2018-05-26 15:58:07+0000\n"
+"PO-Revision-Date: 2018-05-26 18:07+0200\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -256,7 +256,7 @@ msgid "Pick additional keywords or keyphrases that this post/page is about."
 msgstr ""
 "Kies additionele sleutelwoorden of sleutelzinnen waar deze pagina over gaat."
 
-#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:214
+#: tal/SettingsAdmin.xml:2 lib/Features/Admin.php:212
 msgid "Settings"
 msgstr "Instellingen"
 
@@ -275,7 +275,7 @@ msgid ""
 msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:202
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:286
 #: tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231
 #: tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
@@ -342,10 +342,13 @@ msgstr "Anonimizeer IP adressen"
 
 #: tal/SettingsAnalytics.xml:62 tal/SettingsAnalytics.xml:72
 #: tal/SettingsAnalytics.xml:82 tal/SettingsAnalytics.xml:104
-#: tal/SettingsAnalytics.xml:115 tal/SettingsGeneral.xml:40
-#: tal/SettingsGeneral.xml:50 tal/SettingsGeneral.xml:60
-#: tal/SettingsStructuredData.xml:179 tal/SettingsXML.xml:53
-#: tal/SettingsXML.xml:100
+#: tal/SettingsAnalytics.xml:115 tal/SettingsAnalytics.xml:194
+#: tal/SettingsAnalytics.xml:205 tal/SettingsAnalytics.xml:217
+#: tal/SettingsAnalytics.xml:229 tal/SettingsAnalytics.xml:242
+#: tal/SettingsAnalytics.xml:259 tal/SettingsAnalytics.xml:272
+#: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50
+#: tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:179
+#: tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
 msgid "Yes"
 msgstr "Ja"
 
@@ -461,23 +464,102 @@ msgstr "Actie"
 msgid "Query Selector"
 msgstr "Query"
 
-#: tal/SettingsAnalytics.xml:168 tal/SettingsAnalytics.xml:188
-msgid "Data Layers"
-msgstr "Data Lagen"
+#: tal/SettingsAnalytics.xml:168
+msgid "Basic data"
+msgstr "Basis data"
 
-#: tal/SettingsAnalytics.xml:174
+#: tal/SettingsAnalytics.xml:169
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: tal/SettingsAnalytics.xml:175
 msgid "GTM Container ID"
 msgstr "GTM Container ID"
 
-#: tal/SettingsAnalytics.xml:179
+#: tal/SettingsAnalytics.xml:180
 msgid "Add the GTM container ID from Google. This is an ID like GTM-xxxxxx."
 msgstr ""
 "Voeg de `GTM container ID` van Google hier toe. Deze code heeft het volgende "
 "formaat: GTM-xxxxxx."
 
-#: tal/SettingsAnalytics.xml:190
-msgid "Support for datalayers and e-commerce will follow."
-msgstr "Ondersteuning voor data lagen en e-commerce volgt."
+#: tal/SettingsAnalytics.xml:189
+msgid "Type of post"
+msgstr "Type van de pagina"
+
+#: tal/SettingsAnalytics.xml:196
+msgid ""
+"Check this option to include the type of the current post or archive page "
+"(post, page or any custom post type)."
+msgstr ""
+"Vink deze optie aan om het type van ieder soort pagina of archief mee te "
+"sturen."
+
+#: tal/SettingsAnalytics.xml:200
+msgid "Category list"
+msgstr "Categorieënlijst"
+
+#: tal/SettingsAnalytics.xml:207
+msgid ""
+"Check this option to include the category names of the current post or "
+"archive page."
+msgstr ""
+"Vink deze optie aan om de categorieën van de huidige pagina of archief mee "
+"te sturen."
+
+#: tal/SettingsAnalytics.xml:211
+msgid "Tag list"
+msgstr "Labellijst"
+
+#: tal/SettingsAnalytics.xml:219
+msgid "Check this option to include the tags of the current post."
+msgstr ""
+"Vink deze optie aan om de lijst met labels (tags) van de huidige pagina mee "
+"te sturen."
+
+#: tal/SettingsAnalytics.xml:223
+msgid "Post author ID"
+msgstr "Pagina auteur ID"
+
+#: tal/SettingsAnalytics.xml:231
+msgid ""
+"Check this option to include the ID of the author on the current post or "
+"author page."
+msgstr ""
+"Vink deze optie aan om het ID van de auteur van de pagina mee te sturen."
+
+#: tal/SettingsAnalytics.xml:235
+msgid "Post author name"
+msgstr "Pagina auteur naam"
+
+#: tal/SettingsAnalytics.xml:244
+msgid ""
+"Check this option to include the name of the author on the current post or "
+"author page."
+msgstr ""
+"Vink deze optie aan om de naam van de auteur van de pagina mee te sturen."
+
+#: tal/SettingsAnalytics.xml:252
+msgid "Track enhanced e-commerce"
+msgstr "Bijhouden van e-commerce"
+
+#: tal/SettingsAnalytics.xml:261
+msgid ""
+"Choose this option if you would like to track e-commerce data using enhanced "
+"ecommerce tracking."
+msgstr "Vink deze optie aan om geavanceerde e-commerce in te schakelen."
+
+#: tal/SettingsAnalytics.xml:265
+msgid "Use SKU instead of ID"
+msgstr "Gebruik SKU in plaats van ID"
+
+#: tal/SettingsAnalytics.xml:274
+msgid ""
+"Check this to use product SKU instead of the ID of the products for "
+"remarketing and ecommerce tracking. Will fallback to ID if no SKU is set."
+msgstr ""
+"Vink deze optie aan om het product SKU te gebruiken in plaats van het ID van "
+"een product. Mocht er voor een product geen SKU beschikbaar zijn, wordt het "
+"ID alsnog meegestuurd."
 
 #: tal/SettingsAnalytics.xml:142
 msgid "Add Category"
@@ -615,7 +697,7 @@ msgid ""
 msgstr ""
 "Verwijder de links naar de berichten en reactie feeds. Dit uitschakelen "
 "heeft als voordeel dat niemand (bijv. spambots) meer automatisch je RSS "
-"feeds kunnen vinden, maar let goed op de opmerking hierboven."
+"feeds kunnen vinden, maar let goed op de opmerking hierboven!"
 
 #: tal/SettingsCleanup.xml:92
 msgid "Extra feeds"
@@ -635,7 +717,7 @@ msgstr ""
 "Verwijder relationele links voor de berichten grenzend (vorige en volgende) "
 "aan je huidige bericht."
 
-#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:218
+#: tal/SettingsGeneral.xml:2 tal/SettingsXML.xml:18 lib/Features/Admin.php:216
 msgid "General"
 msgstr "Algemeen"
 
@@ -983,19 +1065,19 @@ msgstr "Admin Core"
 msgid "Admin Core of Buzz SEO."
 msgstr "Admin Core van Buzz SEO."
 
-#: lib/Features/Admin.php:74
+#: lib/Features/Admin.php:72
 msgid "Posttype"
 msgstr "Berichttype"
 
-#: lib/Features/Admin.php:78
+#: lib/Features/Admin.php:76
 msgid "Taxonomy"
 msgstr "Taxonomie"
 
-#: lib/Features/Admin.php:82
+#: lib/Features/Admin.php:80
 msgid "Archive"
 msgstr "Archief"
 
-#: lib/Features/Admin.php:108
+#: lib/Features/Admin.php:106
 msgid ""
 "This is a WordPress SEO plugin. It covers the basics of SEO optimization. "
 "Requires PHP 5.3+ and WP 4.1+"
@@ -1004,13 +1086,13 @@ msgstr ""
 "optimaliseren voor zoekmachines (SEO). Deze plugin heeft minimaal PHP 5.3+ "
 "en WP 4.1+ nodig."
 
-#: lib/Features/Admin.php:21 lib/Features/Admin.php:109
-#: lib/Features/Admin.php:128 lib/Features/Admin.php:360
-#: lib/Features/Admin.php:362
+#: lib/Features/Admin.php:21 lib/Features/Admin.php:107
+#: lib/Features/Admin.php:126 lib/Features/Admin.php:358
+#: lib/Features/Admin.php:360
 msgid "Buzz SEO"
 msgstr "Buzz SEO"
 
-#: lib/Features/Admin.php:128
+#: lib/Features/Admin.php:126
 msgid ""
 "The theme you are using is using the deprecated wp_title() functions which "
 "prevents Buzz SEO from generating the correct titles. Please ask your theme "
@@ -1021,7 +1103,7 @@ msgstr ""
 "de document titels niet optimaliseren. Vraag de ontwikkelaar van het thema "
 "om het thema te updaten."
 
-#: lib/Features/Admin.php:146
+#: lib/Features/Admin.php:144
 msgid ""
 "Search engines are not allowed to index the site. This is bad for SEO. Click "
 "<a href=\"%s\">here</a> to adjust this."
@@ -1029,7 +1111,7 @@ msgstr ""
 "Zoekmachines mogen deze site niet indexeren. Dit is slecht voor SEO. Klik <a "
 "href=\"%s\">hier</a> om dit aan te passen."
 
-#: lib/Features/Admin.php:148
+#: lib/Features/Admin.php:146
 msgid ""
 "Search engines are not allowed to index the site. This is bad for SEO. "
 "Please ask a WordPress administrator to change this."
@@ -1037,7 +1119,7 @@ msgstr ""
 "Zoekmachines mogen deze site niet indexeren. Dit is slecht voor SEO. Vraag "
 "een WordPress administrator dit aan te passen."
 
-#: lib/Features/Admin.php:167
+#: lib/Features/Admin.php:165
 msgid ""
 "Permalinks are set to the \"default\" value. If you want to take SEO "
 "seriously, you should change this. Also some features do not work properly "
@@ -1047,7 +1129,7 @@ msgstr ""
 "neemt moet je dit aanpassen. In de standaard mode werken niet alle "
 "onderdelen van de plugin. Klik <a href=\"%s\">hier</a> om dit aan te passen."
 
-#: lib/Features/Admin.php:169
+#: lib/Features/Admin.php:167
 msgid ""
 "Permalinks are set to the \"default\" value. If you want to take SEO "
 "seriously, you should change this. Also some features do not work properly "
@@ -1058,23 +1140,23 @@ msgstr ""
 "onderdelen van de plugin. Vraag een WordPress administrator dit aan te "
 "passen."
 
-#: lib/Features/Admin.php:190
+#: lib/Features/Admin.php:188
 msgid "Select an image"
 msgstr "Selecteer een afbeelding"
 
-#: lib/Features/Admin.php:190 lib/Features/Admin.php:191
+#: lib/Features/Admin.php:188 lib/Features/Admin.php:189
 msgid "Select"
 msgstr "Selecteren"
 
-#: lib/Features/Admin.php:360
+#: lib/Features/Admin.php:358
 msgid "Buzz SEO plugin is up to date."
 msgstr "Buzz SEO plugin is up-to-date."
 
-#: lib/Features/Admin.php:362
+#: lib/Features/Admin.php:360
 msgid "A new version of the Buzz SEO plugin is available."
 msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 
-#: lib/Features/Admin.php:364
+#: lib/Features/Admin.php:362
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
 
@@ -1543,6 +1625,12 @@ msgstr ""
 #: lib/PHPTAL/Settings/StructuredData.php:99
 msgid "A person (alive, dead, undead, or fictional)."
 msgstr "Een persoon (levend, dood, ondood, of fictioneel)."
+
+#~ msgid "Data Layers"
+#~ msgstr "Data Lagen"
+
+#~ msgid "Support for datalayers and e-commerce will follow."
+#~ msgstr "Ondersteuning voor data lagen en e-commerce volgt."
 
 #~ msgid "Support for analytics."
 #~ msgstr ""
