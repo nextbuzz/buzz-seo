@@ -9,6 +9,8 @@ namespace NextBuzz\SEO\Features;
  */
 class Analytics extends BaseFeature
 {
+    static $bodyGTMCodeRun = false;
+
     public function name()
     {
         return __("Analytics / GTM", "buzz-seo");
@@ -31,6 +33,7 @@ class Analytics extends BaseFeature
 
         // Make sure Google Analytics code is late in the head
         add_action('wp_head', array($this, 'addGTMCode'), 1);
+        add_action('buzz-seo-after-body', array($this, 'addGTMCodeBody'), 1);
         add_action('wp_footer', array($this, 'addGTMCodeBody'), 1);
 
         // Add GTM Basic datalayer filter
@@ -226,7 +229,8 @@ class Analytics extends BaseFeature
                     echo 'dataLayerBuzzSEO.push(' . json_encode($object) . ');' . PHP_EOL;
                 }
             }
-            echo "</script>".PHP_EOL."<!-- End Google Tag Manager Datalayer -->" . PHP_EOL;
+            echo "</script>" . PHP_EOL;
+            echo '<!-- End Google Tag Manager Datalayer -->' . PHP_EOL;
             echo "<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -242,6 +246,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
      */
     public function addGTMCodeBody()
     {
+        if (self::$bodyGTMCodeRun) {
+            return;
+        }
+
+        self::$bodyGTMCodeRun = true;
+
         $options = get_option('_settingsSettingsAnalytics', true);
 
         // Nothing checked, so do nothing

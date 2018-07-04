@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.9
-Stable tag: 0.11.3.3
+Stable tag: 0.11.3.4
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -77,7 +77,21 @@ add_filter('buzz-seo-show-grade-output', '__return_false');
 ?>
 `
 
+= Can I place the noscript part of the GTM manager right after the body? =
+
+Yes, this is possible by adding some custom code in your theme header.php file right after the body:
+`
+<?php
+do_action('buzz-seo-after-body');
+?>
+`
+
 == Changelog ==
+
+= 0.11.3.4 =
+* Fix: issue with GTM body code
+* Add: custom hook which allows custom placement of GTM tag code after body by editing theme header.php file.
+* Add: admin interface of GTM Datalayers (non functional yet)
 
 = 0.11.3.3 =
 * Fix: issue when using multiple GTM plugins
