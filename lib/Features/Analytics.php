@@ -226,7 +226,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }
     }
 
-    public function addGTMCodeBody($after_body)
+    public function addGTMCodeBody()
     {
         $options = get_option('_settingsSettingsAnalytics', true);
 
@@ -237,10 +237,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         $gtmcode = $options['gtmcode'];
         if (!empty($gtmcode) && preg_match("/\bgtm-[a-z0-9]+\b/i", $gtmcode)) {
-            return  '<!-- Google Tag Manager (noscript) -->
+            echo  '<!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id='.$gtmcode.'"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->' . $after_body;
+<!-- End Google Tag Manager (noscript) -->';
         }
     }
 }
