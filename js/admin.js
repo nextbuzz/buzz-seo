@@ -133,25 +133,15 @@
             }
         });
 
-        var analysisTimeout, analysisDelay = 1000, totalScore = 0, maxScore = 0, minScore = 0,
+        var analysisTimeout, analysisDelay = 2000, totalScore = 0, maxScore = 0, minScore = 0,
                 outputGood = [], outputWarning = [], outputError = [], calculatedHTML = false, calculatedText = false;
 
         // Trigger first analyses manually
         doAnalysis();
-        analysisTimeout = setTimeout(doAnalysis, analysisDelay);
+        analysisTimeout = setInterval(doAnalysis, analysisDelay);
 
         function doAnalysis()
         {
-            // Make sure we do not rapidly fire the analysis
-            var now = Date.now();
-            var nt = $(this).data("lastime") || now;
-            if (nt > now) {
-                clearTimeout(analysisTimeout);
-                analysisTimeout = setTimeout(doAnalysis, analysisDelay);
-                return;
-            }
-            $(this).data("lastime", now + analysisDelay);
-
             // Reset html/ text data
             calculatedHTML = false;
             calculatedText = false;
@@ -487,15 +477,22 @@
                 return calculatedHTML;
             }
 
-            var val = '', i, skipMainContent = $("#postdivrich").css("display") === "none";
-            if (typeof tinyMCE !== 'undefined' && typeof tinyMCE.editors !== 'undefined' && tinyMCE.editors.length !== 0) {
-                for (i = 0; i < tinyMCE.editors.length; i++){
-                    if (tinyMCE.editors[i].id === "content" && skipMainContent) {
-                        continue;
+            var val = '';
+            if (wp && wp.blocks === undefined) {
+                // Old editor
+                var i, skipMainContent = $("#postdivrich").css("display") === "none";
+                if (typeof tinyMCE !== 'undefined' && typeof tinyMCE.editors !== 'undefined' && tinyMCE.editors.length !== 0) {
+                    for (i = 0; i < tinyMCE.editors.length; i++) {
+                        if (tinyMCE.editors[i].id === "content" && skipMainContent) {
+                            continue;
+                        }
+                        var textArea = $('textarea#' + tinyMCE.editors[i].id);
+                        val += textArea.length > 0 ? textArea.val() : '';
                     }
-                    var textArea = $('textarea#' + tinyMCE.editors[i].id);
-                    val += textArea.length>0 ? textArea.val() : '';
                 }
+            } else if (wp) {
+                // Gutenberg
+                val = wp.data.select( "core/editor" ).getEditedPostContent();
             }
 
             calculatedHTML = val;
