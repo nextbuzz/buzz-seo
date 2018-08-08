@@ -361,8 +361,8 @@ class Sitemaps extends BaseFeature
                 "SELECT post_modified_gmt AS date FROM "
                 . "$wpdb->posts WHERE post_status IN ('publish','inherit') "
                 . "AND post_type=%s "
-                . "ORDER BY post_modified_gmt DESC LIMIT %d, %d", $posttype, ($itemsperpage * ($page - 1)),
-                $itemsperpage
+                . "ORDER BY post_modified_gmt DESC LIMIT %d, %d", array($posttype, ($itemsperpage * ($page - 1)),
+                $itemsperpage)
             )
         );
         if (is_array($results) && isset($results[0])) {
