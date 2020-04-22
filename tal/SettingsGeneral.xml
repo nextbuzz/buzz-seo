@@ -107,18 +107,26 @@
                                             <span i18n:translate="">Do not follow archive links (nofollow)</span>
                                         </label>
                                     </li>
-                                    <li>
-                                        <label>
-                                            <input type="checkbox" name="SettingsGeneral[posttypes][${item/name}][robots][canonical_pagination]" value="canonical_pagination" tal:attributes="checked exists:posttypes/${item/name}/robots/canonical_pagination" />
-                                            <span i18n:translate="">Set canonical urls for all archive pagination pages to the first page</span>
-                                        </label>
-                                    </li>
                                 </ul>
                                 <p tal:condition="not:php: get_option('blog_public')">
                                     <strong i18n:translate="">Warning:</strong>
                                     <span i18n:translate="" tal:omit-tag="">WordPress is set to no-indexing mode in global options. These page specific settings are ignored as long as the global setting is active.</span>
                                 </p>
                                 <p class="description" i18n:translate="">Tell search engines how to index this archive</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" i18n:translate="">Canonical URL</th>
+                            <td>
+                                <ul>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="SettingsGeneral[posttypes][${item/name}][canonical][pagination_home]" value="pagination_home" tal:attributes="checked exists:posttypes/${item/name}/canonical/pagination_home" />
+                                            <span i18n:translate="">Set canonical urls for all archive pagination pages to the first page</span>
+                                        </label>
+                                    </li>
+                                </ul>
+                                <p class="description" i18n:translate="">Enabling this option will also set the canonical url for taxonomy archives to the post type archive.</p>
                             </td>
                         </tr>
                     </table>

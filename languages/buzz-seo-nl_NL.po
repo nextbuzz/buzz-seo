@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2020-04-22 07:38:33+0000\n"
-"PO-Revision-Date: 2020-04-22 09:39+0200\n"
+"POT-Creation-Date: 2020-04-22 08:16:56+0000\n"
+"PO-Revision-Date: 2020-04-22 10:18+0200\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -46,8 +46,8 @@ msgstr ""
 "De titel zoals weergegeven in zoekmachines en in de browser titelbalk. Als "
 "deze wordt leeggelaten wordt de bericht titel gebruikt."
 
-#: tal/PostSEOBox.xml:20 tal/SettingsGeneral.xml:88 tal/SettingsGeneral.xml:148
-#: tal/SettingsGeneral.xml:202
+#: tal/PostSEOBox.xml:20 tal/SettingsGeneral.xml:88 tal/SettingsGeneral.xml:156
+#: tal/SettingsGeneral.xml:210
 msgid "Meta description"
 msgstr "Meta omschrijving"
 
@@ -55,8 +55,8 @@ msgstr "Meta omschrijving"
 msgid "The description which most search engines use."
 msgstr "De omschrijving die in de meeste zoekmachines wordt gebruikt."
 
-#: tal/PostSEOBox.xml:29 tal/SettingsGeneral.xml:95 tal/SettingsGeneral.xml:155
-#: tal/SettingsGeneral.xml:209
+#: tal/PostSEOBox.xml:29 tal/SettingsGeneral.xml:95 tal/SettingsGeneral.xml:163
+#: tal/SettingsGeneral.xml:217
 msgid "Index options"
 msgstr "Indexeer opties"
 
@@ -68,13 +68,13 @@ msgstr "Deze pagina niet indexeren (noindex)"
 msgid "Do not follow links (nofollow)"
 msgstr "Links op deze pagina niet volgen (nofollow)"
 
-#: tal/PostSEOBox.xml:46 tal/SettingsGeneral.xml:118
-#: tal/SettingsGeneral.xml:172 tal/SettingsGeneral.xml:226
+#: tal/PostSEOBox.xml:46 tal/SettingsGeneral.xml:112
+#: tal/SettingsGeneral.xml:180 tal/SettingsGeneral.xml:234
 msgid "Warning:"
 msgstr "Waarschuwing:"
 
-#: tal/PostSEOBox.xml:47 tal/SettingsGeneral.xml:119
-#: tal/SettingsGeneral.xml:173 tal/SettingsGeneral.xml:227
+#: tal/PostSEOBox.xml:47 tal/SettingsGeneral.xml:113
+#: tal/SettingsGeneral.xml:181 tal/SettingsGeneral.xml:235
 msgid ""
 "WordPress is set to no-indexing mode in global options. These page specific "
 "settings are ignored as long as the global setting is active."
@@ -87,7 +87,7 @@ msgstr ""
 msgid "Tell search engines how to index this page."
 msgstr "Laat zoekmachines weten hoe ze deze pagina mogen indexeren."
 
-#: tal/PostSEOBox.xml:58
+#: tal/PostSEOBox.xml:58 tal/SettingsGeneral.xml:119
 msgid "Canonical URL"
 msgstr "Canonieke URL"
 
@@ -276,7 +276,7 @@ msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
 #: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:287
-#: tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:237
+#: tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:245
 #: tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr "Opslaan"
@@ -781,8 +781,8 @@ msgstr "Toon sitenaam"
 msgid "Show the site name on the document title."
 msgstr "Toon de sitenaam in de document titel."
 
-#: tal/SettingsGeneral.xml:69 tal/SettingsGeneral.xml:129
-#: tal/SettingsGeneral.xml:183
+#: tal/SettingsGeneral.xml:69 tal/SettingsGeneral.xml:137
+#: tal/SettingsGeneral.xml:191
 msgid ""
 "This site has a multilingual plugin installed. Translations for these items "
 "can be entered on the settings page of the multilingual plugin."
@@ -791,51 +791,59 @@ msgstr ""
 "onderstaande items kunnen worden ingevoerd bij de instellingen pagina van de "
 "betreffende plugin."
 
-#: tal/SettingsGeneral.xml:74 tal/SettingsGeneral.xml:134
-#: tal/SettingsGeneral.xml:188
+#: tal/SettingsGeneral.xml:74 tal/SettingsGeneral.xml:142
+#: tal/SettingsGeneral.xml:196
 msgid "Document title prefix"
 msgstr "Document titel voorvoegsel"
 
-#: tal/SettingsGeneral.xml:77 tal/SettingsGeneral.xml:137
-#: tal/SettingsGeneral.xml:191
+#: tal/SettingsGeneral.xml:77 tal/SettingsGeneral.xml:145
+#: tal/SettingsGeneral.xml:199
 msgid "Add a prefix to the main document title on the archive."
 msgstr "Voeg een voorvoegsel toe aan de document titel van het archief."
 
-#: tal/SettingsGeneral.xml:81 tal/SettingsGeneral.xml:141
-#: tal/SettingsGeneral.xml:195
+#: tal/SettingsGeneral.xml:81 tal/SettingsGeneral.xml:149
+#: tal/SettingsGeneral.xml:203
 msgid "Document title suffix"
 msgstr "Document titel achtervoegsel"
 
-#: tal/SettingsGeneral.xml:84 tal/SettingsGeneral.xml:144
-#: tal/SettingsGeneral.xml:198
+#: tal/SettingsGeneral.xml:84 tal/SettingsGeneral.xml:152
+#: tal/SettingsGeneral.xml:206
 msgid "Add a suffix to the main document title on the archive."
 msgstr "Voeg een achtervoegsel toe aan de document titel van het archief."
 
-#: tal/SettingsGeneral.xml:91 tal/SettingsGeneral.xml:151
-#: tal/SettingsGeneral.xml:205
+#: tal/SettingsGeneral.xml:91 tal/SettingsGeneral.xml:159
+#: tal/SettingsGeneral.xml:213
 msgid "The meta description used on the archive page."
 msgstr "De meta omschrijving van het archief."
 
-#: tal/SettingsGeneral.xml:101 tal/SettingsGeneral.xml:161
-#: tal/SettingsGeneral.xml:215
+#: tal/SettingsGeneral.xml:101 tal/SettingsGeneral.xml:169
+#: tal/SettingsGeneral.xml:223
 msgid "Do not index archive (noindex)"
 msgstr "Dit archief niet indexeren (noindex)"
 
-#: tal/SettingsGeneral.xml:107 tal/SettingsGeneral.xml:167
-#: tal/SettingsGeneral.xml:221
+#: tal/SettingsGeneral.xml:107 tal/SettingsGeneral.xml:175
+#: tal/SettingsGeneral.xml:229
 msgid "Do not follow archive links (nofollow)"
 msgstr "Links in dit archief niet volgen (nofollow)"
 
-#: tal/SettingsGeneral.xml:113
+#: tal/SettingsGeneral.xml:115 tal/SettingsGeneral.xml:183
+#: tal/SettingsGeneral.xml:237
+msgid "Tell search engines how to index this archive"
+msgstr "Laat zoekmachines weten hoe ze dit archief mogen indexeren"
+
+#: tal/SettingsGeneral.xml:125
 msgid "Set canonical urls for all archive pagination pages to the first page"
 msgstr ""
 "Stel canonieke urls voor paginatie pagina's in het archief in op de eerste "
 "pagina"
 
-#: tal/SettingsGeneral.xml:121 tal/SettingsGeneral.xml:175
-#: tal/SettingsGeneral.xml:229
-msgid "Tell search engines how to index this archive"
-msgstr "Laat zoekmachines weten hoe ze dit archief mogen indexeren"
+#: tal/SettingsGeneral.xml:129
+msgid ""
+"Enabling this option will also set the canonical url for taxonomy archives "
+"to the post type archive."
+msgstr ""
+"Als deze optie aan staat, worden ook de taxonomie archieven van dit "
+"berichttype middels een canonieke url gelinkt aan dit berichttype archief."
 
 #: tal/SettingsStructuredData.xml:2
 msgid "Structured Data settings"

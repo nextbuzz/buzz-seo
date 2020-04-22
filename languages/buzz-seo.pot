@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2020-04-22 07:38:33+0000\n"
+"POT-Creation-Date: 2020-04-22 08:16:56+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,7 +29,7 @@ msgstr ""
 msgid "The title as displayed in search engines and in the browser title area. Defaults to the post title if empty."
 msgstr ""
 
-#: tal/PostSEOBox.xml:20 tal/SettingsGeneral.xml:88 tal/SettingsGeneral.xml:148 tal/SettingsGeneral.xml:202
+#: tal/PostSEOBox.xml:20 tal/SettingsGeneral.xml:88 tal/SettingsGeneral.xml:156 tal/SettingsGeneral.xml:210
 msgid "Meta description"
 msgstr ""
 
@@ -37,7 +37,7 @@ msgstr ""
 msgid "The description which most search engines use."
 msgstr ""
 
-#: tal/PostSEOBox.xml:29 tal/SettingsGeneral.xml:95 tal/SettingsGeneral.xml:155 tal/SettingsGeneral.xml:209
+#: tal/PostSEOBox.xml:29 tal/SettingsGeneral.xml:95 tal/SettingsGeneral.xml:163 tal/SettingsGeneral.xml:217
 msgid "Index options"
 msgstr ""
 
@@ -49,11 +49,11 @@ msgstr ""
 msgid "Do not follow links (nofollow)"
 msgstr ""
 
-#: tal/PostSEOBox.xml:46 tal/SettingsGeneral.xml:118 tal/SettingsGeneral.xml:172 tal/SettingsGeneral.xml:226
+#: tal/PostSEOBox.xml:46 tal/SettingsGeneral.xml:112 tal/SettingsGeneral.xml:180 tal/SettingsGeneral.xml:234
 msgid "Warning:"
 msgstr ""
 
-#: tal/PostSEOBox.xml:47 tal/SettingsGeneral.xml:119 tal/SettingsGeneral.xml:173 tal/SettingsGeneral.xml:227
+#: tal/PostSEOBox.xml:47 tal/SettingsGeneral.xml:113 tal/SettingsGeneral.xml:181 tal/SettingsGeneral.xml:235
 msgid "WordPress is set to no-indexing mode in global options. These page specific settings are ignored as long as the global setting is active."
 msgstr ""
 
@@ -61,7 +61,7 @@ msgstr ""
 msgid "Tell search engines how to index this page."
 msgstr ""
 
-#: tal/PostSEOBox.xml:58
+#: tal/PostSEOBox.xml:58 tal/SettingsGeneral.xml:119
 msgid "Canonical URL"
 msgstr ""
 
@@ -217,7 +217,7 @@ msgstr ""
 msgid "Turn off the features you don't like to run automatically, this give you the ability select your needs according to SEO management."
 msgstr ""
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:287 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:237 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:287 tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:245 tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr ""
 
@@ -569,44 +569,48 @@ msgstr ""
 msgid "Show the site name on the document title."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:69 tal/SettingsGeneral.xml:129 tal/SettingsGeneral.xml:183
+#: tal/SettingsGeneral.xml:69 tal/SettingsGeneral.xml:137 tal/SettingsGeneral.xml:191
 msgid "This site has a multilingual plugin installed. Translations for these items can be entered on the settings page of the multilingual plugin."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:74 tal/SettingsGeneral.xml:134 tal/SettingsGeneral.xml:188
+#: tal/SettingsGeneral.xml:74 tal/SettingsGeneral.xml:142 tal/SettingsGeneral.xml:196
 msgid "Document title prefix"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:77 tal/SettingsGeneral.xml:137 tal/SettingsGeneral.xml:191
+#: tal/SettingsGeneral.xml:77 tal/SettingsGeneral.xml:145 tal/SettingsGeneral.xml:199
 msgid "Add a prefix to the main document title on the archive."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:81 tal/SettingsGeneral.xml:141 tal/SettingsGeneral.xml:195
+#: tal/SettingsGeneral.xml:81 tal/SettingsGeneral.xml:149 tal/SettingsGeneral.xml:203
 msgid "Document title suffix"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:84 tal/SettingsGeneral.xml:144 tal/SettingsGeneral.xml:198
+#: tal/SettingsGeneral.xml:84 tal/SettingsGeneral.xml:152 tal/SettingsGeneral.xml:206
 msgid "Add a suffix to the main document title on the archive."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:91 tal/SettingsGeneral.xml:151 tal/SettingsGeneral.xml:205
+#: tal/SettingsGeneral.xml:91 tal/SettingsGeneral.xml:159 tal/SettingsGeneral.xml:213
 msgid "The meta description used on the archive page."
 msgstr ""
 
-#: tal/SettingsGeneral.xml:101 tal/SettingsGeneral.xml:161 tal/SettingsGeneral.xml:215
+#: tal/SettingsGeneral.xml:101 tal/SettingsGeneral.xml:169 tal/SettingsGeneral.xml:223
 msgid "Do not index archive (noindex)"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:107 tal/SettingsGeneral.xml:167 tal/SettingsGeneral.xml:221
+#: tal/SettingsGeneral.xml:107 tal/SettingsGeneral.xml:175 tal/SettingsGeneral.xml:229
 msgid "Do not follow archive links (nofollow)"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:113
+#: tal/SettingsGeneral.xml:115 tal/SettingsGeneral.xml:183 tal/SettingsGeneral.xml:237
+msgid "Tell search engines how to index this archive"
+msgstr ""
+
+#: tal/SettingsGeneral.xml:125
 msgid "Set canonical urls for all archive pagination pages to the first page"
 msgstr ""
 
-#: tal/SettingsGeneral.xml:121 tal/SettingsGeneral.xml:175 tal/SettingsGeneral.xml:229
-msgid "Tell search engines how to index this archive"
+#: tal/SettingsGeneral.xml:129
+msgid "Enabling this option will also set the canonical url for taxonomy archives to the post type archive."
 msgstr ""
 
 #: tal/SettingsStructuredData.xml:2
