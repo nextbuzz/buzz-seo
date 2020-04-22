@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2018-05-26 15:58:07+0000\n"
-"PO-Revision-Date: 2018-05-26 18:07+0200\n"
+"POT-Creation-Date: 2020-04-22 07:38:33+0000\n"
+"PO-Revision-Date: 2020-04-22 09:39+0200\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.0.7\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: buzz-seo.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -46,8 +46,8 @@ msgstr ""
 "De titel zoals weergegeven in zoekmachines en in de browser titelbalk. Als "
 "deze wordt leeggelaten wordt de bericht titel gebruikt."
 
-#: tal/PostSEOBox.xml:20 tal/SettingsGeneral.xml:88 tal/SettingsGeneral.xml:142
-#: tal/SettingsGeneral.xml:196
+#: tal/PostSEOBox.xml:20 tal/SettingsGeneral.xml:88 tal/SettingsGeneral.xml:148
+#: tal/SettingsGeneral.xml:202
 msgid "Meta description"
 msgstr "Meta omschrijving"
 
@@ -55,8 +55,8 @@ msgstr "Meta omschrijving"
 msgid "The description which most search engines use."
 msgstr "De omschrijving die in de meeste zoekmachines wordt gebruikt."
 
-#: tal/PostSEOBox.xml:29 tal/SettingsGeneral.xml:95 tal/SettingsGeneral.xml:149
-#: tal/SettingsGeneral.xml:203
+#: tal/PostSEOBox.xml:29 tal/SettingsGeneral.xml:95 tal/SettingsGeneral.xml:155
+#: tal/SettingsGeneral.xml:209
 msgid "Index options"
 msgstr "Indexeer opties"
 
@@ -68,13 +68,13 @@ msgstr "Deze pagina niet indexeren (noindex)"
 msgid "Do not follow links (nofollow)"
 msgstr "Links op deze pagina niet volgen (nofollow)"
 
-#: tal/PostSEOBox.xml:46 tal/SettingsGeneral.xml:112
-#: tal/SettingsGeneral.xml:166 tal/SettingsGeneral.xml:220
+#: tal/PostSEOBox.xml:46 tal/SettingsGeneral.xml:118
+#: tal/SettingsGeneral.xml:172 tal/SettingsGeneral.xml:226
 msgid "Warning:"
 msgstr "Waarschuwing:"
 
-#: tal/PostSEOBox.xml:47 tal/SettingsGeneral.xml:113
-#: tal/SettingsGeneral.xml:167 tal/SettingsGeneral.xml:221
+#: tal/PostSEOBox.xml:47 tal/SettingsGeneral.xml:119
+#: tal/SettingsGeneral.xml:173 tal/SettingsGeneral.xml:227
 msgid ""
 "WordPress is set to no-indexing mode in global options. These page specific "
 "settings are ignored as long as the global setting is active."
@@ -275,8 +275,8 @@ msgid ""
 msgstr ""
 "Schakel bepaalde onderdelen die niet nodig zijn voor deze site in of uit."
 
-#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:286
-#: tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:231
+#: tal/SettingsAdmin.xml:36 tal/SettingsAnalytics.xml:287
+#: tal/SettingsCleanup.xml:121 tal/SettingsGeneral.xml:237
 #: tal/SettingsStructuredData.xml:194 tal/SettingsXML.xml:111
 msgid "Save Changes"
 msgstr "Opslaan"
@@ -343,9 +343,9 @@ msgstr "Anonimizeer IP adressen"
 #: tal/SettingsAnalytics.xml:62 tal/SettingsAnalytics.xml:72
 #: tal/SettingsAnalytics.xml:82 tal/SettingsAnalytics.xml:104
 #: tal/SettingsAnalytics.xml:115 tal/SettingsAnalytics.xml:194
-#: tal/SettingsAnalytics.xml:205 tal/SettingsAnalytics.xml:217
-#: tal/SettingsAnalytics.xml:229 tal/SettingsAnalytics.xml:242
-#: tal/SettingsAnalytics.xml:259 tal/SettingsAnalytics.xml:272
+#: tal/SettingsAnalytics.xml:206 tal/SettingsAnalytics.xml:218
+#: tal/SettingsAnalytics.xml:230 tal/SettingsAnalytics.xml:243
+#: tal/SettingsAnalytics.xml:260 tal/SettingsAnalytics.xml:273
 #: tal/SettingsGeneral.xml:40 tal/SettingsGeneral.xml:50
 #: tal/SettingsGeneral.xml:60 tal/SettingsStructuredData.xml:179
 #: tal/SettingsXML.xml:53 tal/SettingsXML.xml:100
@@ -498,7 +498,7 @@ msgstr ""
 msgid "Category list"
 msgstr "Categorieënlijst"
 
-#: tal/SettingsAnalytics.xml:207
+#: tal/SettingsAnalytics.xml:208
 msgid ""
 "Check this option to include the category names of the current post or "
 "archive page."
@@ -506,53 +506,53 @@ msgstr ""
 "Vink deze optie aan om de categorieën van de huidige pagina of archief mee "
 "te sturen."
 
-#: tal/SettingsAnalytics.xml:211
+#: tal/SettingsAnalytics.xml:212
 msgid "Tag list"
 msgstr "Labellijst"
 
-#: tal/SettingsAnalytics.xml:219
+#: tal/SettingsAnalytics.xml:220
 msgid "Check this option to include the tags of the current post."
 msgstr ""
 "Vink deze optie aan om de lijst met labels (tags) van de huidige pagina mee "
 "te sturen."
 
-#: tal/SettingsAnalytics.xml:223
+#: tal/SettingsAnalytics.xml:224
 msgid "Post author ID"
 msgstr "Pagina auteur ID"
 
-#: tal/SettingsAnalytics.xml:231
+#: tal/SettingsAnalytics.xml:232
 msgid ""
 "Check this option to include the ID of the author on the current post or "
 "author page."
 msgstr ""
 "Vink deze optie aan om het ID van de auteur van de pagina mee te sturen."
 
-#: tal/SettingsAnalytics.xml:235
+#: tal/SettingsAnalytics.xml:236
 msgid "Post author name"
 msgstr "Pagina auteur naam"
 
-#: tal/SettingsAnalytics.xml:244
+#: tal/SettingsAnalytics.xml:245
 msgid ""
 "Check this option to include the name of the author on the current post or "
 "author page."
 msgstr ""
 "Vink deze optie aan om de naam van de auteur van de pagina mee te sturen."
 
-#: tal/SettingsAnalytics.xml:252
+#: tal/SettingsAnalytics.xml:253
 msgid "Track enhanced e-commerce"
 msgstr "Bijhouden van e-commerce"
 
-#: tal/SettingsAnalytics.xml:261
+#: tal/SettingsAnalytics.xml:262
 msgid ""
 "Choose this option if you would like to track e-commerce data using enhanced "
 "ecommerce tracking."
 msgstr "Vink deze optie aan om geavanceerde e-commerce in te schakelen."
 
-#: tal/SettingsAnalytics.xml:265
+#: tal/SettingsAnalytics.xml:266
 msgid "Use SKU instead of ID"
 msgstr "Gebruik SKU in plaats van ID"
 
-#: tal/SettingsAnalytics.xml:274
+#: tal/SettingsAnalytics.xml:275
 msgid ""
 "Check this to use product SKU instead of the ID of the products for "
 "remarketing and ecommerce tracking. Will fallback to ID if no SKU is set."
@@ -781,8 +781,8 @@ msgstr "Toon sitenaam"
 msgid "Show the site name on the document title."
 msgstr "Toon de sitenaam in de document titel."
 
-#: tal/SettingsGeneral.xml:69 tal/SettingsGeneral.xml:123
-#: tal/SettingsGeneral.xml:177
+#: tal/SettingsGeneral.xml:69 tal/SettingsGeneral.xml:129
+#: tal/SettingsGeneral.xml:183
 msgid ""
 "This site has a multilingual plugin installed. Translations for these items "
 "can be entered on the settings page of the multilingual plugin."
@@ -791,45 +791,51 @@ msgstr ""
 "onderstaande items kunnen worden ingevoerd bij de instellingen pagina van de "
 "betreffende plugin."
 
-#: tal/SettingsGeneral.xml:74 tal/SettingsGeneral.xml:128
-#: tal/SettingsGeneral.xml:182
+#: tal/SettingsGeneral.xml:74 tal/SettingsGeneral.xml:134
+#: tal/SettingsGeneral.xml:188
 msgid "Document title prefix"
 msgstr "Document titel voorvoegsel"
 
-#: tal/SettingsGeneral.xml:77 tal/SettingsGeneral.xml:131
-#: tal/SettingsGeneral.xml:185
+#: tal/SettingsGeneral.xml:77 tal/SettingsGeneral.xml:137
+#: tal/SettingsGeneral.xml:191
 msgid "Add a prefix to the main document title on the archive."
 msgstr "Voeg een voorvoegsel toe aan de document titel van het archief."
 
-#: tal/SettingsGeneral.xml:81 tal/SettingsGeneral.xml:135
-#: tal/SettingsGeneral.xml:189
+#: tal/SettingsGeneral.xml:81 tal/SettingsGeneral.xml:141
+#: tal/SettingsGeneral.xml:195
 msgid "Document title suffix"
 msgstr "Document titel achtervoegsel"
 
-#: tal/SettingsGeneral.xml:84 tal/SettingsGeneral.xml:138
-#: tal/SettingsGeneral.xml:192
+#: tal/SettingsGeneral.xml:84 tal/SettingsGeneral.xml:144
+#: tal/SettingsGeneral.xml:198
 msgid "Add a suffix to the main document title on the archive."
 msgstr "Voeg een achtervoegsel toe aan de document titel van het archief."
 
-#: tal/SettingsGeneral.xml:91 tal/SettingsGeneral.xml:145
-#: tal/SettingsGeneral.xml:199
+#: tal/SettingsGeneral.xml:91 tal/SettingsGeneral.xml:151
+#: tal/SettingsGeneral.xml:205
 msgid "The meta description used on the archive page."
 msgstr "De meta omschrijving van het archief."
 
-#: tal/SettingsGeneral.xml:101 tal/SettingsGeneral.xml:155
-#: tal/SettingsGeneral.xml:209
+#: tal/SettingsGeneral.xml:101 tal/SettingsGeneral.xml:161
+#: tal/SettingsGeneral.xml:215
 msgid "Do not index archive (noindex)"
 msgstr "Dit archief niet indexeren (noindex)"
 
-#: tal/SettingsGeneral.xml:107 tal/SettingsGeneral.xml:161
-#: tal/SettingsGeneral.xml:215
+#: tal/SettingsGeneral.xml:107 tal/SettingsGeneral.xml:167
+#: tal/SettingsGeneral.xml:221
 msgid "Do not follow archive links (nofollow)"
 msgstr "Links in dit archief niet volgen (nofollow)"
 
-#: tal/SettingsGeneral.xml:115 tal/SettingsGeneral.xml:169
-#: tal/SettingsGeneral.xml:223
+#: tal/SettingsGeneral.xml:113
+msgid "Set canonical urls for all archive pagination pages to the first page"
+msgstr ""
+"Stel canonieke urls voor paginatie pagina's in het archief in op de eerste "
+"pagina"
+
+#: tal/SettingsGeneral.xml:121 tal/SettingsGeneral.xml:175
+#: tal/SettingsGeneral.xml:229
 msgid "Tell search engines how to index this archive"
-msgstr "Laat zoekmachines weten hoe ze dit archief mogen indexeren."
+msgstr "Laat zoekmachines weten hoe ze dit archief mogen indexeren"
 
 #: tal/SettingsStructuredData.xml:2
 msgid "Structured Data settings"
@@ -1084,7 +1090,7 @@ msgid ""
 msgstr ""
 "Dit is een WordPress SEO plugin. Het bevat de basis tools om uw site te "
 "optimaliseren voor zoekmachines (SEO). Deze plugin heeft minimaal PHP 5.3+ "
-"en WP 4.1+ nodig."
+"en WP 4.1+ nodig"
 
 #: lib/Features/Admin.php:21 lib/Features/Admin.php:107
 #: lib/Features/Admin.php:126 lib/Features/Admin.php:358
@@ -1160,11 +1166,11 @@ msgstr "Er is een nieuwe versie van de Buzz SEO plugin beschikbaar."
 msgid "Unknown update checker status `%s`."
 msgstr "Onbekende update status `%s`."
 
-#: lib/Features/Analytics.php:14 lib/Features/Analytics.php:121
+#: lib/Features/Analytics.php:16 lib/Features/Analytics.php:127
 msgid "Analytics / GTM"
 msgstr "Analytics / GTM"
 
-#: lib/Features/Analytics.php:19
+#: lib/Features/Analytics.php:21
 msgid ""
 "Support for Google Analytics or for setting up a Google Tag Manager "
 "container."
@@ -1326,7 +1332,7 @@ msgid ""
 "The page title (including site name) is between the {3} character minimum "
 "and the recommended {1} character maximum."
 msgstr ""
-"De paginatitel (inclusief sitenaam) ligt tussen de {3} en {1} karakters. "
+"De paginatitel (inclusief sitenaam) ligt tussen de {3} en {1} karakters."
 
 #: lib/Features/PostSEOBoxAnalysis.php:271
 msgid ""

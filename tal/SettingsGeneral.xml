@@ -107,6 +107,12 @@
                                             <span i18n:translate="">Do not follow archive links (nofollow)</span>
                                         </label>
                                     </li>
+                                    <li>
+                                        <label>
+                                            <input type="checkbox" name="SettingsGeneral[posttypes][${item/name}][robots][canonical_pagination]" value="canonical_pagination" tal:attributes="checked exists:posttypes/${item/name}/robots/canonical_pagination" />
+                                            <span i18n:translate="">Set canonical urls for all archive pagination pages to the first page</span>
+                                        </label>
+                                    </li>
                                 </ul>
                                 <p tal:condition="not:php: get_option('blog_public')">
                                     <strong i18n:translate="">Warning:</strong>
