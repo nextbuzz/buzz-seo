@@ -197,10 +197,21 @@ class PostSEOBox extends BaseFeature
      */
     public function addCanonical()
     {
-        if (!is_singular()) {
+        if (!is_singular() && !is_archive() && !is_home()) {
             return;
         }
 
+        // Set canonical url to first pagination page on archives with this option enabled.
+        if (is_archive() || is_home()) {
+            $options = get_option('_settingsSettingsGeneral', true);
+            $pt = get_post_type();
+            if (is_array($options) && isset($options['posttypes'][$pt]['canonical']['pagination_home'])) {
+                echo '<link rel="canonical" href="' . esc_url(get_post_type_archive_link($pt)) . "\" />\n";
+            }
+            return;
+        }
+
+        // And continua for singular pages
         if (!$id = get_queried_object_id()) {
             return;
         }
