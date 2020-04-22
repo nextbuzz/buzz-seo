@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 4.9
-Stable tag: 0.11.3.4
+Stable tag: 0.11.4
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -87,6 +87,10 @@ do_action('buzz-seo-after-body');
 `
 
 == Changelog ==
+
+= 0.11.4 =
+* Add: option to set canonical urls on archive pagination pages to the main archive page
+* Add: basic support for Gutenberg in analysis
 
 = 0.11.3.4 =
 * Fix: issue with GTM body code
