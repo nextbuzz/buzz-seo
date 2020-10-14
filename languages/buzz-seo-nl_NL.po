@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: LengthOfRope SEO\n"
-"POT-Creation-Date: 2020-04-22 08:16:56+0000\n"
-"PO-Revision-Date: 2020-04-22 10:18+0200\n"
+"POT-Creation-Date: 2020-10-14 10:38:06+0000\n"
+"PO-Revision-Date: 2020-10-14 12:41+0200\n"
 "Last-Translator: Bas de Kort <bdekort@gmail.com>\n"
 "Language-Team: LengthOfRope <bdekort@gmail.com>\n"
 "Language: nl_NL\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.4.1\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: buzz-seo.php\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -1462,6 +1462,20 @@ msgstr "De tekst is eenvoudig te lezen. Goed gedaan!"
 #: lib/Features/PostSEOBoxAnalysis.php:440
 msgid "The content is very easy to read. Splendid!"
 msgstr "De tekst is erg eenvoudig te lezen. Super!"
+
+#: lib/Features/RankMathExporter.php:15
+msgid "RankMath Exporter"
+msgstr "Exporteer naar Rank Math"
+
+#: lib/Features/RankMathExporter.php:20
+msgid ""
+"Allows Rank Math to import Buzz SEO data. NOTE: Only post terms are "
+"exported. Site settings like Sitemap need to be setup manually!"
+msgstr ""
+"Zorgt ervoor dat delen van de data vanuit Buzz SEO geïmporteerd kunnen "
+"worden in Rank Math. LET OP: alleen data uit de posts wordt geïmporteerd. "
+"Zaken zoals de sitemap, site titels, gestructureerde data e.d. worden niet "
+"meegenomen."
 
 #: lib/Features/Sitemaps.php:16 lib/Features/Sitemaps.php:67
 msgid "Sitemaps"

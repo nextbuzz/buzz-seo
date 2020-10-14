@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: buzz-seo\n"
-"POT-Creation-Date: 2020-04-22 08:16:56+0000\n"
+"POT-Creation-Date: 2020-10-14 10:38:06+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1063,6 +1063,14 @@ msgstr ""
 
 #: lib/Features/PostSEOBoxAnalysis.php:440
 msgid "The content is very easy to read. Splendid!"
+msgstr ""
+
+#: lib/Features/RankMathExporter.php:15
+msgid "RankMath Exporter"
+msgstr ""
+
+#: lib/Features/RankMathExporter.php:20
+msgid "Allows Rank Math to import Buzz SEO data. NOTE: Only post terms are exported. Site settings like Sitemap need to be setup manually!"
 msgstr ""
 
 #: lib/Features/Sitemaps.php:16 lib/Features/Sitemaps.php:67
