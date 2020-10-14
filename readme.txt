@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 5.5.1
-Stable tag: 0.12.0
+Stable tag: 0.12.1
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -87,6 +87,12 @@ do_action('buzz-seo-after-body');
 `
 
 == Changelog ==
+
+= 0.12.1 =
+* Fix: missing changelog update
+
+= 0.12.0 =
+* Add: option to export to Rank Math
 
 = 0.11.4 =
 * Add: option to set canonical urls on archive pagination pages to the main archive page
