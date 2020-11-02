@@ -31,7 +31,14 @@ class RankMathExporter extends \RankMath\Admin\Importers\Plugin_Importer {
 	 */
 	protected $plugin_name = 'Buzz SEO';
 
-	/**
+    /**
+     * Plugin options meta key.
+     *
+     * @var string
+     */
+    protected $meta_key = '_metaboxPostSEOBox';
+
+    /**
 	 * Option keys to import and clean.
 	 *
 	 * @var array

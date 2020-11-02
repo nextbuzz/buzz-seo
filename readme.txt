@@ -4,7 +4,7 @@ Donate link: http://www.nextbuzz.nl/
 Tags: seo
 Requires at least: 4.1
 Tested up to: 5.5.1
-Stable tag: 0.12.1
+Stable tag: 0.12.2
 License: MIT
 License URI: https://opensource.org/licenses/MIT
 
@@ -87,6 +87,9 @@ do_action('buzz-seo-after-body');
 `
 
 == Changelog ==
+
+= 0.12.2 =
+* Fix: on some sites Rank Math importer did not work
 
 = 0.12.1 =
 * Fix: missing changelog update

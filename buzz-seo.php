@@ -4,7 +4,7 @@
   Plugin Name: Buzz SEO
   Plugin URI: https://github.com/nextbuzz/buzz-seo
   Description: This is a WordPress SEO plugin. It covers the basics of SEO optimization. Requires PHP 5.3+ and WP 4.1+
-  Version: 0.12.1
+  Version: 0.12.2
   Author: Next Buzz BV
   Author URI: https://www.nextbuzz.nl
   License: MIT
@@ -13,7 +13,7 @@
 
 // Set the folder of this plugin
 if (!defined('BUZZSEO_DIR')) {
-    define('BUZZSEO_VERSION', '0.12.1');
+    define('BUZZSEO_VERSION', '0.12.2');
     define('BUZZSEO_FILE', __FILE__);
     define('BUZZSEO_DIR', plugin_dir_path(__FILE__));
     define('BUZZSEO_DIR_REL', dirname(plugin_basename(__FILE__)));
@@ -34,6 +34,16 @@ if (isset($wp_version) && version_compare($wp_version, '4.4.0', '>=') && version
     if (class_exists('\NextBuzz\SEO\App')) {
         \NextBuzz\SEO\App::getInstance();
     }
+
+    // Force the autoloading of the RankMath Exporter in an early state because of issues with some other plugins
+    add_filter('rank_math/importers/detect_plugins', function ($items) {
+        $items['buzz-seo'] = [
+            'class' => '\\NextBuzz\\SEO\\RankMath\\RankMathExporter',
+            'file' => 'buzz-seo/buzz-seo.php',
+        ];
+
+        return $items;
+    });
 } else {
     // Output a nag error on admin interface
     add_action('admin_notices', function() {

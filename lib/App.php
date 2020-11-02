@@ -31,7 +31,6 @@ class App
             'PostSEOBoxAnalysis',
             'StructuredData',
             'Sitemaps',
-            'RankMathExporter',
         );
 
         $enabledFeatures = get_option('_settingsSettingsAdmin');
